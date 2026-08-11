@@ -30,9 +30,9 @@ python3 -m unittest discover -s tests -v
 
 ## Automation
 
-GitHub Actions tests and deploys the site on pushes and manual runs. A daily
-schedule is present, but scheduled feed refreshes stay off unless the repository
-variable `AUTOPUBLISH` is exactly `true`. This is the global stop switch.
+GitHub Actions tests and deploys the site on pushes and manual runs. The daily
+feed refresh is enabled after the public smoke test. Set the repository variable
+`AUTOPUBLISH` to exactly `false` to pause it; this is the global stop switch.
 
 The first public version deliberately skips AI summaries, affiliate data,
 platform distribution, analytics, and monetization claims. Add them only after

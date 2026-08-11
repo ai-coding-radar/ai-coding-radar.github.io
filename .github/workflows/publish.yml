@@ -25,11 +25,11 @@ jobs:
         run: python3 -m unittest discover -s tests -v
 
       - name: Refresh from the official feed
-        if: github.event_name != 'schedule' || vars.AUTOPUBLISH == 'true'
+        if: github.event_name != 'schedule' || vars.AUTOPUBLISH != 'false'
         run: python3 radar.py
 
       - name: Commit a new release
-        if: github.event_name != 'schedule' || vars.AUTOPUBLISH == 'true'
+        if: github.event_name != 'schedule' || vars.AUTOPUBLISH != 'false'
         run: |
           if git diff --quiet -- state output; then
             echo "No release changes."
