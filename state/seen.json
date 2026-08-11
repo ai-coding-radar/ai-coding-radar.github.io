@@ -1,0 +1,13 @@
+{
+  "seen": {
+    "tag:github.com,2008:Repository/965415649/rust-v0.147.0": {
+      "id": "tag:github.com,2008:Repository/965415649/rust-v0.147.0",
+      "version": "0.147.0",
+      "source_published_at": "2026-08-07T01:43:35Z",
+      "source_url": "https://github.com/openai/codex/releases/tag/rust-v0.147.0",
+      "title": "Codex 发布 0.147.0",
+      "detected_at": "2026-08-11T14:32:16.021902Z",
+      "post": "output/posts/2026-08-07-codex-0.147.0.md"
+    }
+  }
+}
