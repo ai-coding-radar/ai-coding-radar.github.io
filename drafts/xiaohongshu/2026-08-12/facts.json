@@ -1,0 +1,340 @@
+{
+  "actions": {
+    "available": true,
+    "failure_count": 0,
+    "note": "今日 GitHub Actions 9 次，成功 9 次",
+    "runs": [
+      {
+        "conclusion": "success",
+        "created_at": "2026-08-12T01:44:45+08:00",
+        "event": "dynamic",
+        "id": 31519131820,
+        "name": "pages build and deployment",
+        "status": "completed",
+        "url": "https://github.com/ai-coding-radar/ai-coding-radar.github.io/actions/runs/31519131820"
+      },
+      {
+        "conclusion": "success",
+        "created_at": "2026-08-12T01:44:48+08:00",
+        "event": "push",
+        "id": 31519135569,
+        "name": "Publish radar",
+        "status": "completed",
+        "url": "https://github.com/ai-coding-radar/ai-coding-radar.github.io/actions/runs/31519135569"
+      },
+      {
+        "conclusion": "success",
+        "created_at": "2026-08-12T01:46:05+08:00",
+        "event": "workflow_dispatch",
+        "id": 31519249577,
+        "name": "Publish radar",
+        "status": "completed",
+        "url": "https://github.com/ai-coding-radar/ai-coding-radar.github.io/actions/runs/31519249577"
+      },
+      {
+        "conclusion": "success",
+        "created_at": "2026-08-12T01:47:51+08:00",
+        "event": "push",
+        "id": 31519404111,
+        "name": "Publish radar",
+        "status": "completed",
+        "url": "https://github.com/ai-coding-radar/ai-coding-radar.github.io/actions/runs/31519404111"
+      },
+      {
+        "conclusion": "success",
+        "created_at": "2026-08-12T01:59:08+08:00",
+        "event": "push",
+        "id": 31520363120,
+        "name": "Publish radar",
+        "status": "completed",
+        "url": "https://github.com/ai-coding-radar/ai-coding-radar.github.io/actions/runs/31520363120"
+      },
+      {
+        "conclusion": "success",
+        "created_at": "2026-08-12T10:54:11+08:00",
+        "event": "push",
+        "id": 31558346504,
+        "name": "Publish radar",
+        "status": "completed",
+        "url": "https://github.com/ai-coding-radar/ai-coding-radar.github.io/actions/runs/31558346504"
+      },
+      {
+        "conclusion": "success",
+        "created_at": "2026-08-12T12:41:24+08:00",
+        "event": "push",
+        "id": 31564064614,
+        "name": "Publish radar",
+        "status": "completed",
+        "url": "https://github.com/ai-coding-radar/ai-coding-radar.github.io/actions/runs/31564064614"
+      },
+      {
+        "conclusion": "success",
+        "created_at": "2026-08-12T13:41:15+08:00",
+        "event": "push",
+        "id": 31567364471,
+        "name": "Publish radar",
+        "status": "completed",
+        "url": "https://github.com/ai-coding-radar/ai-coding-radar.github.io/actions/runs/31567364471"
+      },
+      {
+        "conclusion": "success",
+        "created_at": "2026-08-12T13:48:58+08:00",
+        "event": "schedule",
+        "id": 31567794299,
+        "name": "Publish radar",
+        "status": "completed",
+        "url": "https://github.com/ai-coding-radar/ai-coding-radar.github.io/actions/runs/31567794299"
+      }
+    ],
+    "success_count": 9,
+    "today_count": 9
+  },
+  "completed": [
+    "完成 6 个 Git 变更：feat: notify search engines with IndexNow",
+    "自动发现 Claude Code 10 项、Gemini CLI 2 项",
+    "自动运行 14 次（error 4、ok 10）"
+  ],
+  "date": "2026-08-12",
+  "day_index": 1,
+  "git": {
+    "commits": [
+      {
+        "hash": "26ed8aadaeb016e5ab9b887f9317198baf0ab87c",
+        "subject": "feat: launch AI Coding Radar",
+        "timestamp": "2026-08-12T01:33:32+08:00"
+      },
+      {
+        "hash": "e799fe1295c54e7b510d062e68e3f2e5e46618e4",
+        "subject": "chore: update Pages actions",
+        "timestamp": "2026-08-12T01:47:34+08:00"
+      },
+      {
+        "hash": "b063bf62d8daf16738a19c1f5027e3281efeb9d7",
+        "subject": "chore: enable scheduled publishing",
+        "timestamp": "2026-08-12T01:55:42+08:00"
+      },
+      {
+        "hash": "9588f27e014d4deb6531d75a9a96261ef143b42d",
+        "subject": "feat: expand AI coding release radar",
+        "timestamp": "2026-08-12T10:54:04+08:00"
+      },
+      {
+        "hash": "7ed0513b474ef9b1c3b6e4dd9724e6bcbf2bb12c",
+        "subject": "chore: verify site ownership",
+        "timestamp": "2026-08-12T12:41:17+08:00"
+      },
+      {
+        "hash": "94a14cbc854b8817910375fd7593689b833ef945",
+        "subject": "feat: notify search engines with IndexNow",
+        "timestamp": "2026-08-12T13:41:09+08:00"
+      }
+    ],
+    "today_count": 6
+  },
+  "money": {
+    "cumulative": {
+      "cost": 0,
+      "estimated_revenue": 0,
+      "net": 0,
+      "pending_revenue": 0,
+      "settled_revenue": 0
+    },
+    "currency": "CNY",
+    "entry_count": 0,
+    "source": "metrics/ledger.json",
+    "today": {
+      "cost": 0,
+      "estimated_revenue": 0,
+      "net": 0,
+      "pending_revenue": 0,
+      "settled_revenue": 0
+    },
+    "warnings": []
+  },
+  "runs": {
+    "entries": [
+      {
+        "detail": "no new stable release",
+        "status": "ok",
+        "time": "2026-08-12T01:32:26.106420+08:00"
+      },
+      {
+        "detail": "no stable release found for codex",
+        "status": "error",
+        "time": "2026-08-12T08:56:54.741481+08:00"
+      },
+      {
+        "detail": "created 12 stable release posts",
+        "status": "ok",
+        "time": "2026-08-12T09:01:44.776387+08:00"
+      },
+      {
+        "detail": "Remote end closed connection without response",
+        "status": "error",
+        "time": "2026-08-12T09:02:09.753682+08:00"
+      },
+      {
+        "detail": "no new stable releases",
+        "status": "ok",
+        "time": "2026-08-12T09:02:36.915627+08:00"
+      },
+      {
+        "detail": "release title does not match the official tag",
+        "status": "error",
+        "time": "2026-08-12T10:29:05.827275+08:00"
+      },
+      {
+        "detail": "no new stable releases",
+        "status": "ok",
+        "time": "2026-08-12T10:29:57.573129+08:00"
+      },
+      {
+        "detail": "no new stable releases",
+        "status": "ok",
+        "time": "2026-08-12T10:30:02.501584+08:00"
+      },
+      {
+        "detail": "no new stable releases",
+        "status": "ok",
+        "time": "2026-08-12T10:40:51.489550+08:00"
+      },
+      {
+        "detail": "<urlopen error EOF occurred in violation of protocol (_ssl.c:1129)>",
+        "status": "error",
+        "time": "2026-08-12T10:40:58.374188+08:00"
+      },
+      {
+        "detail": "no new stable releases",
+        "status": "ok",
+        "time": "2026-08-12T10:41:29.902555+08:00"
+      },
+      {
+        "detail": "no new stable releases",
+        "status": "ok",
+        "time": "2026-08-12T10:45:19.929885+08:00"
+      },
+      {
+        "detail": "no new stable releases",
+        "status": "ok",
+        "time": "2026-08-12T12:41:09.422629+08:00"
+      },
+      {
+        "detail": "no new stable releases",
+        "status": "ok",
+        "time": "2026-08-12T13:24:53.079344+08:00"
+      }
+    ],
+    "status_counts": {
+      "error": 4,
+      "ok": 10
+    },
+    "today_count": 14,
+    "total_count": 18
+  },
+  "schema_version": 2,
+  "search": {
+    "available": false,
+    "clicks": null,
+    "impressions": null,
+    "note": "未找到 Search Console 导出，未推断流量或收录",
+    "source": null
+  },
+  "site": {
+    "files": {
+      "index.html": true,
+      "robots.txt": true,
+      "sitemap.xml": true
+    },
+    "http_checked": true,
+    "http_ok": true,
+    "http_status": {
+      "homepage": 200,
+      "robots": 200,
+      "sitemap": 200
+    },
+    "local_build_ready": true,
+    "note": "公开首页、robots.txt 和 sitemap.xml 均返回 HTTP 200",
+    "public_url": "https://ai-coding-radar.github.io/",
+    "sitemap_url_count": 17
+  },
+  "state": {
+    "records": [
+      {
+        "detected_at": "2026-08-12T09:01:44.771498+08:00",
+        "product": "Claude Code",
+        "source_key": "claude-code",
+        "version": "2.1.219"
+      },
+      {
+        "detected_at": "2026-08-12T09:01:44.771498+08:00",
+        "product": "Claude Code",
+        "source_key": "claude-code",
+        "version": "2.1.220"
+      },
+      {
+        "detected_at": "2026-08-12T09:01:44.771498+08:00",
+        "product": "Claude Code",
+        "source_key": "claude-code",
+        "version": "2.1.221"
+      },
+      {
+        "detected_at": "2026-08-12T09:01:44.771498+08:00",
+        "product": "Claude Code",
+        "source_key": "claude-code",
+        "version": "2.1.222"
+      },
+      {
+        "detected_at": "2026-08-12T09:01:44.771498+08:00",
+        "product": "Claude Code",
+        "source_key": "claude-code",
+        "version": "2.1.223"
+      },
+      {
+        "detected_at": "2026-08-12T09:01:44.771498+08:00",
+        "product": "Claude Code",
+        "source_key": "claude-code",
+        "version": "2.1.224"
+      },
+      {
+        "detected_at": "2026-08-12T09:01:44.771498+08:00",
+        "product": "Claude Code",
+        "source_key": "claude-code",
+        "version": "2.1.225"
+      },
+      {
+        "detected_at": "2026-08-12T09:01:44.771498+08:00",
+        "product": "Claude Code",
+        "source_key": "claude-code",
+        "version": "2.1.226"
+      },
+      {
+        "detected_at": "2026-08-12T09:01:44.771498+08:00",
+        "product": "Claude Code",
+        "source_key": "claude-code",
+        "version": "2.1.227"
+      },
+      {
+        "detected_at": "2026-08-12T09:01:44.771498+08:00",
+        "product": "Claude Code",
+        "source_key": "claude-code",
+        "version": "2.1.228"
+      },
+      {
+        "detected_at": "2026-08-12T09:01:44.771498+08:00",
+        "product": "Gemini CLI",
+        "source_key": "gemini-cli",
+        "version": "0.54.4"
+      },
+      {
+        "detected_at": "2026-08-12T09:01:44.771498+08:00",
+        "product": "Gemini CLI",
+        "source_key": "gemini-cli",
+        "version": "0.55.1"
+      }
+    ],
+    "today_new_count": 12,
+    "total_count": 13
+  },
+  "timezone": "Asia/Shanghai",
+  "warnings": []
+}

@@ -54,3 +54,33 @@ The tracked IndexNow key remains public even while feed refreshes are paused.
 The first public version deliberately skips AI summaries, affiliate data,
 platform distribution, analytics, and monetization claims. Add them only after
 the source-first publishing loop is stable.
+
+## XiaoHongShu daily draft
+
+The local data collector turns one Beijing calendar day of
+repository evidence into a Chinese XiaoHongShu-ready draft. It reads Git
+history, `logs/runs.jsonl`, `state/seen.json`, local site facts, and the
+explicit `metrics/ledger.json` ledger. Deployment, impressions, clicks, and
+saved time are never counted as income; without an explicitly settled ledger
+entry the report says `¥0`.
+
+```sh
+python3 -m xiaohongshu.daily --date 2026-08-12
+```
+
+Use `--project-root` for another checkout and `--output-dir` for another draft
+parent. The command writes the same
+`drafts/xiaohongshu/YYYY-MM-DD/{title.txt,caption.md,facts.json,*.png}` files
+on repeat runs, including four 1242x1660 (3:4) carousel PNGs. Pillow is
+required at runtime for real PNG rendering; if it is absent the command fails
+without writing fake image files. The generator creates the zero-valued ledger
+on first use; its accounting rules are documented in
+[`metrics/README.md`](metrics/README.md). It does not log in to or publish to
+XiaoHongShu, and it does not use cookies, browser automation, or CAPTCHA
+bypasses.
+
+A Codex heartbeat runs the generator at 20:00 Asia/Shanghai on the computer
+hosting this workspace. The existing 09:00 search-index monitor shares the same
+heartbeat. Keep that computer awake and connected at those times. Drafts remain
+local because the public XiaoHongShu ecommerce API catalogue does not expose a
+verified ordinary-creator note publishing endpoint.
