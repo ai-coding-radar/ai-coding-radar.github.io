@@ -1,8 +1,8 @@
 {
   "actions": {
     "available": true,
-    "failure_count": 0,
-    "note": "今日 GitHub Actions 9 次，成功 9 次",
+    "failure_count": 1,
+    "note": "今日 GitHub Actions 11 次，成功 10 次",
     "runs": [
       {
         "conclusion": "success",
@@ -84,13 +84,31 @@
         "name": "Publish radar",
         "status": "completed",
         "url": "https://github.com/ai-coding-radar/ai-coding-radar.github.io/actions/runs/31567794299"
+      },
+      {
+        "conclusion": "failure",
+        "created_at": "2026-08-12T15:11:15+08:00",
+        "event": "push",
+        "id": 31572934696,
+        "name": "Publish radar",
+        "status": "completed",
+        "url": "https://github.com/ai-coding-radar/ai-coding-radar.github.io/actions/runs/31572934696"
+      },
+      {
+        "conclusion": "success",
+        "created_at": "2026-08-12T15:13:38+08:00",
+        "event": "push",
+        "id": 31573098326,
+        "name": "Publish radar",
+        "status": "completed",
+        "url": "https://github.com/ai-coding-radar/ai-coding-radar.github.io/actions/runs/31573098326"
       }
     ],
-    "success_count": 9,
-    "today_count": 9
+    "success_count": 10,
+    "today_count": 11
   },
   "completed": [
-    "完成 6 个 Git 变更：feat: notify search engines with IndexNow",
+    "完成 8 个 Git 变更：ci: install image rendering dependency",
     "自动发现 Claude Code 10 项、Gemini CLI 2 项",
     "自动运行 14 次（error 4、ok 10）"
   ],
@@ -127,9 +145,19 @@
         "hash": "94a14cbc854b8817910375fd7593689b833ef945",
         "subject": "feat: notify search engines with IndexNow",
         "timestamp": "2026-08-12T13:41:09+08:00"
+      },
+      {
+        "hash": "4b7854ba04b30c33c4eb0aa4ada12e5fa9c437fb",
+        "subject": "feat: generate truthful XiaoHongShu daily reports",
+        "timestamp": "2026-08-12T15:11:08+08:00"
+      },
+      {
+        "hash": "1bd5234fe5a4b1587664bf36427e08c55ad16bdb",
+        "subject": "ci: install image rendering dependency",
+        "timestamp": "2026-08-12T15:13:32+08:00"
       }
     ],
-    "today_count": 6
+    "today_count": 8
   },
   "money": {
     "cumulative": {

@@ -3,17 +3,17 @@
 这是自动化副业实验的 2026-08-12 日报（Asia/Shanghai）。只写仓库和显式账本里的事实。
 
 ## 今日完成
-- 完成 6 个 Git 变更：feat: notify search engines with IndexNow
+- 完成 8 个 Git 变更：ci: install image rendering dependency
 - 自动发现 Claude Code 10 项、Gemini CLI 2 项
 - 自动运行 14 次（error 4、ok 10）
 
 ## 自动化与流量事实
-- 今日 Git 提交：6 个；累计状态记录：13 条，今日新增 12 条。
+- 今日 Git 提交：8 个；累计状态记录：13 条，今日新增 12 条。
 - 今日自动运行：14 次；日志总记录：18 次。
 - 最近运行备注：no new stable releases
 - 本地站点构建：就绪；sitemap 本地 URL：17 条。
 - 公网站点：公开首页、robots.txt 和 sitemap.xml 均返回 HTTP 200。
-- GitHub Actions：今日 GitHub Actions 9 次，成功 9 次。
+- GitHub Actions：今日 GitHub Actions 11 次，成功 10 次。
 - 搜索/收录：未找到 Search Console 导出，未推断流量或收录。
 
 ## 收益账本
