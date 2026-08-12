@@ -5,9 +5,143 @@
       "version": "0.147.0",
       "source_published_at": "2026-08-07T01:43:35Z",
       "source_url": "https://github.com/openai/codex/releases/tag/rust-v0.147.0",
-      "title": "Codex 发布 0.147.0",
+      "title": "OpenAI Codex 0.147.0 released",
       "detected_at": "2026-08-11T14:32:16.021902Z",
-      "post": "output/posts/2026-08-07-codex-0.147.0.md"
+      "post": "output/posts/2026-08-07-codex-0.147.0.md",
+      "source_key": "codex",
+      "product": "OpenAI Codex"
+    },
+    "tag:github.com,2008:Repository/937253475/v2.1.228": {
+      "id": "tag:github.com,2008:Repository/937253475/v2.1.228",
+      "source_key": "claude-code",
+      "product": "Claude Code",
+      "version": "2.1.228",
+      "source_published_at": "2026-08-11T19:50:59Z",
+      "source_url": "https://github.com/anthropics/claude-code/releases/tag/v2.1.228",
+      "title": "Claude Code 2.1.228 released",
+      "detected_at": "2026-08-12T01:01:44.771498Z",
+      "post": "output/posts/2026-08-11-claude-code-2.1.228.md"
+    },
+    "tag:github.com,2008:Repository/937253475/v2.1.227": {
+      "id": "tag:github.com,2008:Repository/937253475/v2.1.227",
+      "source_key": "claude-code",
+      "product": "Claude Code",
+      "version": "2.1.227",
+      "source_published_at": "2026-08-10T22:56:53Z",
+      "source_url": "https://github.com/anthropics/claude-code/releases/tag/v2.1.227",
+      "title": "Claude Code 2.1.227 released",
+      "detected_at": "2026-08-12T01:01:44.771498Z",
+      "post": "output/posts/2026-08-10-claude-code-2.1.227.md"
+    },
+    "tag:github.com,2008:Repository/937253475/v2.1.226": {
+      "id": "tag:github.com,2008:Repository/937253475/v2.1.226",
+      "source_key": "claude-code",
+      "product": "Claude Code",
+      "version": "2.1.226",
+      "source_published_at": "2026-08-08T02:48:05Z",
+      "source_url": "https://github.com/anthropics/claude-code/releases/tag/v2.1.226",
+      "title": "Claude Code 2.1.226 released",
+      "detected_at": "2026-08-12T01:01:44.771498Z",
+      "post": "output/posts/2026-08-08-claude-code-2.1.226.md"
+    },
+    "tag:github.com,2008:Repository/937253475/v2.1.225": {
+      "id": "tag:github.com,2008:Repository/937253475/v2.1.225",
+      "source_key": "claude-code",
+      "product": "Claude Code",
+      "version": "2.1.225",
+      "source_published_at": "2026-08-08T01:09:26Z",
+      "source_url": "https://github.com/anthropics/claude-code/releases/tag/v2.1.225",
+      "title": "Claude Code 2.1.225 released",
+      "detected_at": "2026-08-12T01:01:44.771498Z",
+      "post": "output/posts/2026-08-08-claude-code-2.1.225.md"
+    },
+    "tag:github.com,2008:Repository/937253475/v2.1.224": {
+      "id": "tag:github.com,2008:Repository/937253475/v2.1.224",
+      "source_key": "claude-code",
+      "product": "Claude Code",
+      "version": "2.1.224",
+      "source_published_at": "2026-08-07T04:00:59Z",
+      "source_url": "https://github.com/anthropics/claude-code/releases/tag/v2.1.224",
+      "title": "Claude Code 2.1.224 released",
+      "detected_at": "2026-08-12T01:01:44.771498Z",
+      "post": "output/posts/2026-08-07-claude-code-2.1.224.md"
+    },
+    "tag:github.com,2008:Repository/937253475/v2.1.223": {
+      "id": "tag:github.com,2008:Repository/937253475/v2.1.223",
+      "source_key": "claude-code",
+      "product": "Claude Code",
+      "version": "2.1.223",
+      "source_published_at": "2026-08-06T00:52:37Z",
+      "source_url": "https://github.com/anthropics/claude-code/releases/tag/v2.1.223",
+      "title": "Claude Code 2.1.223 released",
+      "detected_at": "2026-08-12T01:01:44.771498Z",
+      "post": "output/posts/2026-08-06-claude-code-2.1.223.md"
+    },
+    "tag:github.com,2008:Repository/937253475/v2.1.222": {
+      "id": "tag:github.com,2008:Repository/937253475/v2.1.222",
+      "source_key": "claude-code",
+      "product": "Claude Code",
+      "version": "2.1.222",
+      "source_published_at": "2026-08-04T22:39:55Z",
+      "source_url": "https://github.com/anthropics/claude-code/releases/tag/v2.1.222",
+      "title": "Claude Code 2.1.222 released",
+      "detected_at": "2026-08-12T01:01:44.771498Z",
+      "post": "output/posts/2026-08-04-claude-code-2.1.222.md"
+    },
+    "tag:github.com,2008:Repository/937253475/v2.1.221": {
+      "id": "tag:github.com,2008:Repository/937253475/v2.1.221",
+      "source_key": "claude-code",
+      "product": "Claude Code",
+      "version": "2.1.221",
+      "source_published_at": "2026-08-04T00:14:23Z",
+      "source_url": "https://github.com/anthropics/claude-code/releases/tag/v2.1.221",
+      "title": "Claude Code 2.1.221 released",
+      "detected_at": "2026-08-12T01:01:44.771498Z",
+      "post": "output/posts/2026-08-04-claude-code-2.1.221.md"
+    },
+    "tag:github.com,2008:Repository/937253475/v2.1.220": {
+      "id": "tag:github.com,2008:Repository/937253475/v2.1.220",
+      "source_key": "claude-code",
+      "product": "Claude Code",
+      "version": "2.1.220",
+      "source_published_at": "2026-07-25T01:35:55Z",
+      "source_url": "https://github.com/anthropics/claude-code/releases/tag/v2.1.220",
+      "title": "Claude Code 2.1.220 released",
+      "detected_at": "2026-08-12T01:01:44.771498Z",
+      "post": "output/posts/2026-07-25-claude-code-2.1.220.md"
+    },
+    "tag:github.com,2008:Repository/937253475/v2.1.219": {
+      "id": "tag:github.com,2008:Repository/937253475/v2.1.219",
+      "source_key": "claude-code",
+      "product": "Claude Code",
+      "version": "2.1.219",
+      "source_published_at": "2026-07-24T17:14:23Z",
+      "source_url": "https://github.com/anthropics/claude-code/releases/tag/v2.1.219",
+      "title": "Claude Code 2.1.219 released",
+      "detected_at": "2026-08-12T01:01:44.771498Z",
+      "post": "output/posts/2026-07-24-claude-code-2.1.219.md"
+    },
+    "tag:github.com,2008:Repository/968197216/v0.55.1": {
+      "id": "tag:github.com,2008:Repository/968197216/v0.55.1",
+      "source_key": "gemini-cli",
+      "product": "Gemini CLI",
+      "version": "0.55.1",
+      "source_published_at": "2026-08-11T21:15:10Z",
+      "source_url": "https://github.com/google-gemini/gemini-cli/releases/tag/v0.55.1",
+      "title": "Gemini CLI 0.55.1 released",
+      "detected_at": "2026-08-12T01:01:44.771498Z",
+      "post": "output/posts/2026-08-11-gemini-cli-0.55.1.md"
+    },
+    "tag:github.com,2008:Repository/968197216/v0.54.4": {
+      "id": "tag:github.com,2008:Repository/968197216/v0.54.4",
+      "source_key": "gemini-cli",
+      "product": "Gemini CLI",
+      "version": "0.54.4",
+      "source_published_at": "2026-08-07T04:44:19Z",
+      "source_url": "https://github.com/google-gemini/gemini-cli/releases/tag/v0.54.4",
+      "title": "Gemini CLI 0.54.4 released",
+      "detected_at": "2026-08-12T01:01:44.771498Z",
+      "post": "output/posts/2026-08-07-gemini-cli-0.54.4.md"
     }
   }
 }

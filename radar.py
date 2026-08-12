@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Build one factual Codex release post from the official Atom feed."""
+"""Build factual AI coding release posts from official Atom feeds."""
 
 import argparse
 import json
@@ -13,12 +13,42 @@ from html import escape
 from pathlib import Path
 
 
-DEFAULT_FEED_URL = "https://github.com/openai/codex/releases.atom"
-SOURCE_URL_PREFIX = "https://github.com/openai/codex/releases/tag/"
 SITE_URL = "https://ai-coding-radar.github.io/"
 ATOM = "{http://www.w3.org/2005/Atom}"
-PRERELEASE = re.compile(r"(?:^|[.-])(alpha|beta|rc)(?:[.-]|$)", re.IGNORECASE)
+SOURCES = (
+    {
+        "key": "codex",
+        "product": "OpenAI Codex",
+        "feed_url": "https://github.com/openai/codex/releases.atom",
+        "tag_url_prefix": "https://github.com/openai/codex/releases/tag/rust-v",
+        "title_prefixes": ("", "rust-v"),
+    },
+    {
+        "key": "claude-code",
+        "product": "Claude Code",
+        "feed_url": "https://github.com/anthropics/claude-code/releases.atom",
+        "tag_url_prefix": "https://github.com/anthropics/claude-code/releases/tag/v",
+        "title_prefixes": ("v",),
+    },
+    {
+        "key": "gemini-cli",
+        "product": "Gemini CLI",
+        "feed_url": "https://github.com/google-gemini/gemini-cli/releases.atom",
+        "tag_url_prefix": "https://github.com/google-gemini/gemini-cli/releases/tag/v",
+        "title_prefixes": ("Release v",),
+    },
+)
+SOURCE_BY_KEY = {source["key"]: source for source in SOURCES}
+DEFAULT_FEED_URL = SOURCES[0]["feed_url"]
+SOURCE_URL_PREFIX = SOURCES[0]["tag_url_prefix"]
+PRERELEASE = re.compile(
+    r"(?:^|[.-])(?:alpha|beta|rc|release-candidate|preview|nightly|dev|development|canary)(?:[.\d-]|$)",
+    re.IGNORECASE,
+)
 STABLE_VERSION = re.compile(r"^\d+(?:\.\d+){1,3}$")
+TAG_VERSION = re.compile(r"^[0-9A-Za-z][0-9A-Za-z._-]{0,127}$")
+INDEX_LIMIT = 30
+RSS_LIMIT = 50
 
 INDEX_STYLE = """
 :root {
@@ -84,7 +114,7 @@ a:focus-visible {
   letter-spacing: .08em;
 }
 
-.brand { font-weight: 800; }
+.brand { font-weight: 800; text-decoration: none; }
 
 .brand span { color: var(--acid); }
 
@@ -272,6 +302,126 @@ h2 {
   text-decoration: none;
 }
 
+.internal-link { text-decoration-thickness: 3px; text-underline-offset: 5px; }
+
+.breadcrumb {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin: 58px 0 24px;
+  font-family: Menlo, Monaco, monospace;
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+}
+
+.breadcrumb span { color: var(--signal); }
+
+.detail-hero {
+  display: grid;
+  grid-template-columns: minmax(0, 1.35fr) minmax(260px, .65fr);
+  border: var(--line);
+  background: var(--white);
+  box-shadow: 10px 10px 0 var(--ink);
+}
+
+.detail-copy { padding: clamp(28px, 6vw, 64px); }
+
+.detail-title {
+  max-width: 800px;
+  margin: 14px 0 18px;
+  font-family: "Bodoni 72", Georgia, serif;
+  font-size: clamp(50px, 8vw, 104px);
+  letter-spacing: -.06em;
+  line-height: .82;
+}
+
+.detail-copy p {
+  max-width: 670px;
+  margin: 0;
+  color: var(--muted);
+  font-size: 17px;
+  line-height: 1.7;
+}
+
+.detail-signal {
+  display: grid;
+  place-items: center;
+  min-height: 360px;
+  padding: 30px;
+  border-left: var(--line);
+  background: var(--acid);
+  font-family: "Bodoni 72", Georgia, serif;
+  font-size: clamp(48px, 8vw, 90px);
+  font-weight: 900;
+  letter-spacing: -.07em;
+  line-height: .85;
+  text-align: center;
+  text-decoration: none;
+}
+
+.facts {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  margin: 54px 0;
+  border-top: var(--line);
+  border-left: var(--line);
+}
+
+.fact {
+  min-height: 122px;
+  padding: 20px;
+  border-right: var(--line);
+  border-bottom: var(--line);
+  background: rgba(255, 253, 247, .78);
+}
+
+.fact span {
+  display: block;
+  margin-bottom: 14px;
+  color: var(--signal);
+  font-family: Menlo, Monaco, monospace;
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+}
+
+.fact strong { font-size: clamp(20px, 3vw, 32px); }
+
+.history {
+  margin: 22px 0 70px;
+  border-top: var(--line);
+  border-left: var(--line);
+}
+
+.history-row {
+  display: grid;
+  grid-template-columns: minmax(150px, .5fr) minmax(220px, 1fr) auto;
+  gap: 20px;
+  align-items: center;
+  min-height: 82px;
+  padding: 18px 20px;
+  border-right: var(--line);
+  border-bottom: var(--line);
+  background: var(--white);
+}
+
+.history-version {
+  font-family: "Bodoni 72", Georgia, serif;
+  font-size: 34px;
+  font-weight: 900;
+}
+
+.history time,
+.history-channel {
+  color: var(--muted);
+  font-family: Menlo, Monaco, monospace;
+  font-size: 11px;
+  text-transform: uppercase;
+}
+
 .protocol {
   display: grid;
   grid-template-columns: .75fr 1.25fr;
@@ -323,6 +473,10 @@ h2 {
   .release-body { padding: 26px 22px 28px; }
   .release-foot, .footer { align-items: flex-start; flex-direction: column; }
   .protocol { grid-template-columns: 1fr; padding: 26px 22px; }
+  .detail-hero { grid-template-columns: 1fr; box-shadow: 6px 6px 0 var(--ink); }
+  .detail-signal { min-height: 180px; border-top: var(--line); border-left: 0; }
+  .facts { grid-template-columns: 1fr; }
+  .history-row { grid-template-columns: 1fr; gap: 8px; }
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -349,17 +503,22 @@ def parse_source_timestamp(value):
     return published
 
 
-def parse_latest_stable(feed_bytes):
+def parse_stable_releases(feed_bytes, source):
     try:
         root = ET.fromstring(feed_bytes)
     except ET.ParseError as exc:
         raise ValueError("invalid Atom feed") from exc
 
-    for entry in root.findall(f"{ATOM}entry"):
-        title = (entry.findtext(f"{ATOM}title") or "").strip()
-        if not title or PRERELEASE.search(title):
-            continue
+    if root.tag != f"{ATOM}feed":
+        raise ValueError("document is not an Atom feed")
+    entries = root.findall(f"{ATOM}entry")
+    if not entries:
+        raise ValueError("Atom feed contains no release entries")
 
+    releases = []
+    entry_ids = set()
+    for entry in entries:
+        title = (entry.findtext(f"{ATOM}title") or "").strip()
         entry_id = (entry.findtext(f"{ATOM}id") or "").strip()
         updated = (entry.findtext(f"{ATOM}updated") or "").strip()
         link = next(
@@ -370,23 +529,51 @@ def parse_latest_stable(feed_bytes):
             ),
             "",
         )
-        if not entry_id or not updated or not link:
-            raise ValueError("stable release is missing id, time, or source link")
-        version = re.sub(r"^rust-v", "", title)
-        if not STABLE_VERSION.fullmatch(version):
-            raise ValueError("stable release has an unsupported version format")
-        if link != f"{SOURCE_URL_PREFIX}rust-v{version}":
-            raise ValueError("stable release link does not match the official tag")
-        parse_source_timestamp(updated)
+        if not title or not entry_id or not updated or not link:
+            raise ValueError("release is missing title, id, time, or source link")
+        if not link.startswith(source["tag_url_prefix"]):
+            raise ValueError("release link is outside the source allowlist")
 
-        return {
-            "id": entry_id,
-            "version": version,
-            "source_published_at": updated,
-            "source_url": link,
+        version = link.removeprefix(source["tag_url_prefix"])
+        if not TAG_VERSION.fullmatch(version):
+            raise ValueError("release tag has unsupported characters")
+        expected_titles = {
+            f"{prefix}{version}" for prefix in source["title_prefixes"]
         }
+        if title not in expected_titles:
+            raise ValueError("release title does not match the official tag")
+        is_prerelease = bool(PRERELEASE.search(version))
+        if not is_prerelease and not STABLE_VERSION.fullmatch(version):
+            raise ValueError("stable release has an unsupported version format")
+        if entry_id in entry_ids:
+            raise ValueError("duplicate release id in Atom feed")
+        entry_ids.add(entry_id)
+        published = parse_source_timestamp(updated)
+        if is_prerelease:
+            continue
+        releases.append(
+            (
+                published,
+                {
+                    "id": entry_id,
+                    "source_key": source["key"],
+                    "product": source["product"],
+                    "version": version,
+                    "source_published_at": updated,
+                    "source_url": link,
+                },
+            )
+        )
 
-    raise ValueError("no stable release found")
+    releases.sort(key=lambda item: item[0], reverse=True)
+    return [release for _, release in releases]
+
+
+def parse_latest_stable(feed_bytes, source=None):
+    releases = parse_stable_releases(feed_bytes, source or SOURCES[0])
+    if not releases:
+        raise ValueError("no stable release found")
+    return releases[0]
 
 
 def atomic_write(path, content):
@@ -408,13 +595,92 @@ def load_state(path):
     return state
 
 
-def render_post(release, detected_at):
-    title = f"Codex 发布 {release['version']}"
+def post_path_for(record):
+    date = record["source_published_at"][:10]
+    return f'output/posts/{date}-{record["source_key"]}-{record["version"]}.md'
+
+
+def release_page_path(record):
+    return f'output/releases/{record["source_key"]}/{record["version"]}/index.html'
+
+
+def release_page_url(record):
+    return f'{SITE_URL}releases/{record["source_key"]}/{record["version"]}/'
+
+
+def source_page_path(source_key):
+    return f"output/tools/{source_key}/index.html"
+
+
+def source_page_url(source_key):
+    return f"{SITE_URL}tools/{source_key}/"
+
+
+def source_for_record(record):
+    source_key = record.get("source_key")
+    if source_key:
+        source = SOURCE_BY_KEY.get(source_key)
+        if not source:
+            raise ValueError("state record has an unknown source")
+        return source
+
+    source_url = record.get("source_url", "")
+    source = next(
+        (
+            candidate
+            for candidate in SOURCES
+            if source_url.startswith(candidate["tag_url_prefix"])
+        ),
+        None,
+    )
+    if not source:
+        raise ValueError("state record is outside the source allowlist")
+    return source
+
+
+def normalize_state(state):
+    changed = False
+    for state_id, record in state["seen"].items():
+        if not isinstance(record, dict) or record.get("id") != state_id:
+            raise ValueError("state record has an invalid identity")
+
+        source = source_for_record(record)
+        required = (
+            "version",
+            "source_published_at",
+            "source_url",
+            "detected_at",
+        )
+        if any(not isinstance(record.get(field), str) for field in required):
+            raise ValueError("state record is missing required fields")
+        if not STABLE_VERSION.fullmatch(record["version"]):
+            raise ValueError("state record has an unsupported version")
+        if record["source_url"] != f'{source["tag_url_prefix"]}{record["version"]}':
+            raise ValueError("state record does not match its official source")
+        parse_source_timestamp(record["source_published_at"])
+        parse_source_timestamp(record["detected_at"])
+
+        canonical = {
+            "source_key": source["key"],
+            "product": source["product"],
+            "title": f'{source["product"]} {record["version"]} released',
+            "post": post_path_for({**record, "source_key": source["key"]}),
+        }
+        for field, value in canonical.items():
+            if record.get(field) != value:
+                record[field] = value
+                changed = True
+    return changed
+
+
+def render_post(record):
+    title = record["title"]
     return f'''---
 title: "{title}"
-source_url: "{release['source_url']}"
-source_published_at: "{release['source_published_at']}"
-detected_at: "{detected_at}"
+product: "{record['product']}"
+source_url: "{record['source_url']}"
+source_published_at: "{record['source_published_at']}"
+detected_at: "{record['detected_at']}"
 release_channel: "stable"
 automated: true
 ai_generated: false
@@ -422,34 +688,43 @@ ai_generated: false
 
 # {title}
 
-OpenAI Codex 官方发布了稳定版本 `{release['version']}`。
+{record['product']} published stable release `{record['version']}`.
 
-- 官方发布时间：`{release['source_published_at']}`
-- 发布通道：稳定版
-- 官方说明：[{release['source_url']}]({release['source_url']})
+- Official timestamp: `{record['source_published_at']}`
+- Release channel: stable
+- Official notes: [{record['source_url']}]({record['source_url']})
 
-> 本文由自动化规则根据官方 Release 生成，不包含人工实测或额外性能结论；请以官方发布说明为准。
+> Generated automatically from the official release feed. This record contains no synthetic benchmark, hands-on claim, or unsupported conclusion.
 '''
 
 
 def render_rss(records):
     rss = ET.Element("rss", version="2.0")
     channel = ET.SubElement(rss, "channel")
-    ET.SubElement(channel, "title").text = "AI Coding 更新雷达"
+    ET.SubElement(channel, "title").text = "AI Coding Release Radar"
     ET.SubElement(channel, "link").text = SITE_URL
-    ET.SubElement(channel, "description").text = "自动整理官方 Codex 稳定版发布"
+    ET.SubElement(channel, "description").text = (
+        "Verified stable releases from official AI coding tool feeds"
+    )
+    ET.SubElement(channel, "language").text = "en-us"
 
     for record in sorted(
-        records, key=lambda item: item["source_published_at"], reverse=True
-    ):
+        records,
+        key=lambda item: parse_source_timestamp(item["source_published_at"]),
+        reverse=True,
+    )[:RSS_LIMIT]:
         item = ET.SubElement(channel, "item")
         ET.SubElement(item, "title").text = record["title"]
-        ET.SubElement(item, "link").text = record["source_url"]
-        guid = ET.SubElement(item, "guid", isPermaLink="false")
-        guid.text = record["id"]
+        page_url = release_page_url(record)
+        ET.SubElement(item, "link").text = page_url
+        guid = ET.SubElement(item, "guid", isPermaLink="true")
+        guid.text = page_url
         published = parse_source_timestamp(record["source_published_at"])
         ET.SubElement(item, "pubDate").text = format_datetime(published)
-        ET.SubElement(item, "description").text = "自动整理；请以官方说明为准。"
+        ET.SubElement(item, "description").text = (
+            f'Verified from the official {record["product"]} release feed. '
+            f'Official notes: {record["source_url"]}'
+        )
 
     body = ET.tostring(rss, encoding="unicode")
     return '<?xml version="1.0" encoding="UTF-8"?>\n' + body + "\n"
@@ -457,43 +732,54 @@ def render_rss(records):
 
 def render_index(records):
     ordered = sorted(
-        records, key=lambda item: item["source_published_at"], reverse=True
+        records,
+        key=lambda item: parse_source_timestamp(item["source_published_at"]),
+        reverse=True,
     )
+    source_count = len({record["source_key"] for record in ordered})
     cards = []
-    for record in ordered:
+    for record in ordered[:INDEX_LIMIT]:
+        product = escape(record["product"])
         version = escape(record["version"])
         source_url = escape(record["source_url"], quote=True)
         published_at = escape(record["source_published_at"], quote=True)
+        page_url = escape(release_page_url(record), quote=True)
+        product_url = escape(source_page_url(record["source_key"]), quote=True)
         published_date = parse_source_timestamp(
             record["source_published_at"]
         ).strftime("%Y.%m.%d")
         cards.append(
-            f'''<article class="release">
-        <div class="release-version" aria-label="版本 {version}">{version}</div>
+            f'''<article class="release" aria-label="{product} {version} stable release">
+        <div class="release-version" aria-label="{product} version {version}">{version}</div>
         <div class="release-body">
           <div>
-            <div class="release-meta">Stable signal / {published_date}</div>
-            <h3>Codex {version} 稳定版已发布</h3>
-            <p>仅记录官方版本、时间与来源；没有人工实测，也不添加原始发布说明之外的性能结论。</p>
+            <div class="release-meta"><a class="internal-link" href="{product_url}">{product}</a> / stable / {published_date}</div>
+            <h3><a class="internal-link" href="{page_url}">{product} {version} is out</a></h3>
+            <p>Detected automatically from the official release feed. No synthetic benchmark, hands-on claim, or unsupported conclusion is added.</p>
           </div>
           <div class="release-foot">
             <time datetime="{published_at}">{published_at}</time>
-            <a class="source-link" href="{source_url}" target="_blank" rel="noopener noreferrer">核对官方来源 ↗</a>
+            <a class="source-link" href="{page_url}">Verified release record →</a>
           </div>
         </div>
       </article>'''
         )
 
     return f'''<!doctype html>
-<html lang="zh-CN">
+<html lang="en">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="自动追踪 AI 编程工具官方稳定版发布，保留可核验来源。">
+  <meta name="description" content="Verified stable releases from official OpenAI Codex, Claude Code, and Gemini CLI feeds.">
   <meta name="theme-color" content="#161713">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="AI Coding Release Radar">
+  <meta property="og:description" content="Official stable releases. No rumors, fake benchmarks, or synthetic hands-on claims.">
+  <meta property="og:url" content="{SITE_URL}">
+  <meta name="twitter:card" content="summary">
   <link rel="canonical" href="{SITE_URL}">
-  <link rel="alternate" type="application/rss+xml" title="AI Coding 更新雷达 RSS" href="feed.xml">
-  <title>AI Coding 更新雷达</title>
+  <link rel="alternate" type="application/rss+xml" title="AI Coding Release Radar RSS" href="feed.xml">
+  <title>AI Coding Release Radar</title>
   <style>{INDEX_STYLE}</style>
 </head>
 <body>
@@ -506,41 +792,41 @@ def render_index(records):
     <main>
       <section class="hero" aria-labelledby="page-title">
         <div>
-          <p class="eyebrow">Unattended media / source-first</p>
-          <h1 id="page-title"><span>AI Coding</span><br>更新雷达</h1>
+          <p class="eyebrow">Official feeds / stable only</p>
+          <h1 id="page-title"><span>AI Coding</span><br>Releases</h1>
         </div>
-        <p class="lede">机器可以自动发布，事实不能自动放宽。这里只记录白名单官方来源、稳定版本与可追溯时间。</p>
+        <p class="lede">A source-first index of stable releases from Codex, Claude Code, and Gemini CLI. No rumors. No synthetic benchmarks.</p>
       </section>
 
-      <section class="metrics" aria-label="运行指标">
+      <section class="metrics" aria-label="Radar metrics">
         <div class="metric"><strong>{len(ordered)}</strong><span class="metric-label">stable releases tracked</span></div>
         <div class="metric"><strong>0</strong><span class="metric-label">unsupported claims</span></div>
-        <div class="metric"><strong>1</strong><span class="metric-label">official source allowlisted</span></div>
+        <div class="metric"><strong>{source_count}</strong><span class="metric-label">official sources allowlisted</span></div>
       </section>
 
       <section aria-labelledby="signals-title">
         <div class="section-head">
-          <h2 id="signals-title">Stable signals</h2>
+          <h2 id="signals-title">Stable releases</h2>
           <a class="rss" href="feed.xml">RSS / XML</a>
         </div>
         <div class="release-list">{''.join(cards)}</div>
       </section>
 
       <section class="protocol" aria-labelledby="protocol-title">
-        <h2 id="protocol-title">发布协议</h2>
+        <h2 id="protocol-title">Source policy</h2>
         <ul>
-          <li>仅收录官方稳定版本</li>
-          <li>每个版本只生成一次</li>
-          <li>来源异常时拒绝产出</li>
-          <li>自动内容明确标记</li>
-          <li>没有外部图片与虚构实测</li>
+          <li>Official GitHub release feeds only</li>
+          <li>Stable numeric tags only</li>
+          <li>Each release is recorded once</li>
+          <li>Malformed sources stop the run</li>
+          <li>No invented tests or performance claims</li>
         </ul>
       </section>
     </main>
 
     <footer class="footer">
-      <span>AI Coding 更新雷达 / 自动事实卡</span>
-      <span>AI_GENERATED: FALSE · AUTOMATED: TRUE</span>
+      <span>AI Coding Release Radar / verified release index</span>
+      <span>AI_SUMMARY: OFF · AUTOMATED: TRUE</span>
     </footer>
   </div>
 </body>
@@ -548,38 +834,255 @@ def render_index(records):
 '''
 
 
-def process_feed(feed_bytes, root_dir, now=None):
-    release = parse_latest_stable(feed_bytes)
+def render_robots():
+    return f"User-agent: *\nAllow: /\nSitemap: {SITE_URL}sitemap.xml\n"
+
+
+def render_page_head(title, description, canonical_url):
+    return f'''<meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="{escape(description, quote=True)}">
+  <meta name="theme-color" content="#161713">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="{escape(title, quote=True)}">
+  <meta property="og:description" content="{escape(description, quote=True)}">
+  <meta property="og:url" content="{escape(canonical_url, quote=True)}">
+  <meta name="twitter:card" content="summary">
+  <link rel="canonical" href="{escape(canonical_url, quote=True)}">
+  <link rel="alternate" type="application/rss+xml" title="AI Coding Release Radar RSS" href="{SITE_URL}feed.xml">
+  <title>{escape(title)}</title>
+  <style>{INDEX_STYLE}</style>'''
+
+
+def render_release_page(record):
+    product = escape(record["product"])
+    version = escape(record["version"])
+    published_at = escape(record["source_published_at"], quote=True)
+    source_url = escape(record["source_url"], quote=True)
+    page_url = release_page_url(record)
+    tool_url = source_page_url(record["source_key"])
+    title = f'{record["product"]} {record["version"]} stable release'
+    description = (
+        f'Verified release record for {record["product"]} {record["version"]}, '
+        "including the official timestamp and source notes."
+    )
+    return f'''<!doctype html>
+<html lang="en">
+<head>
+  {render_page_head(title, description, page_url)}
+</head>
+<body>
+  <div class="shell">
+    <header class="masthead">
+      <a class="brand" href="{SITE_URL}">AUTO MEDIA <span>/ SIGNAL DESK</span></a>
+      <div class="status">verified stable release</div>
+    </header>
+    <main>
+      <nav class="breadcrumb" aria-label="Breadcrumb">
+        <a href="{SITE_URL}">Release radar</a><span>/</span>
+        <a href="{tool_url}">{product}</a><span>/</span>
+        <span>{version}</span>
+      </nav>
+      <article class="detail-hero">
+        <div class="detail-copy">
+          <p class="eyebrow">Official source / stable channel</p>
+          <h1 class="detail-title">{product}<br>{version}</h1>
+          <p>This page records a stable release detected from the allowlisted official feed. It contains no synthetic benchmark, hands-on claim, or unsupported performance conclusion.</p>
+        </div>
+        <div class="detail-signal" aria-label="Version {version}">{version}</div>
+      </article>
+      <section class="facts" aria-label="Release facts">
+        <div class="fact"><span>Product</span><strong>{product}</strong></div>
+        <div class="fact"><span>Channel</span><strong>Stable</strong></div>
+        <div class="fact"><span>Published</span><strong><time datetime="{published_at}">{published_at[:10]}</time></strong></div>
+      </section>
+      <section class="protocol" aria-labelledby="verification-title">
+        <h2 id="verification-title">Verified at source</h2>
+        <ul>
+          <li>Exact official repository allowlist</li>
+          <li>Numeric stable tag validated</li>
+          <li>Original timestamp preserved</li>
+          <li>No AI-generated summary</li>
+          <li><a class="source-link" href="{source_url}" target="_blank" rel="noopener noreferrer">Read official release notes ↗</a></li>
+        </ul>
+      </section>
+    </main>
+    <footer class="footer"><span>AI Coding Release Radar / release record</span><span><a href="{tool_url}">All {product} releases →</a></span></footer>
+  </div>
+</body>
+</html>
+'''
+
+
+def render_source_page(source, records):
+    ordered = sorted(
+        records,
+        key=lambda item: parse_source_timestamp(item["source_published_at"]),
+        reverse=True,
+    )
+    latest = ordered[0]
+    product = escape(source["product"])
+    page_url = source_page_url(source["key"])
+    title = f'{source["product"]} stable release history'
+    description = (
+        f'Verified {source["product"]} stable release history, latest version, '
+        "official timestamps, and source links."
+    )
+    rows = []
+    for record in ordered:
+        version = escape(record["version"])
+        published_at = escape(record["source_published_at"], quote=True)
+        rows.append(
+            f'''<article class="history-row">
+        <a class="history-version internal-link" href="{release_page_url(record)}">{version}</a>
+        <time datetime="{published_at}">{published_at}</time>
+        <span class="history-channel">stable / verified</span>
+      </article>'''
+        )
+    return f'''<!doctype html>
+<html lang="en">
+<head>
+  {render_page_head(title, description, page_url)}
+</head>
+<body>
+  <div class="shell">
+    <header class="masthead">
+      <a class="brand" href="{SITE_URL}">AUTO MEDIA <span>/ SIGNAL DESK</span></a>
+      <div class="status">release history online</div>
+    </header>
+    <main>
+      <nav class="breadcrumb" aria-label="Breadcrumb"><a href="{SITE_URL}">Release radar</a><span>/</span><span>{product}</span></nav>
+      <article class="detail-hero">
+        <div class="detail-copy">
+          <p class="eyebrow">Latest verified stable release</p>
+          <h1 class="detail-title">{product}</h1>
+          <p>An automatically maintained stable release history sourced only from the official GitHub release feed.</p>
+        </div>
+        <a class="detail-signal internal-link" href="{release_page_url(latest)}" aria-label="Latest version {escape(latest['version'])}">{escape(latest['version'])}</a>
+      </article>
+      <section class="facts" aria-label="Product release facts">
+        <div class="fact"><span>Latest stable</span><strong>{escape(latest['version'])}</strong></div>
+        <div class="fact"><span>Releases tracked</span><strong>{len(ordered)}</strong></div>
+        <div class="fact"><span>Unsupported claims</span><strong>0</strong></div>
+      </section>
+      <section aria-labelledby="history-title">
+        <div class="section-head"><h2 id="history-title">Release history</h2><a class="rss" href="{SITE_URL}feed.xml">RSS / XML</a></div>
+        <div class="history">{''.join(rows)}</div>
+      </section>
+    </main>
+    <footer class="footer"><span>{product} / verified release history</span><span>UPDATED AUTOMATICALLY</span></footer>
+  </div>
+</body>
+</html>
+'''
+
+
+def render_sitemap(records):
+    urlset = ET.Element(
+        "urlset", xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+    )
+    urls = [(SITE_URL, None)]
+    source_keys = sorted({record["source_key"] for record in records})
+    urls.extend((source_page_url(source_key), None) for source_key in source_keys)
+    urls.extend(
+        (release_page_url(record), record["source_published_at"][:10])
+        for record in sorted(
+            records,
+            key=lambda item: parse_source_timestamp(item["source_published_at"]),
+            reverse=True,
+        )
+    )
+    for location, modified in urls:
+        url = ET.SubElement(urlset, "url")
+        ET.SubElement(url, "loc").text = location
+        if modified:
+            ET.SubElement(url, "lastmod").text = modified
+    body = ET.tostring(urlset, encoding="unicode")
+    return '<?xml version="1.0" encoding="UTF-8"?>\n' + body + "\n"
+
+
+def process_feeds(feed_payloads, root_dir, now=None):
+    releases = []
+    source_keys = set()
+    for source, feed_bytes in feed_payloads:
+        if SOURCE_BY_KEY.get(source.get("key")) != source:
+            raise ValueError("feed source is outside the source allowlist")
+        if source["key"] in source_keys:
+            raise ValueError("duplicate feed source")
+        source_keys.add(source["key"])
+        releases.extend(parse_stable_releases(feed_bytes, source))
+    if not source_keys:
+        raise ValueError("no feed sources supplied")
+
     root_dir = Path(root_dir)
     state_path = root_dir / "state" / "seen.json"
     state = load_state(state_path)
-    created = release["id"] not in state["seen"]
-    post_path = None
-    post_content = None
-    if created:
-        detected_at = (now or datetime.now(timezone.utc)).isoformat().replace("+00:00", "Z")
-        date = release["source_published_at"][:10]
-        version_slug = re.sub(r"[^0-9A-Za-z._-]+", "-", release["version"]).strip("-")
-        relative_post = f"output/posts/{date}-codex-{version_slug}.md"
-        post_path = root_dir / relative_post
-        post_content = render_post(release, detected_at)
-        state["seen"][release["id"]] = {
+    state_changed = normalize_state(state)
+    created_count = 0
+    detected_at = (now or datetime.now(timezone.utc)).isoformat().replace(
+        "+00:00", "Z"
+    )
+    for release in releases:
+        existing = state["seen"].get(release["id"])
+        if existing:
+            if any(
+                existing[field] != release[field]
+                for field in ("source_key", "product", "version", "source_url")
+            ):
+                raise ValueError("release id conflicts with existing state")
+            continue
+
+        record = {
             **release,
-            "title": f"Codex 发布 {release['version']}",
+            "title": f'{release["product"]} {release["version"]} released',
             "detected_at": detected_at,
-            "post": relative_post,
+            "post": post_path_for(release),
         }
+        state["seen"][release["id"]] = record
+        state_changed = True
+        created_count += 1
 
     records = list(state["seen"].values())
+    post_contents = {
+        root_dir / record["post"]: render_post(record) for record in records
+    }
+    if len(post_contents) != len(records):
+        raise ValueError("multiple releases resolve to the same post path")
+    release_page_contents = {
+        root_dir / release_page_path(record): render_release_page(record)
+        for record in records
+    }
+    if len(release_page_contents) != len(records):
+        raise ValueError("multiple releases resolve to the same public page")
+    source_page_contents = {
+        root_dir / source_page_path(source["key"]): render_source_page(
+            source,
+            [record for record in records if record["source_key"] == source["key"]],
+        )
+        for source in SOURCES
+        if any(record["source_key"] == source["key"] for record in records)
+    }
     rss_content = render_rss(records)
     index_content = render_index(records)
+    state_content = json.dumps(state, ensure_ascii=False, indent=2) + "\n"
 
-    if created:
+    for post_path, post_content in post_contents.items():
         atomic_write(post_path, post_content)
-        atomic_write(state_path, json.dumps(state, ensure_ascii=False, indent=2) + "\n")
+    for page_path, page_content in release_page_contents.items():
+        atomic_write(page_path, page_content)
+    for page_path, page_content in source_page_contents.items():
+        atomic_write(page_path, page_content)
+    if state_changed:
+        atomic_write(state_path, state_content)
     atomic_write(root_dir / "output" / "feed.xml", rss_content)
     atomic_write(root_dir / "output" / "index.html", index_content)
-    return created
+    atomic_write(root_dir / "output" / "robots.txt", render_robots())
+    atomic_write(root_dir / "output" / "sitemap.xml", render_sitemap(records))
+    return created_count
+
+
+def process_feed(feed_bytes, root_dir, now=None):
+    return process_feeds(((SOURCES[0], feed_bytes),), root_dir, now) > 0
 
 
 def append_log(root_dir, status, detail):
@@ -596,13 +1099,32 @@ def append_log(root_dir, status, detail):
 
 def main(argv=None):
     parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument("--feed-url", default=DEFAULT_FEED_URL)
+    parser.add_argument(
+        "--feed-url",
+        default=DEFAULT_FEED_URL,
+        help="override the Codex feed URL; other allowlisted feeds stay enabled",
+    )
     parser.add_argument("--root", type=Path, default=Path(__file__).resolve().parent)
     args = parser.parse_args(argv)
 
     try:
-        created = process_feed(fetch_feed(args.feed_url), args.root)
-        message = "created one stable release post" if created else "no new stable release"
+        feed_payloads = [
+            (
+                source,
+                fetch_feed(
+                    args.feed_url
+                    if source["key"] == "codex"
+                    else source["feed_url"]
+                ),
+            )
+            for source in SOURCES
+        ]
+        created = process_feeds(feed_payloads, args.root)
+        if created:
+            suffix = "post" if created == 1 else "posts"
+            message = f"created {created} stable release {suffix}"
+        else:
+            message = "no new stable releases"
         append_log(args.root, "ok", message)
         print(message)
         return 0

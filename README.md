@@ -1,10 +1,20 @@
 # AI Coding Radar
 
-An unattended, source-first release radar for OpenAI Codex. It watches the
-official Atom feed, rejects uncertain records, and renders a static homepage,
-RSS feed, and one factual Markdown card per stable release.
+An unattended, source-first release radar for AI coding tools. It watches three
+official Atom feeds, rejects uncertain records, and renders an English static
+homepage, RSS feed, one factual Markdown record, one public HTML page per stable
+release, and a release-history page per tool.
 
 Live site: <https://ai-coding-radar.github.io/>
+
+## Sources
+
+- [OpenAI Codex](https://github.com/openai/codex/releases)
+- [Claude Code](https://github.com/anthropics/claude-code/releases)
+- [Gemini CLI](https://github.com/google-gemini/gemini-cli/releases)
+
+Only numeric stable tags from these exact repositories are accepted. Preview,
+nightly, alpha, beta, release-candidate, development, and canary tags are skipped.
 
 ## Run
 
@@ -13,8 +23,10 @@ python3 radar.py
 python3 radar.py
 ```
 
-The first run creates one post, `output/index.html`, `output/feed.xml`, state,
-and a JSONL run log. Later runs rebuild the site but must not duplicate content.
+The first run imports every stable release still visible in each feed and creates
+the homepage, tool histories, release pages, RSS, sitemap, robots file, state,
+Markdown records, and a JSONL run log. Later runs rebuild the site but must not
+duplicate content.
 
 Preview the site locally:
 

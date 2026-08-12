@@ -38,7 +38,7 @@ jobs:
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add -- state output
-          git commit -m "chore: update Codex release radar"
+          git commit -m "chore: update AI coding release radar"
           git push
 
       - name: Configure Pages
