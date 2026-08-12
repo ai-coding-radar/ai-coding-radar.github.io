@@ -28,6 +28,10 @@ the homepage, tool histories, release pages, RSS, sitemap, robots file, state,
 Markdown records, and a JSONL run log. Later runs rebuild the site but must not
 duplicate content.
 
+After a public site change, the deployment workflow submits the sitemap URLs to
+the official IndexNow endpoint. The public root key file proves site ownership;
+IndexNow failure is reported by Actions but never blocks the Pages deployment.
+
 Preview the site locally:
 
 ```sh
@@ -45,6 +49,7 @@ python3 -m unittest discover -s tests -v
 GitHub Actions tests and deploys the site on pushes and manual runs. The daily
 feed refresh is enabled after the public smoke test. Set the repository variable
 `AUTOPUBLISH` to exactly `false` to pause it; this is the global stop switch.
+The tracked IndexNow key remains public even while feed refreshes are paused.
 
 The first public version deliberately skips AI summaries, affiliate data,
 platform distribution, analytics, and monetization claims. Add them only after

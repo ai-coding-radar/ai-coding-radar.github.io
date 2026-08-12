@@ -198,6 +198,12 @@ class RadarTest(unittest.TestCase):
                 f"Sitemap: {radar.SITE_URL}sitemap.xml",
                 (root / "output" / "robots.txt").read_text(encoding="utf-8"),
             )
+            self.assertEqual(
+                (root / "output" / f"{radar.INDEXNOW_KEY}.txt")
+                .read_text(encoding="utf-8")
+                .strip(),
+                radar.INDEXNOW_KEY,
+            )
             release_page = (
                 root / "output" / "releases" / "claude-code" / "2.1.2" / "index.html"
             ).read_text(encoding="utf-8")

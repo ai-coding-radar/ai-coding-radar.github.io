@@ -14,6 +14,7 @@ from pathlib import Path
 
 
 SITE_URL = "https://ai-coding-radar.github.io/"
+INDEXNOW_KEY = "283f1da55b1668cf01c7a66f3da004fb"
 ATOM = "{http://www.w3.org/2005/Atom}"
 SOURCES = (
     {
@@ -1079,6 +1080,9 @@ def process_feeds(feed_payloads, root_dir, now=None):
     atomic_write(root_dir / "output" / "index.html", index_content)
     atomic_write(root_dir / "output" / "robots.txt", render_robots())
     atomic_write(root_dir / "output" / "sitemap.xml", render_sitemap(records))
+    atomic_write(
+        root_dir / "output" / f"{INDEXNOW_KEY}.txt", INDEXNOW_KEY + "\n"
+    )
     return created_count
 
 

@@ -15,11 +15,15 @@ jobs:
   build:
     runs-on: ubuntu-latest
     timeout-minutes: 10
+    outputs:
+      site_changed: ${{ steps.site_changes.outputs.changed }}
     permissions:
       contents: write
     steps:
       - name: Check out repository
         uses: actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803 # v6
+        with:
+          fetch-depth: 2
 
       - name: Test generator
         run: python3 -m unittest discover -s tests -v
@@ -27,6 +31,17 @@ jobs:
       - name: Refresh from the official feed
         if: github.event_name != 'schedule' || vars.AUTOPUBLISH != 'false'
         run: python3 radar.py
+
+      - name: Detect public site changes
+        id: site_changes
+        run: |
+          changed=false
+          if [[ -n "$(git status --porcelain -- output)" ]]; then
+            changed=true
+          elif [[ "$GITHUB_EVENT_NAME" == "push" ]] && ! git diff --quiet HEAD^ HEAD -- output; then
+            changed=true
+          fi
+          echo "changed=$changed" >> "$GITHUB_OUTPUT"
 
       - name: Commit a new release
         if: github.event_name != 'schedule' || vars.AUTOPUBLISH != 'false'
@@ -64,3 +79,24 @@ jobs:
       - name: Deploy Pages artifact
         id: deployment
         uses: actions/deploy-pages@cd2ce8fcbc39b97be8ca5fce6e763baed58fa128 # v5
+
+      - name: Check out IndexNow submitter
+        if: needs.build.outputs.site_changed == 'true'
+        uses: actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803 # v6
+        with:
+          ref: main
+
+      - name: Notify IndexNow
+        if: needs.build.outputs.site_changed == 'true'
+        continue-on-error: true
+        run: |
+          key=$(python3 -c 'import radar; print(radar.INDEXNOW_KEY)')
+          for attempt in {1..12}; do
+            if [[ "$(curl --fail --silent --show-error "https://ai-coding-radar.github.io/$key.txt")" == "$key" ]]; then
+              python3 submit_indexnow.py
+              exit
+            fi
+            sleep 5
+          done
+          echo "IndexNow key is not public after deployment." >&2
+          exit 1
