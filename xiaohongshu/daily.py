@@ -495,7 +495,15 @@ def _search_facts(project_root: Path) -> Dict[str, Any]:
         except (OSError, UnicodeError, json.JSONDecodeError):
             continue
         if isinstance(value, dict):
-            return {"available": True, "source": str(relative), "data": value, "note": "来自显式本地搜索数据文件"}
+            explicit_note = _safe_text(value.get("note", ""), max_length=400)
+            sitemap = value.get("sitemap") if isinstance(value.get("sitemap"), dict) else {}
+            status = _safe_text(sitemap.get("status", ""), max_length=80)
+            note = explicit_note or (
+                f"Search Console sitemap 状态：{status}"
+                if status
+                else "来自显式本地搜索数据文件"
+            )
+            return {"available": True, "source": str(relative), "data": value, "note": note}
     return {"available": False, "source": None, "impressions": None, "clicks": None, "note": "未找到 Search Console 导出，未推断流量或收录"}
 
 

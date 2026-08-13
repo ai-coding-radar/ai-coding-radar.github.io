@@ -1,0 +1,18 @@
+{
+  "schema_version": 1,
+  "checked_at": "2026-08-13T09:43:00+08:00",
+  "property": "https://ai-coding-radar.github.io/",
+  "performance_status": "processing",
+  "indexing_status": "processing",
+  "sitemap": {
+    "path": "/sitemap.xml",
+    "submitted_at": "2026-08-12",
+    "status": "could_not_fetch",
+    "discovered_pages": 0,
+    "discovered_videos": 0
+  },
+  "impressions": null,
+  "clicks": null,
+  "source": "Google Search Console visible account report",
+  "note": "Google is still processing the new property. The submitted sitemap remains marked as could not fetch even though the public XML and representative URLs currently return HTTP 200. It was not resubmitted."
+}

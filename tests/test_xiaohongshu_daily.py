@@ -217,6 +217,29 @@ class DailyReportTest(unittest.TestCase):
             self.assertNotIn("[link]", caption)
             self.assertIn("facts.json", [path.name for path in destination.iterdir()])
 
+    def test_explicit_search_console_status_reaches_the_draft(self):
+        with tempfile.TemporaryDirectory() as directory:
+            root = self._repo(directory)
+            (root / "metrics").mkdir()
+            (root / "metrics" / "search-console.json").write_text(
+                json.dumps(
+                    {
+                        "sitemap": {"status": "could_not_fetch"},
+                        "impressions": None,
+                        "clicks": None,
+                        "note": "Google 仍在处理，sitemap 暂时无法抓取",
+                    }
+                ),
+                encoding="utf-8",
+            )
+            destination = generate_daily_report("2026-08-12", root)
+            facts = json.loads((destination / "facts.json").read_text(encoding="utf-8"))
+            caption = (destination / "caption.md").read_text(encoding="utf-8")
+            self.assertTrue(facts["search"]["available"])
+            self.assertEqual(facts["search"]["data"]["impressions"], None)
+            self.assertIn("暂时无法抓取", facts["search"]["note"])
+            self.assertIn("暂时无法抓取", caption)
+
     def test_invalid_money_is_rejected(self):
         with self.assertRaisesRegex(DailyReportError, "non-negative number"):
             summarize_ledger({"entries": [{"date": "2026-08-12", "kind": "revenue", "amount": -1, "status": "settled", "receipt": "payout-1"}]}, datetime(2026, 8, 12).date())

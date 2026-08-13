@@ -51,6 +51,11 @@ feed refresh is enabled after the public smoke test. Set the repository variable
 `AUTOPUBLISH` to exactly `false` to pause it; this is the global stop switch.
 The tracked IndexNow key remains public even while feed refreshes are paused.
 
+The 09:00 Asia/Shanghai Codex heartbeat also runs
+`python3 ensure_daily_refresh.py`. It is a narrow missed-run backstop: if a
+successful or active Publish radar workflow already exists for the Beijing
+calendar day, it does nothing; otherwise it dispatches one manual refresh.
+
 The first public version deliberately skips AI summaries, affiliate data,
 platform distribution, analytics, and monetization claims. Add them only after
 the source-first publishing loop is stable.
@@ -63,6 +68,11 @@ history, `logs/runs.jsonl`, `state/seen.json`, local site facts, and the
 explicit `metrics/ledger.json` ledger. Deployment, impressions, clicks, and
 saved time are never counted as income; without an explicitly settled ledger
 entry the report says `¥0`.
+
+The morning monitor writes only visibly verified Search Console facts to
+`metrics/search-console.json`. Values that Google is still processing remain
+`null`; sitemap errors are recorded as errors rather than inferred from the
+public HTTP response.
 
 ```sh
 python3 -m xiaohongshu.daily --date 2026-08-12
