@@ -1,0 +1,12 @@
+{
+  "$schema": "https://apify.com/schemas/v1/output.ide.json",
+  "actorOutputSchemaVersion": 1,
+  "title": "AI coding release results",
+  "properties": {
+    "results": {
+      "type": "string",
+      "title": "Verified releases",
+      "template": "{{links.apiDefaultDatasetUrl}}/items"
+    }
+  }
+}

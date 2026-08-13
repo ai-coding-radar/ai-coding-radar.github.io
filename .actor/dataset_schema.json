@@ -1,0 +1,36 @@
+{
+  "$schema": "https://apify.com/schemas/v1/dataset.ide.json",
+  "actorSpecification": 1,
+  "fields": {
+    "id": {"type": "string"},
+    "tool": {"type": "string"},
+    "product": {"type": "string"},
+    "repository": {"type": "string"},
+    "version": {"type": "string"},
+    "channel": {"type": "string"},
+    "publishedAt": {"type": "string", "format": "date-time"},
+    "officialUrl": {"type": "string", "format": "uri"},
+    "riskSignals": {
+      "type": "array",
+      "items": {"type": "string"}
+    }
+  },
+  "views": {
+    "overview": {
+      "title": "Verified stable releases",
+      "transformation": {
+        "fields": ["product", "version", "publishedAt", "officialUrl", "riskSignals"]
+      },
+      "display": {
+        "component": "table",
+        "properties": {
+          "product": {"label": "Tool", "format": "text"},
+          "version": {"label": "Version", "format": "text"},
+          "publishedAt": {"label": "Published", "format": "date"},
+          "officialUrl": {"label": "Official release", "format": "link"},
+          "riskSignals": {"label": "Risk signals", "format": "array"}
+        }
+      }
+    }
+  }
+}

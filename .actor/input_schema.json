@@ -1,0 +1,31 @@
+{
+  "$schema": "https://apify.com/schemas/v1/input.ide.json",
+  "title": "AI coding release query",
+  "description": "Select official AI coding tools and the number of stable releases to return.",
+  "type": "object",
+  "schemaVersion": 1,
+  "properties": {
+    "tools": {
+      "title": "Tools",
+      "type": "array",
+      "description": "Only these allowlisted official release feeds are queried.",
+      "editor": "select",
+      "default": ["codex", "claude-code", "gemini-cli"],
+      "items": {
+        "type": "string",
+        "enum": ["codex", "claude-code", "gemini-cli"],
+        "enumTitles": ["OpenAI Codex", "Claude Code", "Gemini CLI"]
+      }
+    },
+    "limitPerTool": {
+      "title": "Stable releases per tool",
+      "type": "integer",
+      "description": "Maximum verified stable releases returned for each selected tool.",
+      "default": 5,
+      "minimum": 1,
+      "maximum": 20,
+      "editor": "number"
+    }
+  },
+  "required": ["tools", "limitPerTool"]
+}

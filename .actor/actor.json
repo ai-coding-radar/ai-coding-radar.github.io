@@ -1,0 +1,20 @@
+{
+  "$schema": "https://apify.com/schemas/v1/actor.ide.json",
+  "actorSpecification": 1,
+  "name": "ai-coding-release-intelligence",
+  "title": "AI Coding Release Intelligence",
+  "description": "Verified stable release data for Codex, Claude Code, and Gemini CLI.",
+  "version": "0.1",
+  "buildTag": "latest",
+  "readme": "../APIFY_README.md",
+  "dockerContextDir": "..",
+  "minMemoryMbytes": 128,
+  "defaultMemoryMbytes": 128,
+  "maxMemoryMbytes": 256,
+  "input": "./input_schema.json",
+  "output": "./output_schema.json",
+  "storages": {
+    "dataset": "./dataset_schema.json"
+  },
+  "dockerfile": "../Dockerfile"
+}
