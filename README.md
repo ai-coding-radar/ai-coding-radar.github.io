@@ -57,8 +57,27 @@ successful or active Publish radar workflow already exists for the Beijing
 calendar day, it does nothing; otherwise it dispatches one manual refresh.
 
 The first public version deliberately skips AI summaries, affiliate data,
-platform distribution, analytics, and monetization claims. Add them only after
-the source-first publishing loop is stable.
+analytics, and monetization claims. Add them only after the source-first
+publishing loop is stable.
+
+## DEV Community distribution
+
+`devto.py` uses DEV's official Forem API to cross-post the newest verified
+release record. Previewing is offline, and the default network action creates
+an unpublished draft. Public posting requires the explicit `--publish` flag.
+Before creating anything, the adapter scans the authenticated account's article
+history for the same canonical URL so repeat runs do not duplicate a release.
+
+```sh
+python3 devto.py --preview
+DEVTO_API_KEY=... python3 devto.py
+DEVTO_API_KEY=... python3 devto.py --publish
+```
+
+Create the key at <https://dev.to/settings/extensions>. Keep it out of the
+repository and chat history; use a local environment variable or a repository
+secret. No browser cookie is read. This adapter is not scheduled until the
+account and one draft have been verified.
 
 ## XiaoHongShu daily draft
 
