@@ -76,8 +76,10 @@ DEVTO_API_KEY=... python3 devto.py --publish
 
 Create the key at <https://dev.to/settings/extensions>. Keep it out of the
 repository and chat history; use a local environment variable or a repository
-secret. No browser cookie is read. This adapter is not scheduled until the
-account and one draft have been verified.
+secret named `DEVTO_API_KEY`. The manual **Draft latest release on DEV**
+workflow can then create the first draft without exposing the key. No browser
+cookie is read. Distribution is not scheduled until the account and one draft
+have been verified.
 
 ## XiaoHongShu daily draft
 
