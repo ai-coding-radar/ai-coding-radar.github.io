@@ -1,11 +1,11 @@
 {
   "schema_version": 1,
-  "checked_at": "2026-08-14T15:15:08+08:00",
+  "checked_at": "2026-08-14T15:59:16+08:00",
   "sources": {
     "apify": {
       "period": "2026-08",
       "actor": "ai-coding-radar/remote-job-intelligence",
-      "latest_build": "0.0.7",
+      "latest_build": "0.0.8",
       "paying_users": 0,
       "free_users": 1,
       "results": 32,
@@ -17,7 +17,7 @@
     "apify_oss_package_health": {
       "period": "2026-08",
       "actor": "ai-coding-radar/oss-package-health-monitor",
-      "latest_build": "0.0.1",
+      "latest_build": "0.0.2",
       "public_total_users": 2,
       "public_total_runs": 3,
       "paying_users": null,
@@ -25,6 +25,24 @@
       "payout_status": "not_yet_listed_in_monetization_table",
       "settled": false,
       "evidence": "Public Actor API plus Apify Console Insights; public users and runs are not revenue"
+    },
+    "apify_markdown_code_to_image": {
+      "period": "2026-08",
+      "actor": "ai-coding-radar/markdown-code-to-image",
+      "latest_build": "0.0.2",
+      "public_example": "https://apify.com/ai-coding-radar/markdown-code-to-image/examples/render-markdown-and-code-to-a-png",
+      "store_markdown_http_status": 200,
+      "public_example_http_status": 200,
+      "store_html_http_status": 404,
+      "store_html_status_note": "stale pre-publication CDN response; monitor for propagation",
+      "anonymous_image_http_status": 200,
+      "anonymous_image_content_type": "image/png",
+      "paying_users": null,
+      "free_users": null,
+      "displayed_profit_usd": null,
+      "payout_status": "not_yet_listed_in_monetization_table",
+      "settled": false,
+      "evidence": "Apify Console publication and monetization state, public Markdown/Example checks, and anonymous PNG download; no signed URLs stored"
     },
     "cardify_search": {
       "site": "https://cardify.1222155.xyz/",
