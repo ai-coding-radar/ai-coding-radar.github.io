@@ -1,10 +1,11 @@
 {
   "schema_version": 1,
-  "checked_at": "2026-08-14T14:24:49+08:00",
+  "checked_at": "2026-08-14T15:15:08+08:00",
   "sources": {
     "apify": {
       "period": "2026-08",
       "actor": "ai-coding-radar/remote-job-intelligence",
+      "latest_build": "0.0.7",
       "paying_users": 0,
       "free_users": 1,
       "results": 32,
@@ -12,6 +13,30 @@
       "payout_status": "no_monetization_data",
       "settled": false,
       "evidence": "Apify Console Insights > Monetization; current-month values are provisional"
+    },
+    "apify_oss_package_health": {
+      "period": "2026-08",
+      "actor": "ai-coding-radar/oss-package-health-monitor",
+      "latest_build": "0.0.1",
+      "public_total_users": 2,
+      "public_total_runs": 3,
+      "paying_users": null,
+      "displayed_profit_usd": null,
+      "payout_status": "not_yet_listed_in_monetization_table",
+      "settled": false,
+      "evidence": "Public Actor API plus Apify Console Insights; public users and runs are not revenue"
+    },
+    "cardify_search": {
+      "site": "https://cardify.1222155.xyz/",
+      "sitemap_http_status": 200,
+      "sitemap_content_type": "application/xml",
+      "sitemap_urls": 9,
+      "search_console_last_read": "2026-08-14",
+      "search_console_sitemap_status": "could_not_read",
+      "search_console_discovered_pages": 0,
+      "payment_entry_available": false,
+      "settled": false,
+      "evidence": "Public HTTP/XML checks and Google Search Console sitemap status; no duplicate submission"
     }
   }
 }
