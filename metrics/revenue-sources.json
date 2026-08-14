@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "checked_at": "2026-08-14T16:38:28+08:00",
+  "checked_at": "2026-08-15T01:44:36+08:00",
   "sources": {
     "apify": {
       "period": "2026-08",
@@ -10,7 +10,7 @@
       "free_users": 1,
       "results": 132,
       "displayed_profit_usd": 0,
-      "payout_status": "identity_verification_pending_no_settlement",
+      "payout_status": "identity_verification_required_no_settlement",
       "settled": false,
       "evidence": "Apify Console Insights > Monetization; current-month values are provisional"
     },
@@ -24,16 +24,16 @@
       "public_total_runs": 7,
       "paying_users": 0,
       "free_users": 1,
-      "results": 6,
+      "results": 12,
       "displayed_profit_usd": 0,
-      "payout_status": "identity_verification_pending_no_settlement",
+      "payout_status": "identity_verification_required_no_settlement",
       "settled": false,
       "evidence": "Public Actor API plus Apify Console Insights; public users and runs are not revenue"
     },
     "apify_markdown_code_to_image": {
       "period": "2026-08",
       "actor": "ai-coding-radar/markdown-code-to-image",
-      "latest_build": "0.0.3",
+      "latest_build": "0.0.4",
       "price_per_generated_image_usd": 0.005,
       "price_per_start_usd": 0.00005,
       "public_total_users": 2,
@@ -49,9 +49,26 @@
       "free_users": 1,
       "results": 2,
       "displayed_profit_usd": 0,
-      "payout_status": "identity_verification_pending_no_settlement",
+      "payout_status": "identity_verification_required_no_settlement",
       "settled": false,
       "evidence": "Apify Console publication and monetization state, public Markdown/Example checks, and anonymous PNG download; no signed URLs stored"
+    },
+    "apify_uk_company_change_alerts": {
+      "period": "2026-08",
+      "actor": "ai-coding-radar/uk-company-change-alerts",
+      "actor_id": "xB4MWIkxXc41GKtfM",
+      "latest_build": "0.0.1",
+      "publication_status": "private_awaiting_final_confirmation",
+      "price_per_company_check_usd": 0.003,
+      "price_per_change_event_usd": 0.01,
+      "price_per_start_usd": 0.00005,
+      "cloud_smoke_first_run": "baseline_created",
+      "cloud_smoke_second_run": "unchanged",
+      "paying_users": null,
+      "displayed_profit_usd": 0,
+      "payout_status": "identity_verification_required_no_settlement",
+      "settled": false,
+      "evidence": "Private Actor build 0.0.1 and two separate cloud runs verified persistent named-store baseline; not yet public or monetized"
     },
     "cardify_search": {
       "site": "https://cardify.1222155.xyz/",
