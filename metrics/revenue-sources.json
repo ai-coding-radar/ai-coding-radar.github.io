@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "checked_at": "2026-08-15T06:50:46+08:00",
+  "checked_at": "2026-08-15T07:09:12+08:00",
   "sources": {
     "apify": {
       "period": "2026-08",
@@ -361,6 +361,17 @@
       "site": "https://ai-coding-radar.github.io/",
       "homepage_http_status": 200,
       "automation_funnel_links": 5,
+      "automation_landing_page_count": 5,
+      "automation_landing_pages": [
+        "https://ai-coding-radar.github.io/automations/remote-jobs-api/",
+        "https://ai-coding-radar.github.io/automations/npm-pypi-vulnerability-api/",
+        "https://ai-coding-radar.github.io/automations/markdown-code-to-image-api/",
+        "https://ai-coding-radar.github.io/automations/uk-company-change-api/",
+        "https://ai-coding-radar.github.io/automations/grants-gov-alerts-api/"
+      ],
+      "automation_landing_pages_http_status": 200,
+      "sitemap_http_status": 200,
+      "sitemap_urls": 26,
       "targets": [
         "https://apify.com/ai-coding-radar/oss-package-health-monitor/examples/scan-installed-npm-and-pypi-versions-for-cves",
         "https://apify.com/ai-coding-radar/markdown-code-to-image/examples/render-markdown-and-code-to-a-png",
@@ -369,13 +380,13 @@
         "https://apify.com/ai-coding-radar/grants-gov-opportunity-monitor/examples/daily-ai-federal-grant-opportunity-alerts"
       ],
       "publish_workflow_status": "success",
-      "publish_workflow_run": "https://github.com/ai-coding-radar/ai-coding-radar.github.io/actions/runs/31846855639",
-      "last_site_change_workflow_run": "https://github.com/ai-coding-radar/ai-coding-radar.github.io/actions/runs/31846321166",
+      "publish_workflow_run": "https://github.com/ai-coding-radar/ai-coding-radar.github.io/actions/runs/31849224857",
+      "last_site_change_workflow_run": "https://github.com/ai-coding-radar/ai-coding-radar.github.io/actions/runs/31849224857",
       "indexnow_notified_for_site_change": true,
       "indexnow_http_status": 200,
-      "indexnow_urls_accepted": 21,
+      "indexnow_urls_accepted": 26,
       "settled": false,
-      "evidence": "Commit e9c2b07 added the fifth factual homepage automation card for the public Grants.gov Example. Publish radar run 31846321166 then created the verified Claude Code 2.1.233 release page and submitted all 21 sitemap URLs to IndexNow with HTTP 200. The public homepage remains HTTP 200 with exactly five cards and one Grants.gov Example link. Later guide-only run 31846855639 passed 62 tests, deployed successfully, and correctly skipped IndexNow because it produced no public site change. Funnel links and indexing are distribution, not revenue"
+      "evidence": "Commit 2da32e2 added five high-intent automation landing pages and linked all five from the existing homepage cards while preserving the direct public Example calls to action. Publish radar run 31849224857 passed all 62 tests, deployed successfully, and submitted all 26 sitemap URLs to IndexNow with HTTP 200. Anonymous checks confirm the homepage, all five landing pages, and sitemap return HTTP 200; the sitemap contains 26 URLs and the homepage contains five unique internal landing-page links. Pages, links, deployment, and indexing are distribution, not revenue"
     },
     "cardify_search": {
       "site": "https://cardify.1222155.xyz/",
