@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "checked_at": "2026-08-15T01:44:36+08:00",
+  "checked_at": "2026-08-15T01:57:58+08:00",
   "sources": {
     "apify": {
       "period": "2026-08",
@@ -58,17 +58,27 @@
       "actor": "ai-coding-radar/uk-company-change-alerts",
       "actor_id": "xB4MWIkxXc41GKtfM",
       "latest_build": "0.0.1",
-      "publication_status": "private_awaiting_final_confirmation",
+      "publication_status": "public_monetization_active",
+      "pricing_model": "pay_per_event",
       "price_per_company_check_usd": 0.003,
       "price_per_change_event_usd": 0.01,
       "price_per_start_usd": 0.00005,
+      "primary_event": "company-check",
+      "store_html_http_status": 200,
+      "store_markdown_http_status": 200,
+      "actor_api_http_status": 200,
+      "actor_api_is_public": true,
+      "public_total_users": 1,
+      "public_total_runs": 2,
+      "public_example": "https://apify.com/ai-coding-radar/uk-company-change-alerts/examples/monitor-uk-company-record-changes",
+      "public_example_http_status": 200,
       "cloud_smoke_first_run": "baseline_created",
       "cloud_smoke_second_run": "unchanged",
       "paying_users": null,
       "displayed_profit_usd": 0,
       "payout_status": "identity_verification_required_no_settlement",
       "settled": false,
-      "evidence": "Private Actor build 0.0.1 and two separate cloud runs verified persistent named-store baseline; not yet public or monetized"
+      "evidence": "Public Actor API and anonymous Store, Markdown, and Example HTTP checks; pay-per-event pricing is active; two cloud runs verified persistent named-store baseline; users and runs are not revenue"
     },
     "cardify_search": {
       "site": "https://cardify.1222155.xyz/",
