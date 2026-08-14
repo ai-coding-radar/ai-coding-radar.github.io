@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "checked_at": "2026-08-15T04:02:07+08:00",
+  "checked_at": "2026-08-15T04:07:55+08:00",
   "sources": {
     "apify": {
       "period": "2026-08",
@@ -168,16 +168,20 @@
     "ai_coding_radar_distribution": {
       "site": "https://ai-coding-radar.github.io/",
       "homepage_http_status": 200,
-      "automation_funnel_links": 3,
+      "automation_funnel_links": 4,
       "targets": [
         "https://apify.com/ai-coding-radar/oss-package-health-monitor/examples/scan-installed-npm-and-pypi-versions-for-cves",
         "https://apify.com/ai-coding-radar/markdown-code-to-image/examples/render-markdown-and-code-to-a-png",
-        "https://apify.com/ai-coding-radar/remote-job-intelligence/examples/daily-remote-software-jobs"
+        "https://apify.com/ai-coding-radar/remote-job-intelligence/examples/daily-remote-software-jobs",
+        "https://apify.com/ai-coding-radar/uk-company-change-alerts/examples/daily-uk-supplier-status-alerts"
       ],
       "publish_workflow_status": "success",
+      "publish_workflow_run": "https://github.com/ai-coding-radar/ai-coding-radar.github.io/actions/runs/31836327422",
       "indexnow_notified_for_site_change": true,
+      "indexnow_http_status": 200,
+      "indexnow_urls_accepted": 20,
       "settled": false,
-      "evidence": "Public homepage HTTP and DOM checks plus successful Publish radar workflow; funnel links are distribution, not revenue"
+      "evidence": "Commit f9f11b4 added the fourth homepage automation card without changing historical release pages. All 56 tests passed; Publish radar run 31836327422 built and deployed successfully. The public homepage is HTTP 200 with exactly four cards and one UK supplier Example link; the desktop-only 2x2 override falls back to the existing single-column mobile layout at 760px. Because the homepage changed, IndexNow accepted 20 URLs with HTTP 200. Funnel links and indexing are distribution, not revenue"
     },
     "cardify_search": {
       "site": "https://cardify.1222155.xyz/",
