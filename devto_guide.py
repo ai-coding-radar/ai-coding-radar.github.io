@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Publish the tested OSS security workflow guide through DEV's official API."""
+"""Publish a tested automation guide through DEV's official API."""
 
 from __future__ import annotations
 
@@ -8,38 +8,74 @@ import json
 import os
 import sys
 from pathlib import Path
-from typing import Any, Dict, Optional, Sequence
+from typing import Any, Dict, Mapping, Optional, Sequence
 
 import devto
 
 
-ARTICLE_PATH = Path("content/devto/oss-exact-version-security.md")
-CANONICAL_URL = (
-    "https://github.com/Jarvis-Dong/oss-package-health-monitor/"
-    "blob/main/examples/README.md"
-)
+DEFAULT_GUIDE = "oss-security"
+GUIDES: Mapping[str, Mapping[str, Any]] = {
+    "oss-security": {
+        "path": Path("content/devto/oss-exact-version-security.md"),
+        "canonical_url": (
+            "https://github.com/Jarvis-Dong/oss-package-health-monitor/"
+            "blob/main/examples/README.md"
+        ),
+        "title": "Fail-closed npm and PyPI vulnerability checks in n8n",
+        "description": (
+            "A repeatable exact-version OSV and CISA KEV workflow that "
+            "keeps registry and vulnerability-source failures visible."
+        ),
+        "tags": "security,devops,n8n,opensource",
+        "required_links": (
+            "https://apify.com/ai-coding-radar/oss-package-health-monitor",
+            "https://raw.githubusercontent.com/Jarvis-Dong/oss-package-health-monitor/",
+            "https://osv.dev/",
+            "https://www.cisa.gov/known-exploited-vulnerabilities-catalog",
+        ),
+    },
+    "uk-supplier-monitor": {
+        "path": Path("content/devto/uk-supplier-change-monitor.md"),
+        "canonical_url": (
+            "https://github.com/Jarvis-Dong/uk-company-change-alerts/"
+            "blob/main/examples/README.md"
+        ),
+        "title": "Build a no-code UK supplier change monitor with n8n",
+        "description": (
+            "Monitor selected Companies House records on a schedule and route "
+            "observed status, filing, address, or name changes without scraping."
+        ),
+        "tags": "automation,n8n,api,opensource",
+        "required_links": (
+            "https://apify.com/ai-coding-radar/uk-company-change-alerts",
+            "https://raw.githubusercontent.com/Jarvis-Dong/uk-company-change-alerts/",
+            "https://www.gov.uk/guidance/companies-house-data-products",
+            "https://data.companieshouse.gov.uk/doc/company/02050399.json",
+        ),
+    },
+}
+
+CANONICAL_URL = str(GUIDES[DEFAULT_GUIDE]["canonical_url"])
 
 
-def article_payload(project_root: Path, *, published: bool) -> Dict[str, Any]:
-    body = (project_root / ARTICLE_PATH).read_text(encoding="utf-8").strip()
-    required_links = (
-        "https://apify.com/ai-coding-radar/oss-package-health-monitor",
-        "https://raw.githubusercontent.com/Jarvis-Dong/oss-package-health-monitor/",
-        "https://osv.dev/",
-        "https://www.cisa.gov/known-exploited-vulnerabilities-catalog",
-    )
-    if len(body) < 1_000 or any(link not in body for link in required_links):
+def article_payload(
+    project_root: Path, *, published: bool, guide: str = DEFAULT_GUIDE
+) -> Dict[str, Any]:
+    config = GUIDES.get(guide)
+    if config is None:
+        raise devto.DevToError(f"unknown guide: {guide}")
+    body = (project_root / config["path"]).read_text(encoding="utf-8").strip()
+    if len(body) < 1_000 or any(
+        link not in body for link in config["required_links"]
+    ):
         raise devto.DevToError("guide body is incomplete")
     return {
         "article": {
-            "title": "Fail-closed npm and PyPI vulnerability checks in n8n",
+            "title": config["title"],
             "published": published,
-            "canonical_url": CANONICAL_URL,
-            "description": (
-                "A repeatable exact-version OSV and CISA KEV workflow that "
-                "keeps registry and vulnerability-source failures visible."
-            ),
-            "tags": "security,devops,n8n,opensource",
+            "canonical_url": config["canonical_url"],
+            "description": config["description"],
+            "tags": config["tags"],
             "body_markdown": body,
         }
     }
@@ -50,6 +86,9 @@ def build_parser() -> argparse.ArgumentParser:
     parser.add_argument(
         "--project-root", type=Path, default=Path(__file__).resolve().parent
     )
+    parser.add_argument(
+        "--guide", choices=tuple(GUIDES), default=DEFAULT_GUIDE
+    )
     parser.add_argument("--preview", action="store_true")
     parser.add_argument("--publish", action="store_true")
     return parser
@@ -58,7 +97,11 @@ def build_parser() -> argparse.ArgumentParser:
 def main(argv: Optional[Sequence[str]] = None) -> int:
     arguments = build_parser().parse_args(argv)
     try:
-        payload = article_payload(arguments.project_root, published=arguments.publish)
+        payload = article_payload(
+            arguments.project_root,
+            published=arguments.publish,
+            guide=arguments.guide,
+        )
         if arguments.preview:
             print(json.dumps(payload, ensure_ascii=False, indent=2))
             return 0

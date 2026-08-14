@@ -22,6 +22,19 @@ class DevToGuideTest(unittest.TestCase):
         self.assertIn("CISA", payload["body_markdown"])
         self.assertNotIn("apify_api_", payload["body_markdown"])
 
+    def test_uk_payload_uses_a_distinct_canonical_url_and_valid_input(self):
+        payload = devto_guide.article_payload(
+            Path(__file__).resolve().parents[1],
+            published=False,
+            guide="uk-supplier-monitor",
+        )["article"]
+
+        self.assertFalse(payload["published"])
+        self.assertIn("uk-company-change-alerts", payload["canonical_url"])
+        self.assertIn('"companyNumbers"', payload["body_markdown"])
+        self.assertIn("Companies House", payload["body_markdown"])
+        self.assertNotIn("APIFY_API_TOKEN=", payload["body_markdown"])
+
     @patch("devto_guide.devto.publish_article")
     def test_preview_needs_no_token_or_network(self, publish_article):
         stdout = io.StringIO()
@@ -30,6 +43,20 @@ class DevToGuideTest(unittest.TestCase):
 
         self.assertEqual(result, 0)
         self.assertFalse(json.loads(stdout.getvalue())["article"]["published"])
+        publish_article.assert_not_called()
+
+    @patch("devto_guide.devto.publish_article")
+    def test_uk_preview_selects_the_requested_guide(self, publish_article):
+        stdout = io.StringIO()
+        with redirect_stdout(stdout):
+            result = devto_guide.main(
+                ["--preview", "--guide", "uk-supplier-monitor"]
+            )
+
+        article = json.loads(stdout.getvalue())["article"]
+        self.assertEqual(result, 0)
+        self.assertIn("UK supplier", article["title"])
+        self.assertFalse(article["published"])
         publish_article.assert_not_called()
 
     @patch.dict(os.environ, {}, clear=True)

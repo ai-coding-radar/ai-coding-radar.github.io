@@ -3,6 +3,14 @@ name: Publish OSS security guide on DEV
 "on":
   workflow_dispatch:
     inputs:
+      guide:
+        description: Tested guide to create, verify, or publish
+        required: true
+        default: oss-security
+        type: choice
+        options:
+          - oss-security
+          - uk-supplier-monitor
       publish:
         description: Publish publicly instead of creating or reusing a draft
         required: true
@@ -24,8 +32,9 @@ jobs:
         env:
           DEVTO_API_KEY: ${{ secrets.DEVTO_API_KEY }}
           PUBLISH: ${{ inputs.publish }}
+          GUIDE: ${{ inputs.guide }}
         run: |
-          args=()
+          args=(--guide "$GUIDE")
           if [[ "$PUBLISH" == "true" ]]; then
             args+=(--publish)
           fi
