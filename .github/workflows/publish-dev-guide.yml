@@ -1,4 +1,4 @@
-name: Publish OSS security guide on DEV
+name: Publish tested guide on DEV
 
 "on":
   workflow_dispatch:

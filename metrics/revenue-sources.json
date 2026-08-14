@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "checked_at": "2026-08-15T03:26:36+08:00",
+  "checked_at": "2026-08-15T03:42:09+08:00",
   "sources": {
     "apify": {
       "period": "2026-08",
@@ -125,8 +125,15 @@
       "price_disclosure_present": true,
       "positive_reactions": 0,
       "comments": 0,
+      "next_article_draft_id": 4398985,
+      "next_article_title": "Build a no-code UK supplier change monitor with n8n",
+      "next_article_canonical_url": "https://github.com/Jarvis-Dong/uk-company-change-alerts/blob/main/examples/README.md",
+      "next_article_status": "draft_unpublished",
+      "next_article_created_at": "2026-08-15T03:40:38+08:00",
+      "next_article_not_before": "2026-08-16T03:19:24+08:00",
+      "next_article_workflow_run": "https://github.com/ai-coding-radar/ai-coding-radar.github.io/actions/runs/31834329079",
       "settled": false,
-      "evidence": "DEV official API created one draft and upgraded the same article ID to published; anonymous article API and HTML checks confirm the public URL, Actor link, tested n8n workflow link, and price disclosure; publication and reactions are not revenue"
+      "evidence": "DEV official API created one OSS draft and upgraded the same article ID to published; anonymous article API and HTML checks confirm the public URL, Actor link, tested n8n workflow link, and price disclosure. A second distinct canonical URL was created once as unpublished UK supplier-monitoring draft ID 4398985 by successful official GitHub Actions run 31834329079; neither publication nor reactions are revenue"
     },
     "github_repository_distribution": {
       "repositories": 4,
