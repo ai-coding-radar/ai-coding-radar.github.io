@@ -50,6 +50,226 @@ STABLE_VERSION = re.compile(r"^\d+(?:\.\d+){1,3}$")
 TAG_VERSION = re.compile(r"^[0-9A-Za-z][0-9A-Za-z._-]{0,127}$")
 INDEX_LIMIT = 30
 RSS_LIMIT = 50
+AUTOMATIONS = (
+    {
+        "slug": "remote-jobs-api",
+        "title": "Remote Jobs Aggregator API for n8n",
+        "description": (
+            "Aggregate and deduplicate fresh remote jobs from four public "
+            "feeds for n8n alerts, job boards, and hiring research."
+        ),
+        "eyebrow": "Hiring data / four public feeds",
+        "signal": "$0.001",
+        "signal_unit": "per returned job",
+        "source": "Arbeitnow, Jobicy, Remote OK, and Himalayas",
+        "delivery": "JSON / CSV / Excel / API",
+        "price": "$0.001 per returned job + $0.00005 per start",
+        "actor_url": "https://apify.com/ai-coding-radar/remote-job-intelligence",
+        "example_url": (
+            "https://apify.com/ai-coding-radar/remote-job-intelligence/"
+            "examples/daily-remote-ai-and-machine-learning-jobs"
+        ),
+        "example_label": "Open AI jobs example",
+        "repository_url": (
+            "https://github.com/Jarvis-Dong/remote-job-intelligence"
+        ),
+        "input": '''{
+  "sources": ["arbeitnow", "jobicy", "remoteok", "himalayas"],
+  "keywords": ["machine learning", "artificial intelligence", "llm"],
+  "keywordMatchMode": "any",
+  "maxAgeDays": 7,
+  "limit": 50,
+  "includeDescription": false
+}''',
+        "steps": (
+            "Filter fresh listings by keyword, location, and age.",
+            "Deduplicate each run while preserving source and application links.",
+            "Send attributed records to n8n, Make, a job board, or a database.",
+        ),
+        "boundaries": (
+            "No login, cookie, proxy, or CAPTCHA bypass.",
+            "Does not submit applications or contact employers.",
+            "Cross-day delivery deduplication belongs in the caller workflow.",
+            "Descriptions are omitted by default because listing text is untrusted.",
+        ),
+    },
+    {
+        "slug": "npm-pypi-vulnerability-api",
+        "title": "npm and PyPI Vulnerability API",
+        "description": (
+            "Check exact npm and PyPI versions against registry metadata, "
+            "OSV vulnerabilities, and CISA KEV with visible source status."
+        ),
+        "eyebrow": "Dependency security / exact versions",
+        "signal": "$0.0015",
+        "signal_unit": "per package record",
+        "source": "npm, PyPI, OSV, and CISA KEV",
+        "delivery": "JSON / CSV / Excel / n8n",
+        "price": "$0.0015 per package record + $0.00005 per start",
+        "actor_url": (
+            "https://apify.com/ai-coding-radar/oss-package-health-monitor"
+        ),
+        "example_url": (
+            "https://apify.com/ai-coding-radar/oss-package-health-monitor/"
+            "examples/scan-installed-npm-and-pypi-versions-for-cves"
+        ),
+        "example_label": "Open exact-version scan",
+        "repository_url": (
+            "https://github.com/Jarvis-Dong/oss-package-health-monitor"
+        ),
+        "input": '''{
+  "packages": [
+    {"name": "lodash", "ecosystem": "npm", "version": "4.17.20"},
+    {"name": "requests", "ecosystem": "PyPI", "version": "2.31.0"}
+  ],
+  "includeVulnerabilities": true,
+  "includeCisaKev": true
+}''',
+        "steps": (
+            "Resolve the exact requested version against its public registry.",
+            "Query OSV and match returned CVEs against the CISA KEV catalog.",
+            "Keep partial and failed source states visible to downstream alerts.",
+        ),
+        "boundaries": (
+            "No private package, registry login, or repository credential access.",
+            "A source error is not converted into a clean vulnerability result.",
+            "Does not update dependencies or certify that a package is safe.",
+            "Use installed lockfile versions, not a floating latest tag.",
+        ),
+    },
+    {
+        "slug": "markdown-code-to-image-api",
+        "title": "Markdown and Code to PNG API",
+        "description": (
+            "Render Markdown, code, tables, and AI answers into downloadable "
+            "PNG files for n8n, Make, newsletters, and documentation."
+        ),
+        "eyebrow": "Content automation / deterministic PNG",
+        "signal": "$0.005",
+        "signal_unit": "per generated image",
+        "source": "Structured Markdown supplied by the caller",
+        "delivery": "PNG / API / n8n / Make",
+        "price": "$0.005 per generated image + $0.00005 per start",
+        "actor_url": (
+            "https://apify.com/ai-coding-radar/markdown-code-to-image"
+        ),
+        "example_url": (
+            "https://apify.com/ai-coding-radar/markdown-code-to-image/"
+            "examples/chatgpt-markdown-answer-to-png"
+        ),
+        "example_label": "Open AI answer example",
+        "repository_url": (
+            "https://github.com/Jarvis-Dong/markdown-code-to-image"
+        ),
+        "input": '''{
+  "documents": [{
+    "title": "Release note",
+    "markdown": "# Shipped\\n\\nThe useful change is live."
+  }],
+  "theme": "paper",
+  "width": 1080,
+  "fontSize": 22,
+  "watermark": ""
+}''',
+        "steps": (
+            "Send one to twenty bounded Markdown documents in one request.",
+            "Render with paper, midnight, terminal, or clean presentation.",
+            "Pass runtime PNG URLs to storage, email, a CMS, or another workflow.",
+        ),
+        "boundaries": (
+            "Does not automate ChatGPT or screenshot an authenticated browser.",
+            "Raw HTML is disabled and remote image requests are blocked.",
+            "Runtime download URLs should not be hard-coded or republished.",
+            "Output is PNG only and each image has a bounded height.",
+        ),
+    },
+    {
+        "slug": "uk-company-change-api",
+        "title": "UK Companies House Change API",
+        "description": (
+            "Monitor selected Companies House records for observed status, "
+            "filing, address, SIC, accounts, mortgage, and name changes."
+        ),
+        "eyebrow": "Company monitoring / official register",
+        "signal": "$0.003",
+        "signal_unit": "per company check",
+        "source": "Official Companies House URI JSON",
+        "delivery": "Change rows / API / n8n / Make",
+        "price": "$0.003 per check + $0.01 per changed field + $0.00005 per start",
+        "actor_url": (
+            "https://apify.com/ai-coding-radar/uk-company-change-alerts"
+        ),
+        "example_url": (
+            "https://apify.com/ai-coding-radar/uk-company-change-alerts/"
+            "examples/daily-uk-supplier-status-alerts"
+        ),
+        "example_label": "Open supplier alert example",
+        "repository_url": (
+            "https://github.com/Jarvis-Dong/uk-company-change-alerts"
+        ),
+        "input": '''{
+  "companyNumbers": ["02050399"],
+  "monitorId": "supplier-watchlist",
+  "emitUnchanged": false
+}''',
+        "steps": (
+            "Read current public company-level facts for an explicit watchlist.",
+            "Store one named baseline and compare watched fields on later runs.",
+            "Emit observed changes and source failures for downstream review.",
+        ),
+        "boundaries": (
+            "No officer or PSC profiles, birthdays, or private databases.",
+            "Does not predict insolvency or provide a credit or legal decision.",
+            "A first baseline is setup evidence, not a warning.",
+            "Source failures are visible and are not billed as successful checks.",
+        ),
+    },
+    {
+        "slug": "grants-gov-alerts-api",
+        "title": "Grants.gov Opportunity Alerts API",
+        "description": (
+            "Track new and changed federal grant opportunities from the "
+            "official Grants.gov search API with stable monitor baselines."
+        ),
+        "eyebrow": "Federal grants / official search API",
+        "signal": "$0.0075",
+        "signal_unit": "per new opportunity",
+        "source": "Official Grants.gov search2 endpoint",
+        "delivery": "New and changed rows / API / n8n",
+        "price": "$0.0075 per new grant + $0.015 per change + $0.00005 per start",
+        "actor_url": (
+            "https://apify.com/ai-coding-radar/grants-gov-opportunity-monitor"
+        ),
+        "example_url": (
+            "https://apify.com/ai-coding-radar/grants-gov-opportunity-monitor/"
+            "examples/daily-small-business-federal-grant-alerts"
+        ),
+        "example_label": "Open small-business example",
+        "repository_url": (
+            "https://github.com/Jarvis-Dong/grants-gov-opportunity-monitor"
+        ),
+        "input": '''{
+  "keyword": "small business",
+  "statuses": ["posted", "forecasted"],
+  "eligibilityCodes": ["23"],
+  "limit": 10,
+  "monitorId": "small-business-grants"
+}''',
+        "steps": (
+            "Search a bounded official query by keyword, status, and eligibility.",
+            "Store one stable baseline for that exact filter set.",
+            "Emit only newly observed or changed opportunity summaries.",
+        ),
+        "boundaries": (
+            "Does not decide eligibility, rank applicants, or predict an award.",
+            "Does not submit applications or download attachments and contacts.",
+            "Leaving a limited result window is not called a closed grant.",
+            "Always verify the current notice with Grants.gov and the agency.",
+        ),
+    },
+)
+AUTOMATION_BY_SLUG = {item["slug"]: item for item in AUTOMATIONS}
+AUTOMATION_LASTMOD = "2026-08-15"
 
 INDEX_STYLE = """
 :root {
@@ -551,6 +771,95 @@ h2 {
 }
 """
 
+AUTOMATION_STYLE = """
+.price-signal { align-content: center; }
+
+.price-signal strong { display: block; }
+
+.price-signal span {
+  display: block;
+  margin-top: 18px;
+  font-family: Menlo, Monaco, monospace;
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: .08em;
+  line-height: 1.45;
+  text-transform: uppercase;
+}
+
+.automation-layout {
+  display: grid;
+  grid-template-columns: minmax(0, .9fr) minmax(0, 1.1fr);
+  margin: 54px 0;
+  border-top: var(--line);
+  border-left: var(--line);
+}
+
+.automation-panel {
+  min-width: 0;
+  padding: clamp(26px, 5vw, 48px);
+  border-right: var(--line);
+  border-bottom: var(--line);
+  background: var(--white);
+}
+
+.automation-panel:nth-child(2) { background: var(--acid); }
+
+.automation-panel h2 {
+  margin-bottom: 24px;
+  font-size: clamp(38px, 5vw, 62px);
+}
+
+.automation-steps {
+  margin: 0;
+  padding-left: 24px;
+  color: var(--muted);
+  font-size: 16px;
+  line-height: 1.7;
+}
+
+.automation-steps li + li { margin-top: 14px; }
+
+.code-sample {
+  overflow-x: auto;
+  margin: 0;
+  padding: 24px;
+  border: var(--line);
+  background: var(--ink);
+  color: var(--white);
+  font-family: Menlo, Monaco, "Courier New", monospace;
+  font-size: 12px;
+  line-height: 1.65;
+  box-shadow: 6px 6px 0 var(--signal);
+}
+
+.action-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 18px;
+  align-items: center;
+  margin: 0 0 72px;
+}
+
+.secondary-action {
+  padding: 10px 14px;
+  border: var(--line);
+  background: var(--white);
+  font-family: Menlo, Monaco, monospace;
+  font-size: 12px;
+  font-weight: 800;
+  text-decoration: none;
+  text-transform: uppercase;
+}
+
+@media (max-width: 760px) {
+  .automation-layout { grid-template-columns: 1fr; }
+  .automation-panel { padding: 28px 22px; }
+  .action-row { align-items: stretch; flex-direction: column; }
+  .action-row a { text-align: center; }
+}
+"""
+
 
 def fetch_feed(url):
     request = urllib.request.Request(
@@ -681,6 +990,14 @@ def source_page_path(source_key):
 
 def source_page_url(source_key):
     return f"{SITE_URL}tools/{source_key}/"
+
+
+def automation_page_path(automation):
+    return f'output/automations/{automation["slug"]}/index.html'
+
+
+def automation_page_url(automation):
+    return f'{SITE_URL}automations/{automation["slug"]}/'
 
 
 def source_for_record(record):
@@ -887,12 +1204,12 @@ def render_index(records):
       <section class="toolbox" aria-labelledby="toolbox-title">
         <p class="eyebrow">Community-built / optional</p>
         <h2 id="toolbox-title">Developer automation</h2>
-        <p class="toolbox-copy">Small paid APIs maintained by this publisher. They are separate from the verified release index and never influence its source records.</p>
+        <p class="toolbox-copy">Small paid APIs maintained by this publisher. Each linked guide documents its source, input, current event price, and limits. They are separate from the verified release index and never influence its source records.</p>
         <div class="tool-grid tool-grid-five">
           <article class="tool-card">
             <div>
               <div class="tool-tag">Dependency security / public example</div>
-              <h3>Check exact npm and PyPI versions</h3>
+              <h3><a class="internal-link" href="{automation_page_url(AUTOMATION_BY_SLUG["npm-pypi-vulnerability-api"])}">Check exact npm and PyPI versions</a></h3>
               <p>Collect registry metadata, OSV vulnerabilities, and CISA KEV matches with visible source status.</p>
             </div>
             <a class="tool-link" href="https://apify.com/ai-coding-radar/oss-package-health-monitor/examples/scan-installed-npm-and-pypi-versions-for-cves" target="_blank" rel="noopener noreferrer">Try CVE scan →</a>
@@ -900,7 +1217,7 @@ def render_index(records):
           <article class="tool-card">
             <div>
               <div class="tool-tag">Content automation / public example</div>
-              <h3>Render Markdown and code to PNG</h3>
+              <h3><a class="internal-link" href="{automation_page_url(AUTOMATION_BY_SLUG["markdown-code-to-image-api"])}">Render Markdown and code to PNG</a></h3>
               <p>Generate image cards through an API for n8n, Make, schedules, and batch workflows.</p>
             </div>
             <a class="tool-link" href="https://apify.com/ai-coding-radar/markdown-code-to-image/examples/render-markdown-and-code-to-a-png" target="_blank" rel="noopener noreferrer">Try PNG render →</a>
@@ -908,7 +1225,7 @@ def render_index(records):
           <article class="tool-card">
             <div>
               <div class="tool-tag">Hiring data / public example</div>
-              <h3>Aggregate fresh remote software jobs</h3>
+              <h3><a class="internal-link" href="{automation_page_url(AUTOMATION_BY_SLUG["remote-jobs-api"])}">Aggregate fresh remote software jobs</a></h3>
               <p>Deduplicate four public feeds into attributed records for alerts, job boards, and research.</p>
             </div>
             <a class="tool-link" href="https://apify.com/ai-coding-radar/remote-job-intelligence/examples/daily-remote-software-jobs" target="_blank" rel="noopener noreferrer">Try remote jobs →</a>
@@ -916,7 +1233,7 @@ def render_index(records):
           <article class="tool-card">
             <div>
               <div class="tool-tag">Company monitoring / public example</div>
-              <h3>Monitor UK supplier record changes</h3>
+              <h3><a class="internal-link" href="{automation_page_url(AUTOMATION_BY_SLUG["uk-company-change-api"])}">Monitor UK supplier record changes</a></h3>
               <p>Compare official Companies House records over time and emit observed status, filing, address, SIC, accounts, or name changes.</p>
             </div>
             <a class="tool-link" href="https://apify.com/ai-coding-radar/uk-company-change-alerts/examples/daily-uk-supplier-status-alerts" target="_blank" rel="noopener noreferrer">Try supplier alerts →</a>
@@ -924,7 +1241,7 @@ def render_index(records):
           <article class="tool-card">
             <div>
               <div class="tool-tag">Federal grants / public example</div>
-              <h3>Monitor Grants.gov opportunities</h3>
+              <h3><a class="internal-link" href="{automation_page_url(AUTOMATION_BY_SLUG["grants-gov-alerts-api"])}">Monitor Grants.gov opportunities</a></h3>
               <p>Track new and changed federal grant opportunities from the official Grants.gov search API.</p>
             </div>
             <a class="tool-link" href="https://apify.com/ai-coding-radar/grants-gov-opportunity-monitor/examples/daily-ai-federal-grant-opportunity-alerts" target="_blank" rel="noopener noreferrer">Try grant alerts →</a>
@@ -1097,6 +1414,77 @@ def render_source_page(source, records):
 '''
 
 
+def render_automation_page(automation):
+    title = automation["title"]
+    description = automation["description"]
+    page_url = automation_page_url(automation)
+    steps = "".join(
+        f"<li>{escape(step)}</li>" for step in automation["steps"]
+    )
+    boundaries = "".join(
+        f"<li>{escape(boundary)}</li>"
+        for boundary in automation["boundaries"]
+    )
+    return f'''<!doctype html>
+<html lang="en">
+<head>
+  {render_page_head(title, description, page_url)}
+  <style>{AUTOMATION_STYLE}</style>
+</head>
+<body>
+  <div class="shell">
+    <header class="masthead">
+      <a class="brand" href="{SITE_URL}">AUTO MEDIA <span>/ SIGNAL DESK</span></a>
+      <div class="status">automation guide online</div>
+    </header>
+    <main>
+      <nav class="breadcrumb" aria-label="Breadcrumb"><a href="{SITE_URL}">Release radar</a><span>/</span><span>Automation</span><span>/</span><span>{escape(title)}</span></nav>
+      <article class="detail-hero">
+        <div class="detail-copy">
+          <p class="eyebrow">{escape(automation["eyebrow"])}</p>
+          <h1 class="detail-title">{escape(title)}</h1>
+          <p>{escape(description)} This page describes the public input, source boundary, and launch pricing before you run anything.</p>
+        </div>
+        <div class="detail-signal price-signal" aria-label="Launch price {escape(automation['signal'])} {escape(automation['signal_unit'])}">
+          <div><strong>{escape(automation["signal"])}</strong><span>{escape(automation["signal_unit"])}<br>launch price</span></div>
+        </div>
+      </article>
+      <section class="facts" aria-label="Automation facts">
+        <div class="fact"><span>Current event price</span><strong>{escape(automation["price"])}</strong></div>
+        <div class="fact"><span>Public source</span><strong>{escape(automation["source"])}</strong></div>
+        <div class="fact"><span>Delivery</span><strong>{escape(automation["delivery"])}</strong></div>
+      </section>
+      <section class="automation-layout" aria-label="How the automation works">
+        <article class="automation-panel">
+          <p class="eyebrow">Three-step flow</p>
+          <h2>How it works</h2>
+          <ol class="automation-steps">{steps}</ol>
+        </article>
+        <article class="automation-panel">
+          <p class="eyebrow">Copyable starting point</p>
+          <h2>Example input</h2>
+          <pre class="code-sample"><code>{escape(automation["input"])}</code></pre>
+        </article>
+      </section>
+      <section class="protocol" aria-labelledby="boundary-title">
+        <h2 id="boundary-title">Decision boundary</h2>
+        <ul>{boundaries}<li>Check the current Store price in your own account before scheduling.</li></ul>
+      </section>
+      <div class="action-row" aria-label="Automation links">
+        <a class="rss" href="{escape(automation['example_url'], quote=True)}" target="_blank" rel="noopener noreferrer">{escape(automation["example_label"])}</a>
+        <a class="secondary-action" href="{escape(automation['actor_url'], quote=True)}" target="_blank" rel="noopener noreferrer">Actor and API docs</a>
+      </div>
+    </main>
+    <footer class="footer">
+      <span>AI Coding Radar / automation guide</span>
+      <span><a href="{escape(automation['repository_url'], quote=True)}" target="_blank" rel="noopener noreferrer">Open source repository</a></span>
+    </footer>
+  </div>
+</body>
+</html>
+'''
+
+
 def render_sitemap(records):
     urlset = ET.Element(
         "urlset", xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
@@ -1104,6 +1492,10 @@ def render_sitemap(records):
     urls = [(SITE_URL, None)]
     source_keys = sorted({record["source_key"] for record in records})
     urls.extend((source_page_url(source_key), None) for source_key in source_keys)
+    urls.extend(
+        (automation_page_url(automation), AUTOMATION_LASTMOD)
+        for automation in AUTOMATIONS
+    )
     urls.extend(
         (release_page_url(record), record["source_published_at"][:10])
         for record in sorted(
@@ -1182,6 +1574,12 @@ def process_feeds(feed_payloads, root_dir, now=None):
         for source in SOURCES
         if any(record["source_key"] == source["key"] for record in records)
     }
+    automation_page_contents = {
+        root_dir / automation_page_path(automation): render_automation_page(
+            automation
+        )
+        for automation in AUTOMATIONS
+    }
     rss_content = render_rss(records)
     index_content = render_index(records)
     state_content = json.dumps(state, ensure_ascii=False, indent=2) + "\n"
@@ -1191,6 +1589,8 @@ def process_feeds(feed_payloads, root_dir, now=None):
     for page_path, page_content in release_page_contents.items():
         atomic_write(page_path, page_content)
     for page_path, page_content in source_page_contents.items():
+        atomic_write(page_path, page_content)
+    for page_path, page_content in automation_page_contents.items():
         atomic_write(page_path, page_content)
     if state_changed:
         atomic_write(state_path, state_content)

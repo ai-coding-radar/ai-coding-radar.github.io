@@ -214,6 +214,25 @@ class RadarTest(unittest.TestCase):
                 "grants-gov-opportunity-monitor/examples/daily-ai-federal-grant-opportunity-alerts",
                 index,
             )
+            self.assertEqual(
+                len(radar.AUTOMATION_BY_SLUG), len(radar.AUTOMATIONS)
+            )
+            for automation in radar.AUTOMATIONS:
+                with self.subTest(automation=automation["slug"]):
+                    page_url = radar.automation_page_url(automation)
+                    self.assertIn(page_url, index)
+                    page = (
+                        root / radar.automation_page_path(automation)
+                    ).read_text(encoding="utf-8")
+                    self.assertIn(automation["title"], page)
+                    self.assertIn(automation["price"], page)
+                    self.assertIn(automation["actor_url"], page)
+                    self.assertIn(automation["example_url"], page)
+                    self.assertIn(automation["repository_url"], page)
+                    self.assertIn(f'rel="canonical" href="{page_url}"', page)
+                    self.assertIn('class="code-sample"', page)
+                    self.assertIn("Check the current Store price", page)
+                    self.assertIn('rel="noopener noreferrer"', page)
             self.assertEqual(index.count('class="tool-card"'), 5)
             self.assertIn('name="google-site-verification"', index)
             self.assertIn('rel="alternate" type="application/rss+xml"', index)
@@ -248,7 +267,7 @@ class RadarTest(unittest.TestCase):
             locations = {
                 node.text for node in sitemap.findall(".//s:loc", namespace)
             }
-            self.assertEqual(len(locations), 8)
+            self.assertEqual(len(locations), 13)
             self.assertIn(
                 radar.release_page_url(
                     {"source_key": "claude-code", "version": "2.1.2"}
@@ -256,6 +275,8 @@ class RadarTest(unittest.TestCase):
                 locations,
             )
             self.assertIn(radar.source_page_url("claude-code"), locations)
+            for automation in radar.AUTOMATIONS:
+                self.assertIn(radar.automation_page_url(automation), locations)
 
     def test_invalid_stable_release_writes_nothing(self):
         with tempfile.TemporaryDirectory() as directory:
