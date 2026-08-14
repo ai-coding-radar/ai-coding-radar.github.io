@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "checked_at": "2026-08-15T04:22:24+08:00",
+  "checked_at": "2026-08-15T04:28:16+08:00",
   "sources": {
     "apify": {
       "period": "2026-08",
@@ -170,8 +170,15 @@
       "next_article_workflow_run": "https://github.com/ai-coding-radar/ai-coding-radar.github.io/actions/runs/31834329079",
       "next_article_last_refreshed_at": "2026-08-15T03:54:30+08:00",
       "next_article_refresh_workflow_run": "https://github.com/ai-coding-radar/ai-coding-radar.github.io/actions/runs/31835391238",
+      "third_article_draft_id": 4399131,
+      "third_article_title": "Turn Markdown and AI answers into PNG files in n8n",
+      "third_article_canonical_url": "https://github.com/Jarvis-Dong/markdown-code-to-image/blob/main/examples/README.md",
+      "third_article_status": "draft_unpublished",
+      "third_article_created_at": "2026-08-15T04:27:40+08:00",
+      "third_article_release_policy": "at_least_24h_after_uk_article_published_at",
+      "third_article_workflow_run": "https://github.com/ai-coding-radar/ai-coding-radar.github.io/actions/runs/31837991753",
       "settled": false,
-      "evidence": "DEV official API created one OSS draft and upgraded the same article ID to published; anonymous article API and HTML checks confirm the public URL, Actor link, tested n8n workflow link, and price disclosure. A second distinct canonical URL was created once as unpublished UK supplier-monitoring draft ID 4398985 by successful official GitHub Actions run 31834329079; neither publication nor reactions are revenue"
+      "evidence": "DEV official API created one OSS draft and upgraded the same article ID to published; anonymous article API and HTML checks confirm the public URL, Actor link, tested n8n workflow link, and price disclosure. A second distinct canonical URL was created once as unpublished UK supplier-monitoring draft ID 4398985. A third distinct canonical URL was created once as unpublished Markdown image automation draft ID 4399131 by successful official GitHub Actions run 31837991753. The third draft remains queued until at least 24 hours after the UK article's actual published_at. Drafts, publication, and reactions are not revenue"
     },
     "github_repository_distribution": {
       "repositories": 4,
