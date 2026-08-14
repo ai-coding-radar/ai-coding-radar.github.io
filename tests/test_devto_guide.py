@@ -81,6 +81,25 @@ class DevToGuideTest(unittest.TestCase):
         self.assertIn("not an eligibility determination", payload["body_markdown"])
         self.assertNotIn("DEVTO_API_KEY=", payload["body_markdown"])
 
+    def test_remote_jobs_payload_links_the_ai_example_and_workflow(self):
+        payload = devto_guide.article_payload(
+            Path(__file__).resolve().parents[1],
+            published=False,
+            guide="remote-ai-jobs",
+        )["article"]
+
+        self.assertFalse(payload["published"])
+        self.assertIn("remote-job-intelligence", payload["canonical_url"])
+        self.assertIn(
+            "examples/daily-remote-ai-and-machine-learning-jobs",
+            payload["body_markdown"],
+        )
+        self.assertIn("n8n-remote-jobs-webhook.json", payload["body_markdown"])
+        self.assertIn('"keywordMatchMode": "any"', payload["body_markdown"])
+        self.assertIn("$0.001", payload["body_markdown"])
+        self.assertIn("does not submit applications", payload["body_markdown"])
+        self.assertNotIn("APIFY_API_TOKEN=", payload["body_markdown"])
+
     @patch("devto_guide.devto.publish_article")
     def test_preview_needs_no_token_or_network(self, publish_article):
         stdout = io.StringIO()
@@ -132,6 +151,22 @@ class DevToGuideTest(unittest.TestCase):
         article = json.loads(stdout.getvalue())["article"]
         self.assertEqual(result, 0)
         self.assertIn("Grants.gov", article["title"])
+        self.assertFalse(article["published"])
+        publish_article.assert_not_called()
+
+    @patch("devto_guide.devto.publish_article")
+    def test_remote_jobs_preview_selects_the_requested_guide(
+        self, publish_article
+    ):
+        stdout = io.StringIO()
+        with redirect_stdout(stdout):
+            result = devto_guide.main(
+                ["--preview", "--guide", "remote-ai-jobs"]
+            )
+
+        article = json.loads(stdout.getvalue())["article"]
+        self.assertEqual(result, 0)
+        self.assertIn("remote AI jobs", article["title"])
         self.assertFalse(article["published"])
         publish_article.assert_not_called()
 

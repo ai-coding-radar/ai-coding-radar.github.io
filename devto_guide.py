@@ -101,6 +101,28 @@ GUIDES: Mapping[str, Mapping[str, Any]] = {
             "n8n-grants-gov-monitor.json",
         ),
     },
+    "remote-ai-jobs": {
+        "path": Path("content/devto/remote-ai-jobs-n8n.md"),
+        "canonical_url": (
+            "https://github.com/Jarvis-Dong/remote-job-intelligence/"
+            "blob/main/examples/README.md"
+        ),
+        "title": "Build a daily remote AI jobs feed with n8n",
+        "description": (
+            "Aggregate and deduplicate public remote AI job feeds, then route "
+            "fresh attributed records through an n8n workflow."
+        ),
+        "tags": "automation,n8n,api,career",
+        "required_links": (
+            "https://apify.com/ai-coding-radar/remote-job-intelligence",
+            "https://apify.com/ai-coding-radar/remote-job-intelligence/"
+            "examples/daily-remote-ai-and-machine-learning-jobs",
+            "https://raw.githubusercontent.com/Jarvis-Dong/"
+            "remote-job-intelligence/main/examples/"
+            "n8n-remote-jobs-webhook.json",
+            "https://github.com/Jarvis-Dong/remote-job-intelligence",
+        ),
+    },
 }
 
 CANONICAL_URL = str(GUIDES[DEFAULT_GUIDE]["canonical_url"])

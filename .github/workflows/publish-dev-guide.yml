@@ -13,6 +13,7 @@ name: Publish tested guide on DEV
           - uk-supplier-monitor
           - markdown-image-automation
           - grants-gov-monitor
+          - remote-ai-jobs
       publish:
         description: Publish publicly instead of creating or reusing a draft
         required: true
