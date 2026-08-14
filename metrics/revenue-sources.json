@@ -1,11 +1,13 @@
 {
   "schema_version": 1,
-  "checked_at": "2026-08-15T03:08:13+08:00",
+  "checked_at": "2026-08-15T03:26:36+08:00",
   "sources": {
     "apify": {
       "period": "2026-08",
       "actor": "ai-coding-radar/remote-job-intelligence",
       "latest_build": "0.0.9",
+      "seo_title": "Remote Jobs Aggregator API for n8n and Job Boards",
+      "seo_description": "Aggregate and deduplicate remote jobs from four public sources. Filter by keyword, location, and age for n8n, Make, job boards, recruiters, and AI agents.",
       "public_total_users": 2,
       "public_total_runs": 11,
       "public_example": "https://apify.com/ai-coding-radar/remote-job-intelligence/examples/daily-remote-software-jobs",
@@ -24,6 +26,8 @@
       "latest_build": "0.0.5",
       "latest_build_status": "succeeded",
       "latest_build_git_commit": "450c7c8f6b6adf493fca9e2d92ddcf20b2181c5a",
+      "seo_title": "Exact npm and PyPI Vulnerability Scanner API",
+      "seo_description": "Scan exact npm and PyPI versions for OSV vulnerabilities and CISA KEV matches. Keep source failures visible and export to n8n, Make, JSON, CSV, or Excel.",
       "public_example": "https://apify.com/ai-coding-radar/oss-package-health-monitor/examples/scan-installed-npm-and-pypi-versions-for-cves",
       "price_per_record_usd": 0.0015,
       "public_total_users": 2,
@@ -45,6 +49,8 @@
       "period": "2026-08",
       "actor": "ai-coding-radar/markdown-code-to-image",
       "latest_build": "0.0.4",
+      "seo_title": "Markdown and Code to PNG Image Automation API",
+      "seo_description": "Render Markdown, code, tables, quotes, and AI answers into PNG images through an API for n8n, Make, newsletters, documentation, and social media.",
       "price_per_generated_image_usd": 0.005,
       "price_per_start_usd": 0.00005,
       "public_total_users": 2,
@@ -71,6 +77,8 @@
       "latest_build": "0.0.5",
       "latest_build_status": "succeeded",
       "latest_build_git_commit": "8d89da8dad4680a56a3e978f8822382aa95483f7",
+      "seo_title": "UK Companies House Change Monitoring API",
+      "seo_description": "Monitor Companies House records for status, filing, address, SIC, accounts, mortgage, and name changes for supplier watchlists, due diligence, and n8n.",
       "publication_status": "public_monetization_active",
       "pricing_model": "pay_per_event",
       "price_per_company_check_usd": 0.003,
@@ -104,6 +112,33 @@
       "payout_status": "identity_verification_required_no_settlement",
       "settled": false,
       "evidence": "Public build API verifies build 0.0.5 cloned the tested commit and contains the valid companyNumbers REST quickstart plus canonical API URL; the raw five-node n8n workflow is publicly reachable without credentials; Console Insights shows zero paying users and zero profit; Store HTML and Markdown remain on older cached representations"
+    },
+    "dev_community_distribution": {
+      "article_id": 4398899,
+      "article_url": "https://dev.to/aicodingradar/fail-closed-npm-and-pypi-vulnerability-checks-in-n8n-1hcf",
+      "title": "Fail-closed npm and PyPI vulnerability checks in n8n",
+      "published_at": "2026-08-14T19:19:24Z",
+      "canonical_url": "https://github.com/Jarvis-Dong/oss-package-health-monitor/blob/main/examples/README.md",
+      "http_status": 200,
+      "actor_link_present": true,
+      "workflow_link_present": true,
+      "price_disclosure_present": true,
+      "positive_reactions": 0,
+      "comments": 0,
+      "settled": false,
+      "evidence": "DEV official API created one draft and upgraded the same article ID to published; anonymous article API and HTML checks confirm the public URL, Actor link, tested n8n workflow link, and price disclosure; publication and reactions are not revenue"
+    },
+    "github_repository_distribution": {
+      "repositories": 4,
+      "public_actor_homepages": 4,
+      "topics_configured": {
+        "remote-job-intelligence": 7,
+        "oss-package-health-monitor": 9,
+        "markdown-code-to-image": 7,
+        "uk-company-change-alerts": 8
+      },
+      "settled": false,
+      "evidence": "GitHub repository API confirms four public repositories now have accurate descriptions, Apify Store homepages, and use-case topics; repository metadata is distribution, not revenue"
     },
     "ai_coding_radar_distribution": {
       "site": "https://ai-coding-radar.github.io/",
