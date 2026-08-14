@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "checked_at": "2026-08-15T05:10:14+08:00",
+  "checked_at": "2026-08-15T05:39:02+08:00",
   "sources": {
     "apify": {
       "period": "2026-08",
@@ -192,6 +192,54 @@
       "settled": false,
       "evidence": "Nine local tests, compile checks, schema validation, fixture execution, and GitHub Actions run 31839971442 passed for commit 576c25c. Apify build 0.0.7 cloned that exact commit and succeeded without running the Actor; the public API shows seven builds while total runs remain four and total users remain one. Source fetches are now bounded to ten concurrent requests so the documented 100-company watchlist fits within the 300-second Actor timeout under the 20-second per-request ceiling, while output order and successful-check charging remain unchanged. Store and both supplier Example HTML/Markdown endpoints remain HTTP 200 with valid public input. Console run history shows four completed runs with terminal status messages, all marked Origin Development; Store's 0.0% public success rate therefore reflects no public run sample and must not be improved with self-runs. The last Console Insights check still showed zero paying users and zero profit, so settled revenue remains zero"
     },
+    "apify_grants_gov_opportunity_monitor": {
+      "period": "2026-08",
+      "actor": "ai-coding-radar/grants-gov-opportunity-monitor",
+      "actor_id": "Qqlebaz7DBKhhAnrk",
+      "latest_build": "0.0.1",
+      "latest_build_status": "succeeded",
+      "latest_build_git_commit": "8a6ee232e146229b3aec6787ef5287f6062815ee",
+      "ci_workflow_run": "https://github.com/Jarvis-Dong/grants-gov-opportunity-monitor/actions/runs/31842143691",
+      "seo_title": "Grants.gov Opportunity Monitor & Alerts",
+      "seo_description": "Track official Grants.gov opportunities by keyword, agency, eligibility, status, and category. Receive only new or changed records for reliable automated grant alerts.",
+      "publication_status": "public_monetization_active",
+      "pricing_model": "pay_per_event",
+      "price_per_grant_opportunity_usd": 0.0075,
+      "price_per_grant_change_usd": 0.015,
+      "price_per_start_usd": 0.00005,
+      "primary_event": "grant-opportunity",
+      "store_html_http_status": 200,
+      "store_markdown_http_status": 200,
+      "actor_api_http_status": 200,
+      "actor_api_is_public": true,
+      "public_total_users": 1,
+      "public_total_runs": 2,
+      "development_smoke_runs": 2,
+      "cloud_smoke_first_run": "one_new_opportunity_one_output_row",
+      "cloud_smoke_second_run": "one_unchanged_opportunity_zero_output_rows",
+      "public_example": "https://apify.com/ai-coding-radar/grants-gov-opportunity-monitor/examples/daily-ai-federal-grant-opportunity-alerts",
+      "public_example_http_status": 200,
+      "public_example_markdown_http_status": 200,
+      "public_example_indexable": true,
+      "public_example_task_runs": 0,
+      "public_example_input": {
+        "keyword": "artificial intelligence",
+        "statuses": ["posted", "forecasted"],
+        "limit": 25,
+        "monitorId": "daily-ai-federal-grants"
+      },
+      "public_example_task_memory_mbytes": 256,
+      "public_example_max_cost_usd": 0.25,
+      "official_source": "https://api.grants.gov/v1/api/search2",
+      "official_source_http_status": 200,
+      "official_source_current_hit_count": 205,
+      "official_source_requires_authentication": false,
+      "paying_users": 0,
+      "displayed_profit_usd": 0,
+      "payout_status": "identity_verification_required_no_settlement",
+      "settled": false,
+      "evidence": "Six offline tests, compile and schema checks, four live 100-row normalization checks, and GitHub Actions run 31842143691 passed for commit 8a6ee23. Public build 0.0.1 cloned that exact commit and succeeded. Two development smoke runs verified one new output followed by one unchanged check with zero output, so unchanged records are not charged as opportunity or change events. Anonymous Store, Markdown, Actor API, and public Example HTML/Markdown all return HTTP 200; the Example exposes the intended 25-result input, independent monitor ID, 256 MB memory, $0.25 run cap, and still has zero runs. Public stats show only the creator and two self-tests; no external paying user, profit, payout, or settled revenue is verified"
+    },
     "dev_community_distribution": {
       "article_id": 4398899,
       "article_url": "https://dev.to/aicodingradar/fail-closed-npm-and-pypi-vulnerability-checks-in-n8n-1hcf",
@@ -224,16 +272,17 @@
       "evidence": "DEV official API created one OSS draft and upgraded the same article ID to published; anonymous article API and HTML checks confirm the public URL, Actor link, tested n8n workflow link, and price disclosure. A second distinct canonical URL was created once as unpublished UK supplier-monitoring draft ID 4398985. A third distinct canonical URL was created once as unpublished Markdown image automation draft ID 4399131 by successful official GitHub Actions run 31837991753. The third draft remains queued until at least 24 hours after the UK article's actual published_at. Drafts, publication, and reactions are not revenue"
     },
     "github_repository_distribution": {
-      "repositories": 4,
-      "public_actor_homepages": 4,
+      "repositories": 5,
+      "public_actor_homepages": 5,
       "topics_configured": {
         "remote-job-intelligence": 7,
         "oss-package-health-monitor": 9,
         "markdown-code-to-image": 7,
-        "uk-company-change-alerts": 8
+        "uk-company-change-alerts": 8,
+        "grants-gov-opportunity-monitor": 8
       },
       "settled": false,
-      "evidence": "GitHub repository API confirms four public repositories now have accurate descriptions, Apify Store homepages, and use-case topics; repository metadata is distribution, not revenue"
+      "evidence": "GitHub repository API confirms five public repositories now have accurate descriptions, Apify Store homepages, and use-case topics; repository metadata is distribution, not revenue"
     },
     "ai_coding_radar_distribution": {
       "site": "https://ai-coding-radar.github.io/",
