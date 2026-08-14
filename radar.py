@@ -423,6 +423,70 @@ h2 {
   text-transform: uppercase;
 }
 
+.toolbox { margin: 72px 0; }
+
+.toolbox-copy {
+  max-width: 760px;
+  margin: 20px 0 28px;
+  color: var(--muted);
+  font-size: 17px;
+  line-height: 1.65;
+}
+
+.tool-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+
+.tool-card {
+  display: flex;
+  min-height: 310px;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 32px;
+  padding: 28px;
+  border: var(--line);
+  background: var(--white);
+  box-shadow: 7px 7px 0 var(--ink);
+}
+
+.tool-card:nth-child(2) { background: var(--acid); }
+
+.tool-tag {
+  color: var(--signal);
+  font-family: Menlo, Monaco, monospace;
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+}
+
+.tool-card h3 {
+  margin: 16px 0 12px;
+  font-family: "Songti SC", Georgia, serif;
+  font-size: clamp(28px, 3vw, 40px);
+  line-height: 1.08;
+}
+
+.tool-card p {
+  margin: 0;
+  color: var(--muted);
+  font-size: 15px;
+  line-height: 1.6;
+}
+
+.tool-link {
+  align-self: flex-start;
+  padding-bottom: 4px;
+  border-bottom: 3px solid var(--ink);
+  font-family: Menlo, Monaco, monospace;
+  font-size: 11px;
+  font-weight: 800;
+  text-decoration: none;
+  text-transform: uppercase;
+}
+
 .protocol {
   display: grid;
   grid-template-columns: .75fr 1.25fr;
@@ -473,6 +537,8 @@ h2 {
   .release-version { min-height: 160px; border-right: 0; border-bottom: var(--line); }
   .release-body { padding: 26px 22px 28px; }
   .release-foot, .footer { align-items: flex-start; flex-direction: column; }
+  .tool-grid { grid-template-columns: 1fr; }
+  .tool-card { min-height: 240px; }
   .protocol { grid-template-columns: 1fr; padding: 26px 22px; }
   .detail-hero { grid-template-columns: 1fr; box-shadow: 6px 6px 0 var(--ink); }
   .detail-signal { min-height: 180px; border-top: var(--line); border-left: 0; }
@@ -812,6 +878,38 @@ def render_index(records):
           <a class="rss" href="feed.xml">RSS / XML</a>
         </div>
         <div class="release-list">{''.join(cards)}</div>
+      </section>
+
+      <section class="toolbox" aria-labelledby="toolbox-title">
+        <p class="eyebrow">Community-built / optional</p>
+        <h2 id="toolbox-title">Developer automation</h2>
+        <p class="toolbox-copy">Small paid APIs maintained by this publisher. They are separate from the verified release index and never influence its source records.</p>
+        <div class="tool-grid">
+          <article class="tool-card">
+            <div>
+              <div class="tool-tag">Dependency security / public example</div>
+              <h3>Check exact npm and PyPI versions</h3>
+              <p>Collect registry metadata, OSV vulnerabilities, and CISA KEV matches with visible source status.</p>
+            </div>
+            <a class="tool-link" href="https://apify.com/ai-coding-radar/oss-package-health-monitor/examples/scan-installed-npm-and-pypi-versions-for-cves" target="_blank" rel="noopener noreferrer">Try CVE scan →</a>
+          </article>
+          <article class="tool-card">
+            <div>
+              <div class="tool-tag">Content automation / public example</div>
+              <h3>Render Markdown and code to PNG</h3>
+              <p>Generate image cards through an API for n8n, Make, schedules, and batch workflows.</p>
+            </div>
+            <a class="tool-link" href="https://apify.com/ai-coding-radar/markdown-code-to-image/examples/render-markdown-and-code-to-a-png" target="_blank" rel="noopener noreferrer">Try PNG render →</a>
+          </article>
+          <article class="tool-card">
+            <div>
+              <div class="tool-tag">Hiring data / public example</div>
+              <h3>Aggregate fresh remote software jobs</h3>
+              <p>Deduplicate four public feeds into attributed records for alerts, job boards, and research.</p>
+            </div>
+            <a class="tool-link" href="https://apify.com/ai-coding-radar/remote-job-intelligence/examples/daily-remote-software-jobs" target="_blank" rel="noopener noreferrer">Try remote jobs →</a>
+          </article>
+        </div>
       </section>
 
       <section class="protocol" aria-labelledby="protocol-title">
