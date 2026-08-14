@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "checked_at": "2026-08-15T02:37:05+08:00",
+  "checked_at": "2026-08-15T02:50:43+08:00",
   "sources": {
     "apify": {
       "period": "2026-08",
@@ -62,7 +62,9 @@
       "period": "2026-08",
       "actor": "ai-coding-radar/uk-company-change-alerts",
       "actor_id": "xB4MWIkxXc41GKtfM",
-      "latest_build": "0.0.3",
+      "latest_build": "0.0.4",
+      "latest_build_status": "succeeded",
+      "latest_build_git_commit": "1939589ef59295fd16f77eaf26f88f3d16399742",
       "publication_status": "public_monetization_active",
       "pricing_model": "pay_per_event",
       "price_per_company_check_usd": 0.003,
@@ -71,7 +73,7 @@
       "primary_event": "company-check",
       "store_html_http_status": 200,
       "store_markdown_http_status": 200,
-      "store_markdown_content_status": "stale_pre_0.0.3_cdn_cache",
+      "store_markdown_content_status": "stale_pre_0.0.4_cdn_cache",
       "actor_api_http_status": 200,
       "actor_api_is_public": true,
       "public_total_users": 1,
@@ -84,13 +86,16 @@
       "store_healthcheck_second_run": "unchanged_with_one_output_row",
       "default_input_company_numbers": ["02050399"],
       "default_memory_mbytes": 256,
+      "no_code_workflow": "https://raw.githubusercontent.com/Jarvis-Dong/uk-company-change-alerts/main/examples/n8n-uk-company-alerts.json",
+      "no_code_workflow_http_status": 200,
+      "automation_recipe": "https://github.com/Jarvis-Dong/uk-company-change-alerts/blob/main/examples/README.md",
       "paying_users": 0,
       "free_users": 1,
       "results": 3,
       "displayed_profit_usd": 0,
       "payout_status": "identity_verification_required_no_settlement",
       "settled": false,
-      "evidence": "Public build API verifies build 0.0.3, valid input-schema defaults, strict source validation, and 256 MB run options; two Store-healthcheck runs produced baseline then unchanged output; Console Insights shows zero paying users and zero profit; Store Markdown remains on an older CDN representation"
+      "evidence": "Public build API verifies build 0.0.4 cloned the tested integration commit and includes the n8n and Make funnel; the raw n8n workflow is publicly reachable without credentials; Console Insights remains at zero paying users and zero profit; Store Markdown remains on an older CDN representation"
     },
     "ai_coding_radar_distribution": {
       "site": "https://ai-coding-radar.github.io/",
