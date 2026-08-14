@@ -106,12 +106,17 @@ def find_existing(token: str, canonical_url: str) -> Optional[Mapping[str, Any]]
         page += 1
 
 
-def publish_latest(
-    project_root: Path, token: str, *, published: bool
-) -> Dict[str, Any]:
-    record = newest_release(project_root)
-    payload = article_payload(record, published=published)
-    canonical_url = payload["article"]["canonical_url"]
+def publish_article(payload: Mapping[str, Any], token: str) -> Dict[str, Any]:
+    article_payload_value = payload.get("article")
+    if not isinstance(article_payload_value, dict):
+        raise DevToError("article payload must contain an article object")
+    canonical_url = article_payload_value.get("canonical_url")
+    published = article_payload_value.get("published")
+    if not isinstance(canonical_url, str) or not canonical_url.startswith("https://"):
+        raise DevToError("article canonical_url must be an HTTPS URL")
+    if not isinstance(published, bool):
+        raise DevToError("article published flag must be a boolean")
+
     existing = find_existing(token, canonical_url)
     if existing:
         is_published = bool(existing.get("published_at"))
@@ -148,6 +153,13 @@ def publish_latest(
         "dev_url": article.get("url"),
         "id": article.get("id"),
     }
+
+
+def publish_latest(
+    project_root: Path, token: str, *, published: bool
+) -> Dict[str, Any]:
+    record = newest_release(project_root)
+    return publish_article(article_payload(record, published=published), token)
 
 
 def build_parser() -> argparse.ArgumentParser:

@@ -1,0 +1,32 @@
+name: Publish OSS security guide on DEV
+
+"on":
+  workflow_dispatch:
+    inputs:
+      publish:
+        description: Publish publicly instead of creating or reusing a draft
+        required: true
+        default: false
+        type: boolean
+
+permissions:
+  contents: read
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803 # v6
+
+      - name: Create, verify, or publish the DEV guide
+        env:
+          DEVTO_API_KEY: ${{ secrets.DEVTO_API_KEY }}
+          PUBLISH: ${{ inputs.publish }}
+        run: |
+          args=()
+          if [[ "$PUBLISH" == "true" ]]; then
+            args+=(--publish)
+          fi
+          python3 devto_guide.py "${args[@]}"

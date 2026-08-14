@@ -160,6 +160,15 @@ class DevToTest(unittest.TestCase):
         with self.assertRaisesRegex(devto.DevToError, "invalid article record"):
             devto.find_existing("secret", "https://example.com/release")
 
+    @patch("devto._request")
+    def test_invalid_article_payload_fails_before_network(self, request):
+        with self.assertRaisesRegex(devto.DevToError, "canonical_url"):
+            devto.publish_article(
+                {"article": {"canonical_url": "not-a-url", "published": False}},
+                "secret",
+            )
+        request.assert_not_called()
+
     @patch.dict(os.environ, {}, clear=True)
     @patch("devto._request")
     def test_missing_api_key_fails_without_network(self, request):
