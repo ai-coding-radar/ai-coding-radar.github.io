@@ -192,6 +192,7 @@ class RadarTest(unittest.TestCase):
             self.assertIn("Gemini CLI 0.55.1 is out", index)
             self.assertIn("official sources allowlisted", index)
             self.assertIn("Developer automation", index)
+            self.assertIn('class="tool-grid tool-grid-four"', index)
             self.assertIn("They are separate from the verified release index", index)
             self.assertIn(
                 "oss-package-health-monitor/examples/scan-installed-npm-and-pypi-versions-for-cves",
@@ -205,6 +206,11 @@ class RadarTest(unittest.TestCase):
                 "remote-job-intelligence/examples/daily-remote-software-jobs",
                 index,
             )
+            self.assertIn(
+                "uk-company-change-alerts/examples/daily-uk-supplier-status-alerts",
+                index,
+            )
+            self.assertEqual(index.count('class="tool-card"'), 4)
             self.assertIn('name="google-site-verification"', index)
             self.assertIn('rel="alternate" type="application/rss+xml"', index)
             self.assertIn(f'rel="canonical" href="{radar.SITE_URL}"', index)

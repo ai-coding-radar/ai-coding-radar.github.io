@@ -849,6 +849,10 @@ def render_index(records):
   <link rel="alternate" type="application/rss+xml" title="AI Coding Release Radar RSS" href="feed.xml">
   <title>AI Coding Release Radar</title>
   <style>{INDEX_STYLE}</style>
+  <style>
+    @media (min-width: 761px) {{ .tool-grid-four {{ grid-template-columns: repeat(2, 1fr); }} }}
+    .tool-grid-four .tool-card:nth-child(even) {{ background: var(--acid); }}
+  </style>
 </head>
 <body>
   <div class="shell">
@@ -884,7 +888,7 @@ def render_index(records):
         <p class="eyebrow">Community-built / optional</p>
         <h2 id="toolbox-title">Developer automation</h2>
         <p class="toolbox-copy">Small paid APIs maintained by this publisher. They are separate from the verified release index and never influence its source records.</p>
-        <div class="tool-grid">
+        <div class="tool-grid tool-grid-four">
           <article class="tool-card">
             <div>
               <div class="tool-tag">Dependency security / public example</div>
@@ -908,6 +912,14 @@ def render_index(records):
               <p>Deduplicate four public feeds into attributed records for alerts, job boards, and research.</p>
             </div>
             <a class="tool-link" href="https://apify.com/ai-coding-radar/remote-job-intelligence/examples/daily-remote-software-jobs" target="_blank" rel="noopener noreferrer">Try remote jobs →</a>
+          </article>
+          <article class="tool-card">
+            <div>
+              <div class="tool-tag">Company monitoring / public example</div>
+              <h3>Monitor UK supplier record changes</h3>
+              <p>Compare official Companies House records over time and emit observed status, filing, address, SIC, accounts, or name changes.</p>
+            </div>
+            <a class="tool-link" href="https://apify.com/ai-coding-radar/uk-company-change-alerts/examples/daily-uk-supplier-status-alerts" target="_blank" rel="noopener noreferrer">Try supplier alerts →</a>
           </article>
         </div>
       </section>
