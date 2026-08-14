@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "checked_at": "2026-08-15T06:32:42+08:00",
+  "checked_at": "2026-08-15T06:35:47+08:00",
   "sources": {
     "apify": {
       "period": "2026-08",
@@ -275,10 +275,13 @@
       "no_code_current_max_event_charge_usd": 0.15005,
       "store_readme_content_status": "pending_0.0.3_public_example_links_propagation",
       "paying_users": 0,
+      "free_users": 1,
+      "results": 1,
       "displayed_profit_usd": 0,
+      "payout_invoice_available": false,
       "payout_status": "identity_verification_required_no_settlement",
       "settled": false,
-      "evidence": "Eight repository tests, compile and schema checks, and GitHub Actions run 31846029418 passed for commit 291f207. Apify build 0.0.3 cloned that exact commit and succeeded without another Actor run; total runs remain two and total users remain one. Two additional public tasks target current small-business and nonprofit grant demand with official eligibility codes, ten-result limits, independent monitor IDs, 256 MB memory, and $0.16 maximum cost per run. Both tasks remain at zero runs, and their anonymous HTML and Markdown pages return HTTP 200 with the intended inputs. Store Markdown has not yet propagated the new README links. The existing no-code workflow remains anonymously reachable with the current-price event bound of $0.15005. No external paying user, profit, payout, or settled revenue is verified"
+      "evidence": "Eight repository tests, compile and schema checks, and GitHub Actions run 31846029418 passed for commit 291f207. Apify build 0.0.3 cloned that exact commit and succeeded without another Actor run; total runs remain two and total users remain one. Two additional public tasks target current small-business and nonprofit grant demand with official eligibility codes, ten-result limits, independent monitor IDs, 256 MB memory, and $0.16 maximum cost per run. Both tasks remain at zero runs, and their anonymous HTML and Markdown pages return HTTP 200 with the intended inputs. Store Markdown has not yet propagated the new README links. The existing no-code workflow remains anonymously reachable with the current-price event bound of $0.15005. The 2026-08-15 06:35 Asia/Shanghai Console check shows zero paying users, one free user, one result, $0.00 profit, no payout invoice, and identity verification still required; no settled revenue is verified"
     },
     "dev_community_distribution": {
       "article_id": 4398899,
