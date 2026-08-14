@@ -120,9 +120,10 @@ value; it is not a guarantee that the source updates in real time.
 
 ## Cost and source code
 
-The public Actor is available here:
+The ready-to-copy supplier monitoring task and public Actor are available here:
 
-https://apify.com/ai-coding-radar/uk-company-change-alerts
+- Task: https://apify.com/ai-coding-radar/uk-company-change-alerts/examples/daily-uk-supplier-status-alerts
+- Actor: https://apify.com/ai-coding-radar/uk-company-change-alerts
 
 Its Store page shows the current pay-per-event price before a run. At the time
 of writing, a successful company check is `$0.003`, an observed changed field

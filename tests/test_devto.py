@@ -135,9 +135,40 @@ class DevToTest(unittest.TestCase):
             update = request.call_args_list[1]
             self.assertEqual(update.args, ("/articles/123", "secret"))
             self.assertEqual(update.kwargs["method"], "PUT")
-            self.assertEqual(
-                update.kwargs["body"], {"article": {"published": True}}
-            )
+            self.assertTrue(update.kwargs["body"]["article"]["published"])
+            self.assertIn("2.1.229", update.kwargs["body"]["article"]["title"])
+
+    @patch("devto._request")
+    def test_refresh_updates_an_existing_unpublished_draft(self, request):
+        payload = {
+            "article": {
+                "title": "Updated guide",
+                "canonical_url": "https://example.com/guide",
+                "published": False,
+                "body_markdown": "Current tested content",
+            }
+        }
+        request.side_effect = [
+            [
+                {
+                    "id": 321,
+                    "url": "https://dev.to/example/guide-temp-slug",
+                    "canonical_url": "https://example.com/guide",
+                    "published_at": None,
+                }
+            ],
+            {"id": 321, "url": "https://dev.to/example/guide-temp-slug"},
+        ]
+
+        result = devto.publish_article(
+            payload, "secret", refresh_draft=True
+        )
+
+        self.assertEqual(result["status"], "draft_updated")
+        update = request.call_args_list[1]
+        self.assertEqual(update.args, ("/articles/321", "secret"))
+        self.assertEqual(update.kwargs["method"], "PUT")
+        self.assertEqual(update.kwargs["body"], payload)
 
     @patch("devto._request")
     def test_dedupe_checks_every_full_page(self, request):

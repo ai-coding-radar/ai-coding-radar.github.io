@@ -48,6 +48,8 @@ GUIDES: Mapping[str, Mapping[str, Any]] = {
         "tags": "automation,n8n,api,opensource",
         "required_links": (
             "https://apify.com/ai-coding-radar/uk-company-change-alerts",
+            "https://apify.com/ai-coding-radar/uk-company-change-alerts/"
+            "examples/daily-uk-supplier-status-alerts",
             "https://raw.githubusercontent.com/Jarvis-Dong/uk-company-change-alerts/",
             "https://www.gov.uk/guidance/companies-house-data-products",
             "https://data.companieshouse.gov.uk/doc/company/02050399.json",
@@ -110,7 +112,7 @@ def main(argv: Optional[Sequence[str]] = None) -> int:
             raise devto.DevToError(f"{devto.TOKEN_ENV} is not set")
         print(
             json.dumps(
-                devto.publish_article(payload, token),
+                devto.publish_article(payload, token, refresh_draft=True),
                 ensure_ascii=False,
                 indent=2,
             )

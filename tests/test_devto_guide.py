@@ -33,6 +33,10 @@ class DevToGuideTest(unittest.TestCase):
         self.assertIn("uk-company-change-alerts", payload["canonical_url"])
         self.assertIn('"companyNumbers"', payload["body_markdown"])
         self.assertIn("Companies House", payload["body_markdown"])
+        self.assertIn(
+            "examples/daily-uk-supplier-status-alerts",
+            payload["body_markdown"],
+        )
         self.assertNotIn("APIFY_API_TOKEN=", payload["body_markdown"])
 
     @patch("devto_guide.devto.publish_article")

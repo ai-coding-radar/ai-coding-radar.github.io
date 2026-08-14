@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "checked_at": "2026-08-15T03:42:09+08:00",
+  "checked_at": "2026-08-15T03:49:10+08:00",
   "sources": {
     "apify": {
       "period": "2026-08",
@@ -95,6 +95,21 @@
       "public_total_runs": 4,
       "public_example": "https://apify.com/ai-coding-radar/uk-company-change-alerts/examples/monitor-uk-company-record-changes",
       "public_example_http_status": 200,
+      "public_examples": [
+        "https://apify.com/ai-coding-radar/uk-company-change-alerts/examples/monitor-uk-company-record-changes",
+        "https://apify.com/ai-coding-radar/uk-company-change-alerts/examples/daily-uk-supplier-status-alerts"
+      ],
+      "public_example_count": 2,
+      "supplier_example_title": "Monitor UK Supplier Status and Filing Changes",
+      "supplier_example_http_status": 200,
+      "supplier_example_markdown_http_status": 200,
+      "supplier_example_indexable": true,
+      "supplier_example_task_runs": 0,
+      "supplier_example_input": {
+        "companyNumbers": ["02050399"],
+        "monitorId": "supplier-watchlist",
+        "emitUnchanged": false
+      },
       "cloud_smoke_first_run": "baseline_created",
       "cloud_smoke_second_run": "unchanged",
       "store_healthcheck_first_run": "baseline_created",
@@ -111,7 +126,7 @@
       "displayed_profit_usd": 0,
       "payout_status": "identity_verification_required_no_settlement",
       "settled": false,
-      "evidence": "Public build API verifies build 0.0.5 cloned the tested commit and contains the valid companyNumbers REST quickstart plus canonical API URL; the raw five-node n8n workflow is publicly reachable without credentials; Console Insights shows zero paying users and zero profit; Store HTML and Markdown remain on older cached representations"
+      "evidence": "Public build API verifies build 0.0.5 cloned the tested commit and contains the valid companyNumbers REST quickstart plus canonical API URL; the raw five-node n8n workflow is publicly reachable without credentials. A second public supplier-monitoring task was published without running it; anonymous HTML and Markdown are HTTP 200, indexable, and expose valid companyNumbers, supplier-watchlist, and emitUnchanged=false input. Console Insights shows zero paying users and zero profit; Store HTML and Markdown may remain on older cached representations"
     },
     "dev_community_distribution": {
       "article_id": 4398899,

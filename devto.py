@@ -106,7 +106,12 @@ def find_existing(token: str, canonical_url: str) -> Optional[Mapping[str, Any]]
         page += 1
 
 
-def publish_article(payload: Mapping[str, Any], token: str) -> Dict[str, Any]:
+def publish_article(
+    payload: Mapping[str, Any],
+    token: str,
+    *,
+    refresh_draft: bool = False,
+) -> Dict[str, Any]:
     article_payload_value = payload.get("article")
     if not isinstance(article_payload_value, dict):
         raise DevToError("article payload must contain an article object")
@@ -128,12 +133,30 @@ def publish_article(payload: Mapping[str, Any], token: str) -> Dict[str, Any]:
                 f"/articles/{article_id}",
                 token,
                 method="PUT",
-                body={"article": {"published": True}},
+                body=dict(payload),
             )
             if not isinstance(article, dict):
                 raise DevToError("DEV API returned an unexpected update response")
             return {
                 "status": "published",
+                "canonical_url": canonical_url,
+                "dev_url": article.get("url") or existing.get("url"),
+                "id": article_id,
+            }
+        if refresh_draft and not published and not is_published:
+            article_id = existing.get("id")
+            if not isinstance(article_id, int):
+                raise DevToError("DEV draft is missing its article id")
+            article = _request(
+                f"/articles/{article_id}",
+                token,
+                method="PUT",
+                body=dict(payload),
+            )
+            if not isinstance(article, dict):
+                raise DevToError("DEV API returned an unexpected update response")
+            return {
+                "status": "draft_updated",
                 "canonical_url": canonical_url,
                 "dev_url": article.get("url") or existing.get("url"),
                 "id": article_id,
