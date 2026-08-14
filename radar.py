@@ -73,6 +73,10 @@ AUTOMATIONS = (
         "repository_url": (
             "https://github.com/Jarvis-Dong/remote-job-intelligence"
         ),
+        "workflow_url": (
+            "https://github.com/Jarvis-Dong/remote-job-intelligence/blob/main/"
+            "examples/n8n-remote-jobs-webhook.json"
+        ),
         "input": '''{
   "sources": ["arbeitnow", "jobicy", "remoteok", "himalayas"],
   "keywords": ["machine learning", "artificial intelligence", "llm"],
@@ -117,6 +121,10 @@ AUTOMATIONS = (
         "repository_url": (
             "https://github.com/Jarvis-Dong/oss-package-health-monitor"
         ),
+        "workflow_url": (
+            "https://github.com/Jarvis-Dong/oss-package-health-monitor/blob/main/"
+            "examples/n8n-oss-exact-version-scan.json"
+        ),
         "input": '''{
   "packages": [
     {"name": "lodash", "ecosystem": "npm", "version": "4.17.20"},
@@ -160,6 +168,10 @@ AUTOMATIONS = (
         "example_label": "Open AI answer example",
         "repository_url": (
             "https://github.com/Jarvis-Dong/markdown-code-to-image"
+        ),
+        "workflow_url": (
+            "https://github.com/Jarvis-Dong/markdown-code-to-image/blob/main/"
+            "examples/n8n-markdown-code-to-image.json"
         ),
         "input": '''{
   "documents": [{
@@ -207,6 +219,10 @@ AUTOMATIONS = (
         "repository_url": (
             "https://github.com/Jarvis-Dong/uk-company-change-alerts"
         ),
+        "workflow_url": (
+            "https://github.com/Jarvis-Dong/uk-company-change-alerts/blob/main/"
+            "examples/n8n-uk-company-alerts.json"
+        ),
         "input": '''{
   "companyNumbers": ["02050399"],
   "monitorId": "supplier-watchlist",
@@ -247,6 +263,10 @@ AUTOMATIONS = (
         "example_label": "Open small-business example",
         "repository_url": (
             "https://github.com/Jarvis-Dong/grants-gov-opportunity-monitor"
+        ),
+        "workflow_url": (
+            "https://github.com/Jarvis-Dong/grants-gov-opportunity-monitor/blob/"
+            "main/examples/n8n-grants-gov-monitor.json"
         ),
         "input": '''{
   "keyword": "small business",
@@ -1473,6 +1493,7 @@ def render_automation_page(automation):
       <div class="action-row" aria-label="Automation links">
         <a class="rss" href="{escape(automation['example_url'], quote=True)}" target="_blank" rel="noopener noreferrer">{escape(automation["example_label"])}</a>
         <a class="secondary-action" href="{escape(automation['actor_url'], quote=True)}" target="_blank" rel="noopener noreferrer">Actor and API docs</a>
+        <a class="secondary-action" href="{escape(automation['workflow_url'], quote=True)}" target="_blank" rel="noopener noreferrer">Open n8n workflow</a>
       </div>
     </main>
     <footer class="footer">
