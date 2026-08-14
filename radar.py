@@ -850,8 +850,8 @@ def render_index(records):
   <title>AI Coding Release Radar</title>
   <style>{INDEX_STYLE}</style>
   <style>
-    @media (min-width: 761px) {{ .tool-grid-four {{ grid-template-columns: repeat(2, 1fr); }} }}
-    .tool-grid-four .tool-card:nth-child(even) {{ background: var(--acid); }}
+    @media (min-width: 761px) {{ .tool-grid-five {{ grid-template-columns: repeat(3, 1fr); }} }}
+    .tool-grid-five .tool-card:nth-child(even) {{ background: var(--acid); }}
   </style>
 </head>
 <body>
@@ -888,7 +888,7 @@ def render_index(records):
         <p class="eyebrow">Community-built / optional</p>
         <h2 id="toolbox-title">Developer automation</h2>
         <p class="toolbox-copy">Small paid APIs maintained by this publisher. They are separate from the verified release index and never influence its source records.</p>
-        <div class="tool-grid tool-grid-four">
+        <div class="tool-grid tool-grid-five">
           <article class="tool-card">
             <div>
               <div class="tool-tag">Dependency security / public example</div>
@@ -920,6 +920,14 @@ def render_index(records):
               <p>Compare official Companies House records over time and emit observed status, filing, address, SIC, accounts, or name changes.</p>
             </div>
             <a class="tool-link" href="https://apify.com/ai-coding-radar/uk-company-change-alerts/examples/daily-uk-supplier-status-alerts" target="_blank" rel="noopener noreferrer">Try supplier alerts →</a>
+          </article>
+          <article class="tool-card">
+            <div>
+              <div class="tool-tag">Federal grants / public example</div>
+              <h3>Monitor Grants.gov opportunities</h3>
+              <p>Track new and changed federal grant opportunities from the official Grants.gov search API.</p>
+            </div>
+            <a class="tool-link" href="https://apify.com/ai-coding-radar/grants-gov-opportunity-monitor/examples/daily-ai-federal-grant-opportunity-alerts" target="_blank" rel="noopener noreferrer">Try grant alerts →</a>
           </article>
         </div>
       </section>
