@@ -23,3 +23,9 @@ Every entry needs an ISO date and explicit status. Settled revenue additionally
 needs a minimal, non-secret `receipt` reference. Use `status: "pending"` until
 the money has settled. Cost entries use `"kind": "cost"`. Never commit
 passwords, cookies, card numbers, or tokens.
+
+`revenue-sources.json` records provisional platform observations separately
+from the ledger. Paying-user counts, free runs, result counts, current-month
+profit, credits, and pending payouts can be useful growth signals, but they do
+not change `settled_revenue`. Only a final payout invoice plus an actually
+settled payment can be copied into `ledger.json` as income.
