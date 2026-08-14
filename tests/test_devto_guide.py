@@ -39,6 +39,25 @@ class DevToGuideTest(unittest.TestCase):
         )
         self.assertNotIn("APIFY_API_TOKEN=", payload["body_markdown"])
 
+    def test_markdown_image_payload_links_the_tested_workflow_and_example(self):
+        payload = devto_guide.article_payload(
+            Path(__file__).resolve().parents[1],
+            published=False,
+            guide="markdown-image-automation",
+        )["article"]
+
+        self.assertFalse(payload["published"])
+        self.assertIn("markdown-code-to-image", payload["canonical_url"])
+        self.assertIn(
+            "n8n-markdown-code-to-image.json", payload["body_markdown"]
+        )
+        self.assertIn(
+            "examples/chatgpt-markdown-answer-to-png",
+            payload["body_markdown"],
+        )
+        self.assertIn('"documents"', payload["body_markdown"])
+        self.assertNotIn("APIFY_TOKEN=", payload["body_markdown"])
+
     @patch("devto_guide.devto.publish_article")
     def test_preview_needs_no_token_or_network(self, publish_article):
         stdout = io.StringIO()
@@ -60,6 +79,22 @@ class DevToGuideTest(unittest.TestCase):
         article = json.loads(stdout.getvalue())["article"]
         self.assertEqual(result, 0)
         self.assertIn("UK supplier", article["title"])
+        self.assertFalse(article["published"])
+        publish_article.assert_not_called()
+
+    @patch("devto_guide.devto.publish_article")
+    def test_markdown_image_preview_selects_the_requested_guide(
+        self, publish_article
+    ):
+        stdout = io.StringIO()
+        with redirect_stdout(stdout):
+            result = devto_guide.main(
+                ["--preview", "--guide", "markdown-image-automation"]
+            )
+
+        article = json.loads(stdout.getvalue())["article"]
+        self.assertEqual(result, 0)
+        self.assertIn("PNG files in n8n", article["title"])
         self.assertFalse(article["published"])
         publish_article.assert_not_called()
 

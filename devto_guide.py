@@ -55,6 +55,28 @@ GUIDES: Mapping[str, Mapping[str, Any]] = {
             "https://data.companieshouse.gov.uk/doc/company/02050399.json",
         ),
     },
+    "markdown-image-automation": {
+        "path": Path("content/devto/markdown-ai-answer-to-png.md"),
+        "canonical_url": (
+            "https://github.com/Jarvis-Dong/markdown-code-to-image/"
+            "blob/main/examples/README.md"
+        ),
+        "title": "Turn Markdown and AI answers into PNG files in n8n",
+        "description": (
+            "Import a tested n8n workflow that renders Markdown, code, and "
+            "AI answers into PNG files without browser screenshots."
+        ),
+        "tags": "automation,n8n,api,opensource",
+        "required_links": (
+            "https://apify.com/ai-coding-radar/markdown-code-to-image",
+            "https://apify.com/ai-coding-radar/markdown-code-to-image/"
+            "examples/chatgpt-markdown-answer-to-png",
+            "https://raw.githubusercontent.com/Jarvis-Dong/"
+            "markdown-code-to-image/main/examples/"
+            "n8n-markdown-code-to-image.json",
+            "https://cardify.1222155.xyz/chatgpt-to-image/",
+        ),
+    },
 }
 
 CANONICAL_URL = str(GUIDES[DEFAULT_GUIDE]["canonical_url"])
