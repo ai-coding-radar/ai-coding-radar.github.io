@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "checked_at": "2026-08-15T06:35:47+08:00",
+  "checked_at": "2026-08-15T06:50:46+08:00",
   "sources": {
     "apify": {
       "period": "2026-08",
@@ -337,8 +337,25 @@
         "uk-company-change-alerts": 8,
         "grants-gov-opportunity-monitor": 8
       },
+      "apify_actor_source_code_public": 5,
+      "apify_actor_source_code_hidden": 0,
+      "apify_actor_limited_permissions": 5,
+      "apify_public_version_api_http_status": 200,
+      "apify_store_acquisition": {
+        "period": "2026-08",
+        "actor_detail_views": 0,
+        "input_page_views": 0,
+        "actor_starts": 0,
+        "excludes_api_schedule_and_integration_traffic": true
+      },
+      "apify_actor_quality_status": "no_data_yet",
+      "apify_exact_account_search_total": 5,
+      "apify_exact_account_search_items_returned": 0,
+      "apify_store_search_status": "pending_quality_score_recalculation",
+      "open_source_fair_share_source_visibility_prerequisite": true,
+      "open_source_fair_share_affiliate_enrollment_verified": false,
       "settled": false,
-      "evidence": "GitHub repository API confirms five public repositories now have accurate descriptions, Apify Store homepages, and use-case topics; repository metadata is distribution, not revenue"
+      "evidence": "GitHub repository API confirms five public repositories have accurate descriptions, Apify Store homepages, and use-case topics. A tracked-file scan found no environment files, credential files, private keys, or real Token patterns before changing Store visibility. Apify Console then saved all five Actors with source files visible; anonymous Actor APIs now report isSourceCodeHidden=false and LIMITED_PERMISSIONS, while anonymous version APIs return HTTP 200 with the matching public Git repository URLs. Build, run, and user counts did not change. August Acquisition still reports zero Actor-detail views, zero Input-page views, and zero starts for Store web traffic, and Actor quality has no data yet. Exact account search reports five matches but returns no cards while quality score recalculation is pending. Public source visibility is a documented Open Source Fair Share prerequisite, but Affiliate Program enrollment has not been verified or accepted and no commission or revenue is claimed"
     },
     "ai_coding_radar_distribution": {
       "site": "https://ai-coding-radar.github.io/",
