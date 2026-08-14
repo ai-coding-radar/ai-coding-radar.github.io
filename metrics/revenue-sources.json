@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "checked_at": "2026-08-15T05:39:02+08:00",
+  "checked_at": "2026-08-15T06:00:10+08:00",
   "sources": {
     "apify": {
       "period": "2026-08",
@@ -196,10 +196,10 @@
       "period": "2026-08",
       "actor": "ai-coding-radar/grants-gov-opportunity-monitor",
       "actor_id": "Qqlebaz7DBKhhAnrk",
-      "latest_build": "0.0.1",
+      "latest_build": "0.0.2",
       "latest_build_status": "succeeded",
-      "latest_build_git_commit": "8a6ee232e146229b3aec6787ef5287f6062815ee",
-      "ci_workflow_run": "https://github.com/Jarvis-Dong/grants-gov-opportunity-monitor/actions/runs/31842143691",
+      "latest_build_git_commit": "ff13d5e2d31edfd62e76de945dbe539a4e02e70b",
+      "ci_workflow_run": "https://github.com/Jarvis-Dong/grants-gov-opportunity-monitor/actions/runs/31844306390",
       "seo_title": "Grants.gov Opportunity Monitor & Alerts",
       "seo_description": "Track official Grants.gov opportunities by keyword, agency, eligibility, status, and category. Receive only new or changed records for reliable automated grant alerts.",
       "publication_status": "public_monetization_active",
@@ -234,11 +234,17 @@
       "official_source_http_status": 200,
       "official_source_current_hit_count": 205,
       "official_source_requires_authentication": false,
+      "no_code_workflow": "https://raw.githubusercontent.com/Jarvis-Dong/grants-gov-opportunity-monitor/main/examples/n8n-grants-gov-monitor.json",
+      "no_code_workflow_http_status": 200,
+      "automation_recipe": "https://github.com/Jarvis-Dong/grants-gov-opportunity-monitor/blob/main/examples/README.md",
+      "no_code_limit": 10,
+      "no_code_current_max_event_charge_usd": 0.15005,
+      "store_readme_content_status": "0.0.2_no_code_links_propagated",
       "paying_users": 0,
       "displayed_profit_usd": 0,
       "payout_status": "identity_verification_required_no_settlement",
       "settled": false,
-      "evidence": "Six offline tests, compile and schema checks, four live 100-row normalization checks, and GitHub Actions run 31842143691 passed for commit 8a6ee23. Public build 0.0.1 cloned that exact commit and succeeded. Two development smoke runs verified one new output followed by one unchanged check with zero output, so unchanged records are not charged as opportunity or change events. Anonymous Store, Markdown, Actor API, and public Example HTML/Markdown all return HTTP 200; the Example exposes the intended 25-result input, independent monitor ID, 256 MB memory, $0.25 run cap, and still has zero runs. Public stats show only the creator and two self-tests; no external paying user, profit, payout, or settled revenue is verified"
+      "evidence": "Eight repository tests, compile and schema checks, and GitHub Actions run 31844306390 passed for commit ff13d5e. Public build 0.0.2 cloned that exact commit and succeeded without another Actor run; total runs remain two and total users remain one. The Store Markdown page exposes the new no-code section, and the credential-free n8n workflow is anonymously reachable as valid JSON with a ten-result input and current-price event bound of $0.15005. The two existing development smoke runs still prove one new output followed by one unchanged check with zero output. Anonymous Store, Actor API, public Example, and workflow endpoints are healthy; the Example remains at zero runs. No external paying user, profit, payout, or settled revenue is verified"
     },
     "dev_community_distribution": {
       "article_id": 4398899,
@@ -268,8 +274,14 @@
       "third_article_created_at": "2026-08-15T04:27:40+08:00",
       "third_article_release_policy": "at_least_24h_after_uk_article_published_at",
       "third_article_workflow_run": "https://github.com/ai-coding-radar/ai-coding-radar.github.io/actions/runs/31837991753",
+      "fourth_article_draft_id": 4399376,
+      "fourth_article_title": "Build a fact-only Grants.gov opportunity monitor in n8n",
+      "fourth_article_canonical_url": "https://github.com/Jarvis-Dong/grants-gov-opportunity-monitor/blob/main/examples/README.md",
+      "fourth_article_status": "draft_unpublished",
+      "fourth_article_release_policy": "at_least_24h_after_markdown_article_published_at_and_no_other_article_same_day",
+      "fourth_article_workflow_run": "https://github.com/ai-coding-radar/ai-coding-radar.github.io/actions/runs/31844673240",
       "settled": false,
-      "evidence": "DEV official API created one OSS draft and upgraded the same article ID to published; anonymous article API and HTML checks confirm the public URL, Actor link, tested n8n workflow link, and price disclosure. A second distinct canonical URL was created once as unpublished UK supplier-monitoring draft ID 4398985. A third distinct canonical URL was created once as unpublished Markdown image automation draft ID 4399131 by successful official GitHub Actions run 31837991753. The third draft remains queued until at least 24 hours after the UK article's actual published_at. Drafts, publication, and reactions are not revenue"
+      "evidence": "DEV official API created one OSS draft and upgraded the same article ID to published; anonymous API and HTML checks confirm its public URL, Actor link, tested n8n workflow link, and price disclosure. Distinct canonical URLs produced unpublished UK draft 4398985, Markdown image draft 4399131, and Grants.gov draft 4399376. Official workflow run 31844673240 returned draft_created for the Grants.gov examples/README.md canonical URL with publish=false. The queue requires at least 24 hours between each later publication and never publishes two queued guides on the same Beijing day. Drafts, publication, and reactions are not revenue"
     },
     "github_repository_distribution": {
       "repositories": 5,
@@ -287,20 +299,21 @@
     "ai_coding_radar_distribution": {
       "site": "https://ai-coding-radar.github.io/",
       "homepage_http_status": 200,
-      "automation_funnel_links": 4,
+      "automation_funnel_links": 5,
       "targets": [
         "https://apify.com/ai-coding-radar/oss-package-health-monitor/examples/scan-installed-npm-and-pypi-versions-for-cves",
         "https://apify.com/ai-coding-radar/markdown-code-to-image/examples/render-markdown-and-code-to-a-png",
         "https://apify.com/ai-coding-radar/remote-job-intelligence/examples/daily-remote-software-jobs",
-        "https://apify.com/ai-coding-radar/uk-company-change-alerts/examples/daily-uk-supplier-status-alerts"
+        "https://apify.com/ai-coding-radar/uk-company-change-alerts/examples/daily-uk-supplier-status-alerts",
+        "https://apify.com/ai-coding-radar/grants-gov-opportunity-monitor/examples/daily-ai-federal-grant-opportunity-alerts"
       ],
       "publish_workflow_status": "success",
-      "publish_workflow_run": "https://github.com/ai-coding-radar/ai-coding-radar.github.io/actions/runs/31836327422",
+      "publish_workflow_run": "https://github.com/ai-coding-radar/ai-coding-radar.github.io/actions/runs/31844005564",
       "indexnow_notified_for_site_change": true,
       "indexnow_http_status": 200,
       "indexnow_urls_accepted": 20,
       "settled": false,
-      "evidence": "Commit f9f11b4 added the fourth homepage automation card without changing historical release pages. All 56 tests passed; Publish radar run 31836327422 built and deployed successfully. The public homepage is HTTP 200 with exactly four cards and one UK supplier Example link; the desktop-only 2x2 override falls back to the existing single-column mobile layout at 760px. Because the homepage changed, IndexNow accepted 20 URLs with HTTP 200. Funnel links and indexing are distribution, not revenue"
+      "evidence": "Commit e9c2b07 added the fifth factual homepage automation card for the public Grants.gov Example without changing historical release pages. All 58 tests passed; Publish radar run 31844005564 built and deployed successfully. The public homepage is HTTP 200 with exactly five cards and exactly one Grants.gov Example link; the three-column desktop layout falls back to the existing single-column mobile layout at 760px. Because the homepage changed, the IndexNow step succeeded for the existing 20 sitemap URLs. Funnel links and indexing are distribution, not revenue"
     },
     "cardify_search": {
       "site": "https://cardify.1222155.xyz/",
