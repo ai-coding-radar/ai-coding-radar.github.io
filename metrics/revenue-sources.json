@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "checked_at": "2026-08-14T15:59:16+08:00",
+  "checked_at": "2026-08-14T16:07:59+08:00",
   "sources": {
     "apify": {
       "period": "2026-08",
@@ -8,9 +8,9 @@
       "latest_build": "0.0.8",
       "paying_users": 0,
       "free_users": 1,
-      "results": 32,
+      "results": 132,
       "displayed_profit_usd": 0,
-      "payout_status": "no_monetization_data",
+      "payout_status": "current_month_provisional_no_settlement",
       "settled": false,
       "evidence": "Apify Console Insights > Monetization; current-month values are provisional"
     },
@@ -20,16 +20,18 @@
       "latest_build": "0.0.2",
       "public_total_users": 2,
       "public_total_runs": 3,
-      "paying_users": null,
-      "displayed_profit_usd": null,
-      "payout_status": "not_yet_listed_in_monetization_table",
+      "paying_users": 0,
+      "free_users": 1,
+      "results": 6,
+      "displayed_profit_usd": 0,
+      "payout_status": "current_month_provisional_no_settlement",
       "settled": false,
       "evidence": "Public Actor API plus Apify Console Insights; public users and runs are not revenue"
     },
     "apify_markdown_code_to_image": {
       "period": "2026-08",
       "actor": "ai-coding-radar/markdown-code-to-image",
-      "latest_build": "0.0.2",
+      "latest_build": "0.0.3",
       "public_example": "https://apify.com/ai-coding-radar/markdown-code-to-image/examples/render-markdown-and-code-to-a-png",
       "store_markdown_http_status": 200,
       "public_example_http_status": 200,
@@ -37,10 +39,11 @@
       "store_html_status_note": "stale pre-publication CDN response; monitor for propagation",
       "anonymous_image_http_status": 200,
       "anonymous_image_content_type": "image/png",
-      "paying_users": null,
-      "free_users": null,
-      "displayed_profit_usd": null,
-      "payout_status": "not_yet_listed_in_monetization_table",
+      "paying_users": 0,
+      "free_users": 1,
+      "results": 2,
+      "displayed_profit_usd": 0,
+      "payout_status": "current_month_provisional_no_settlement",
       "settled": false,
       "evidence": "Apify Console publication and monetization state, public Markdown/Example checks, and anonymous PNG download; no signed URLs stored"
     },
@@ -52,6 +55,9 @@
       "search_console_last_read": "2026-08-14",
       "search_console_sitemap_status": "could_not_read",
       "search_console_discovered_pages": 0,
+      "api_funnel_pages": 3,
+      "api_funnel_target": "https://apify.com/ai-coding-radar/markdown-code-to-image/examples/render-markdown-and-code-to-a-png",
+      "api_funnel_target_http_status": 200,
       "payment_entry_available": false,
       "settled": false,
       "evidence": "Public HTTP/XML checks and Google Search Console sitemap status; no duplicate submission"
