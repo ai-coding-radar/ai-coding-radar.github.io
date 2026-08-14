@@ -58,6 +58,29 @@ class DevToGuideTest(unittest.TestCase):
         self.assertIn('"documents"', payload["body_markdown"])
         self.assertNotIn("APIFY_TOKEN=", payload["body_markdown"])
 
+    def test_grants_payload_is_unpublished_and_keeps_decision_boundaries(self):
+        payload = devto_guide.article_payload(
+            Path(__file__).resolve().parents[1],
+            published=False,
+            guide="grants-gov-monitor",
+        )["article"]
+
+        self.assertFalse(payload["published"])
+        self.assertEqual(
+            payload["canonical_url"],
+            "https://github.com/Jarvis-Dong/grants-gov-opportunity-monitor/"
+            "blob/main/examples/README.md",
+        )
+        self.assertIn("grants-gov-opportunity-monitor", payload["body_markdown"])
+        self.assertIn("examples/daily-ai-federal-grant-opportunity-alerts", payload["body_markdown"])
+        self.assertIn("n8n-grants-gov-monitor.json", payload["body_markdown"])
+        self.assertIn("https://www.grants.gov/api/api-guide", payload["body_markdown"])
+        self.assertIn("$0.0075", payload["body_markdown"])
+        self.assertIn("$0.015", payload["body_markdown"])
+        self.assertIn("$0.00005", payload["body_markdown"])
+        self.assertIn("not an eligibility determination", payload["body_markdown"])
+        self.assertNotIn("DEVTO_API_KEY=", payload["body_markdown"])
+
     @patch("devto_guide.devto.publish_article")
     def test_preview_needs_no_token_or_network(self, publish_article):
         stdout = io.StringIO()
@@ -95,6 +118,20 @@ class DevToGuideTest(unittest.TestCase):
         article = json.loads(stdout.getvalue())["article"]
         self.assertEqual(result, 0)
         self.assertIn("PNG files in n8n", article["title"])
+        self.assertFalse(article["published"])
+        publish_article.assert_not_called()
+
+    @patch("devto_guide.devto.publish_article")
+    def test_grants_preview_selects_the_requested_guide(self, publish_article):
+        stdout = io.StringIO()
+        with redirect_stdout(stdout):
+            result = devto_guide.main(
+                ["--preview", "--guide", "grants-gov-monitor"]
+            )
+
+        article = json.loads(stdout.getvalue())["article"]
+        self.assertEqual(result, 0)
+        self.assertIn("Grants.gov", article["title"])
         self.assertFalse(article["published"])
         publish_article.assert_not_called()
 

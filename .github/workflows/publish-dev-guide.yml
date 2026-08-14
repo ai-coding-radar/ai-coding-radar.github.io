@@ -12,6 +12,7 @@ name: Publish tested guide on DEV
           - oss-security
           - uk-supplier-monitor
           - markdown-image-automation
+          - grants-gov-monitor
       publish:
         description: Publish publicly instead of creating or reusing a draft
         required: true

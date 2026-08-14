@@ -77,6 +77,30 @@ GUIDES: Mapping[str, Mapping[str, Any]] = {
             "https://cardify.1222155.xyz/chatgpt-to-image/",
         ),
     },
+    "grants-gov-monitor": {
+        "path": Path("content/devto/grants-gov-opportunity-monitor.md"),
+        "canonical_url": (
+            "https://github.com/Jarvis-Dong/grants-gov-opportunity-monitor/"
+            "blob/main/examples/README.md"
+        ),
+        "title": "Build a fact-only Grants.gov opportunity monitor in n8n",
+        "description": (
+            "Track new and changed U.S. federal grant opportunities from the "
+            "official Grants.gov search API without deciding eligibility."
+        ),
+        "tags": "automation,n8n,api,opensource",
+        "required_links": (
+            "https://apify.com/ai-coding-radar/grants-gov-opportunity-monitor",
+            "https://apify.com/ai-coding-radar/grants-gov-opportunity-monitor/"
+            "examples/daily-ai-federal-grant-opportunity-alerts",
+            "https://www.grants.gov/api/api-guide",
+            "https://api.grants.gov/v1/api/search2",
+            "https://github.com/Jarvis-Dong/grants-gov-opportunity-monitor",
+            "https://raw.githubusercontent.com/Jarvis-Dong/"
+            "grants-gov-opportunity-monitor/main/examples/"
+            "n8n-grants-gov-monitor.json",
+        ),
+    },
 }
 
 CANONICAL_URL = str(GUIDES[DEFAULT_GUIDE]["canonical_url"])
