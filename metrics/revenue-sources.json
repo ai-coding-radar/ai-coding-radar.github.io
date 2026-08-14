@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "checked_at": "2026-08-15T06:00:10+08:00",
+  "checked_at": "2026-08-15T06:20:51+08:00",
   "sources": {
     "apify": {
       "period": "2026-08",
@@ -196,10 +196,10 @@
       "period": "2026-08",
       "actor": "ai-coding-radar/grants-gov-opportunity-monitor",
       "actor_id": "Qqlebaz7DBKhhAnrk",
-      "latest_build": "0.0.2",
+      "latest_build": "0.0.3",
       "latest_build_status": "succeeded",
-      "latest_build_git_commit": "ff13d5e2d31edfd62e76de945dbe539a4e02e70b",
-      "ci_workflow_run": "https://github.com/Jarvis-Dong/grants-gov-opportunity-monitor/actions/runs/31844306390",
+      "latest_build_git_commit": "291f207571a77724a6f0dfd09bfbec2eaf32b05c",
+      "ci_workflow_run": "https://github.com/Jarvis-Dong/grants-gov-opportunity-monitor/actions/runs/31846029418",
       "seo_title": "Grants.gov Opportunity Monitor & Alerts",
       "seo_description": "Track official Grants.gov opportunities by keyword, agency, eligibility, status, and category. Receive only new or changed records for reliable automated grant alerts.",
       "publication_status": "public_monetization_active",
@@ -218,6 +218,12 @@
       "cloud_smoke_first_run": "one_new_opportunity_one_output_row",
       "cloud_smoke_second_run": "one_unchanged_opportunity_zero_output_rows",
       "public_example": "https://apify.com/ai-coding-radar/grants-gov-opportunity-monitor/examples/daily-ai-federal-grant-opportunity-alerts",
+      "public_examples": [
+        "https://apify.com/ai-coding-radar/grants-gov-opportunity-monitor/examples/daily-ai-federal-grant-opportunity-alerts",
+        "https://apify.com/ai-coding-radar/grants-gov-opportunity-monitor/examples/daily-small-business-federal-grant-alerts",
+        "https://apify.com/ai-coding-radar/grants-gov-opportunity-monitor/examples/daily-nonprofit-federal-grant-alerts"
+      ],
+      "public_example_count": 3,
       "public_example_http_status": 200,
       "public_example_markdown_http_status": 200,
       "public_example_indexable": true,
@@ -230,6 +236,34 @@
       },
       "public_example_task_memory_mbytes": 256,
       "public_example_max_cost_usd": 0.25,
+      "small_business_example_title": "Daily Small Business Federal Grant Alerts",
+      "small_business_example_http_status": 200,
+      "small_business_example_markdown_http_status": 200,
+      "small_business_example_indexable": true,
+      "small_business_example_task_runs": 0,
+      "small_business_example_input": {
+        "keyword": "small business",
+        "statuses": ["posted", "forecasted"],
+        "eligibilityCodes": ["23"],
+        "limit": 10,
+        "monitorId": "small-business-grants"
+      },
+      "small_business_example_task_memory_mbytes": 256,
+      "small_business_example_max_cost_usd": 0.16,
+      "nonprofit_example_title": "Daily Nonprofit Federal Grant Alerts",
+      "nonprofit_example_http_status": 200,
+      "nonprofit_example_markdown_http_status": 200,
+      "nonprofit_example_indexable": true,
+      "nonprofit_example_task_runs": 0,
+      "nonprofit_example_input": {
+        "keyword": "nonprofit",
+        "statuses": ["posted", "forecasted"],
+        "eligibilityCodes": ["12", "13"],
+        "limit": 10,
+        "monitorId": "nonprofit-grants"
+      },
+      "nonprofit_example_task_memory_mbytes": 256,
+      "nonprofit_example_max_cost_usd": 0.16,
       "official_source": "https://api.grants.gov/v1/api/search2",
       "official_source_http_status": 200,
       "official_source_current_hit_count": 205,
@@ -239,12 +273,12 @@
       "automation_recipe": "https://github.com/Jarvis-Dong/grants-gov-opportunity-monitor/blob/main/examples/README.md",
       "no_code_limit": 10,
       "no_code_current_max_event_charge_usd": 0.15005,
-      "store_readme_content_status": "0.0.2_no_code_links_propagated",
+      "store_readme_content_status": "pending_0.0.3_public_example_links_propagation",
       "paying_users": 0,
       "displayed_profit_usd": 0,
       "payout_status": "identity_verification_required_no_settlement",
       "settled": false,
-      "evidence": "Eight repository tests, compile and schema checks, and GitHub Actions run 31844306390 passed for commit ff13d5e. Public build 0.0.2 cloned that exact commit and succeeded without another Actor run; total runs remain two and total users remain one. The Store Markdown page exposes the new no-code section, and the credential-free n8n workflow is anonymously reachable as valid JSON with a ten-result input and current-price event bound of $0.15005. The two existing development smoke runs still prove one new output followed by one unchanged check with zero output. Anonymous Store, Actor API, public Example, and workflow endpoints are healthy; the Example remains at zero runs. No external paying user, profit, payout, or settled revenue is verified"
+      "evidence": "Eight repository tests, compile and schema checks, and GitHub Actions run 31846029418 passed for commit 291f207. Apify build 0.0.3 cloned that exact commit and succeeded without another Actor run; total runs remain two and total users remain one. Two additional public tasks target current small-business and nonprofit grant demand with official eligibility codes, ten-result limits, independent monitor IDs, 256 MB memory, and $0.16 maximum cost per run. Both tasks remain at zero runs, and their anonymous HTML and Markdown pages return HTTP 200 with the intended inputs. Store Markdown has not yet propagated the new README links. The existing no-code workflow remains anonymously reachable with the current-price event bound of $0.15005. No external paying user, profit, payout, or settled revenue is verified"
     },
     "dev_community_distribution": {
       "article_id": 4398899,
