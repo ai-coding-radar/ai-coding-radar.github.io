@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "checked_at": "2026-08-15T06:20:51+08:00",
+  "checked_at": "2026-08-15T06:32:42+08:00",
   "sources": {
     "apify": {
       "period": "2026-08",
@@ -314,8 +314,15 @@
       "fourth_article_status": "draft_unpublished",
       "fourth_article_release_policy": "at_least_24h_after_markdown_article_published_at_and_no_other_article_same_day",
       "fourth_article_workflow_run": "https://github.com/ai-coding-radar/ai-coding-radar.github.io/actions/runs/31844673240",
+      "fifth_article_draft_id": 4399562,
+      "fifth_article_title": "Build a daily remote AI jobs feed with n8n",
+      "fifth_article_canonical_url": "https://github.com/Jarvis-Dong/remote-job-intelligence/blob/main/examples/README.md",
+      "fifth_article_status": "draft_unpublished",
+      "fifth_article_created_at": "2026-08-15T06:31:53+08:00",
+      "fifth_article_release_policy": "at_least_24h_after_grants_article_published_at_and_no_other_article_same_day",
+      "fifth_article_workflow_run": "https://github.com/ai-coding-radar/ai-coding-radar.github.io/actions/runs/31846964561",
       "settled": false,
-      "evidence": "DEV official API created one OSS draft and upgraded the same article ID to published; anonymous API and HTML checks confirm its public URL, Actor link, tested n8n workflow link, and price disclosure. Distinct canonical URLs produced unpublished UK draft 4398985, Markdown image draft 4399131, and Grants.gov draft 4399376. Official workflow run 31844673240 returned draft_created for the Grants.gov examples/README.md canonical URL with publish=false. The queue requires at least 24 hours between each later publication and never publishes two queued guides on the same Beijing day. Drafts, publication, and reactions are not revenue"
+      "evidence": "DEV official API created one OSS draft and upgraded the same article ID to published; anonymous API and HTML checks confirm its public URL, Actor link, tested n8n workflow link, and price disclosure. Distinct canonical URLs produced unpublished UK draft 4398985, Markdown image draft 4399131, Grants.gov draft 4399376, and Remote AI Jobs draft 4399562. Official workflow run 31846964561 returned draft_created for the Remote Jobs examples/README.md canonical URL with publish=false. The queue requires at least 24 hours between each later publication and never publishes two queued guides on the same Beijing day. Drafts, publication, and reactions are not revenue"
     },
     "github_repository_distribution": {
       "repositories": 5,
@@ -342,12 +349,13 @@
         "https://apify.com/ai-coding-radar/grants-gov-opportunity-monitor/examples/daily-ai-federal-grant-opportunity-alerts"
       ],
       "publish_workflow_status": "success",
-      "publish_workflow_run": "https://github.com/ai-coding-radar/ai-coding-radar.github.io/actions/runs/31844005564",
+      "publish_workflow_run": "https://github.com/ai-coding-radar/ai-coding-radar.github.io/actions/runs/31846855639",
+      "last_site_change_workflow_run": "https://github.com/ai-coding-radar/ai-coding-radar.github.io/actions/runs/31846321166",
       "indexnow_notified_for_site_change": true,
       "indexnow_http_status": 200,
-      "indexnow_urls_accepted": 20,
+      "indexnow_urls_accepted": 21,
       "settled": false,
-      "evidence": "Commit e9c2b07 added the fifth factual homepage automation card for the public Grants.gov Example without changing historical release pages. All 58 tests passed; Publish radar run 31844005564 built and deployed successfully. The public homepage is HTTP 200 with exactly five cards and exactly one Grants.gov Example link; the three-column desktop layout falls back to the existing single-column mobile layout at 760px. Because the homepage changed, the IndexNow step succeeded for the existing 20 sitemap URLs. Funnel links and indexing are distribution, not revenue"
+      "evidence": "Commit e9c2b07 added the fifth factual homepage automation card for the public Grants.gov Example. Publish radar run 31846321166 then created the verified Claude Code 2.1.233 release page and submitted all 21 sitemap URLs to IndexNow with HTTP 200. The public homepage remains HTTP 200 with exactly five cards and one Grants.gov Example link. Later guide-only run 31846855639 passed 62 tests, deployed successfully, and correctly skipped IndexNow because it produced no public site change. Funnel links and indexing are distribution, not revenue"
     },
     "cardify_search": {
       "site": "https://cardify.1222155.xyz/",
