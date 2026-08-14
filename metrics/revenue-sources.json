@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "checked_at": "2026-08-15T03:54:58+08:00",
+  "checked_at": "2026-08-15T04:02:07+08:00",
   "sources": {
     "apify": {
       "period": "2026-08",
@@ -187,12 +187,22 @@
       "search_console_last_read": "2026-08-14",
       "search_console_sitemap_status": "could_not_read",
       "search_console_discovered_pages": 0,
-      "api_funnel_pages": 3,
+      "api_funnel_pages": 5,
+      "api_funnel_routes": [
+        "/code-to-image/",
+        "/markdown-to-pdf/",
+        "/chatgpt-exporter/",
+        "/markdown-to-image/",
+        "/chatgpt-to-image/"
+      ],
       "api_funnel_target": "https://apify.com/ai-coding-radar/markdown-code-to-image/examples/render-markdown-and-code-to-a-png",
       "api_funnel_target_http_status": 200,
+      "latest_deployment_url": "https://126a1746.cardify-ewq.pages.dev",
+      "latest_deployment_status": "success_two_files_uploaded",
+      "latest_deployment_verified_at": "2026-08-15T04:02:07+08:00",
       "payment_entry_available": false,
       "settled": false,
-      "evidence": "Public HTTP/XML checks and Google Search Console sitemap status; no duplicate submission"
+      "evidence": "A clean baseline build matched all 11 checked public routes byte-for-byte. After adding one existing-style API CTA to only markdown-to-image and chatgpt-to-image, 25 tests passed and the rebuilt output differed from production only on those two routes. Cloudflare Pages uploaded exactly 2 files and reused 87; both custom-domain routes, the Apify target, and all non-target routes were anonymously rechecked at HTTP 200. Five Cardify pages now link to the paid Actor; deployment and links are distribution, not revenue"
     }
   }
 }
