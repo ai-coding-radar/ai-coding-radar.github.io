@@ -1,24 +1,60 @@
 {
   "schema_version": 1,
-  "checked_at": "2026-08-15T04:28:16+08:00",
+  "checked_at": "2026-08-15T04:45:57+08:00",
   "sources": {
     "apify": {
       "period": "2026-08",
       "actor": "ai-coding-radar/remote-job-intelligence",
-      "latest_build": "0.0.9",
+      "latest_build": "0.0.10",
+      "latest_build_status": "succeeded",
+      "latest_build_git_commit": "c6ff94c09ecb7cb34a995e43e21740d3f3ad8762",
       "seo_title": "Remote Jobs Aggregator API for n8n and Job Boards",
       "seo_description": "Aggregate and deduplicate remote jobs from four public sources. Filter by keyword, location, and age for n8n, Make, job boards, recruiters, and AI agents.",
       "public_total_users": 2,
       "public_total_runs": 11,
       "public_example": "https://apify.com/ai-coding-radar/remote-job-intelligence/examples/daily-remote-software-jobs",
+      "public_examples": [
+        "https://apify.com/ai-coding-radar/remote-job-intelligence/examples/daily-remote-software-jobs",
+        "https://apify.com/ai-coding-radar/remote-job-intelligence/examples/daily-remote-ai-and-machine-learning-jobs"
+      ],
+      "public_example_count": 2,
+      "ai_ml_example_title": "Find Remote AI and Machine Learning Jobs Daily",
+      "ai_ml_example_task_id": "h6yc3GsGQeahjz3IM",
+      "ai_ml_example_http_status": 200,
+      "ai_ml_example_markdown_http_status": 200,
+      "ai_ml_example_indexable": true,
+      "ai_ml_example_task_runs": 0,
+      "ai_ml_example_input": {
+        "sources": [
+          "arbeitnow",
+          "jobicy",
+          "remoteok",
+          "himalayas"
+        ],
+        "keywords": [
+          "machine learning",
+          "artificial intelligence",
+          "generative ai",
+          "llm"
+        ],
+        "keywordMatchMode": "any",
+        "locations": [],
+        "maxAgeDays": 7,
+        "limit": 50,
+        "includeDescription": false
+      },
+      "ai_ml_example_task_memory_mbytes": 256,
+      "ai_ml_example_cdn_status": "mixed_edge_cache_propagation",
       "store_readme_funnel_links": 2,
+      "store_readme_target_funnel_links": 3,
+      "store_markdown_status_note": "pending_0.0.10_readme_propagation",
       "paying_users": 0,
       "free_users": 1,
       "results": 132,
       "displayed_profit_usd": 0,
       "payout_status": "identity_verification_required_no_settlement",
       "settled": false,
-      "evidence": "Apify Console Insights > Monetization; current-month values are provisional"
+      "evidence": "GitHub Actions run 31839108156 passed for commit c6ff94c, and Apify build 0.0.10 cloned that exact commit and succeeded. A second public AI and machine-learning task was saved with four keywords, any-match mode, seven-day age, 50-result limit, descriptions disabled, and 256 MB memory without running it; Console still shows task runs 0. Anonymous HTML and Markdown return HTTP 200 and at least one current CDN variant exposes the corrected input, while another edge variant still serves the older input during the documented 30-minute cache window. Store README propagation is also pending. The last Console Insights values remain provisional and show no settled revenue"
     },
     "apify_oss_package_health": {
       "period": "2026-08",
