@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "checked_at": "2026-08-15T04:56:00+08:00",
+  "checked_at": "2026-08-15T05:10:14+08:00",
   "sources": {
     "apify": {
       "period": "2026-08",
@@ -149,6 +149,9 @@
       "actor_api_is_public": true,
       "public_total_users": 1,
       "public_total_runs": 4,
+      "store_public_success_rate_percent": 0,
+      "store_public_success_rate_note": "no public run sample; all four existing runs have Origin Development",
+      "development_runs_with_terminal_status": 4,
       "public_example": "https://apify.com/ai-coding-radar/uk-company-change-alerts/examples/monitor-uk-company-record-changes",
       "public_example_http_status": 200,
       "public_examples": [
@@ -187,7 +190,7 @@
       "displayed_profit_usd": 0,
       "payout_status": "identity_verification_required_no_settlement",
       "settled": false,
-      "evidence": "Nine local tests, compile checks, schema validation, fixture execution, and GitHub Actions run 31839971442 passed for commit 576c25c. Apify build 0.0.7 cloned that exact commit and succeeded without running the Actor; the public API shows seven builds while total runs remain four and total users remain one. Source fetches are now bounded to ten concurrent requests so the documented 100-company watchlist fits within the 300-second Actor timeout under the 20-second per-request ceiling, while output order and successful-check charging remain unchanged. Store and both supplier Example HTML/Markdown endpoints remain HTTP 200 with valid public input. The last Console Insights check still showed zero paying users and zero profit, so settled revenue remains zero"
+      "evidence": "Nine local tests, compile checks, schema validation, fixture execution, and GitHub Actions run 31839971442 passed for commit 576c25c. Apify build 0.0.7 cloned that exact commit and succeeded without running the Actor; the public API shows seven builds while total runs remain four and total users remain one. Source fetches are now bounded to ten concurrent requests so the documented 100-company watchlist fits within the 300-second Actor timeout under the 20-second per-request ceiling, while output order and successful-check charging remain unchanged. Store and both supplier Example HTML/Markdown endpoints remain HTTP 200 with valid public input. Console run history shows four completed runs with terminal status messages, all marked Origin Development; Store's 0.0% public success rate therefore reflects no public run sample and must not be improved with self-runs. The last Console Insights check still showed zero paying users and zero profit, so settled revenue remains zero"
     },
     "dev_community_distribution": {
       "article_id": 4398899,
