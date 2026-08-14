@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "checked_at": "2026-08-15T04:07:55+08:00",
+  "checked_at": "2026-08-15T04:22:24+08:00",
   "sources": {
     "apify": {
       "period": "2026-08",
@@ -48,7 +48,9 @@
     "apify_markdown_code_to_image": {
       "period": "2026-08",
       "actor": "ai-coding-radar/markdown-code-to-image",
-      "latest_build": "0.0.4",
+      "latest_build": "0.0.5",
+      "latest_build_status": "succeeded",
+      "latest_build_git_commit": "d8142793cd25d86a05d44ed2a418e4b4e5ab1279",
       "seo_title": "Markdown and Code to PNG Image Automation API",
       "seo_description": "Render Markdown, code, tables, quotes, and AI answers into PNG images through an API for n8n, Make, newsletters, documentation, and social media.",
       "price_per_generated_image_usd": 0.005,
@@ -56,10 +58,28 @@
       "public_total_users": 2,
       "public_total_runs": 3,
       "public_example": "https://apify.com/ai-coding-radar/markdown-code-to-image/examples/render-markdown-and-code-to-a-png",
+      "public_examples": [
+        "https://apify.com/ai-coding-radar/markdown-code-to-image/examples/render-markdown-and-code-to-a-png",
+        "https://apify.com/ai-coding-radar/markdown-code-to-image/examples/chatgpt-markdown-answer-to-png"
+      ],
+      "public_example_count": 2,
+      "chatgpt_example_title": "Convert ChatGPT Markdown Answers to PNG",
+      "chatgpt_example_http_status": 200,
+      "chatgpt_example_markdown_http_status": 200,
+      "chatgpt_example_indexable": true,
+      "chatgpt_example_task_runs": 0,
+      "chatgpt_example_input": {
+        "documents": 1,
+        "theme": "paper",
+        "width": 1080,
+        "fontSize": 22,
+        "watermark": "Made with Cardify"
+      },
       "store_markdown_http_status": 200,
+      "store_markdown_status_note": "pending_0.0.5_readme_propagation",
       "public_example_http_status": 200,
       "store_html_http_status": 200,
-      "store_html_status_note": "public Store HTML propagation completed",
+      "store_html_status_note": "0.0.5 ChatGPT example link propagated",
       "anonymous_image_http_status": 200,
       "anonymous_image_content_type": "image/png",
       "paying_users": 0,
@@ -68,7 +88,7 @@
       "displayed_profit_usd": 0,
       "payout_status": "identity_verification_required_no_settlement",
       "settled": false,
-      "evidence": "Apify Console publication and monetization state, public Markdown/Example checks, and anonymous PNG download; no signed URLs stored"
+      "evidence": "Seven repository tests, three schema validations, and GitHub Actions run 31837150196 passed for commit d814279. Public build API confirms Apify build 0.0.5 cloned that commit and succeeded. A second ChatGPT Markdown-to-PNG task was published without running it; anonymous HTML and Markdown are HTTP 200, indexable, and show a valid one-document paper-theme input. Public Actor users, runs, and last-run timestamp are unchanged. Store HTML contains the new link while Store Markdown remains cached. Prior anonymous PNG verification remains HTTP 200 image/png; no signed URLs are stored"
     },
     "apify_uk_company_change_alerts": {
       "period": "2026-08",
@@ -200,13 +220,18 @@
         "/chatgpt-to-image/"
       ],
       "api_funnel_target": "https://apify.com/ai-coding-radar/markdown-code-to-image/examples/render-markdown-and-code-to-a-png",
+      "api_funnel_targets": [
+        "https://apify.com/ai-coding-radar/markdown-code-to-image/examples/render-markdown-and-code-to-a-png",
+        "https://apify.com/ai-coding-radar/markdown-code-to-image/examples/chatgpt-markdown-answer-to-png"
+      ],
+      "contextual_chatgpt_funnel_pages": 2,
       "api_funnel_target_http_status": 200,
-      "latest_deployment_url": "https://126a1746.cardify-ewq.pages.dev",
+      "latest_deployment_url": "https://597d0859.cardify-ewq.pages.dev",
       "latest_deployment_status": "success_two_files_uploaded",
-      "latest_deployment_verified_at": "2026-08-15T04:02:07+08:00",
+      "latest_deployment_verified_at": "2026-08-15T04:22:24+08:00",
       "payment_entry_available": false,
       "settled": false,
-      "evidence": "A clean baseline build matched all 11 checked public routes byte-for-byte. After adding one existing-style API CTA to only markdown-to-image and chatgpt-to-image, 25 tests passed and the rebuilt output differed from production only on those two routes. Cloudflare Pages uploaded exactly 2 files and reused 87; both custom-domain routes, the Apify target, and all non-target routes were anonymously rechecked at HTTP 200. Five Cardify pages now link to the paid Actor; deployment and links are distribution, not revenue"
+      "evidence": "Five Cardify pages link to the paid Actor. The latest contextual update routes chatgpt-exporter and chatgpt-to-image to the dedicated ChatGPT Markdown-to-PNG Example while the other three pages retain the general renderer Example. Twenty-five tests passed; the rebuilt output differed from production only on those two ChatGPT routes. Cloudflare Pages uploaded exactly 2 files and reused 87. Both custom-domain routes match the deployed dist and contain the new target exactly once; all non-target routes still match. Deployment and links are distribution, not revenue"
     }
   }
 }
