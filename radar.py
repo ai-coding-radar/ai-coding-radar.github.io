@@ -1272,6 +1272,14 @@ def render_index(records):
         <div class="tool-grid tool-grid-five">
           <article class="tool-card">
             <div>
+              <div class="tool-tag">Federal grants / public example</div>
+              <h3><a class="internal-link" href="{automation_page_url(AUTOMATION_BY_SLUG["grants-gov-alerts-api"])}">Monitor Grants.gov opportunities</a></h3>
+              <p>Track new and changed federal grant opportunities from the official Grants.gov search API.</p>
+            </div>
+            <a class="tool-link" href="https://apify.com/ai-coding-radar/grants-gov-opportunity-monitor/examples/daily-ai-federal-grant-opportunity-alerts" target="_blank" rel="noopener noreferrer">Try grant alerts →</a>
+          </article>
+          <article class="tool-card">
+            <div>
               <div class="tool-tag">Dependency security / public example</div>
               <h3><a class="internal-link" href="{automation_page_url(AUTOMATION_BY_SLUG["npm-pypi-vulnerability-api"])}">Check exact npm and PyPI versions</a></h3>
               <p>Collect registry metadata, OSV vulnerabilities, and CISA KEV matches with visible source status.</p>
@@ -1301,14 +1309,6 @@ def render_index(records):
               <p>Compare official Companies House records over time and emit observed status, filing, address, SIC, accounts, or name changes.</p>
             </div>
             <a class="tool-link" href="https://apify.com/ai-coding-radar/uk-company-change-alerts/examples/daily-uk-supplier-status-alerts" target="_blank" rel="noopener noreferrer">Try supplier alerts →</a>
-          </article>
-          <article class="tool-card">
-            <div>
-              <div class="tool-tag">Federal grants / public example</div>
-              <h3><a class="internal-link" href="{automation_page_url(AUTOMATION_BY_SLUG["grants-gov-alerts-api"])}">Monitor Grants.gov opportunities</a></h3>
-              <p>Track new and changed federal grant opportunities from the official Grants.gov search API.</p>
-            </div>
-            <a class="tool-link" href="https://apify.com/ai-coding-radar/grants-gov-opportunity-monitor/examples/daily-ai-federal-grant-opportunity-alerts" target="_blank" rel="noopener noreferrer">Try grant alerts →</a>
           </article>
         </div>
       </section>

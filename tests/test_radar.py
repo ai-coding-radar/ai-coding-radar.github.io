@@ -224,6 +224,10 @@ class RadarTest(unittest.TestCase):
                 "grants-gov-opportunity-monitor/examples/daily-ai-federal-grant-opportunity-alerts",
                 index,
             )
+            self.assertLess(
+                index.index("Monitor Grants.gov opportunities"),
+                index.index("Check exact npm and PyPI versions"),
+            )
             self.assertEqual(
                 len(radar.AUTOMATION_BY_SLUG), len(radar.AUTOMATIONS)
             )
