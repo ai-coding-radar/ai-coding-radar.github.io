@@ -37,6 +37,13 @@ class DevToGuideTest(unittest.TestCase):
             "examples/daily-uk-supplier-status-alerts",
             payload["body_markdown"],
         )
+        self.assertLess(
+            payload["body_markdown"].index(
+                "examples/daily-uk-supplier-status-alerts"
+            ),
+            payload["body_markdown"].index("## What the workflow does"),
+        )
+        self.assertIn("requires an Apify account", payload["body_markdown"])
         self.assertNotIn("APIFY_API_TOKEN=", payload["body_markdown"])
 
     def test_markdown_image_payload_links_the_tested_workflow_and_example(self):

@@ -11,6 +11,8 @@ change feed. It watches only company numbers you provide, stores a baseline,
 and forwards observed differences or source failures. It does not scrape a
 website, predict insolvency, or make a credit or legal decision.
 
+> **Fastest path:** [open the preconfigured supplier-monitoring task](https://apify.com/ai-coding-radar/uk-company-change-alerts/examples/daily-uk-supplier-status-alerts). It uses one public example company, requires an Apify account, and shows the current price before you choose whether to run it.
+
 ## What the workflow does
 
 The five-node workflow runs on a daily schedule:
