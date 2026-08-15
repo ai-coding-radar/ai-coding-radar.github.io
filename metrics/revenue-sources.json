@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "checked_at": "2026-08-15T10:48:21+08:00",
+  "checked_at": "2026-08-15T13:01:54+08:00",
   "sources": {
     "apify": {
       "period": "2026-08",
@@ -308,6 +308,40 @@
       "payout_status": "identity_verification_required_no_settlement",
       "settled": false,
       "evidence": "Commit a040712 makes an empty API input use the bounded artificial-intelligence query with posted and forecasted statuses and a 25-result limit. Nine local tests, compile and schema checks, and GitHub Actions run 31851824684 passed. Public Apify build API confirms build 0.0.4 succeeded, cloned that exact commit, contains no root required list, and includes the empty-input documentation. No Actor run was started; total runs remain two development smokes and total users remain one. The small-business and nonprofit public tasks remain at zero runs, and the no-code workflow remains anonymously reachable. Tests and builds are not revenue; the last Console check still showed zero paying users, no payout invoice, and no settled revenue"
+    },
+    "apify_portfolio_monetization": {
+      "period": "2026-08",
+      "checked_at": "2026-08-15T13:01:54+08:00",
+      "actors_checked": 5,
+      "paying_users_per_actor": 0,
+      "free_users_per_actor": 1,
+      "results": {
+        "remote_job_intelligence": 132,
+        "oss_package_health_monitor": 12,
+        "markdown_code_to_image": 2,
+        "uk_company_change_alerts": 3,
+        "grants_gov_opportunity_monitor": 1
+      },
+      "displayed_profit_usd": 0,
+      "displayed_cost_usd": 0,
+      "cost_per_1000_results_usd": {
+        "average": 0.02,
+        "minimum": 0.01,
+        "maximum": 0.03
+      },
+      "recent_resource_profiles": {
+        "remote_job_intelligence": "128_mbytes_4_to_5_seconds",
+        "oss_package_health_monitor": "128_to_256_mbytes_3_to_6_seconds",
+        "markdown_code_to_image": "512_mbytes_21_to_24_seconds_0.001_usd_usage",
+        "uk_company_change_alerts": "128_mbytes_2_to_9_seconds",
+        "grants_gov_opportunity_monitor": "128_mbytes_4_to_6_seconds"
+      },
+      "integration_prefill_status": "five_actor_specific_valid_inputs_verified_in_console",
+      "anonymous_actor_api_example_status": "stale_hello_world_not_the_console_integration_prefill",
+      "payout_invoice_available": false,
+      "payout_status": "identity_verification_required_no_settlement",
+      "settled": false,
+      "evidence": "The August 2026 Monetization table showed zero paying users, one free user for each of the five Actors, zero displayed profit, and zero displayed cost. The portfolio cost-per-1,000-results card showed $0.02 average, $0.01 minimum, and $0.03 maximum. Existing runs used the bounded memory and durations recorded here; no new Actor run was started for this audit. Each Actor's authenticated Settings page already contained an Actor-specific valid integration prefill with Save disabled, so the anonymous API's generic helloWorld example was not used as evidence of the actual prefill. Free users, results, run cost, event prices, and potential profit are not settled revenue"
     },
     "dev_community_distribution": {
       "article_id": 4398899,
