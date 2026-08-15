@@ -74,6 +74,9 @@ GUIDES: Mapping[str, Mapping[str, Any]] = {
             "https://raw.githubusercontent.com/Jarvis-Dong/"
             "markdown-code-to-image/main/examples/"
             "n8n-markdown-code-to-image.json",
+            "https://raw.githubusercontent.com/Jarvis-Dong/"
+            "markdown-code-to-image/main/docs/"
+            "markdown-code-to-image-preview.png",
             "https://cardify.1222155.xyz/chatgpt-to-image/",
         ),
     },

@@ -232,6 +232,10 @@ class RadarTest(unittest.TestCase):
                     self.assertIn(automation["workflow_url"], page)
                     self.assertEqual(page.count(automation["workflow_url"]), 1)
                     self.assertIn("Open n8n workflow", page)
+                    if preview_url := automation.get("preview_url"):
+                        self.assertEqual(page.count(preview_url), 1)
+                        self.assertIn('class="automation-preview"', page)
+                        self.assertIn('width="1080" height="743"', page)
                     self.assertIn(f'rel="canonical" href="{page_url}"', page)
                     self.assertIn('class="code-sample"', page)
                     self.assertIn("Check the current Store price", page)

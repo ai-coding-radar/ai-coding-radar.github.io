@@ -574,6 +574,30 @@ h2 {
   box-shadow: 6px 6px 0 var(--signal);
 }
 
+.automation-preview {
+  margin: 0 0 54px;
+  border: var(--line);
+  background: var(--white);
+  box-shadow: 8px 8px 0 var(--ink);
+}
+
+.automation-preview img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.automation-preview figcaption {
+  padding: 14px 18px;
+  border-top: var(--line);
+  font-family: Menlo, Monaco, monospace;
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: .04em;
+  line-height: 1.5;
+  text-transform: uppercase;
+}
+
 .action-row {
   display: flex;
   flex-wrap: wrap;
@@ -624,6 +648,10 @@ h2 {
         <div class="fact"><span>Public source</span><strong>Structured Markdown supplied by the caller</strong></div>
         <div class="fact"><span>Delivery</span><strong>PNG / API / n8n / Make</strong></div>
       </section>
+      <figure class="automation-preview">
+        <img src="https://raw.githubusercontent.com/Jarvis-Dong/markdown-code-to-image/main/docs/markdown-code-to-image-preview.png" alt="Example output from Markdown and Code to PNG API" width="1080" height="743" loading="lazy" decoding="async">
+        <figcaption>Output from the same public renderer used by the API. <a href="https://apify.com/ai-coding-radar/markdown-code-to-image/examples/chatgpt-markdown-answer-to-png" target="_blank" rel="noopener noreferrer">Try the public example</a>.</figcaption>
+      </figure>
       <section class="automation-layout" aria-label="How the automation works">
         <article class="automation-panel">
           <p class="eyebrow">Three-step flow</p>

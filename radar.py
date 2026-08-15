@@ -173,6 +173,11 @@ AUTOMATIONS = (
             "https://github.com/Jarvis-Dong/markdown-code-to-image/blob/main/"
             "examples/n8n-markdown-code-to-image.json"
         ),
+        "preview_url": (
+            "https://raw.githubusercontent.com/Jarvis-Dong/"
+            "markdown-code-to-image/main/docs/"
+            "markdown-code-to-image-preview.png"
+        ),
         "input": '''{
   "documents": [{
     "title": "Release note",
@@ -853,6 +858,30 @@ AUTOMATION_STYLE = """
   box-shadow: 6px 6px 0 var(--signal);
 }
 
+.automation-preview {
+  margin: 0 0 54px;
+  border: var(--line);
+  background: var(--white);
+  box-shadow: 8px 8px 0 var(--ink);
+}
+
+.automation-preview img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.automation-preview figcaption {
+  padding: 14px 18px;
+  border-top: var(--line);
+  font-family: Menlo, Monaco, monospace;
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: .04em;
+  line-height: 1.5;
+  text-transform: uppercase;
+}
+
 .action-row {
   display: flex;
   flex-wrap: wrap;
@@ -1445,6 +1474,13 @@ def render_automation_page(automation):
         f"<li>{escape(boundary)}</li>"
         for boundary in automation["boundaries"]
     )
+    preview = ""
+    if preview_url := automation.get("preview_url"):
+        preview = f'''      <figure class="automation-preview">
+        <img src="{escape(preview_url, quote=True)}" alt="Example output from {escape(title, quote=True)}" width="1080" height="743" loading="lazy" decoding="async">
+        <figcaption>Output from the same public renderer used by the API. <a href="{escape(automation['example_url'], quote=True)}" target="_blank" rel="noopener noreferrer">Try the public example</a>.</figcaption>
+      </figure>
+'''
     return f'''<!doctype html>
 <html lang="en">
 <head>
@@ -1474,7 +1510,7 @@ def render_automation_page(automation):
         <div class="fact"><span>Public source</span><strong>{escape(automation["source"])}</strong></div>
         <div class="fact"><span>Delivery</span><strong>{escape(automation["delivery"])}</strong></div>
       </section>
-      <section class="automation-layout" aria-label="How the automation works">
+{preview}      <section class="automation-layout" aria-label="How the automation works">
         <article class="automation-panel">
           <p class="eyebrow">Three-step flow</p>
           <h2>How it works</h2>

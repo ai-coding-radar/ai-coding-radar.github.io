@@ -10,6 +10,8 @@ and can hand each runtime `imageUrl` to cloud storage, email, a CMS, or an
 owned publishing step. It does not log in to ChatGPT, automate a browser tab,
 or scrape another website.
 
+![Example Markdown and code rendered as a PNG](https://raw.githubusercontent.com/Jarvis-Dong/markdown-code-to-image/main/docs/markdown-code-to-image-preview.png)
+
 ## Import the workflow
 
 Download and import the public n8n workflow:

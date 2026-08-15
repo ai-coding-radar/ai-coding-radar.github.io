@@ -55,6 +55,10 @@ class DevToGuideTest(unittest.TestCase):
             "examples/chatgpt-markdown-answer-to-png",
             payload["body_markdown"],
         )
+        self.assertIn(
+            "docs/markdown-code-to-image-preview.png",
+            payload["body_markdown"],
+        )
         self.assertIn('"documents"', payload["body_markdown"])
         self.assertNotIn("APIFY_TOKEN=", payload["body_markdown"])
 
