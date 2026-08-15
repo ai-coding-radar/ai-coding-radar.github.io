@@ -1,14 +1,14 @@
 {
   "schema_version": 1,
-  "checked_at": "2026-08-15T13:01:54+08:00",
+  "checked_at": "2026-08-15T13:08:50+08:00",
   "sources": {
     "apify": {
       "period": "2026-08",
       "actor": "ai-coding-radar/remote-job-intelligence",
-      "latest_build": "0.0.13",
+      "latest_build": "0.0.14",
       "latest_build_status": "succeeded",
-      "latest_build_git_commit": "5fca3d80a416a96212f1a600701cb91c0c6b7e28",
-      "ci_workflow_run": "https://github.com/Jarvis-Dong/remote-job-intelligence/actions/runs/31851823455",
+      "latest_build_git_commit": "7efa87852051df6f0b8849274c4efb5b1b68ae33",
+      "ci_workflow_run": "https://github.com/Jarvis-Dong/remote-job-intelligence/actions/runs/31866040200",
       "empty_api_input_safe": true,
       "input_schema_root_required": false,
       "default_input": {
@@ -20,7 +20,7 @@
       "seo_title": "Remote Jobs Aggregator API for n8n and Job Boards",
       "seo_description": "Aggregate and deduplicate remote jobs from four public sources. Filter by keyword, location, and age for n8n, Make, job boards, recruiters, and AI agents.",
       "public_total_users": 2,
-      "public_total_runs": 11,
+      "public_total_runs": 12,
       "public_example": "https://apify.com/ai-coding-radar/remote-job-intelligence/examples/daily-remote-software-jobs",
       "public_examples": [
         "https://apify.com/ai-coding-radar/remote-job-intelligence/examples/daily-remote-software-jobs",
@@ -56,14 +56,16 @@
       "ai_ml_example_cdn_status": "mixed_edge_cache_propagation",
       "store_readme_funnel_links": 2,
       "store_readme_target_funnel_links": 3,
-      "store_markdown_status_note": "pending_0.0.13_empty_input_propagation",
+      "store_markdown_status_note": "current_0.0.14_fixture_sample_propagated",
+      "fixture_sample_output_status": "public_store_html_and_machine_markdown",
+      "fixture_sample_output_http_status": 200,
       "paying_users": 0,
       "free_users": 1,
       "results": 132,
       "displayed_profit_usd": 0,
       "payout_status": "identity_verification_required_no_settlement",
       "settled": false,
-      "evidence": "Commit 5fca3d8 makes the generated empty API input safe by using the documented software digest: all four sources, keyword software, seven days, 20 results, and descriptions disabled. Eighteen local tests, compile and schema checks, and GitHub Actions run 31851823455 passed. Public Apify build API confirms build 0.0.13 succeeded, cloned that exact commit, contains no root required list, and documents the bounded empty-input behavior. The build did not run the Actor; total runs remain 11 and total users remain two. Tests, builds, and safer first-run defaults are not revenue"
+      "evidence": "Commit 7efa878 adds an abridged normalized output generated from the existing offline Arbeitnow fixture, so a Store visitor can inspect the record shape before signing up or running the Actor. Nineteen local tests, compile and schema checks, the offline fixture command, and GitHub Actions run 31866040200 passed. Apify build 0.0.14 succeeded, cloned that exact commit, and propagated the fixture-backed sample to both the Store HTML and machine-readable Markdown as HTTP 200. No Actor run was started for the documentation build. Public totals are 12 historical runs and two users; the authenticated August table still showed zero paying users, one free user, and zero profit. Tests, builds, sample output, free users, and historical runs are not revenue"
     },
     "apify_oss_package_health": {
       "period": "2026-08",
