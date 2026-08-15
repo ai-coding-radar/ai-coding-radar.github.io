@@ -13,6 +13,8 @@ uses the official [Grants.gov API Guide](https://www.grants.gov/api/api-guide)
 and needs no Grants.gov login, API key, cookie, proxy, or browser automation.
 The ready-to-copy [Daily AI Federal Grant Opportunity Alerts example](https://apify.com/ai-coding-radar/grants-gov-opportunity-monitor/examples/daily-ai-federal-grant-opportunity-alerts)
 shows a narrow query that can be scheduled after you inspect one result.
+Running the Actor requires an Apify account, and the Store shows the current
+price before you choose whether to run it.
 For a no-code starting point, import the credential-free
 [n8n workflow](https://raw.githubusercontent.com/Jarvis-Dong/grants-gov-opportunity-monitor/main/examples/n8n-grants-gov-monitor.json)
 and follow its [n8n and Make setup recipe](https://github.com/Jarvis-Dong/grants-gov-opportunity-monitor/blob/main/examples/README.md).

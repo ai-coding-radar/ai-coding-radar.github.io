@@ -96,6 +96,7 @@ class DevToGuideTest(unittest.TestCase):
         self.assertIn("$0.0075", payload["body_markdown"])
         self.assertIn("$0.015", payload["body_markdown"])
         self.assertIn("$0.00005", payload["body_markdown"])
+        self.assertIn("requires an Apify account", payload["body_markdown"])
         self.assertIn("not an eligibility determination", payload["body_markdown"])
         self.assertNotIn("DEVTO_API_KEY=", payload["body_markdown"])
 
