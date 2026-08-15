@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "checked_at": "2026-08-15T09:45:08+08:00",
+  "checked_at": "2026-08-15T09:59:27+08:00",
   "sources": {
     "apify": {
       "period": "2026-08",
@@ -500,19 +500,22 @@
       ],
       "contextual_chatgpt_funnel_pages": 2,
       "api_funnel_target_http_status": 200,
+      "api_funnel_png_scope_disclosed_pages": 6,
+      "api_funnel_price_disclosed_pages": 6,
+      "api_funnel_account_requirement_disclosed_pages": 6,
       "app_footer_api_funnel": true,
       "export_success_api_funnel": true,
       "app_api_price_disclosed": "$0.005/image + $0.00005/start",
-      "latest_deployment_url": "https://0c00993b.cardify-ewq.pages.dev",
-      "latest_deployment_status": "success_one_indexnow_key_uploaded_89_reused",
-      "latest_deployment_verified_at": "2026-08-15T08:58:29+08:00",
+      "latest_deployment_url": "https://5fd6db1a.cardify-ewq.pages.dev",
+      "latest_deployment_status": "success_six_funnel_pages_uploaded_84_reused",
+      "latest_deployment_verified_at": "2026-08-15T09:55:54+08:00",
       "indexnow_key_http_status": 200,
       "indexnow_sitemap_urls": 9,
-      "indexnow_http_status": 202,
-      "indexnow_notified_at": "2026-08-15T08:58:29+08:00",
+      "indexnow_http_status": 200,
+      "indexnow_notified_at": "2026-08-15T09:56:45+08:00",
       "payment_entry_available": false,
       "settled": false,
-      "evidence": "Six Cardify SEO pages, the editor footer, and the successful image-export state now link to the paid image Actor; the app discloses the current image and start prices and the Apify account requirement. Twenty-six tests and the production build passed. Cloudflare Pages deployment 0c00993b uploaded only the new public IndexNow ownership file and reused 89 existing files. The custom-domain key returned HTTP 200 with the exact expected body, the sitemap contained nine URLs, and the official IndexNow endpoint accepted all nine with HTTP 202 after this real site change. Search Console still showed performance processing with no data and the sitemap as could not fetch with zero discovered pages, so it was not resubmitted. Deployment, crawling, links, and clicks are distribution, not revenue"
+      "evidence": "Six Cardify SEO pages, the editor footer, and the successful image-export state link to the paid image Actor. All six SEO funnels now disclose before the click that the paid automation produces PNG files, starts at $0.005 per image plus $0.00005 per start, and requires an Apify account; each keeps a contextual configured Example link and a direct current-pricing link. Twenty-six tests and the production build passed. Cloudflare Pages deployment 5fd6db1a uploaded the six changed funnel pages and reused 84 files. All six custom-domain pages returned the new copy and links, the public key and nine-URL sitemap remained HTTP 200, and IndexNow accepted all nine URLs with HTTP 200 after the real site change. The previously observed Search Console state was not resubmitted. Deployment, crawling, links, and clicks are distribution, not revenue"
     }
   }
 }
