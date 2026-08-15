@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "checked_at": "2026-08-15T13:08:50+08:00",
+  "checked_at": "2026-08-15T13:15:27+08:00",
   "sources": {
     "apify": {
       "period": "2026-08",
@@ -344,6 +344,28 @@
       "payout_status": "identity_verification_required_no_settlement",
       "settled": false,
       "evidence": "The August 2026 Monetization table showed zero paying users, one free user for each of the five Actors, zero displayed profit, and zero displayed cost. The portfolio cost-per-1,000-results card showed $0.02 average, $0.01 minimum, and $0.03 maximum. Existing runs used the bounded memory and durations recorded here; no new Actor run was started for this audit. Each Actor's authenticated Settings page already contained an Actor-specific valid integration prefill with Save disabled, so the anonymous API's generic helloWorld example was not used as evidence of the actual prefill. Free users, results, run cost, event prices, and potential profit are not settled revenue"
+    },
+    "n8n_template_distribution": {
+      "official_library": "https://n8n.io/workflows/",
+      "creator_hub": "https://creators.n8n.io/hub",
+      "workflow": "Grants.gov Opportunity Monitor - daily alerts",
+      "workflow_json": "https://raw.githubusercontent.com/Jarvis-Dong/grants-gov-opportunity-monitor/main/examples/n8n-grants-gov-monitor.json",
+      "submission_draft": "https://github.com/Jarvis-Dong/grants-gov-opportunity-monitor/blob/main/examples/n8n-template-submission.md",
+      "submission_commit": "8e04c1bec3c0abf6fa49665018ae177a31e241b3",
+      "ci_workflow_run": "https://github.com/Jarvis-Dong/grants-gov-opportunity-monitor/actions/runs/31866469951",
+      "new_creator_concurrent_submission_limit": 1,
+      "verified_creator_requires_approved_templates": 3,
+      "guideline_checks": {
+        "descriptive_node_names": true,
+        "mandatory_setup_sticky_note": true,
+        "credential_free_export": true,
+        "bounded_paid_input": true,
+        "description_sections_complete": true,
+        "description_word_count": 231
+      },
+      "status": "prepared_not_submitted_creator_account_required",
+      "settled": false,
+      "evidence": "Official n8n documentation routes template submissions through the Creator Hub. New unverified creators can submit one template at a time and unlock batches only after three approved templates. The Grants workflow already had descriptive nodes, a mandatory setup sticky note, a bounded ten-result request, and no exported credentials. Commit 8e04c1b adds a 231-word Creator Hub title and description covering audience, behavior, setup, requirements, and customization; nine local tests and GitHub Actions run 31866469951 passed. Nothing was submitted because creating the Creator account requires the user's own registration and acceptance of n8n terms. A prepared template, review approval, views, or future template sales are not settled revenue"
     },
     "dev_community_distribution": {
       "article_id": 4398899,
