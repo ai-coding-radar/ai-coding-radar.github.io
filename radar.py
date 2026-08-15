@@ -1170,6 +1170,21 @@ def render_index(records):
         reverse=True,
     )
     source_count = len({record["source_key"] for record in ordered})
+    latest_by_source = {}
+    for record in ordered:
+        latest_by_source.setdefault(record["source_key"], record)
+    latest_summary = ", ".join(
+        f'{source["product"]} {latest_by_source[source["key"]]["version"]}'
+        for source in SOURCES
+        if source["key"] in latest_by_source
+    )
+    page_title = "Claude Code, Codex & Gemini CLI Release Tracker"
+    page_description = (
+        f"Latest verified stable releases: {latest_summary}. "
+        "Automatically checked from official GitHub feeds."
+        if latest_summary
+        else "Verified stable releases from official Claude Code, Codex, and Gemini CLI feeds."
+    )
     cards = []
     for record in ordered[:INDEX_LIMIT]:
         product = escape(record["product"])
@@ -1203,17 +1218,17 @@ def render_index(records):
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="Verified stable releases from official OpenAI Codex, Claude Code, and Gemini CLI feeds.">
+  <meta name="description" content="{escape(page_description, quote=True)}">
   <meta name="theme-color" content="#161713">
   <meta property="og:type" content="website">
-  <meta property="og:title" content="AI Coding Release Radar">
-  <meta property="og:description" content="Official stable releases. No rumors, fake benchmarks, or synthetic hands-on claims.">
+  <meta property="og:title" content="{escape(page_title, quote=True)}">
+  <meta property="og:description" content="{escape(page_description, quote=True)}">
   <meta property="og:url" content="{SITE_URL}">
   <meta name="twitter:card" content="summary">
   <meta name="google-site-verification" content="eF8UPNP73pZWcNA8MbjSH1hxhlstnVC-o7ESFCLKu30">
   <link rel="canonical" href="{SITE_URL}">
   <link rel="alternate" type="application/rss+xml" title="AI Coding Release Radar RSS" href="feed.xml">
-  <title>AI Coding Release Radar</title>
+  <title>{escape(page_title)}</title>
   <style>{INDEX_STYLE}</style>
   <style>
     @media (min-width: 761px) {{ .tool-grid-five {{ grid-template-columns: repeat(3, 1fr); }} }}
@@ -1233,7 +1248,7 @@ def render_index(records):
           <p class="eyebrow">Official feeds / stable only</p>
           <h1 id="page-title"><span>AI Coding</span><br>Releases</h1>
         </div>
-        <p class="lede">A source-first index of stable releases from Codex, Claude Code, and Gemini CLI. No rumors. No synthetic benchmarks.</p>
+        <p class="lede">Latest verified: {escape(latest_summary or "Codex, Claude Code, and Gemini CLI")}. Updated from official GitHub feeds. <a class="internal-link" href="#toolbox-title">Explore developer automation →</a></p>
       </section>
 
       <section class="metrics" aria-label="Radar metrics">

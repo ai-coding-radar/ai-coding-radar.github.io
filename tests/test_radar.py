@@ -187,6 +187,16 @@ class RadarTest(unittest.TestCase):
             index = (root / "output" / "index.html").read_text(encoding="utf-8")
             self.assertIn('<html lang="en">', index)
             self.assertIn("AI Coding Release Radar", index)
+            self.assertIn(
+                "<title>Claude Code, Codex &amp; Gemini CLI Release Tracker</title>",
+                index,
+            )
+            self.assertIn(
+                "Latest verified stable releases: OpenAI Codex 1.0.0, "
+                "Claude Code 2.1.2, Gemini CLI 0.55.1.",
+                index,
+            )
+            self.assertIn('href="#toolbox-title"', index)
             self.assertIn("OpenAI Codex 1.0.0 is out", index)
             self.assertIn("Claude Code 2.1.2 is out", index)
             self.assertIn("Gemini CLI 0.55.1 is out", index)
