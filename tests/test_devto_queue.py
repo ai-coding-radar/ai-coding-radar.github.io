@@ -149,7 +149,9 @@ class DevToQueueTest(unittest.TestCase):
 
         self.assertIn('cron: "20 1 * * *"', workflow)
         self.assertIn('cron: "20 2 * * *"', workflow)
-        self.assertIn("github.event_name == 'schedule'", workflow)
+        self.assertIn("DEV queue fallback", workflow)
+        self.assertIn("publish_next_due", workflow)
+        self.assertIn("github.event_name == 'schedule' || inputs.publish_next_due", workflow)
         self.assertIn("--publish-next-due", workflow)
         self.assertIn("cancel-in-progress: false", workflow)
 

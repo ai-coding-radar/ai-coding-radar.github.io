@@ -1,4 +1,5 @@
 name: Publish tested guide on DEV
+run-name: ${{ github.event_name == 'schedule' && 'DEV queue schedule' || inputs.publish_next_due && 'DEV queue fallback' || format('DEV guide {0}', inputs.guide) }}
 
 "on":
   schedule:
@@ -6,6 +7,11 @@ name: Publish tested guide on DEV
     - cron: "20 2 * * *"
   workflow_dispatch:
     inputs:
+      publish_next_due:
+        description: Run the guarded queue instead of a selected guide
+        required: true
+        default: false
+        type: boolean
       guide:
         description: Tested guide to create, verify, or publish
         required: true
@@ -39,13 +45,13 @@ jobs:
         uses: actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803 # v6
 
       - name: Publish at most one due queued guide
-        if: github.event_name == 'schedule'
+        if: github.event_name == 'schedule' || inputs.publish_next_due
         env:
           DEVTO_API_KEY: ${{ secrets.DEVTO_API_KEY }}
         run: python3 devto_guide.py --publish-next-due
 
       - name: Create, verify, or publish a selected DEV guide
-        if: github.event_name == 'workflow_dispatch'
+        if: github.event_name == 'workflow_dispatch' && inputs.publish_next_due != true
         env:
           DEVTO_API_KEY: ${{ secrets.DEVTO_API_KEY }}
           PUBLISH: ${{ inputs.publish }}

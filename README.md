@@ -78,8 +78,15 @@ Create the key at <https://dev.to/settings/extensions>. Keep it out of the
 repository and chat history; use a local environment variable or a repository
 secret named `DEVTO_API_KEY`. The manual **Draft latest release on DEV**
 workflow can then create the first draft without exposing the key. No browser
-cookie is read. Distribution is not scheduled until the account and one draft
-have been verified.
+cookie is read.
+
+The verified guide queue checks twice daily in GitHub Actions. It waits at least
+24 hours after the preceding public guide, publishes at most one due guide, and
+verifies the article after the update. `python3 ensure_dev_queue.py` is the
+independent daily backstop: it ignores selected-guide draft runs, does nothing
+after a successful or active queue check, and dispatches one official queue
+workflow when both scheduled checks are absent. A failed fallback is not
+retried repeatedly on the same Beijing day.
 
 ## XiaoHongShu daily draft
 
