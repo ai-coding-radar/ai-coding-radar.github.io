@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "checked_at": "2026-08-15T09:30:37+08:00",
+  "checked_at": "2026-08-15T09:37:16+08:00",
   "sources": {
     "apify": {
       "period": "2026-08",
@@ -321,11 +321,18 @@
       "price_disclosure_present": true,
       "positive_reactions": 0,
       "comments": 0,
-      "queue_scheduler": "github_actions_schedule",
+      "queue_scheduler": "github_actions_dual_schedule",
       "queue_workflow": ".github/workflows/publish-dev-guide.yml",
-      "queue_schedule_utc": "01:20",
-      "queue_schedule_asia_shanghai": "09:20",
-      "queue_commit": "7d067df91a476c9f477b0790d7551939cad401cc",
+      "queue_schedule_utc": [
+        "01:20",
+        "02:20"
+      ],
+      "queue_schedule_asia_shanghai": [
+        "09:20",
+        "10:20"
+      ],
+      "queue_commit": "280c26d3df71132d96e0f9fc45eeabae420e2474",
+      "queue_priority_commit": "7d067df91a476c9f477b0790d7551939cad401cc",
       "queue_order": [
         "oss-security",
         "grants-gov-monitor",
@@ -339,6 +346,7 @@
       "queue_verifies_publication_after_update": true,
       "queue_manual_fallback_policy": "20:00_only_if_scheduled_run_missing_or_failed_and_guide_is_due",
       "queue_schedule_first_window_status": "no_scheduled_run_visible_by_2026-08-15T09:30:37+08:00_next_guide_not_due",
+      "queue_secondary_schedule_status": "configured_for_10:20_asia_shanghai",
       "next_article_draft_id": 4399376,
       "next_article_title": "Build a fact-only Grants.gov opportunity monitor in n8n",
       "next_article_canonical_url": "https://github.com/Jarvis-Dong/grants-gov-opportunity-monitor/blob/main/examples/README.md",
@@ -378,7 +386,7 @@
       "fourth_article_release_policy": "at_least_24h_after_markdown_article_published_at",
       "fourth_article_workflow_run": "https://github.com/ai-coding-radar/ai-coding-radar.github.io/actions/runs/31846964561",
       "settled": false,
-      "evidence": "DEV official API created one OSS draft and upgraded the same article ID to published; the four remaining canonical URLs map to distinct private drafts. Commit 7d067df moves the Grants guide directly after the published OSS baseline because a default first run can charge at most $0.18755 for 25 new opportunities plus the start event, before creator costs or settlement; this is only gross event potential. Commit 56ce2c9 clarifies near the article's existing early Actor and Example links that an Apify account is required and the price is shown before a run. Sixty-nine tests passed. Official workflow 31856650639 returned draft_updated for the same Grants draft ID 4399376, and its anonymous DEV API remained HTTP 404, proving it was not published early or duplicated. The queue still requires the preceding guide's published_at plus 24 hours, publishes at most one due guide, verifies the result, and fails closed on missing or out-of-order state. No scheduled run was visible by 09:30 in the first schedule window, but the next guide is not eligible until 2026-08-16T03:19:24+08:00, so no fallback was triggered. Drafts, publication, event-price potential, reactions, and workflow success are not revenue"
+      "evidence": "DEV official API created one OSS draft and upgraded the same article ID to published; the four remaining canonical URLs map to distinct private drafts. Commit 7d067df moves the Grants guide directly after the published OSS baseline because a default first run can charge at most $0.18755 for 25 new opportunities plus the start event, before creator costs or settlement; this is only gross event potential. Commit 56ce2c9 clarifies near the article's existing early Actor and Example links that an Apify account is required and the price is shown before a run. Sixty-nine tests passed. Official workflow 31856650639 returned draft_updated for the same Grants draft ID 4399376, and its anonymous DEV API remained HTTP 404, proving it was not published early or duplicated. No scheduled run was visible by 09:30 in the first 09:20 window, so commit 280c26d adds a second 10:20 check using the same non-canceling concurrency, canonical dedupe, 24-hour gate, single-publication limit, post-update verification, and fail-closed ordering. The tracked Codex automation was updated to allow a 20:00 browser fallback only when both GitHub checks are missing or failed and the next guide is actually due. The next guide is not eligible until 2026-08-16T03:19:24+08:00, so no fallback was triggered today. Drafts, publication, event-price potential, reactions, and workflow success are not revenue"
     },
     "github_repository_distribution": {
       "repositories": 5,
