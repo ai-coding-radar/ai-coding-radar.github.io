@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "checked_at": "2026-08-15T09:59:27+08:00",
+  "checked_at": "2026-08-15T10:32:15+08:00",
   "sources": {
     "apify": {
       "period": "2026-08",
@@ -345,8 +345,11 @@
       "queue_max_publications_per_run": 1,
       "queue_verifies_publication_after_update": true,
       "queue_manual_fallback_policy": "20:00_only_if_scheduled_run_missing_or_failed_and_guide_is_due",
+      "queue_workflow_id": 334567536,
+      "queue_workflow_state": "active",
       "queue_schedule_first_window_status": "no_scheduled_run_visible_by_2026-08-15T09:30:37+08:00_next_guide_not_due",
-      "queue_secondary_schedule_status": "configured_for_10:20_asia_shanghai",
+      "queue_secondary_schedule_status": "no_scheduled_run_visible_by_2026-08-15T10:30:00+08:00_next_guide_not_due",
+      "queue_initial_day_schedule_runs": 0,
       "next_article_draft_id": 4399376,
       "next_article_title": "Build a fact-only Grants.gov opportunity monitor in n8n",
       "next_article_canonical_url": "https://github.com/Jarvis-Dong/grants-gov-opportunity-monitor/blob/main/examples/README.md",
@@ -386,7 +389,7 @@
       "fourth_article_release_policy": "at_least_24h_after_markdown_article_published_at",
       "fourth_article_workflow_run": "https://github.com/ai-coding-radar/ai-coding-radar.github.io/actions/runs/31846964561",
       "settled": false,
-      "evidence": "DEV official API created one OSS draft and upgraded the same article ID to published; the four remaining canonical URLs map to distinct private drafts. Commit 7d067df moves the Grants guide directly after the published OSS baseline because a default first run can charge at most $0.18755 for 25 new opportunities plus the start event, before creator costs or settlement; this is only gross event potential. Commit 56ce2c9 clarifies near the article's existing early Actor and Example links that an Apify account is required and the price is shown before a run. Sixty-nine tests passed. Official workflow 31856650639 returned draft_updated for the same Grants draft ID 4399376, and its anonymous DEV API remained HTTP 404, proving it was not published early or duplicated. No scheduled run was visible by 09:30 in the first 09:20 window, so commit 280c26d adds a second 10:20 check using the same non-canceling concurrency, canonical dedupe, 24-hour gate, single-publication limit, post-update verification, and fail-closed ordering. The tracked Codex automation was updated to allow a 20:00 browser fallback only when both GitHub checks are missing or failed and the next guide is actually due. The next guide is not eligible until 2026-08-16T03:19:24+08:00, so no fallback was triggered today. Drafts, publication, event-price potential, reactions, and workflow success are not revenue"
+      "evidence": "DEV official API created one OSS draft and upgraded the same article ID to published; the four remaining canonical URLs map to distinct private drafts. Commit 7d067df moves the Grants guide directly after the published OSS baseline because a default first run can charge at most $0.18755 for 25 new opportunities plus the start event, before creator costs or settlement; this is only gross event potential. Commit 56ce2c9 clarifies near the article's existing early Actor and Example links that an Apify account is required and the price is shown before a run. Sixty-nine tests passed. Official workflow 31856650639 returned draft_updated for the same Grants draft ID 4399376, and its anonymous DEV API remained HTTP 404, proving it was not published early or duplicated. GitHub reports workflow 334567536 as active, but neither the 09:20 nor the 10:20 Asia/Shanghai schedule produced a run by 10:30 on the workflow's first day. The next guide is not eligible until 2026-08-16T03:19:24+08:00, so this caused no missed publication and no manual fallback was triggered. The queue remains canonical-deduplicated, 24-hour gated, limited to one publication, verified after update, and fail-closed on ordering or API errors. Drafts, publication, event-price potential, reactions, workflow success, and missing no-op schedule checks are not revenue"
     },
     "github_repository_distribution": {
       "repositories": 5,
@@ -406,6 +409,24 @@
       "apify_integration_prefill_status": "valid_business_json_saved_no_actor_runs",
       "apify_empty_api_input_safe_count": 5,
       "apify_public_example_run_input_status": "legacy_template_accepted_by_bounded_defaults",
+      "repository_catalog_cross_links": 5,
+      "repository_catalog_cross_link_target": "https://ai-coding-radar.github.io/#toolbox-title",
+      "uk_repository_direct_store_link": true,
+      "grants_fixture_backed_sample_output": true,
+      "repository_cross_link_ci_runs": {
+        "remote-job-intelligence": 31858261094,
+        "oss-package-health-monitor": 31858260404,
+        "markdown-code-to-image": 31858260375,
+        "uk-company-change-alerts": 31858261035,
+        "grants-gov-opportunity-monitor": 31858363795
+      },
+      "github_traffic_views_14d": 0,
+      "github_traffic_clone_note": "Five remote-job-intelligence clones from four unique clients may include CI or platform builds and are not treated as users or revenue.",
+      "apify_monetization_checked_at": "2026-08-15T09:58:00+08:00",
+      "apify_paying_users_total": 0,
+      "apify_displayed_profit_usd_total": 0,
+      "apify_payout_invoice_available": false,
+      "apify_payout_status": "identity_verification_required_no_invoice_no_settlement",
       "apify_store_acquisition": {
         "period": "2026-08",
         "actor_detail_views": 0,
@@ -420,7 +441,7 @@
       "open_source_fair_share_source_visibility_prerequisite": true,
       "open_source_fair_share_affiliate_enrollment_verified": false,
       "settled": false,
-      "evidence": "GitHub repository API confirms five public repositories have accurate descriptions, Apify Store homepages, and use-case topics. Apify Console saved all five Actors with source files visible, limited permissions, and valid Integration prefill JSON without starting an Actor. Five tested commits then removed root required constraints and added bounded runtime defaults, so the generated empty API input and legacy helloWorld template now resolve to a safe product example instead of failing validation. Public build APIs confirm the exact commits and successful builds for all five Actors. August Acquisition still reports zero Store detail views, zero Input-page views, and zero starts, while Actor quality has no data yet. These conversion safeguards are not revenue; no affiliate commission or settled payout is claimed"
+      "evidence": "GitHub repository API confirms five public repositories have accurate descriptions, Apify Store homepages, and use-case topics. All five README files now link to the public automation catalog, and the UK repository also exposes its Store and supplier Example above the input section. The Grants repository adds one output object generated from its checked-in offline fixture and labels it as non-current. Sixty-one local tests and five GitHub Actions runs passed; no Actor was run or rebuilt for documentation-only changes. GitHub traffic reported zero repository page views across the five repositories; five Remote clones may include CI or platform builds and are not treated as external users. Apify Console still showed zero paying users and $0 profit for every Actor, no payout invoice, and identity verification required. The five legacy helloWorld metadata values remain accepted only because each runtime has bounded safe defaults and each README has a valid REST payload. These links, tests, clones, free users, and conversion safeguards are not revenue"
     },
     "ai_coding_radar_distribution": {
       "site": "https://ai-coding-radar.github.io/",
