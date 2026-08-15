@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "checked_at": "2026-08-15T13:15:27+08:00",
+  "checked_at": "2026-08-15T15:28:48+08:00",
   "sources": {
     "apify": {
       "period": "2026-08",
@@ -338,12 +338,38 @@
         "uk_company_change_alerts": "128_mbytes_2_to_9_seconds",
         "grants_gov_opportunity_monitor": "128_mbytes_4_to_6_seconds"
       },
+      "official_mcp_server": "https://mcp.apify.com",
+      "official_mcp_server_version": "0.14.3",
+      "official_mcp_protocol_version": "2026-07-28",
+      "anonymous_mcp_discovery_tools": ["search-actors", "fetch-actor-details"],
+      "anonymous_mcp_actor_details_found": 5,
+      "anonymous_mcp_actors": [
+        "ai-coding-radar/remote-job-intelligence",
+        "ai-coding-radar/oss-package-health-monitor",
+        "ai-coding-radar/markdown-code-to-image",
+        "ai-coding-radar/uk-company-change-alerts",
+        "ai-coding-radar/grants-gov-opportunity-monitor"
+      ],
+      "mcp_excluded_actor_rules": ["full_permission", "rental"],
+      "agentic_payment_eligibility": {
+        "pay_per_event_actors": 5,
+        "limited_permission_actors": 5,
+        "standby_disabled_actors": 5,
+        "eligible_by_current_published_rules": 5,
+        "paid_test_started": false
+      },
+      "agentic_payment_terms": {
+        "minimum_prepaid_usd": 1,
+        "token_lifetime_days": 14,
+        "unused_credit_refundable": false,
+        "experimental": true
+      },
       "integration_prefill_status": "five_actor_specific_valid_inputs_verified_in_console",
       "anonymous_actor_api_example_status": "stale_hello_world_not_the_console_integration_prefill",
       "payout_invoice_available": false,
       "payout_status": "identity_verification_required_no_settlement",
       "settled": false,
-      "evidence": "The August 2026 Monetization table showed zero paying users, one free user for each of the five Actors, zero displayed profit, and zero displayed cost. The portfolio cost-per-1,000-results card showed $0.02 average, $0.01 minimum, and $0.03 maximum. Existing runs used the bounded memory and durations recorded here; no new Actor run was started for this audit. Each Actor's authenticated Settings page already contained an Actor-specific valid integration prefill with Save disabled, so the anonymous API's generic helloWorld example was not used as evidence of the actual prefill. Free users, results, run cost, event prices, and potential profit are not settled revenue"
+      "evidence": "The August 2026 Monetization table showed zero paying users, one free user for each of the five Actors, zero displayed profit, and zero displayed cost. The portfolio cost-per-1,000-results card showed $0.02 average, $0.01 minimum, and $0.03 maximum. Existing runs used the bounded memory and durations recorded here; no new Actor run was started for this audit. Each Actor's authenticated Settings page already contained an Actor-specific valid integration prefill with Save disabled, so the anonymous API's generic helloWorld example was not used as evidence of the actual prefill. An anonymous connection to the official Apify MCP server exposed search-actors and fetch-actor-details, and fetch-actor-details returned all five exact public Actor names with PAY_PER_EVENT pricing. Current official MCP rules exclude full-permission and rental Actors; current x402 rules require pay-per-event pricing, limited permissions, and no Standby. All five satisfy those published rules, and no separate whitelist is documented. No Actor call, wallet payment, prepaid token purchase, or paid test was started. Free users, MCP discovery, results, run cost, event prices, eligibility, and potential profit are not settled revenue"
     },
     "n8n_template_distribution": {
       "official_library": "https://n8n.io/workflows/",
