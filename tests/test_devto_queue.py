@@ -26,11 +26,11 @@ def article(guide, published_at=None):
 
 class DevToQueueTest(unittest.TestCase):
     @patch("devto_guide.devto.publish_article")
-    @patch("devto_guide.devto.find_existing")
+    @patch("devto_guide.devto.list_articles")
     def test_waits_until_twenty_four_hours_after_previous_guide(
-        self, find_existing, publish_article
+        self, list_articles, publish_article
     ):
-        find_existing.side_effect = [
+        list_articles.return_value = [
             article("oss-security", OSS_PUBLISHED_AT),
             article("grants-gov-monitor"),
             article("uk-supplier-monitor"),
@@ -47,25 +47,31 @@ class DevToQueueTest(unittest.TestCase):
         self.assertEqual(result["status"], "not_due")
         self.assertEqual(result["guide"], "grants-gov-monitor")
         self.assertEqual(result["eligible_at"], "2026-08-15T19:19:24+00:00")
+        list_articles.assert_called_once_with("secret")
         publish_article.assert_not_called()
 
+    @patch("devto_guide.devto.get_article")
     @patch("devto_guide.devto.publish_article")
-    @patch("devto_guide.devto.find_existing")
+    @patch("devto_guide.devto.list_articles")
     def test_publishes_and_verifies_only_the_first_due_guide(
-        self, find_existing, publish_article
+        self, list_articles, publish_article, get_article
     ):
         published_grants = article(
             "grants-gov-monitor", "2026-08-15T19:20:00Z"
         )
-        find_existing.side_effect = [
+        articles = [
             article("oss-security", OSS_PUBLISHED_AT),
             article("grants-gov-monitor"),
             article("uk-supplier-monitor"),
             article("markdown-image-automation"),
             article("remote-ai-jobs"),
-            published_grants,
         ]
-        publish_article.return_value = {"status": "published"}
+        list_articles.return_value = articles
+        publish_article.return_value = {
+            "status": "published",
+            "id": published_grants["id"],
+        }
+        get_article.return_value = published_grants
 
         result = devto_guide.publish_next_due(
             PROJECT_ROOT,
@@ -76,17 +82,20 @@ class DevToQueueTest(unittest.TestCase):
         self.assertEqual(result["status"], "published")
         self.assertEqual(result["guide"], "grants-gov-monitor")
         self.assertEqual(result["id"], published_grants["id"])
+        list_articles.assert_called_once_with("secret")
         publish_article.assert_called_once()
         self.assertTrue(
             publish_article.call_args.args[0]["article"]["published"]
         )
+        self.assertIs(publish_article.call_args.kwargs["existing_articles"], articles)
+        get_article.assert_called_once_with("secret", published_grants["id"])
 
     @patch("devto_guide.devto.publish_article")
-    @patch("devto_guide.devto.find_existing")
+    @patch("devto_guide.devto.list_articles")
     def test_rejects_an_out_of_order_publication(
-        self, find_existing, publish_article
+        self, list_articles, publish_article
     ):
-        find_existing.side_effect = [
+        list_articles.return_value = [
             article("oss-security", OSS_PUBLISHED_AT),
             article("grants-gov-monitor"),
             article("uk-supplier-monitor"),
@@ -100,9 +109,9 @@ class DevToQueueTest(unittest.TestCase):
         publish_article.assert_not_called()
 
     @patch("devto_guide.devto.publish_article")
-    @patch("devto_guide.devto.find_existing")
-    def test_complete_queue_is_a_noop(self, find_existing, publish_article):
-        find_existing.side_effect = [
+    @patch("devto_guide.devto.list_articles")
+    def test_complete_queue_is_a_noop(self, list_articles, publish_article):
+        list_articles.return_value = [
             article(guide, f"2026-08-{15 + index:02d}T19:20:00Z")
             for index, guide in enumerate(devto_guide.GUIDE_QUEUE)
         ]
@@ -113,11 +122,11 @@ class DevToQueueTest(unittest.TestCase):
         publish_article.assert_not_called()
 
     @patch("devto_guide.devto.publish_article")
-    @patch("devto_guide.devto.find_existing")
+    @patch("devto_guide.devto.list_articles")
     def test_missing_published_baseline_fails_closed(
-        self, find_existing, publish_article
+        self, list_articles, publish_article
     ):
-        find_existing.side_effect = [
+        list_articles.return_value = [
             article("oss-security"),
             article("grants-gov-monitor"),
             article("uk-supplier-monitor"),
@@ -131,8 +140,8 @@ class DevToQueueTest(unittest.TestCase):
         publish_article.assert_not_called()
 
     @patch.dict(os.environ, {}, clear=True)
-    @patch("devto_guide.devto.find_existing")
-    def test_queue_cli_needs_a_secret_without_network(self, find_existing):
+    @patch("devto_guide.devto.list_articles")
+    def test_queue_cli_needs_a_secret_without_network(self, list_articles):
         stderr = io.StringIO()
 
         with redirect_stderr(stderr):
@@ -140,7 +149,7 @@ class DevToQueueTest(unittest.TestCase):
 
         self.assertEqual(result, 2)
         self.assertIn("DEVTO_API_KEY is not set", stderr.getvalue())
-        find_existing.assert_not_called()
+        list_articles.assert_not_called()
 
     def test_workflow_has_a_guarded_daily_schedule(self):
         workflow = (

@@ -3,11 +3,22 @@ import json
 import os
 import tempfile
 import unittest
+import urllib.error
 from contextlib import redirect_stderr, redirect_stdout
 from pathlib import Path
-from unittest.mock import patch
+from unittest.mock import MagicMock, call, patch
 
 import devto
+
+
+def http_error(code, *, headers=None, body=b"Retry later"):
+    return urllib.error.HTTPError(
+        "https://dev.to/api/articles/me/all",
+        code,
+        "rate limited",
+        headers or {},
+        io.BytesIO(body),
+    )
 
 
 def write_state(root: Path) -> None:
@@ -171,6 +182,38 @@ class DevToTest(unittest.TestCase):
         self.assertEqual(update.kwargs["body"], payload)
 
     @patch("devto._request")
+    def test_preloaded_articles_avoid_a_second_dedupe_scan(self, request):
+        payload = {
+            "article": {
+                "title": "Queued guide",
+                "canonical_url": "https://example.com/guide",
+                "published": True,
+            }
+        }
+        existing = [
+            {
+                "id": 321,
+                "url": "https://dev.to/example/guide",
+                "canonical_url": "https://example.com/guide",
+                "published_at": None,
+            }
+        ]
+        request.return_value = {
+            "id": 321,
+            "url": "https://dev.to/example/guide",
+        }
+
+        result = devto.publish_article(
+            payload,
+            "secret",
+            existing_articles=existing,
+        )
+
+        self.assertEqual(result["status"], "published")
+        request.assert_called_once()
+        self.assertEqual(request.call_args.args, ("/articles/321", "secret"))
+
+    @patch("devto._request")
     def test_dedupe_checks_every_full_page(self, request):
         canonical_url = "https://ai-coding-radar.github.io/releases/codex/1.0.0/"
         full_page = [
@@ -190,6 +233,44 @@ class DevToTest(unittest.TestCase):
     def test_malformed_article_record_fails_closed(self, request):
         with self.assertRaisesRegex(devto.DevToError, "invalid article record"):
             devto.find_existing("secret", "https://example.com/release")
+
+    @patch("devto.time.sleep")
+    @patch("devto.urllib.request.urlopen")
+    def test_rate_limit_honors_retry_after(self, urlopen, sleep):
+        response = MagicMock()
+        response.__enter__.return_value.read.return_value = b'{"ok": true}'
+        urlopen.side_effect = [
+            http_error(429, headers={"Retry-After": "3"}),
+            response,
+        ]
+
+        result = devto._request("/articles/me/all", "secret")
+
+        self.assertEqual(result, {"ok": True})
+        self.assertEqual(urlopen.call_count, 2)
+        sleep.assert_called_once_with(3.0)
+
+    @patch("devto.time.sleep")
+    @patch("devto.urllib.request.urlopen")
+    def test_rate_limit_stops_after_bounded_retries(self, urlopen, sleep):
+        urlopen.side_effect = [http_error(429), http_error(429), http_error(429)]
+
+        with self.assertRaisesRegex(devto.DevToError, "HTTP 429"):
+            devto._request("/articles/me/all", "secret")
+
+        self.assertEqual(urlopen.call_count, 3)
+        self.assertEqual(sleep.call_args_list, [call(5.0), call(10.0)])
+
+    @patch("devto.time.sleep")
+    @patch("devto.urllib.request.urlopen")
+    def test_long_retry_after_fails_without_retrying_early(self, urlopen, sleep):
+        urlopen.side_effect = [http_error(429, headers={"Retry-After": "60"})]
+
+        with self.assertRaisesRegex(devto.DevToError, "retry budget"):
+            devto._request("/articles/me/all", "secret")
+
+        urlopen.assert_called_once()
+        sleep.assert_not_called()
 
     @patch("devto._request")
     def test_invalid_article_payload_fails_before_network(self, request):

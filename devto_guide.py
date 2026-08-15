@@ -189,9 +189,15 @@ def publish_next_due(
         guide: article_payload(project_root, published=True, guide=guide)
         for guide in GUIDE_QUEUE
     }
+    articles = devto.list_articles(token)
+    by_canonical: Dict[str, Mapping[str, Any]] = {}
+    for article in articles:
+        canonical_url = article.get("canonical_url")
+        if isinstance(canonical_url, str):
+            by_canonical.setdefault(canonical_url, article)
     existing = {
-        guide: devto.find_existing(
-            token, str(payloads[guide]["article"]["canonical_url"])
+        guide: by_canonical.get(
+            str(payloads[guide]["article"]["canonical_url"])
         )
         for guide in GUIDE_QUEUE
     }
@@ -226,15 +232,20 @@ def publish_next_due(
             "eligible_at": eligible_at.isoformat(),
         }
 
-    result = devto.publish_article(payloads[first_unpublished], token)
+    result = devto.publish_article(
+        payloads[first_unpublished],
+        token,
+        existing_articles=articles,
+    )
     if result.get("status") != "published":
         raise devto.DevToError("DEV did not confirm the queued guide publication")
-    verified = devto.find_existing(
-        token,
-        str(payloads[first_unpublished]["article"]["canonical_url"]),
-    )
-    if not verified:
-        raise devto.DevToError("published DEV guide could not be verified")
+    article_id = result.get("id")
+    if not isinstance(article_id, int) or isinstance(article_id, bool):
+        raise devto.DevToError("published DEV guide is missing its article id")
+    verified = devto.get_article(token, article_id)
+    canonical_url = str(payloads[first_unpublished]["article"]["canonical_url"])
+    if verified.get("canonical_url") != canonical_url:
+        raise devto.DevToError("published DEV guide canonical URL did not verify")
     published_at = parse_published_at(verified.get("published_at"))
     return {
         "status": "published",

@@ -7,8 +7,11 @@ import argparse
 import json
 import os
 import sys
+import time
 import urllib.error
 import urllib.request
+from datetime import datetime, timezone
+from email.utils import parsedate_to_datetime
 from pathlib import Path
 from typing import Any, Dict, Mapping, Optional, Sequence
 
@@ -17,10 +20,41 @@ import radar
 
 API_ROOT = "https://dev.to/api"
 TOKEN_ENV = "DEVTO_API_KEY"
+RATE_LIMIT_RETRIES = 2
+MAX_RATE_LIMIT_DELAY_SECONDS = 15.0
 
 
 class DevToError(RuntimeError):
     """Raised when a DEV request or local release record is invalid."""
+
+
+def _retry_after_seconds(value: Optional[str], retry_number: int) -> float:
+    if value:
+        try:
+            delay = float(value)
+        except ValueError:
+            try:
+                retry_at = parsedate_to_datetime(value)
+            except (TypeError, ValueError):
+                retry_at = None
+            if retry_at is not None:
+                if retry_at.tzinfo is None:
+                    retry_at = retry_at.replace(tzinfo=timezone.utc)
+                delay = max(
+                    0.0,
+                    (retry_at - datetime.now(timezone.utc)).total_seconds(),
+                )
+            else:
+                delay = min(
+                    5.0 * (retry_number + 1), MAX_RATE_LIMIT_DELAY_SECONDS
+                )
+        if delay > MAX_RATE_LIMIT_DELAY_SECONDS:
+            raise DevToError(
+                "DEV API returned HTTP 429: Retry-After exceeds the bounded "
+                "workflow retry budget"
+            )
+        return max(0.0, delay)
+    return min(5.0 * (retry_number + 1), MAX_RATE_LIMIT_DELAY_SECONDS)
 
 
 def newest_release(project_root: Path) -> Dict[str, Any]:
@@ -77,33 +111,84 @@ def _request(
             "User-Agent": "AI-Coding-Radar/1.0",
         },
     )
-    try:
-        with urllib.request.urlopen(request, timeout=20) as response:
-            return json.loads(response.read().decode("utf-8"))
-    except urllib.error.HTTPError as exc:
-        detail = exc.read().decode("utf-8", errors="replace")[:500]
-        raise DevToError(f"DEV API returned HTTP {exc.code}: {detail}") from exc
-    except (OSError, urllib.error.URLError, json.JSONDecodeError) as exc:
-        raise DevToError(f"DEV API request failed: {exc}") from exc
+    for attempt in range(RATE_LIMIT_RETRIES + 1):
+        try:
+            with urllib.request.urlopen(request, timeout=20) as response:
+                return json.loads(response.read().decode("utf-8"))
+        except urllib.error.HTTPError as exc:
+            detail = exc.read().decode("utf-8", errors="replace")[:500]
+            if exc.code == 429 and attempt < RATE_LIMIT_RETRIES:
+                headers = getattr(exc, "headers", None)
+                retry_after = headers.get("Retry-After") if headers else None
+                time.sleep(_retry_after_seconds(retry_after, attempt))
+                continue
+            raise DevToError(f"DEV API returned HTTP {exc.code}: {detail}") from exc
+        except (OSError, urllib.error.URLError, json.JSONDecodeError) as exc:
+            raise DevToError(f"DEV API request failed: {exc}") from exc
+    raise DevToError("DEV API retry loop ended unexpectedly")
 
 
-def find_existing(token: str, canonical_url: str) -> Optional[Mapping[str, Any]]:
+def _validated_articles(value: Any) -> list[Mapping[str, Any]]:
+    if not isinstance(value, list):
+        raise DevToError("DEV API returned an unexpected article list")
+    if any(not isinstance(article, dict) for article in value):
+        raise DevToError("DEV API returned an invalid article record")
+    return value
+
+
+def list_articles(token: str) -> list[Mapping[str, Any]]:
+    records: list[Mapping[str, Any]] = []
     page = 1
     while True:
-        articles = _request(f"/articles/me/all?page={page}&per_page=100", token)
-        if not isinstance(articles, list):
-            raise DevToError("DEV API returned an unexpected article list")
-        if any(not isinstance(article, dict) for article in articles):
-            raise DevToError("DEV API returned an invalid article record")
+        articles = _validated_articles(
+            _request(f"/articles/me/all?page={page}&per_page=100", token)
+        )
+        records.extend(articles)
+        if len(articles) < 100:
+            return records
+        page += 1
+
+
+def find_existing(
+    token: str,
+    canonical_url: str,
+    *,
+    articles: Optional[Sequence[Mapping[str, Any]]] = None,
+) -> Optional[Mapping[str, Any]]:
+    if articles is not None:
+        return next(
+            (
+                article
+                for article in articles
+                if article.get("canonical_url") == canonical_url
+            ),
+            None,
+        )
+    page = 1
+    while True:
+        page_articles = _validated_articles(
+            _request(f"/articles/me/all?page={page}&per_page=100", token)
+        )
         match = next(
-            (article for article in articles if article.get("canonical_url") == canonical_url),
+            (
+                article
+                for article in page_articles
+                if article.get("canonical_url") == canonical_url
+            ),
             None,
         )
         if match:
             return match
-        if len(articles) < 100:
+        if len(page_articles) < 100:
             return None
         page += 1
+
+
+def get_article(token: str, article_id: int) -> Mapping[str, Any]:
+    article = _request(f"/articles/{article_id}", token)
+    if not isinstance(article, dict):
+        raise DevToError("DEV API returned an unexpected article response")
+    return article
 
 
 def publish_article(
@@ -111,6 +196,7 @@ def publish_article(
     token: str,
     *,
     refresh_draft: bool = False,
+    existing_articles: Optional[Sequence[Mapping[str, Any]]] = None,
 ) -> Dict[str, Any]:
     article_payload_value = payload.get("article")
     if not isinstance(article_payload_value, dict):
@@ -122,7 +208,7 @@ def publish_article(
     if not isinstance(published, bool):
         raise DevToError("article published flag must be a boolean")
 
-    existing = find_existing(token, canonical_url)
+    existing = find_existing(token, canonical_url, articles=existing_articles)
     if existing:
         is_published = bool(existing.get("published_at"))
         if published and not is_published:
