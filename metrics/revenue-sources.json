@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "checked_at": "2026-08-15T09:37:16+08:00",
+  "checked_at": "2026-08-15T09:45:08+08:00",
   "sources": {
     "apify": {
       "period": "2026-08",
@@ -446,8 +446,8 @@
         "https://apify.com/ai-coding-radar/grants-gov-opportunity-monitor/examples/daily-ai-federal-grant-opportunity-alerts"
       ],
       "publish_workflow_status": "success",
-      "publish_workflow_run": "https://github.com/ai-coding-radar/ai-coding-radar.github.io/actions/runs/31855701966",
-      "last_site_change_workflow_run": "https://github.com/ai-coding-radar/ai-coding-radar.github.io/actions/runs/31855701966",
+      "publish_workflow_run": "https://github.com/ai-coding-radar/ai-coding-radar.github.io/actions/runs/31857273015",
+      "last_site_change_workflow_run": "https://github.com/ai-coding-radar/ai-coding-radar.github.io/actions/runs/31857273015",
       "indexnow_notified_for_site_change": true,
       "indexnow_http_status": 200,
       "indexnow_urls_accepted": 26,
@@ -461,8 +461,17 @@
       "homepage_title": "Claude Code, Codex & Gemini CLI Release Tracker",
       "homepage_dynamic_latest_versions": true,
       "homepage_first_fold_automation_link": true,
+      "homepage_automation_card_order": [
+        "grants-gov-alerts-api",
+        "npm-pypi-vulnerability-api",
+        "markdown-code-to-image-api",
+        "remote-jobs-api",
+        "uk-company-change-api"
+      ],
+      "homepage_primary_automation": "grants-gov-alerts-api",
+      "homepage_value_priority_commit": "fd14f82ba0ad612d43a5a7b1c1313427bace3f47",
       "settled": false,
-      "evidence": "Search Console showed that all first eight impressions landed on the homepage, with zero clicks and average position 6.9 through 2026-08-12; the only visible query was claude 2.1.228. Commit 19ae91d therefore changed only the homepage: its title now names Claude Code, Codex, and Gemini CLI, its description and visible lede list the current stable versions, and the first fold links to the existing paid automation section. Sixty-nine tests passed. Publish radar run 31855701966 deployed the changed homepage, all representative public URLs returned HTTP 200, and IndexNow accepted all 26 sitemap URLs with HTTP 200. The Search Console sitemap still showed could not fetch and the indexing report remained processing, so neither was resubmitted. Pages, workflows, indexing, and impressions are distribution, not revenue"
+      "evidence": "Search Console showed that all first eight impressions landed on the homepage, with zero clicks and average position 6.9 through 2026-08-12; the only visible query was claude 2.1.228. Commit 19ae91d changed only the homepage title, description, latest-version lede, and first-fold automation link. Commit fd14f82 then moved the existing Grants.gov card to the first automation position because the queue's bounded default has the highest single-customer gross event potential among the unpublished guides; it did not change prices or claims. Sixty-nine tests passed. Publish radar run 31857273015 deployed that homepage order, representative public URLs returned HTTP 200, the sitemap contained 26 URLs, and IndexNow accepted all 26 with HTTP 200. The previously observed Search Console sitemap and indexing states were not resubmitted. Pages, workflows, indexing, impressions, and gross event prices are distribution or potential, not revenue"
     },
     "cardify_search": {
       "site": "https://cardify.1222155.xyz/",
