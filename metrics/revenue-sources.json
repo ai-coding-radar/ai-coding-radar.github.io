@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "checked_at": "2026-08-15T08:33:49+08:00",
+  "checked_at": "2026-08-15T08:58:29+08:00",
   "sources": {
     "apify": {
       "period": "2026-08",
@@ -453,12 +453,19 @@
       ],
       "contextual_chatgpt_funnel_pages": 2,
       "api_funnel_target_http_status": 200,
-      "latest_deployment_url": "https://19076627.cardify-ewq.pages.dev",
-      "latest_deployment_status": "success_one_file_uploaded_88_reused",
-      "latest_deployment_verified_at": "2026-08-15T07:36:01+08:00",
+      "app_footer_api_funnel": true,
+      "export_success_api_funnel": true,
+      "app_api_price_disclosed": "$0.005/image + $0.00005/start",
+      "latest_deployment_url": "https://0c00993b.cardify-ewq.pages.dev",
+      "latest_deployment_status": "success_one_indexnow_key_uploaded_89_reused",
+      "latest_deployment_verified_at": "2026-08-15T08:58:29+08:00",
+      "indexnow_key_http_status": 200,
+      "indexnow_sitemap_urls": 9,
+      "indexnow_http_status": 202,
+      "indexnow_notified_at": "2026-08-15T08:58:29+08:00",
       "payment_entry_available": false,
       "settled": false,
-      "evidence": "Six Cardify pages now link to the paid image Actor. ChatGPT Exporter and ChatGPT to Image use the dedicated ChatGPT example; Code to Image, Markdown to PDF, Markdown to Image, and Markdown to WeChat use the general renderer example. Twenty-five tests and the production build passed. A complete local-dist versus live-file hash comparison found only markdown-to-wechat/index.html differed before deployment; Cloudflare Pages then uploaded exactly that one file and reused 88. The custom-domain page returns HTTP 200 and contains the target exactly once. Deployment and links are distribution, not revenue"
+      "evidence": "Six Cardify SEO pages, the editor footer, and the successful image-export state now link to the paid image Actor; the app discloses the current image and start prices and the Apify account requirement. Twenty-six tests and the production build passed. Cloudflare Pages deployment 0c00993b uploaded only the new public IndexNow ownership file and reused 89 existing files. The custom-domain key returned HTTP 200 with the exact expected body, the sitemap contained nine URLs, and the official IndexNow endpoint accepted all nine with HTTP 202 after this real site change. Deployment, crawling, links, and clicks are distribution, not revenue"
     }
   }
 }
