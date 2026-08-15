@@ -62,6 +62,13 @@ class DevToGuideTest(unittest.TestCase):
             "examples/chatgpt-markdown-answer-to-png",
             payload["body_markdown"],
         )
+        self.assertLess(
+            payload["body_markdown"].index(
+                "examples/chatgpt-markdown-answer-to-png"
+            ),
+            payload["body_markdown"].index("## Import the workflow"),
+        )
+        self.assertIn("requires an Apify account", payload["body_markdown"])
         self.assertIn(
             "docs/markdown-code-to-image-preview.png",
             payload["body_markdown"],

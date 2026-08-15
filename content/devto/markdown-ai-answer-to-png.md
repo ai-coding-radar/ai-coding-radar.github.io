@@ -12,6 +12,8 @@ or scrape another website.
 
 ![Example Markdown and code rendered as a PNG](https://raw.githubusercontent.com/Jarvis-Dong/markdown-code-to-image/main/docs/markdown-code-to-image-preview.png)
 
+> **Fastest path for automation:** [open the preconfigured ChatGPT-to-PNG task](https://apify.com/ai-coding-radar/markdown-code-to-image/examples/chatgpt-markdown-answer-to-png). It uses one sample document, requires an Apify account, and shows the current price before you choose whether to run it.
+
 ## Import the workflow
 
 Download and import the public n8n workflow:
