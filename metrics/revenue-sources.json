@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "checked_at": "2026-08-15T10:32:15+08:00",
+  "checked_at": "2026-08-15T10:48:21+08:00",
   "sources": {
     "apify": {
       "period": "2026-08",
@@ -344,12 +344,21 @@
       "queue_minimum_interval_hours": 24,
       "queue_max_publications_per_run": 1,
       "queue_verifies_publication_after_update": true,
-      "queue_manual_fallback_policy": "20:00_only_if_scheduled_run_missing_or_failed_and_guide_is_due",
+      "queue_manual_fallback_policy": "daily_idempotent_ensure_dev_queue_after_missing_schedule",
       "queue_workflow_id": 334567536,
       "queue_workflow_state": "active",
       "queue_schedule_first_window_status": "no_scheduled_run_visible_by_2026-08-15T09:30:37+08:00_next_guide_not_due",
       "queue_secondary_schedule_status": "no_scheduled_run_visible_by_2026-08-15T10:30:00+08:00_next_guide_not_due",
       "queue_initial_day_schedule_runs": 0,
+      "queue_fallback_run_id": 31859818014,
+      "queue_fallback_run": "https://github.com/ai-coding-radar/ai-coding-radar.github.io/actions/runs/31859818014",
+      "queue_fallback_completed_at": "2026-08-15T10:41:12+08:00",
+      "queue_fallback_status": "failed_http_429_no_publication",
+      "queue_fallback_retry_same_day": false,
+      "queue_rate_limit_fix_commit": "d4a62fd6f14c32698856bd0746f6c22565ba366b",
+      "queue_article_list_scan_policy": "one_paginated_scan_per_queue_check",
+      "queue_post_publish_verification": "single_article_id_get",
+      "queue_rate_limit_retry_policy": "honor_retry_after_two_retries_15_second_max_delay",
       "next_article_draft_id": 4399376,
       "next_article_title": "Build a fact-only Grants.gov opportunity monitor in n8n",
       "next_article_canonical_url": "https://github.com/Jarvis-Dong/grants-gov-opportunity-monitor/blob/main/examples/README.md",
@@ -389,7 +398,7 @@
       "fourth_article_release_policy": "at_least_24h_after_markdown_article_published_at",
       "fourth_article_workflow_run": "https://github.com/ai-coding-radar/ai-coding-radar.github.io/actions/runs/31846964561",
       "settled": false,
-      "evidence": "DEV official API created one OSS draft and upgraded the same article ID to published; the four remaining canonical URLs map to distinct private drafts. Commit 7d067df moves the Grants guide directly after the published OSS baseline because a default first run can charge at most $0.18755 for 25 new opportunities plus the start event, before creator costs or settlement; this is only gross event potential. Commit 56ce2c9 clarifies near the article's existing early Actor and Example links that an Apify account is required and the price is shown before a run. Sixty-nine tests passed. Official workflow 31856650639 returned draft_updated for the same Grants draft ID 4399376, and its anonymous DEV API remained HTTP 404, proving it was not published early or duplicated. GitHub reports workflow 334567536 as active, but neither the 09:20 nor the 10:20 Asia/Shanghai schedule produced a run by 10:30 on the workflow's first day. The next guide is not eligible until 2026-08-16T03:19:24+08:00, so this caused no missed publication and no manual fallback was triggered. The queue remains canonical-deduplicated, 24-hour gated, limited to one publication, verified after update, and fail-closed on ordering or API errors. Drafts, publication, event-price potential, reactions, workflow success, and missing no-op schedule checks are not revenue"
+      "evidence": "DEV official API created one OSS draft and upgraded the same article ID to published; the four remaining canonical URLs map to distinct private drafts. Commit 7d067df moves the Grants guide directly after the published OSS baseline because a default first run can charge at most $0.18755 for 25 new opportunities plus the start event, before creator costs or settlement; this is only gross event potential. Commit 56ce2c9 clarifies near the article's existing early Actor and Example links that an Apify account is required and the price is shown before a run. Official workflow 31856650639 returned draft_updated for the same Grants draft ID 4399376. Neither the 09:20 nor the 10:20 Asia/Shanghai schedule produced a run on the workflow's first day, so the idempotent backstop dispatched fallback run 31859818014. That run failed closed on DEV HTTP 429 before any publication; the same-day guard prevents another fallback, and anonymous article ID 4399376 remains HTTP 404. Commit d4a62fd reduces five canonical checks to one paginated article-list scan, reuses that snapshot during publication, verifies once by article ID, and adds bounded Retry-After handling; all 78 tests passed. The Grants guide remains in order and cannot publish before 2026-08-16T03:19:24+08:00. Drafts, failed or successful workflows, code fixes, event-price potential, reactions, and exposure are not revenue"
     },
     "github_repository_distribution": {
       "repositories": 5,
