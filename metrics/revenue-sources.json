@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "checked_at": "2026-08-15T09:01:08+08:00",
+  "checked_at": "2026-08-15T09:10:17+08:00",
   "sources": {
     "apify": {
       "period": "2026-08",
@@ -421,8 +421,8 @@
         "https://apify.com/ai-coding-radar/grants-gov-opportunity-monitor/examples/daily-ai-federal-grant-opportunity-alerts"
       ],
       "publish_workflow_status": "success",
-      "publish_workflow_run": "https://github.com/ai-coding-radar/ai-coding-radar.github.io/actions/runs/31850846371",
-      "last_site_change_workflow_run": "https://github.com/ai-coding-radar/ai-coding-radar.github.io/actions/runs/31850846371",
+      "publish_workflow_run": "https://github.com/ai-coding-radar/ai-coding-radar.github.io/actions/runs/31855701966",
+      "last_site_change_workflow_run": "https://github.com/ai-coding-radar/ai-coding-radar.github.io/actions/runs/31855701966",
       "indexnow_notified_for_site_change": true,
       "indexnow_http_status": 200,
       "indexnow_urls_accepted": 26,
@@ -431,8 +431,13 @@
       "google_search_console_clicks": 0,
       "google_search_console_average_position": 6.9,
       "google_search_console_sitemap_status": "could_not_fetch",
+      "google_search_console_top_page": "https://ai-coding-radar.github.io/",
+      "observed_query_homepage_title_optimized": true,
+      "homepage_title": "Claude Code, Codex & Gemini CLI Release Tracker",
+      "homepage_dynamic_latest_versions": true,
+      "homepage_first_fold_automation_link": true,
       "settled": false,
-      "evidence": "Commit 1d3597e added one verified n8n workflow link to each of the five automation landing pages. All five GitHub workflow pages returned HTTP 200, 62 tests passed, and Publish radar run 31850846371 deployed successfully. Anonymous checks confirm every landing page returns HTTP 200 and contains exactly one Open n8n workflow call to action. The sitemap remains at 26 URLs, and IndexNow accepted all 26 with HTTP 200 after the real public-page change. On 2026-08-15 Search Console showed the first eight impressions, zero clicks, and average position 6.9 for data through 2026-08-12; its sitemap still showed could not fetch and the indexing report remained processing, so neither was resubmitted. Pages, workflows, indexing, and impressions are distribution, not revenue"
+      "evidence": "Search Console showed that all first eight impressions landed on the homepage, with zero clicks and average position 6.9 through 2026-08-12; the only visible query was claude 2.1.228. Commit 19ae91d therefore changed only the homepage: its title now names Claude Code, Codex, and Gemini CLI, its description and visible lede list the current stable versions, and the first fold links to the existing paid automation section. Sixty-nine tests passed. Publish radar run 31855701966 deployed the changed homepage, all representative public URLs returned HTTP 200, and IndexNow accepted all 26 sitemap URLs with HTTP 200. The Search Console sitemap still showed could not fetch and the indexing report remained processing, so neither was resubmitted. Pages, workflows, indexing, and impressions are distribution, not revenue"
     },
     "cardify_search": {
       "site": "https://cardify.1222155.xyz/",

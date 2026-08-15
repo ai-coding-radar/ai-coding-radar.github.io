@@ -24,6 +24,11 @@
     "impressions": 2,
     "clicks": 0
   },
+  "top_visible_page": {
+    "url": "https://ai-coding-radar.github.io/",
+    "impressions": 8,
+    "clicks": 0
+  },
   "source": "Google Search Console visible account report",
   "note": "The performance report now has its first visible search data. The page-indexing report is still processing, and the submitted sitemap remains marked as could not fetch with zero discovered pages even though the public XML and representative URLs return HTTP 200. It was not resubmitted."
 }
