@@ -7,6 +7,7 @@ import argparse
 import json
 import os
 import sys
+from datetime import datetime, timedelta, timezone
 from pathlib import Path
 from typing import Any, Dict, Mapping, Optional, Sequence
 
@@ -129,6 +130,14 @@ GUIDES: Mapping[str, Mapping[str, Any]] = {
 }
 
 CANONICAL_URL = str(GUIDES[DEFAULT_GUIDE]["canonical_url"])
+GUIDE_QUEUE = (
+    "oss-security",
+    "uk-supplier-monitor",
+    "markdown-image-automation",
+    "grants-gov-monitor",
+    "remote-ai-jobs",
+)
+MIN_PUBLISH_INTERVAL = timedelta(hours=24)
 
 
 def article_payload(
@@ -154,6 +163,88 @@ def article_payload(
     }
 
 
+def parse_published_at(value: Any) -> datetime:
+    if not isinstance(value, str) or not value.strip():
+        raise devto.DevToError("DEV article is missing published_at")
+    try:
+        published_at = datetime.fromisoformat(value.replace("Z", "+00:00"))
+    except ValueError as exc:
+        raise devto.DevToError("DEV article has an invalid published_at") from exc
+    if published_at.tzinfo is None:
+        raise devto.DevToError("DEV article published_at has no timezone")
+    return published_at
+
+
+def publish_next_due(
+    project_root: Path,
+    token: str,
+    *,
+    now: Optional[datetime] = None,
+) -> Dict[str, Any]:
+    checked_at = now or datetime.now(timezone.utc)
+    if checked_at.tzinfo is None:
+        raise devto.DevToError("queue check time must include a timezone")
+
+    payloads = {
+        guide: article_payload(project_root, published=True, guide=guide)
+        for guide in GUIDE_QUEUE
+    }
+    existing = {
+        guide: devto.find_existing(
+            token, str(payloads[guide]["article"]["canonical_url"])
+        )
+        for guide in GUIDE_QUEUE
+    }
+    published_times: Dict[str, datetime] = {}
+    first_unpublished: Optional[str] = None
+    for guide in GUIDE_QUEUE:
+        article = existing[guide]
+        if article and article.get("published_at"):
+            if first_unpublished is not None:
+                raise devto.DevToError("DEV guide queue is published out of order")
+            published_times[guide] = parse_published_at(article["published_at"])
+        elif first_unpublished is None:
+            first_unpublished = guide
+
+    if DEFAULT_GUIDE not in published_times:
+        raise devto.DevToError("the published OSS guide is required as queue baseline")
+    if first_unpublished is None:
+        return {"status": "queue_complete"}
+    if first_unpublished == DEFAULT_GUIDE:
+        raise devto.DevToError("the queue baseline is not published")
+
+    previous_index = GUIDE_QUEUE.index(first_unpublished) - 1
+    previous_guide = GUIDE_QUEUE[previous_index]
+    previous_published_at = published_times.get(previous_guide)
+    if previous_published_at is None:
+        raise devto.DevToError("the previous DEV guide is not published")
+    eligible_at = previous_published_at + MIN_PUBLISH_INTERVAL
+    if checked_at < eligible_at:
+        return {
+            "status": "not_due",
+            "guide": first_unpublished,
+            "eligible_at": eligible_at.isoformat(),
+        }
+
+    result = devto.publish_article(payloads[first_unpublished], token)
+    if result.get("status") != "published":
+        raise devto.DevToError("DEV did not confirm the queued guide publication")
+    verified = devto.find_existing(
+        token,
+        str(payloads[first_unpublished]["article"]["canonical_url"]),
+    )
+    if not verified:
+        raise devto.DevToError("published DEV guide could not be verified")
+    published_at = parse_published_at(verified.get("published_at"))
+    return {
+        "status": "published",
+        "guide": first_unpublished,
+        "id": verified.get("id"),
+        "dev_url": verified.get("url"),
+        "published_at": published_at.isoformat(),
+    }
+
+
 def build_parser() -> argparse.ArgumentParser:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument(
@@ -164,12 +255,33 @@ def build_parser() -> argparse.ArgumentParser:
     )
     parser.add_argument("--preview", action="store_true")
     parser.add_argument("--publish", action="store_true")
+    parser.add_argument(
+        "--publish-next-due",
+        action="store_true",
+        help="publish at most one eligible guide from the ordered queue",
+    )
     return parser
 
 
 def main(argv: Optional[Sequence[str]] = None) -> int:
     arguments = build_parser().parse_args(argv)
     try:
+        if arguments.publish_next_due:
+            if arguments.preview or arguments.publish:
+                raise devto.DevToError(
+                    "--publish-next-due cannot be combined with --preview or --publish"
+                )
+            token = os.environ.get(devto.TOKEN_ENV, "").strip()
+            if not token:
+                raise devto.DevToError(f"{devto.TOKEN_ENV} is not set")
+            print(
+                json.dumps(
+                    publish_next_due(arguments.project_root, token),
+                    ensure_ascii=False,
+                    indent=2,
+                )
+            )
+            return 0
         payload = article_payload(
             arguments.project_root,
             published=arguments.publish,
