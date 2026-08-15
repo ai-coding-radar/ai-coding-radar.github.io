@@ -132,9 +132,9 @@ GUIDES: Mapping[str, Mapping[str, Any]] = {
 CANONICAL_URL = str(GUIDES[DEFAULT_GUIDE]["canonical_url"])
 GUIDE_QUEUE = (
     "oss-security",
+    "grants-gov-monitor",
     "uk-supplier-monitor",
     "markdown-image-automation",
-    "grants-gov-monitor",
     "remote-ai-jobs",
 )
 MIN_PUBLISH_INTERVAL = timedelta(hours=24)

@@ -32,9 +32,9 @@ class DevToQueueTest(unittest.TestCase):
     ):
         find_existing.side_effect = [
             article("oss-security", OSS_PUBLISHED_AT),
+            article("grants-gov-monitor"),
             article("uk-supplier-monitor"),
             article("markdown-image-automation"),
-            article("grants-gov-monitor"),
             article("remote-ai-jobs"),
         ]
 
@@ -45,7 +45,7 @@ class DevToQueueTest(unittest.TestCase):
         )
 
         self.assertEqual(result["status"], "not_due")
-        self.assertEqual(result["guide"], "uk-supplier-monitor")
+        self.assertEqual(result["guide"], "grants-gov-monitor")
         self.assertEqual(result["eligible_at"], "2026-08-15T19:19:24+00:00")
         publish_article.assert_not_called()
 
@@ -54,16 +54,16 @@ class DevToQueueTest(unittest.TestCase):
     def test_publishes_and_verifies_only_the_first_due_guide(
         self, find_existing, publish_article
     ):
-        published_uk = article(
-            "uk-supplier-monitor", "2026-08-15T19:20:00Z"
+        published_grants = article(
+            "grants-gov-monitor", "2026-08-15T19:20:00Z"
         )
         find_existing.side_effect = [
             article("oss-security", OSS_PUBLISHED_AT),
+            article("grants-gov-monitor"),
             article("uk-supplier-monitor"),
             article("markdown-image-automation"),
-            article("grants-gov-monitor"),
             article("remote-ai-jobs"),
-            published_uk,
+            published_grants,
         ]
         publish_article.return_value = {"status": "published"}
 
@@ -74,8 +74,8 @@ class DevToQueueTest(unittest.TestCase):
         )
 
         self.assertEqual(result["status"], "published")
-        self.assertEqual(result["guide"], "uk-supplier-monitor")
-        self.assertEqual(result["id"], published_uk["id"])
+        self.assertEqual(result["guide"], "grants-gov-monitor")
+        self.assertEqual(result["id"], published_grants["id"])
         publish_article.assert_called_once()
         self.assertTrue(
             publish_article.call_args.args[0]["article"]["published"]
@@ -88,9 +88,9 @@ class DevToQueueTest(unittest.TestCase):
     ):
         find_existing.side_effect = [
             article("oss-security", OSS_PUBLISHED_AT),
+            article("grants-gov-monitor"),
             article("uk-supplier-monitor"),
             article("markdown-image-automation", "2026-08-16T19:20:00Z"),
-            article("grants-gov-monitor"),
             article("remote-ai-jobs"),
         ]
 
@@ -119,9 +119,9 @@ class DevToQueueTest(unittest.TestCase):
     ):
         find_existing.side_effect = [
             article("oss-security"),
+            article("grants-gov-monitor"),
             article("uk-supplier-monitor"),
             article("markdown-image-automation"),
-            article("grants-gov-monitor"),
             article("remote-ai-jobs"),
         ]
 
