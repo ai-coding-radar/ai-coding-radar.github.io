@@ -1,13 +1,22 @@
 {
   "schema_version": 1,
-  "checked_at": "2026-08-15T07:09:12+08:00",
+  "checked_at": "2026-08-15T07:59:29+08:00",
   "sources": {
     "apify": {
       "period": "2026-08",
       "actor": "ai-coding-radar/remote-job-intelligence",
-      "latest_build": "0.0.10",
+      "latest_build": "0.0.13",
       "latest_build_status": "succeeded",
-      "latest_build_git_commit": "c6ff94c09ecb7cb34a995e43e21740d3f3ad8762",
+      "latest_build_git_commit": "5fca3d80a416a96212f1a600701cb91c0c6b7e28",
+      "ci_workflow_run": "https://github.com/Jarvis-Dong/remote-job-intelligence/actions/runs/31851823455",
+      "empty_api_input_safe": true,
+      "input_schema_root_required": false,
+      "default_input": {
+        "keywords": ["software"],
+        "maxAgeDays": 7,
+        "limit": 20,
+        "includeDescription": false
+      },
       "seo_title": "Remote Jobs Aggregator API for n8n and Job Boards",
       "seo_description": "Aggregate and deduplicate remote jobs from four public sources. Filter by keyword, location, and age for n8n, Make, job boards, recruiters, and AI agents.",
       "public_total_users": 2,
@@ -47,21 +56,24 @@
       "ai_ml_example_cdn_status": "mixed_edge_cache_propagation",
       "store_readme_funnel_links": 2,
       "store_readme_target_funnel_links": 3,
-      "store_markdown_status_note": "pending_0.0.10_readme_propagation",
+      "store_markdown_status_note": "pending_0.0.13_empty_input_propagation",
       "paying_users": 0,
       "free_users": 1,
       "results": 132,
       "displayed_profit_usd": 0,
       "payout_status": "identity_verification_required_no_settlement",
       "settled": false,
-      "evidence": "GitHub Actions run 31839108156 passed for commit c6ff94c, and Apify build 0.0.10 cloned that exact commit and succeeded. A second public AI and machine-learning task was saved with four keywords, any-match mode, seven-day age, 50-result limit, descriptions disabled, and 256 MB memory without running it; Console still shows task runs 0. Anonymous HTML and Markdown return HTTP 200 and at least one current CDN variant exposes the corrected input, while another edge variant still serves the older input during the documented 30-minute cache window. Store README propagation is also pending. The last Console Insights values remain provisional and show no settled revenue"
+      "evidence": "Commit 5fca3d8 makes the generated empty API input safe by using the documented software digest: all four sources, keyword software, seven days, 20 results, and descriptions disabled. Eighteen local tests, compile and schema checks, and GitHub Actions run 31851823455 passed. Public Apify build API confirms build 0.0.13 succeeded, cloned that exact commit, contains no root required list, and documents the bounded empty-input behavior. The build did not run the Actor; total runs remain 11 and total users remain two. Tests, builds, and safer first-run defaults are not revenue"
     },
     "apify_oss_package_health": {
       "period": "2026-08",
       "actor": "ai-coding-radar/oss-package-health-monitor",
-      "latest_build": "0.0.5",
+      "latest_build": "0.0.7",
       "latest_build_status": "succeeded",
-      "latest_build_git_commit": "450c7c8f6b6adf493fca9e2d92ddcf20b2181c5a",
+      "latest_build_git_commit": "90099a69327db68a74b02bf9d8bf9d700fe88536",
+      "ci_workflow_run": "https://github.com/Jarvis-Dong/oss-package-health-monitor/actions/runs/31851824092",
+      "empty_api_input_safe": true,
+      "input_schema_root_required": false,
       "seo_title": "Exact npm and PyPI Vulnerability Scanner API",
       "seo_description": "Scan exact npm and PyPI versions for OSV vulnerabilities and CISA KEV matches. Keep source failures visible and export to n8n, Make, JSON, CSV, or Excel.",
       "public_example": "https://apify.com/ai-coding-radar/oss-package-health-monitor/examples/scan-installed-npm-and-pypi-versions-for-cves",
@@ -69,7 +81,7 @@
       "public_total_users": 2,
       "public_total_runs": 7,
       "store_readme_funnel_links": 4,
-      "store_html_content_status": "pending_0.0.5_propagation",
+      "store_html_content_status": "pending_0.0.7_empty_input_propagation",
       "no_code_workflow": "https://raw.githubusercontent.com/Jarvis-Dong/oss-package-health-monitor/main/examples/n8n-oss-exact-version-scan.json",
       "no_code_workflow_http_status": 200,
       "automation_recipe": "https://github.com/Jarvis-Dong/oss-package-health-monitor/blob/main/examples/README.md",
@@ -79,14 +91,17 @@
       "displayed_profit_usd": 0,
       "payout_status": "identity_verification_required_no_settlement",
       "settled": false,
-      "evidence": "Public build API verifies build 0.0.5 cloned the tested n8n and Make integration commit; the raw five-node workflow is anonymously reachable and contains no credentials; Console Insights shows zero paying users and zero profit; Store HTML propagation is pending"
+      "evidence": "Commit 90099a6 makes an empty API input safely check only the two public package/version defaults while preserving all source-failure semantics. Fifteen local tests, compile and schema checks, and GitHub Actions run 31851824092 passed. Public Apify build API confirms build 0.0.7 succeeded, cloned that exact commit, contains no root required list, and includes the empty-input documentation. No Actor run was started; public totals remain seven runs and two users. The importable n8n workflow remains anonymously reachable and contains no credentials. Tests and builds are not revenue"
     },
     "apify_markdown_code_to_image": {
       "period": "2026-08",
       "actor": "ai-coding-radar/markdown-code-to-image",
-      "latest_build": "0.0.5",
+      "latest_build": "0.0.6",
       "latest_build_status": "succeeded",
-      "latest_build_git_commit": "d8142793cd25d86a05d44ed2a418e4b4e5ab1279",
+      "latest_build_git_commit": "76fdb628ffdb061e6058cb0cf59d0f0b19f90e17",
+      "ci_workflow_run": "https://github.com/Jarvis-Dong/markdown-code-to-image/actions/runs/31851824188",
+      "empty_api_input_safe": true,
+      "input_schema_root_required": false,
       "seo_title": "Markdown and Code to PNG Image Automation API",
       "seo_description": "Render Markdown, code, tables, quotes, and AI answers into PNG images through an API for n8n, Make, newsletters, documentation, and social media.",
       "price_per_generated_image_usd": 0.005,
@@ -112,10 +127,10 @@
         "watermark": "Made with Cardify"
       },
       "store_markdown_http_status": 200,
-      "store_markdown_status_note": "pending_0.0.5_readme_propagation",
+      "store_markdown_status_note": "pending_0.0.6_empty_input_propagation",
       "public_example_http_status": 200,
       "store_html_http_status": 200,
-      "store_html_status_note": "0.0.5 ChatGPT example link propagated",
+      "store_html_status_note": "pending_0.0.6_empty_input_propagation",
       "anonymous_image_http_status": 200,
       "anonymous_image_content_type": "image/png",
       "paying_users": 0,
@@ -124,15 +139,18 @@
       "displayed_profit_usd": 0,
       "payout_status": "identity_verification_required_no_settlement",
       "settled": false,
-      "evidence": "Seven repository tests, three schema validations, and GitHub Actions run 31837150196 passed for commit d814279. Public build API confirms Apify build 0.0.5 cloned that commit and succeeded. A second ChatGPT Markdown-to-PNG task was published without running it; anonymous HTML and Markdown are HTTP 200, indexable, and show a valid one-document paper-theme input. Public Actor users, runs, and last-run timestamp are unchanged. Store HTML contains the new link while Store Markdown remains cached. Prior anonymous PNG verification remains HTTP 200 image/png; no signed URLs are stored"
+      "evidence": "Commit 76fdb62 makes an empty API input render exactly one bounded default Markdown card instead of failing validation. Eight local tests, JavaScript syntax and schema checks, and GitHub Actions run 31851824188 passed. Public Apify build API confirms build 0.0.6 succeeded, cloned that exact commit, contains no root required list, and includes the empty-input documentation. No Actor run was started; public totals remain three runs and two users. Both public Examples remain valid, and the prior anonymous PNG verification remains HTTP 200 image/png without storing a signed URL. Tests and builds are not revenue"
     },
     "apify_uk_company_change_alerts": {
       "period": "2026-08",
       "actor": "ai-coding-radar/uk-company-change-alerts",
       "actor_id": "xB4MWIkxXc41GKtfM",
-      "latest_build": "0.0.7",
+      "latest_build": "0.0.8",
       "latest_build_status": "succeeded",
-      "latest_build_git_commit": "576c25c7e3e78bfba4739694aec379de660b5ec7",
+      "latest_build_git_commit": "1f9ed73df0252bbe08d1b3ac28e68fbf00468fb2",
+      "ci_workflow_run": "https://github.com/Jarvis-Dong/uk-company-change-alerts/actions/runs/31851823254",
+      "empty_api_input_safe": true,
+      "input_schema_root_required": false,
       "seo_title": "UK Companies House Change Monitoring API",
       "seo_description": "Monitor Companies House records for status, filing, address, SIC, accounts, mortgage, and name changes for supplier watchlists, due diligence, and n8n.",
       "publication_status": "public_monetization_active",
@@ -143,8 +161,8 @@
       "primary_event": "company-check",
       "store_html_http_status": 200,
       "store_markdown_http_status": 200,
-      "store_html_content_status": "0.0.7_code_only_no_readme_change",
-      "store_markdown_content_status": "0.0.7_code_only_no_readme_change",
+      "store_html_content_status": "pending_0.0.8_empty_input_propagation",
+      "store_markdown_content_status": "pending_0.0.8_empty_input_propagation",
       "actor_api_http_status": 200,
       "actor_api_is_public": true,
       "public_total_users": 1,
@@ -183,23 +201,25 @@
       "no_code_workflow": "https://raw.githubusercontent.com/Jarvis-Dong/uk-company-change-alerts/main/examples/n8n-uk-company-alerts.json",
       "no_code_workflow_http_status": 200,
       "automation_recipe": "https://github.com/Jarvis-Dong/uk-company-change-alerts/blob/main/examples/README.md",
-      "rest_quickstart_status": "verified_in_build_0.0.7",
+      "rest_quickstart_status": "verified_in_build_0.0.8",
       "paying_users": 0,
       "free_users": 1,
       "results": 3,
       "displayed_profit_usd": 0,
       "payout_status": "identity_verification_required_no_settlement",
       "settled": false,
-      "evidence": "Nine local tests, compile checks, schema validation, fixture execution, and GitHub Actions run 31839971442 passed for commit 576c25c. Apify build 0.0.7 cloned that exact commit and succeeded without running the Actor; the public API shows seven builds while total runs remain four and total users remain one. Source fetches are now bounded to ten concurrent requests so the documented 100-company watchlist fits within the 300-second Actor timeout under the 20-second per-request ceiling, while output order and successful-check charging remain unchanged. Store and both supplier Example HTML/Markdown endpoints remain HTTP 200 with valid public input. Console run history shows four completed runs with terminal status messages, all marked Origin Development; Store's 0.0% public success rate therefore reflects no public run sample and must not be improved with self-runs. The last Console Insights check still showed zero paying users and zero profit, so settled revenue remains zero"
+      "evidence": "Commit 1f9ed73 makes an empty API input check only the single public example company 02050399 under the default baseline. Ten local tests, compile and schema checks, and GitHub Actions run 31851823254 passed. Public Apify build API confirms build 0.0.8 succeeded, cloned that exact commit, contains no root required list, and includes the empty-input documentation. No Actor run was started; public totals remain four development-origin runs and one user. Existing bounded ten-way concurrency, ordering, baseline, and charge semantics are unchanged. Tests and builds are not revenue, and the last monetization check still showed zero paying users and zero profit"
     },
     "apify_grants_gov_opportunity_monitor": {
       "period": "2026-08",
       "actor": "ai-coding-radar/grants-gov-opportunity-monitor",
       "actor_id": "Qqlebaz7DBKhhAnrk",
-      "latest_build": "0.0.3",
+      "latest_build": "0.0.4",
       "latest_build_status": "succeeded",
-      "latest_build_git_commit": "291f207571a77724a6f0dfd09bfbec2eaf32b05c",
-      "ci_workflow_run": "https://github.com/Jarvis-Dong/grants-gov-opportunity-monitor/actions/runs/31846029418",
+      "latest_build_git_commit": "a040712cd69d1722cfc99936094f83516df49e76",
+      "ci_workflow_run": "https://github.com/Jarvis-Dong/grants-gov-opportunity-monitor/actions/runs/31851824684",
+      "empty_api_input_safe": true,
+      "input_schema_root_required": false,
       "seo_title": "Grants.gov Opportunity Monitor & Alerts",
       "seo_description": "Track official Grants.gov opportunities by keyword, agency, eligibility, status, and category. Receive only new or changed records for reliable automated grant alerts.",
       "publication_status": "public_monetization_active",
@@ -273,7 +293,7 @@
       "automation_recipe": "https://github.com/Jarvis-Dong/grants-gov-opportunity-monitor/blob/main/examples/README.md",
       "no_code_limit": 10,
       "no_code_current_max_event_charge_usd": 0.15005,
-      "store_readme_content_status": "pending_0.0.3_public_example_links_propagation",
+      "store_readme_content_status": "pending_0.0.4_empty_input_propagation",
       "paying_users": 0,
       "free_users": 1,
       "results": 1,
@@ -281,7 +301,7 @@
       "payout_invoice_available": false,
       "payout_status": "identity_verification_required_no_settlement",
       "settled": false,
-      "evidence": "Eight repository tests, compile and schema checks, and GitHub Actions run 31846029418 passed for commit 291f207. Apify build 0.0.3 cloned that exact commit and succeeded without another Actor run; total runs remain two and total users remain one. Two additional public tasks target current small-business and nonprofit grant demand with official eligibility codes, ten-result limits, independent monitor IDs, 256 MB memory, and $0.16 maximum cost per run. Both tasks remain at zero runs, and their anonymous HTML and Markdown pages return HTTP 200 with the intended inputs. Store Markdown has not yet propagated the new README links. The existing no-code workflow remains anonymously reachable with the current-price event bound of $0.15005. The 2026-08-15 06:35 Asia/Shanghai Console check shows zero paying users, one free user, one result, $0.00 profit, no payout invoice, and identity verification still required; no settled revenue is verified"
+      "evidence": "Commit a040712 makes an empty API input use the bounded artificial-intelligence query with posted and forecasted statuses and a 25-result limit. Nine local tests, compile and schema checks, and GitHub Actions run 31851824684 passed. Public Apify build API confirms build 0.0.4 succeeded, cloned that exact commit, contains no root required list, and includes the empty-input documentation. No Actor run was started; total runs remain two development smokes and total users remain one. The small-business and nonprofit public tasks remain at zero runs, and the no-code workflow remains anonymously reachable. Tests and builds are not revenue; the last Console check still showed zero paying users, no payout invoice, and no settled revenue"
     },
     "dev_community_distribution": {
       "article_id": 4398899,
@@ -341,6 +361,10 @@
       "apify_actor_source_code_hidden": 0,
       "apify_actor_limited_permissions": 5,
       "apify_public_version_api_http_status": 200,
+      "apify_integration_prefills_configured": 5,
+      "apify_integration_prefill_status": "valid_business_json_saved_no_actor_runs",
+      "apify_empty_api_input_safe_count": 5,
+      "apify_public_example_run_input_status": "legacy_template_accepted_by_bounded_defaults",
       "apify_store_acquisition": {
         "period": "2026-08",
         "actor_detail_views": 0,
@@ -355,7 +379,7 @@
       "open_source_fair_share_source_visibility_prerequisite": true,
       "open_source_fair_share_affiliate_enrollment_verified": false,
       "settled": false,
-      "evidence": "GitHub repository API confirms five public repositories have accurate descriptions, Apify Store homepages, and use-case topics. A tracked-file scan found no environment files, credential files, private keys, or real Token patterns before changing Store visibility. Apify Console then saved all five Actors with source files visible; anonymous Actor APIs now report isSourceCodeHidden=false and LIMITED_PERMISSIONS, while anonymous version APIs return HTTP 200 with the matching public Git repository URLs. Build, run, and user counts did not change. August Acquisition still reports zero Actor-detail views, zero Input-page views, and zero starts for Store web traffic, and Actor quality has no data yet. Exact account search reports five matches but returns no cards while quality score recalculation is pending. Public source visibility is a documented Open Source Fair Share prerequisite, but Affiliate Program enrollment has not been verified or accepted and no commission or revenue is claimed"
+      "evidence": "GitHub repository API confirms five public repositories have accurate descriptions, Apify Store homepages, and use-case topics. Apify Console saved all five Actors with source files visible, limited permissions, and valid Integration prefill JSON without starting an Actor. Five tested commits then removed root required constraints and added bounded runtime defaults, so the generated empty API input and legacy helloWorld template now resolve to a safe product example instead of failing validation. Public build APIs confirm the exact commits and successful builds for all five Actors. August Acquisition still reports zero Store detail views, zero Input-page views, and zero starts, while Actor quality has no data yet. These conversion safeguards are not revenue; no affiliate commission or settled payout is claimed"
     },
     "ai_coding_radar_distribution": {
       "site": "https://ai-coding-radar.github.io/",
@@ -370,6 +394,7 @@
         "https://ai-coding-radar.github.io/automations/grants-gov-alerts-api/"
       ],
       "automation_landing_pages_http_status": 200,
+      "n8n_workflow_links": 5,
       "sitemap_http_status": 200,
       "sitemap_urls": 26,
       "targets": [
@@ -380,13 +405,13 @@
         "https://apify.com/ai-coding-radar/grants-gov-opportunity-monitor/examples/daily-ai-federal-grant-opportunity-alerts"
       ],
       "publish_workflow_status": "success",
-      "publish_workflow_run": "https://github.com/ai-coding-radar/ai-coding-radar.github.io/actions/runs/31849224857",
-      "last_site_change_workflow_run": "https://github.com/ai-coding-radar/ai-coding-radar.github.io/actions/runs/31849224857",
+      "publish_workflow_run": "https://github.com/ai-coding-radar/ai-coding-radar.github.io/actions/runs/31850846371",
+      "last_site_change_workflow_run": "https://github.com/ai-coding-radar/ai-coding-radar.github.io/actions/runs/31850846371",
       "indexnow_notified_for_site_change": true,
       "indexnow_http_status": 200,
       "indexnow_urls_accepted": 26,
       "settled": false,
-      "evidence": "Commit 2da32e2 added five high-intent automation landing pages and linked all five from the existing homepage cards while preserving the direct public Example calls to action. Publish radar run 31849224857 passed all 62 tests, deployed successfully, and submitted all 26 sitemap URLs to IndexNow with HTTP 200. Anonymous checks confirm the homepage, all five landing pages, and sitemap return HTTP 200; the sitemap contains 26 URLs and the homepage contains five unique internal landing-page links. Pages, links, deployment, and indexing are distribution, not revenue"
+      "evidence": "Commit 1d3597e added one verified n8n workflow link to each of the five automation landing pages. All five GitHub workflow pages returned HTTP 200, 62 tests passed, and Publish radar run 31850846371 deployed successfully. Anonymous checks confirm every landing page returns HTTP 200 and contains exactly one Open n8n workflow call to action. The sitemap remains at 26 URLs, and IndexNow accepted all 26 with HTTP 200 after the real public-page change. Pages, workflows, deployment, and indexing are distribution, not revenue"
     },
     "cardify_search": {
       "site": "https://cardify.1222155.xyz/",
@@ -396,13 +421,14 @@
       "search_console_last_read": "2026-08-14",
       "search_console_sitemap_status": "could_not_read",
       "search_console_discovered_pages": 0,
-      "api_funnel_pages": 5,
+      "api_funnel_pages": 6,
       "api_funnel_routes": [
         "/code-to-image/",
         "/markdown-to-pdf/",
         "/chatgpt-exporter/",
         "/markdown-to-image/",
-        "/chatgpt-to-image/"
+        "/chatgpt-to-image/",
+        "/markdown-to-wechat/"
       ],
       "api_funnel_target": "https://apify.com/ai-coding-radar/markdown-code-to-image/examples/render-markdown-and-code-to-a-png",
       "api_funnel_targets": [
@@ -411,12 +437,12 @@
       ],
       "contextual_chatgpt_funnel_pages": 2,
       "api_funnel_target_http_status": 200,
-      "latest_deployment_url": "https://597d0859.cardify-ewq.pages.dev",
-      "latest_deployment_status": "success_two_files_uploaded",
-      "latest_deployment_verified_at": "2026-08-15T04:22:24+08:00",
+      "latest_deployment_url": "https://19076627.cardify-ewq.pages.dev",
+      "latest_deployment_status": "success_one_file_uploaded_88_reused",
+      "latest_deployment_verified_at": "2026-08-15T07:36:01+08:00",
       "payment_entry_available": false,
       "settled": false,
-      "evidence": "Five Cardify pages link to the paid Actor. The latest contextual update routes chatgpt-exporter and chatgpt-to-image to the dedicated ChatGPT Markdown-to-PNG Example while the other three pages retain the general renderer Example. Twenty-five tests passed; the rebuilt output differed from production only on those two ChatGPT routes. Cloudflare Pages uploaded exactly 2 files and reused 87. Both custom-domain routes match the deployed dist and contain the new target exactly once; all non-target routes still match. Deployment and links are distribution, not revenue"
+      "evidence": "Six Cardify pages now link to the paid image Actor. ChatGPT Exporter and ChatGPT to Image use the dedicated ChatGPT example; Code to Image, Markdown to PDF, Markdown to Image, and Markdown to WeChat use the general renderer example. Twenty-five tests and the production build passed. A complete local-dist versus live-file hash comparison found only markdown-to-wechat/index.html differed before deployment; Cloudflare Pages then uploaded exactly that one file and reused 88. The custom-domain page returns HTTP 200 and contains the target exactly once. Deployment and links are distribution, not revenue"
     }
   }
 }
