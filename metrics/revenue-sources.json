@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "checked_at": "2026-08-15T08:58:29+08:00",
+  "checked_at": "2026-08-15T09:01:08+08:00",
   "sources": {
     "apify": {
       "period": "2026-08",
@@ -426,16 +426,24 @@
       "indexnow_notified_for_site_change": true,
       "indexnow_http_status": 200,
       "indexnow_urls_accepted": 26,
+      "google_search_console_status": "performance_available_indexing_processing",
+      "google_search_console_impressions": 8,
+      "google_search_console_clicks": 0,
+      "google_search_console_average_position": 6.9,
+      "google_search_console_sitemap_status": "could_not_fetch",
       "settled": false,
-      "evidence": "Commit 1d3597e added one verified n8n workflow link to each of the five automation landing pages. All five GitHub workflow pages returned HTTP 200, 62 tests passed, and Publish radar run 31850846371 deployed successfully. Anonymous checks confirm every landing page returns HTTP 200 and contains exactly one Open n8n workflow call to action. The sitemap remains at 26 URLs, and IndexNow accepted all 26 with HTTP 200 after the real public-page change. Pages, workflows, deployment, and indexing are distribution, not revenue"
+      "evidence": "Commit 1d3597e added one verified n8n workflow link to each of the five automation landing pages. All five GitHub workflow pages returned HTTP 200, 62 tests passed, and Publish radar run 31850846371 deployed successfully. Anonymous checks confirm every landing page returns HTTP 200 and contains exactly one Open n8n workflow call to action. The sitemap remains at 26 URLs, and IndexNow accepted all 26 with HTTP 200 after the real public-page change. On 2026-08-15 Search Console showed the first eight impressions, zero clicks, and average position 6.9 for data through 2026-08-12; its sitemap still showed could not fetch and the indexing report remained processing, so neither was resubmitted. Pages, workflows, indexing, and impressions are distribution, not revenue"
     },
     "cardify_search": {
       "site": "https://cardify.1222155.xyz/",
       "sitemap_http_status": 200,
       "sitemap_content_type": "application/xml",
       "sitemap_urls": 9,
-      "search_console_last_read": "2026-08-14",
-      "search_console_sitemap_status": "could_not_read",
+      "search_console_last_read": "2026-08-15",
+      "search_console_performance_status": "processing_no_data",
+      "search_console_impressions": null,
+      "search_console_clicks": null,
+      "search_console_sitemap_status": "could_not_fetch",
       "search_console_discovered_pages": 0,
       "api_funnel_pages": 6,
       "api_funnel_routes": [
@@ -465,7 +473,7 @@
       "indexnow_notified_at": "2026-08-15T08:58:29+08:00",
       "payment_entry_available": false,
       "settled": false,
-      "evidence": "Six Cardify SEO pages, the editor footer, and the successful image-export state now link to the paid image Actor; the app discloses the current image and start prices and the Apify account requirement. Twenty-six tests and the production build passed. Cloudflare Pages deployment 0c00993b uploaded only the new public IndexNow ownership file and reused 89 existing files. The custom-domain key returned HTTP 200 with the exact expected body, the sitemap contained nine URLs, and the official IndexNow endpoint accepted all nine with HTTP 202 after this real site change. Deployment, crawling, links, and clicks are distribution, not revenue"
+      "evidence": "Six Cardify SEO pages, the editor footer, and the successful image-export state now link to the paid image Actor; the app discloses the current image and start prices and the Apify account requirement. Twenty-six tests and the production build passed. Cloudflare Pages deployment 0c00993b uploaded only the new public IndexNow ownership file and reused 89 existing files. The custom-domain key returned HTTP 200 with the exact expected body, the sitemap contained nine URLs, and the official IndexNow endpoint accepted all nine with HTTP 202 after this real site change. Search Console still showed performance processing with no data and the sitemap as could not fetch with zero discovered pages, so it was not resubmitted. Deployment, crawling, links, and clicks are distribution, not revenue"
     }
   }
 }
