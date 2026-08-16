@@ -185,10 +185,10 @@ def find_existing(
 
 
 def get_article(token: str, article_id: int) -> Mapping[str, Any]:
-    article = _request(f"/articles/{article_id}", token)
-    if not isinstance(article, dict):
-        raise DevToError("DEV API returned an unexpected article response")
-    return article
+    for article in list_articles(token):
+        if article.get("id") == article_id:
+            return article
+    raise DevToError("DEV article was not found in the authenticated article list")
 
 
 def publish_article(

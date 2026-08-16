@@ -1,9 +1,10 @@
 {
   "schema_version": 1,
-  "checked_at": "2026-08-15T09:01:08+08:00",
+  "checked_at": "2026-08-16T09:18:58+08:00",
   "property": "https://ai-coding-radar.github.io/",
   "performance_status": "available",
-  "indexing_status": "processing",
+  "indexing_status": "homepage_indexed_page_report_processing",
+  "homepage_url_inspection_status": "indexed",
   "sitemap": {
     "path": "/sitemap.xml",
     "submitted_at": "2026-08-12",
@@ -13,12 +14,12 @@
   },
   "performance_range": {
     "start": "2026-08-10",
-    "end": "2026-08-12"
+    "end": "2026-08-13"
   },
-  "impressions": 8,
+  "impressions": 12,
   "clicks": 0,
   "average_ctr_percent": 0,
-  "average_position": 6.9,
+  "average_position": 6.8,
   "top_visible_query": {
     "query": "claude 2.1.228",
     "impressions": 2,
@@ -26,9 +27,10 @@
   },
   "top_visible_page": {
     "url": "https://ai-coding-radar.github.io/",
-    "impressions": 8,
-    "clicks": 0
+    "impressions": null,
+    "clicks": 0,
+    "note": "The page-dimension table was not visibly refreshed during this check; URL Inspection explicitly reports the homepage as indexed."
   },
   "source": "Google Search Console visible account report",
-  "note": "The performance report now has its first visible search data. The page-indexing report is still processing, and the submitted sitemap remains marked as could not fetch with zero discovered pages even though the public XML and representative URLs return HTTP 200. It was not resubmitted."
+  "note": "URL Inspection explicitly reports the homepage as indexed. The performance report shows 12 impressions, zero clicks, and average position 6.8 through 2026-08-13. The page-indexing report is still processing, and the submitted sitemap remains marked as could not fetch with zero discovered pages even though the public XML and representative URLs return HTTP 200. It was not resubmitted."
 }

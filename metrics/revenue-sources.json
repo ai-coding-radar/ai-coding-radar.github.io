@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "checked_at": "2026-08-15T15:28:48+08:00",
+  "checked_at": "2026-08-16T09:06:56+08:00",
   "sources": {
     "apify": {
       "period": "2026-08",
@@ -81,7 +81,7 @@
       "public_example": "https://apify.com/ai-coding-radar/oss-package-health-monitor/examples/scan-installed-npm-and-pypi-versions-for-cves",
       "price_per_record_usd": 0.0015,
       "public_total_users": 2,
-      "public_total_runs": 7,
+      "public_total_runs": 8,
       "store_readme_funnel_links": 4,
       "store_html_content_status": "pending_0.0.7_empty_input_propagation",
       "no_code_workflow": "https://raw.githubusercontent.com/Jarvis-Dong/oss-package-health-monitor/main/examples/n8n-oss-exact-version-scan.json",
@@ -109,7 +109,7 @@
       "price_per_generated_image_usd": 0.005,
       "price_per_start_usd": 0.00005,
       "public_total_users": 2,
-      "public_total_runs": 3,
+      "public_total_runs": 4,
       "public_example": "https://apify.com/ai-coding-radar/markdown-code-to-image/examples/render-markdown-and-code-to-a-png",
       "public_examples": [
         "https://apify.com/ai-coding-radar/markdown-code-to-image/examples/render-markdown-and-code-to-a-png",
@@ -173,10 +173,11 @@
       "store_markdown_content_status": "pending_0.0.8_empty_input_propagation",
       "actor_api_http_status": 200,
       "actor_api_is_public": true,
-      "public_total_users": 1,
-      "public_total_runs": 4,
-      "store_public_success_rate_percent": 0,
-      "store_public_success_rate_note": "no public run sample; all four existing runs have Origin Development",
+      "public_total_users": 2,
+      "public_total_runs": 5,
+      "store_public_success_rate_percent": 100,
+      "store_public_success_rate_note": "one public run sample succeeded; the prior four runs were Origin Development",
+      "public_external_free_user_observed": true,
       "development_runs_with_terminal_status": 4,
       "public_example": "https://apify.com/ai-coding-radar/uk-company-change-alerts/examples/monitor-uk-company-record-changes",
       "public_example_http_status": 200,
@@ -313,7 +314,7 @@
     },
     "apify_portfolio_monetization": {
       "period": "2026-08",
-      "checked_at": "2026-08-15T13:01:54+08:00",
+      "checked_at": "2026-08-16T09:18:58+08:00",
       "actors_checked": 5,
       "paying_users_per_actor": 0,
       "free_users_per_actor": 1,
@@ -327,9 +328,22 @@
       "displayed_profit_usd": 0,
       "displayed_cost_usd": 0,
       "cost_per_1000_results_usd": {
-        "average": 0.02,
-        "minimum": 0.01,
-        "maximum": 0.03
+        "average": 0.03,
+        "minimum": 0.03,
+        "maximum": 0.05
+      },
+      "acquisition": {
+        "actor_detail_views": 11,
+        "input_page_views": 1,
+        "actor_starts": 5,
+        "excludes_api_schedule_and_integration_traffic": true
+      },
+      "actor_quality_scores": {
+        "remote_job_intelligence": 81,
+        "oss_package_health_monitor": 77,
+        "markdown_code_to_image": 78,
+        "uk_company_change_alerts": 79,
+        "grants_gov_opportunity_monitor": 64
       },
       "recent_resource_profiles": {
         "remote_job_intelligence": "128_mbytes_4_to_5_seconds",
@@ -369,7 +383,7 @@
       "payout_invoice_available": false,
       "payout_status": "identity_verification_required_no_settlement",
       "settled": false,
-      "evidence": "The August 2026 Monetization table showed zero paying users, one free user for each of the five Actors, zero displayed profit, and zero displayed cost. The portfolio cost-per-1,000-results card showed $0.02 average, $0.01 minimum, and $0.03 maximum. Existing runs used the bounded memory and durations recorded here; no new Actor run was started for this audit. Each Actor's authenticated Settings page already contained an Actor-specific valid integration prefill with Save disabled, so the anonymous API's generic helloWorld example was not used as evidence of the actual prefill. An anonymous connection to the official Apify MCP server exposed search-actors and fetch-actor-details, and fetch-actor-details returned all five exact public Actor names with PAY_PER_EVENT pricing. Current official MCP rules exclude full-permission and rental Actors; current x402 rules require pay-per-event pricing, limited permissions, and no Standby. All five satisfy those published rules, and no separate whitelist is documented. No Actor call, wallet payment, prepaid token purchase, or paid test was started. Free users, MCP discovery, results, run cost, event prices, eligibility, and potential profit are not settled revenue"
+      "evidence": "The August 2026 Monetization table still shows zero paying users, one free user for each of the five Actors, zero displayed profit, and zero displayed cost. Result counts remain Grants 1, Markdown 2, OSS 12, Remote Jobs 132, and UK 3. Acquisition now shows 11 Actor-detail views, one Input-page view, and five Actor starts, excluding API, schedule, and integration traffic. Public API totals increased to eight OSS runs, four Markdown runs, and five UK runs; UK now has two total users and one successful public-run sample, while Monetization classifies its current user as free. Quality scores are Remote 81, UK 79, Markdown 78, OSS 77, and Grants 64. Cost per 1,000 results now shows $0.03 average, $0.03 minimum, and $0.05 maximum. No Actor call, self-run, paid smoke, wallet payment, or prepaid token purchase was started during this check. Free users, views, starts, results, quality scores, run cost, event prices, eligibility, and potential profit are not settled revenue"
     },
     "n8n_template_distribution": {
       "official_library": "https://n8n.io/workflows/",
@@ -431,9 +445,9 @@
       "queue_manual_fallback_policy": "daily_idempotent_ensure_dev_queue_after_missing_schedule",
       "queue_workflow_id": 334567536,
       "queue_workflow_state": "active",
-      "queue_schedule_first_window_status": "no_scheduled_run_visible_by_2026-08-15T09:30:37+08:00_next_guide_not_due",
-      "queue_secondary_schedule_status": "no_scheduled_run_visible_by_2026-08-15T10:30:00+08:00_next_guide_not_due",
-      "queue_initial_day_schedule_runs": 0,
+      "queue_schedule_first_window_status": "success_not_due_2026-08-15",
+      "queue_secondary_schedule_status": "success_not_due_2026-08-15",
+      "queue_initial_day_schedule_runs": 2,
       "queue_fallback_run_id": 31859818014,
       "queue_fallback_run": "https://github.com/ai-coding-radar/ai-coding-radar.github.io/actions/runs/31859818014",
       "queue_fallback_completed_at": "2026-08-15T10:41:12+08:00",
@@ -441,13 +455,27 @@
       "queue_fallback_retry_same_day": false,
       "queue_rate_limit_fix_commit": "d4a62fd6f14c32698856bd0746f6c22565ba366b",
       "queue_article_list_scan_policy": "one_paginated_scan_per_queue_check",
-      "queue_post_publish_verification": "single_article_id_get",
+      "queue_post_publish_verification": "authenticated_article_list_lookup_by_id",
       "queue_rate_limit_retry_policy": "honor_retry_after_two_retries_15_second_max_delay",
       "next_article_draft_id": 4399376,
       "next_article_title": "Build a fact-only Grants.gov opportunity monitor in n8n",
       "next_article_canonical_url": "https://github.com/Jarvis-Dong/grants-gov-opportunity-monitor/blob/main/examples/README.md",
-      "next_article_status": "draft_updated_unpublished",
+      "next_article_status": "published",
       "next_article_not_before": "2026-08-16T03:19:24+08:00",
+      "next_article_url": "https://dev.to/aicodingradar/build-a-fact-only-grantsgov-opportunity-monitor-in-n8n-4lpg",
+      "next_article_published_at": "2026-08-16T01:02:28Z",
+      "next_article_http_status": 200,
+      "next_article_positive_reactions": 0,
+      "next_article_comments": 0,
+      "next_article_actor_link_present": true,
+      "next_article_example_link_present": true,
+      "next_article_workflow_link_present": true,
+      "next_article_source_link_present": true,
+      "next_article_price_disclosure_present": true,
+      "next_article_account_requirement_present": true,
+      "next_article_decision_boundary_present": true,
+      "next_article_publish_workflow_run": "https://github.com/ai-coding-radar/ai-coding-radar.github.io/actions/runs/31918650906",
+      "next_article_publish_workflow_status": "published_but_failed_on_eventually_consistent_detail_404",
       "next_article_initial_workflow_run": "https://github.com/ai-coding-radar/ai-coding-radar.github.io/actions/runs/31844673240",
       "next_article_fast_path_discloses_apify_account": true,
       "next_article_default_first_run_max_event_charge_usd": 0.18755,
@@ -462,6 +490,7 @@
       "second_article_last_refreshed_at": "2026-08-15T09:16:34+08:00",
       "second_article_refresh_workflow_run": "https://github.com/ai-coding-radar/ai-coding-radar.github.io/actions/runs/31856053951",
       "second_article_release_policy": "at_least_24h_after_grants_article_published_at",
+      "second_article_not_before": "2026-08-17T01:02:28Z",
       "third_article_draft_id": 4399131,
       "third_article_title": "Turn Markdown and AI answers into PNG files in n8n",
       "third_article_canonical_url": "https://github.com/Jarvis-Dong/markdown-code-to-image/blob/main/examples/README.md",
@@ -482,7 +511,7 @@
       "fourth_article_release_policy": "at_least_24h_after_markdown_article_published_at",
       "fourth_article_workflow_run": "https://github.com/ai-coding-radar/ai-coding-radar.github.io/actions/runs/31846964561",
       "settled": false,
-      "evidence": "DEV official API created one OSS draft and upgraded the same article ID to published; the four remaining canonical URLs map to distinct private drafts. Commit 7d067df moves the Grants guide directly after the published OSS baseline because a default first run can charge at most $0.18755 for 25 new opportunities plus the start event, before creator costs or settlement; this is only gross event potential. Commit 56ce2c9 clarifies near the article's existing early Actor and Example links that an Apify account is required and the price is shown before a run. Official workflow 31856650639 returned draft_updated for the same Grants draft ID 4399376. Neither the 09:20 nor the 10:20 Asia/Shanghai schedule produced a run on the workflow's first day, so the idempotent backstop dispatched fallback run 31859818014. That run failed closed on DEV HTTP 429 before any publication; the same-day guard prevents another fallback, and anonymous article ID 4399376 remains HTTP 404. Commit d4a62fd reduces five canonical checks to one paginated article-list scan, reuses that snapshot during publication, verifies once by article ID, and adds bounded Retry-After handling; all 78 tests passed. The Grants guide remains in order and cannot publish before 2026-08-16T03:19:24+08:00. Drafts, failed or successful workflows, code fixes, event-price potential, reactions, and exposure are not revenue"
+      "evidence": "DEV article 4399376 was published at 2026-08-16T01:02:28Z by guarded fallback run 31918650906, preserving the ordered queue and the 24-hour interval after OSS article 4398899. The public profile listing and article HTML confirm the ID, canonical URL, title, timestamp, zero reactions, and zero comments. The public article includes the Actor, configured Example, credential-free n8n workflow, official Grants.gov source, all three event prices, the Apify account requirement, and the no-eligibility-decision boundary; the linked Actor and Example return HTTP 200, the workflow is valid credential-free JSON, and Grants.gov search2 returns HTTP 200. DEV's single-article detail endpoint still returned a transient 404 while the profile listing and HTML were already public, so the workflow reported failure after the successful update. The local fix verifies the published ID through the authenticated article list, avoiding the stale public-detail cache without retrying publication; all 79 tests pass. UK remains next and cannot publish before 2026-08-17T01:02:28Z. Articles, workflow outcomes, reactions, exposure, and gross event-price potential are not settled revenue"
     },
     "github_repository_distribution": {
       "repositories": 5,
@@ -515,26 +544,33 @@
       },
       "github_traffic_views_14d": 0,
       "github_traffic_clone_note": "Five remote-job-intelligence clones from four unique clients may include CI or platform builds and are not treated as users or revenue.",
-      "apify_monetization_checked_at": "2026-08-15T09:58:00+08:00",
+      "apify_monetization_checked_at": "2026-08-16T09:18:58+08:00",
       "apify_paying_users_total": 0,
       "apify_displayed_profit_usd_total": 0,
       "apify_payout_invoice_available": false,
       "apify_payout_status": "identity_verification_required_no_invoice_no_settlement",
       "apify_store_acquisition": {
         "period": "2026-08",
-        "actor_detail_views": 0,
-        "input_page_views": 0,
-        "actor_starts": 0,
+        "actor_detail_views": 11,
+        "input_page_views": 1,
+        "actor_starts": 5,
         "excludes_api_schedule_and_integration_traffic": true
       },
-      "apify_actor_quality_status": "no_data_yet",
+      "apify_actor_quality_status": "available",
+      "apify_actor_quality_scores": {
+        "remote-job-intelligence": 81,
+        "oss-package-health-monitor": 77,
+        "markdown-code-to-image": 78,
+        "uk-company-change-alerts": 79,
+        "grants-gov-opportunity-monitor": 64
+      },
       "apify_exact_account_search_total": 5,
       "apify_exact_account_search_items_returned": 0,
-      "apify_store_search_status": "pending_quality_score_recalculation",
+      "apify_store_search_status": "quality_available_exact_account_search_cards_pending",
       "open_source_fair_share_source_visibility_prerequisite": true,
       "open_source_fair_share_affiliate_enrollment_verified": false,
       "settled": false,
-      "evidence": "GitHub repository API confirms five public repositories have accurate descriptions, Apify Store homepages, and use-case topics. All five README files now link to the public automation catalog, and the UK repository also exposes its Store and supplier Example above the input section. The Grants repository adds one output object generated from its checked-in offline fixture and labels it as non-current. Sixty-one local tests and five GitHub Actions runs passed; no Actor was run or rebuilt for documentation-only changes. GitHub traffic reported zero repository page views across the five repositories; five Remote clones may include CI or platform builds and are not treated as external users. Apify Console still showed zero paying users and $0 profit for every Actor, no payout invoice, and identity verification required. The five legacy helloWorld metadata values remain accepted only because each runtime has bounded safe defaults and each README has a valid REST payload. These links, tests, clones, free users, and conversion safeguards are not revenue"
+      "evidence": "Apify Console now shows the first acquisition and quality data: 11 Actor-detail views, one Input-page view, five Actor starts, and quality scores from 64 to 81. Acquisition excludes API, schedule, and integration traffic. Exact account Store search still reports total 5 while returning zero cards. Monetization remains zero paying users, one free user per Actor, and $0 profit. Public API totals indicate one successful public UK run and a second total UK user, consistent with the Console's free-user classification; it is not a paid user. No self-run, paid smoke, bookmark, review, discount, or affiliate enrollment was created. Views, starts, quality scores, free users, and conversion safeguards are not revenue"
     },
     "ai_coding_radar_distribution": {
       "site": "https://ai-coding-radar.github.io/",
@@ -565,11 +601,12 @@
       "indexnow_notified_for_site_change": true,
       "indexnow_http_status": 200,
       "indexnow_urls_accepted": 26,
-      "google_search_console_status": "performance_available_indexing_processing",
-      "google_search_console_impressions": 8,
+      "google_search_console_status": "homepage_indexed_performance_available_page_report_processing",
+      "google_search_console_impressions": 12,
       "google_search_console_clicks": 0,
-      "google_search_console_average_position": 6.9,
+      "google_search_console_average_position": 6.8,
       "google_search_console_sitemap_status": "could_not_fetch",
+      "google_search_console_homepage_indexed": true,
       "google_search_console_top_page": "https://ai-coding-radar.github.io/",
       "observed_query_homepage_title_optimized": true,
       "homepage_title": "Claude Code, Codex & Gemini CLI Release Tracker",
@@ -585,17 +622,17 @@
       "homepage_primary_automation": "grants-gov-alerts-api",
       "homepage_value_priority_commit": "fd14f82ba0ad612d43a5a7b1c1313427bace3f47",
       "settled": false,
-      "evidence": "Search Console showed that all first eight impressions landed on the homepage, with zero clicks and average position 6.9 through 2026-08-12; the only visible query was claude 2.1.228. Commit 19ae91d changed only the homepage title, description, latest-version lede, and first-fold automation link. Commit fd14f82 then moved the existing Grants.gov card to the first automation position because the queue's bounded default has the highest single-customer gross event potential among the unpublished guides; it did not change prices or claims. Sixty-nine tests passed. Publish radar run 31857273015 deployed that homepage order, representative public URLs returned HTTP 200, the sitemap contained 26 URLs, and IndexNow accepted all 26 with HTTP 200. The previously observed Search Console sitemap and indexing states were not resubmitted. Pages, workflows, indexing, impressions, and gross event prices are distribution or potential, not revenue"
+      "evidence": "Search Console now explicitly reports the homepage as indexed. Performance through 2026-08-13 shows 12 impressions, zero clicks, and average position 6.8; the visible query remains claude 2.1.228 with two impressions. The submitted sitemap still says could not fetch with zero discovered pages, while the public sitemap contains 26 unique URLs and all representative pages return HTTP 200, so it was not resubmitted. Publish radar run 31918644004 found no new stable releases and did not notify IndexNow. Pages, workflows, indexing, impressions, and gross event prices are distribution or potential, not revenue"
     },
     "cardify_search": {
       "site": "https://cardify.1222155.xyz/",
       "sitemap_http_status": 200,
       "sitemap_content_type": "application/xml",
       "sitemap_urls": 9,
-      "search_console_last_read": "2026-08-15",
-      "search_console_performance_status": "processing_no_data",
-      "search_console_impressions": null,
-      "search_console_clicks": null,
+      "search_console_last_read": "2026-08-16",
+      "search_console_performance_status": "available_zero_data",
+      "search_console_impressions": 0,
+      "search_console_clicks": 0,
       "search_console_sitemap_status": "could_not_fetch",
       "search_console_discovered_pages": 0,
       "api_funnel_pages": 6,
@@ -629,7 +666,7 @@
       "indexnow_notified_at": "2026-08-15T09:56:45+08:00",
       "payment_entry_available": false,
       "settled": false,
-      "evidence": "Six Cardify SEO pages, the editor footer, and the successful image-export state link to the paid image Actor. All six SEO funnels now disclose before the click that the paid automation produces PNG files, starts at $0.005 per image plus $0.00005 per start, and requires an Apify account; each keeps a contextual configured Example link and a direct current-pricing link. Twenty-six tests and the production build passed. Cloudflare Pages deployment 5fd6db1a uploaded the six changed funnel pages and reused 84 files. All six custom-domain pages returned the new copy and links, the public key and nine-URL sitemap remained HTTP 200, and IndexNow accepted all nine URLs with HTTP 200 after the real site change. The previously observed Search Console state was not resubmitted. Deployment, crawling, links, and clicks are distribution, not revenue"
+      "evidence": "All six Cardify API funnel pages remain HTTP 200 and each points exactly once to its intended configured Example: four generic Markdown/code pages use the general renderer, while the two ChatGPT pages use the ChatGPT-specific task. The public sitemap still contains nine unique URLs. Search Console shows zero impressions and zero clicks; page indexing is still processing and the submitted sitemap remains could not fetch with zero discovered pages, so it was not resubmitted. Deployment, crawling, links, views, and clicks are distribution, not revenue"
     }
   }
 }

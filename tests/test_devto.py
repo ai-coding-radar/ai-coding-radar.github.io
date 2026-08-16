@@ -214,6 +214,20 @@ class DevToTest(unittest.TestCase):
         self.assertEqual(request.call_args.args, ("/articles/321", "secret"))
 
     @patch("devto._request")
+    def test_get_article_uses_the_authenticated_list(self, request):
+        expected = {
+            "id": 321,
+            "canonical_url": "https://example.com/guide",
+            "published_at": "2026-08-16T01:02:28Z",
+        }
+        request.return_value = [expected]
+
+        self.assertIs(devto.get_article("secret", 321), expected)
+        request.assert_called_once_with(
+            "/articles/me/all?page=1&per_page=100", "secret"
+        )
+
+    @patch("devto._request")
     def test_dedupe_checks_every_full_page(self, request):
         canonical_url = "https://ai-coding-radar.github.io/releases/codex/1.0.0/"
         full_page = [
