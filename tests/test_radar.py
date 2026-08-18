@@ -128,6 +128,31 @@ class RadarTest(unittest.TestCase):
                 )
                 self.assertEqual(radar.parse_stable_releases(feed, source), [])
 
+    def test_untracked_codex_python_release_is_ignored(self):
+        python_release = b'''  <entry>
+    <id>tag:github.com,2008:Repository/1/python-v0.147.0</id>
+    <updated>2026-08-18T06:08:40Z</updated>
+    <link rel="alternate" href="https://github.com/openai/codex/releases/tag/python-v0.147.0"/>
+    <title>python-v0.147.0</title>
+  </entry>
+</feed>'''
+        feed = VALID_FEED.replace(b"</feed>", python_release)
+
+        releases = radar.parse_stable_releases(
+            feed, radar.SOURCE_BY_KEY["codex"]
+        )
+
+        self.assertEqual([release["version"] for release in releases], ["1.0.0"])
+
+    def test_release_link_outside_source_allowlist_fails(self):
+        feed = VALID_FEED.replace(
+            b"https://github.com/openai/codex/releases/tag/rust-v1.0.0",
+            b"https://example.com/openai/codex/releases/tag/rust-v1.0.0",
+        )
+
+        with self.assertRaisesRegex(ValueError, "source allowlist"):
+            radar.parse_stable_releases(feed, radar.SOURCE_BY_KEY["codex"])
+
     def test_empty_atom_feed_writes_nothing(self):
         with tempfile.TemporaryDirectory() as directory:
             root = Path(directory)

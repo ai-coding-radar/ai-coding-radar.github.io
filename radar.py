@@ -22,6 +22,9 @@ SOURCES = (
         "product": "OpenAI Codex",
         "feed_url": "https://github.com/openai/codex/releases.atom",
         "tag_url_prefix": "https://github.com/openai/codex/releases/tag/rust-v",
+        "ignored_tag_url_prefixes": (
+            "https://github.com/openai/codex/releases/tag/python-v",
+        ),
         "title_prefixes": ("", "rust-v"),
     },
     {
@@ -956,6 +959,8 @@ def parse_stable_releases(feed_bytes, source):
         )
         if not title or not entry_id or not updated or not link:
             raise ValueError("release is missing title, id, time, or source link")
+        if link.startswith(source.get("ignored_tag_url_prefixes", ())):
+            continue
         if not link.startswith(source["tag_url_prefix"]):
             raise ValueError("release link is outside the source allowlist")
 
