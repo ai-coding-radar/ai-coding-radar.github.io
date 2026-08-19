@@ -1,9 +1,9 @@
 {
   "schema_version": 1,
-  "checked_at": "2026-08-18T09:10:00+08:00",
+  "checked_at": "2026-08-19T09:24:00+08:00",
   "property": "https://ai-coding-radar.github.io/",
   "performance_status": "available",
-  "indexing_status": "homepage_indexed_page_report_processing",
+  "indexing_status": "homepage_indexed_one_indexed_zero_not_indexed",
   "homepage_url_inspection_status": "indexed",
   "sitemap": {
     "path": "/sitemap.xml",
@@ -14,12 +14,12 @@
   },
   "performance_range": {
     "start": "2026-08-10",
-    "end": "2026-08-15"
+    "end": "2026-08-16"
   },
-  "impressions": 14,
+  "impressions": 16,
   "clicks": 0,
   "average_ctr_percent": 0,
-  "average_position": 9,
+  "average_position": 16.6,
   "top_visible_query": {
     "query": "claude 2.1.228",
     "impressions": 2,
@@ -30,6 +30,11 @@
     "impressions": 1,
     "clicks": 0
   },
+  "third_visible_query": {
+    "query": "code release",
+    "impressions": 1,
+    "clicks": 0
+  },
   "top_visible_page": {
     "url": "https://ai-coding-radar.github.io/",
     "impressions": null,
@@ -37,5 +42,5 @@
     "note": "The page-dimension table was not visibly refreshed during this check; URL Inspection explicitly reports the homepage as indexed."
   },
   "source": "Google Search Console visible account report",
-  "note": "URL Inspection still explicitly reports the homepage as indexed. The performance report shows 14 impressions, zero clicks, and average position 9 through 2026-08-15. A second visible query, codex radar, has one impression. The page-indexing report is still processing, and the submitted sitemap remains marked as could not fetch with zero discovered pages even though the public XML and representative URLs return HTTP 200. It was not resubmitted."
+  "note": "URL Inspection still explicitly reports the homepage as indexed, and the overview now shows one indexed page and zero non-indexed pages. The performance report shows 16 impressions, zero clicks, and average position 16.6 through 2026-08-16. The visible queries include claude 2.1.228, codex radar, and code release. The submitted sitemap remains marked as could not fetch with zero discovered pages even though the public XML and representative URLs return HTTP 200. It was not resubmitted."
 }
