@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "checked_at": "2026-08-19T09:24:00+08:00",
+  "checked_at": "2026-08-19T22:02:43+08:00",
   "sources": {
     "apify": {
       "period": "2026-08",
@@ -20,7 +20,7 @@
       "seo_title": "Remote Jobs Aggregator API for n8n and Job Boards",
       "seo_description": "Aggregate and deduplicate remote jobs from four public sources. Filter by keyword, location, and age for n8n, Make, job boards, recruiters, and AI agents.",
       "public_total_users": 2,
-      "public_total_runs": 15,
+      "public_total_runs": 16,
       "public_example": "https://apify.com/ai-coding-radar/remote-job-intelligence/examples/daily-remote-software-jobs",
       "public_examples": [
         "https://apify.com/ai-coding-radar/remote-job-intelligence/examples/daily-remote-software-jobs",
@@ -65,7 +65,7 @@
       "displayed_profit_usd": 0,
       "payout_status": "identity_verification_required_no_settlement",
       "settled": false,
-      "evidence": "Build 0.0.14 remains unchanged and successful. The Store, machine-readable Markdown, both configured Examples, and all four public job sources returned HTTP 200. Public totals are now 15 runs, two users, and five successful public runs in the last 30 days. Monetization still shows zero paying users, one free user, 132 results, and $0 profit; no self-run or paid smoke was started. Builds, examples, free users, and public runs are not revenue"
+      "evidence": "Build 0.0.14 remains unchanged and successful. The Store, machine-readable Markdown, both configured Examples, the credential-free workflow, and all four public job sources returned HTTP 200 after the DEV publication. Public totals are now 16 runs, two users, and six successful public runs in the last 30 days. Monetization still shows zero paying users, one free user, 132 results, and $0 profit; no self-run or paid smoke was started. Builds, examples, free users, and public runs are not revenue"
     },
     "apify_oss_package_health": {
       "period": "2026-08",
@@ -445,10 +445,10 @@
       "queue_manual_fallback_policy": "daily_idempotent_ensure_dev_queue_after_missing_schedule",
       "queue_workflow_id": 334567536,
       "queue_workflow_state": "active",
-      "queue_schedule_first_window_status": "success_markdown_not_due_2026-08-18",
-      "queue_schedule_first_window_run": "https://github.com/ai-coding-radar/ai-coding-radar.github.io/actions/runs/32095847341",
-      "queue_secondary_schedule_status": "published_markdown_image_2026-08-18",
-      "queue_secondary_schedule_run": "https://github.com/ai-coding-radar/ai-coding-radar.github.io/actions/runs/32098765106",
+      "queue_schedule_first_window_status": "queued_after_remote_jobs_publication_2026-08-19",
+      "queue_schedule_first_window_run": "https://github.com/ai-coding-radar/ai-coding-radar.github.io/actions/runs/32213994287",
+      "queue_secondary_schedule_status": "published_remote_jobs_2026-08-19",
+      "queue_secondary_schedule_run": "https://github.com/ai-coding-radar/ai-coding-radar.github.io/actions/runs/32215506344",
       "queue_initial_day_schedule_runs": 2,
       "queue_fallback_run_id": 31859818014,
       "queue_fallback_run": "https://github.com/ai-coding-radar/ai-coding-radar.github.io/actions/runs/31859818014",
@@ -540,13 +540,30 @@
       "fourth_article_draft_id": 4399562,
       "fourth_article_title": "Build a daily remote AI jobs feed with n8n",
       "fourth_article_canonical_url": "https://github.com/Jarvis-Dong/remote-job-intelligence/blob/main/examples/README.md",
-      "fourth_article_status": "draft_unpublished",
+      "fourth_article_status": "published",
+      "fourth_article_url": "https://dev.to/aicodingradar/build-a-daily-remote-ai-jobs-feed-with-n8n-31oe",
+      "fourth_article_published_at": "2026-08-19T04:22:16Z",
+      "fourth_article_http_status": 200,
+      "fourth_article_positive_reactions": 0,
+      "fourth_article_comments": 0,
+      "fourth_article_actor_link_present": true,
+      "fourth_article_example_link_present": true,
+      "fourth_article_workflow_link_present": true,
+      "fourth_article_source_links_present": true,
+      "fourth_article_price_disclosure_present": true,
+      "fourth_article_account_context_present": true,
+      "fourth_article_security_boundary_present": true,
+      "fourth_article_ai_example_input_verified": true,
+      "fourth_article_workflow_node_count": 6,
+      "fourth_article_workflow_credentials_exported": false,
+      "fourth_article_publish_workflow_run": "https://github.com/ai-coding-radar/ai-coding-radar.github.io/actions/runs/32215506344",
+      "fourth_article_publish_workflow_status": "success",
       "fourth_article_created_at": "2026-08-15T06:31:53+08:00",
       "fourth_article_release_policy": "at_least_24h_after_markdown_article_published_at",
       "fourth_article_not_before": "2026-08-19T04:20:19Z",
       "fourth_article_workflow_run": "https://github.com/ai-coding-radar/ai-coding-radar.github.io/actions/runs/31846964561",
       "settled": false,
-      "evidence": "DEV article 4399131 was published at 2026-08-18T04:20:19Z by scheduled run 32098765106, more than 24 hours after the UK article. Public API and HTML confirm the ID, canonical URL, title, timestamp, zero reactions, and zero comments. The article includes the public PNG Actor, configured ChatGPT Example, five-node credential-free n8n workflow, checked-in PNG preview, Cardify one-off route, $0.005 image and $0.00005 start prices, Apify account requirement, runtime-URL retention warning, and explicit instruction not to embed tokens in public workflow data. The article, Actor, both Examples, workflow, preview, and Cardify route return HTTP 200; the workflow is valid five-node JSON and the preview has a valid PNG header. The earlier scheduled run 32095847341 correctly waited until the 24-hour boundary. Remote Jobs is next and cannot publish before 2026-08-19T04:20:19Z. No duplicate canonical was created. Articles, workflow outcomes, reactions, exposure, and event-price potential are not settled revenue"
+      "evidence": "DEV article 4399562 was published at 2026-08-19T04:22:16Z by scheduled run 32215506344, after the 24-hour boundary following the Markdown article. Public API and HTML confirm the ID, canonical URL, title, timestamp, zero reactions, and zero comments. The article includes the public Remote Jobs Actor, configured AI and machine-learning Example, six-node credential-free n8n workflow, four official public sources, $0.001 per returned job and $0.00005 start prices, private-token guidance, cross-day deduplication responsibility, and explicit untrusted-text and no-application boundaries. The article, Actor, both Examples, workflow, repository recipe, and all four source endpoints return HTTP 200; the workflow is valid JSON with no exported credentials. An earlier delayed schedule run 32213994287 remains queued and was not canceled or retriggered; the public canonical scan currently shows one article. Articles, workflow outcomes, reactions, exposure, free runs, and event-price potential are not settled revenue"
     },
     "github_repository_distribution": {
       "repositories": 5,
