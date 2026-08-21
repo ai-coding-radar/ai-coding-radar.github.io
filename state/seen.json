@@ -252,6 +252,28 @@
       "title": "Gemini CLI 0.56.0 released",
       "detected_at": "2026-08-20T01:03:15.523095Z",
       "post": "output/posts/2026-08-19-gemini-cli-0.56.0.md"
+    },
+    "tag:github.com,2008:Repository/965415649/rust-v0.149.0": {
+      "id": "tag:github.com,2008:Repository/965415649/rust-v0.149.0",
+      "source_key": "codex",
+      "product": "OpenAI Codex",
+      "version": "0.149.0",
+      "source_published_at": "2026-08-20T21:06:13Z",
+      "source_url": "https://github.com/openai/codex/releases/tag/rust-v0.149.0",
+      "title": "OpenAI Codex 0.149.0 released",
+      "detected_at": "2026-08-21T01:01:47.603932Z",
+      "post": "output/posts/2026-08-20-codex-0.149.0.md"
+    },
+    "tag:github.com,2008:Repository/937253475/v2.1.238": {
+      "id": "tag:github.com,2008:Repository/937253475/v2.1.238",
+      "source_key": "claude-code",
+      "product": "Claude Code",
+      "version": "2.1.238",
+      "source_published_at": "2026-08-20T20:33:51Z",
+      "source_url": "https://github.com/anthropics/claude-code/releases/tag/v2.1.238",
+      "title": "Claude Code 2.1.238 released",
+      "detected_at": "2026-08-21T01:01:47.603932Z",
+      "post": "output/posts/2026-08-20-claude-code-2.1.238.md"
     }
   }
 }
