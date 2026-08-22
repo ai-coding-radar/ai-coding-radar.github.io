@@ -1,10 +1,11 @@
 {
   "schema_version": 1,
-  "checked_at": "2026-08-21T09:09:02+08:00",
+  "checked_at": "2026-08-22T22:10:54+08:00",
   "property": "https://ai-coding-radar.github.io/",
   "performance_status": "available",
   "indexing_status": "homepage_indexed_one_indexed_zero_not_indexed",
   "homepage_url_inspection_status": "indexed",
+  "homepage_url_inspection_last_explicit_check": "2026-08-21",
   "sitemap": {
     "path": "/sitemap.xml",
     "submitted_at": "2026-08-12",
@@ -14,29 +15,34 @@
   },
   "performance_range": {
     "start": "2026-08-10",
-    "end": "2026-08-18"
+    "end": "2026-08-20"
   },
-  "impressions": 20,
+  "impressions": 23,
   "clicks": 0,
   "average_ctr_percent": 0,
-  "average_position": 17.9,
+  "average_position": 19.2,
   "top_visible_query": {
     "query": "claude 2.1.228",
     "impressions": 2,
     "clicks": 0
   },
   "secondary_visible_query": {
+    "query": "codex radar",
+    "impressions": 2,
+    "clicks": 0
+  },
+  "third_visible_query": {
+    "query": "code release",
+    "impressions": 2,
+    "clicks": 0
+  },
+  "fourth_visible_query": {
     "query": "codex rader",
     "impressions": 1,
     "clicks": 0
   },
-  "third_visible_query": {
-    "query": "codex radar",
-    "impressions": 1,
-    "clicks": 0
-  },
-  "fourth_visible_query": {
-    "query": "code release",
+  "fifth_visible_query": {
+    "query": "codexradar",
     "impressions": 1,
     "clicks": 0
   },
@@ -44,8 +50,8 @@
     "url": "https://ai-coding-radar.github.io/",
     "impressions": null,
     "clicks": 0,
-    "note": "The page-dimension table was not visibly refreshed during this check; URL Inspection explicitly reports the homepage as indexed."
+    "note": "The page-dimension table was not visibly refreshed during this check; the current indexing report shows one indexed page and zero non-indexed pages."
   },
   "source": "Google Search Console visible account report",
-  "note": "URL Inspection still explicitly reports the homepage as indexed, and the overview shows one indexed page and zero non-indexed pages. The performance report shows 20 impressions, zero clicks, and average position 17.9 through 2026-08-18. The visible queries include claude 2.1.228, codex rader, codex radar, and code release. The submitted sitemap remains marked as could not fetch with zero discovered pages even though the public XML and representative URLs return HTTP 200. It was not resubmitted."
+  "note": "The indexing report shows one indexed page and zero non-indexed pages. The performance report shows 23 impressions, zero clicks, and average position 19.2 through 2026-08-20. The visible queries are claude 2.1.228, codex radar, code release, codex rader, and codexradar. The submitted sitemap remains marked as could not fetch with zero discovered pages even though the public XML and representative URLs return HTTP 200. It was not resubmitted."
 }
