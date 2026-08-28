@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "checked_at": "2026-08-28T00:07:05+08:00",
+  "checked_at": "2026-08-28T08:35:39+08:00",
   "sources": {
     "apify": {
       "period": "2026-08",
@@ -652,7 +652,7 @@
       "automation_landing_pages_http_status": 200,
       "n8n_workflow_links": 5,
       "sitemap_http_status": 200,
-      "sitemap_urls": 43,
+      "sitemap_urls": 46,
       "targets": [
         "https://apify.com/ai-coding-radar/oss-package-health-monitor/examples/scan-installed-npm-and-pypi-versions-for-cves",
         "https://apify.com/ai-coding-radar/markdown-code-to-image/examples/render-markdown-and-code-to-a-png",
@@ -661,19 +661,19 @@
         "https://apify.com/ai-coding-radar/grants-gov-opportunity-monitor/examples/daily-ai-federal-grant-opportunity-alerts"
       ],
       "publish_workflow_status": "success",
-      "publish_workflow_run": "https://github.com/ai-coding-radar/ai-coding-radar.github.io/actions/runs/33015248433",
-      "last_site_change_workflow_run": "https://github.com/ai-coding-radar/ai-coding-radar.github.io/actions/runs/33006121589",
-      "releases_added_in_last_site_change": ["codex-0.150.0"],
-      "releases_added_during_monitor": ["claude-code-2.1.245", "claude-code-2.1.246", "gemini-cli-0.57.0", "codex-0.150.0"],
-      "latest_release_added": "codex-0.150.0",
-      "latest_release_source_published_at": "2026-08-26T19:37:28Z",
-      "latest_release_page": "https://ai-coding-radar.github.io/releases/codex/0.150.0/",
-      "last_site_change_observed_at": "2026-08-27T03:37:55+08:00",
+      "publish_workflow_run": "https://github.com/ai-coding-radar/ai-coding-radar.github.io/actions/runs/33122346024",
+      "last_site_change_workflow_run": "https://github.com/ai-coding-radar/ai-coding-radar.github.io/actions/runs/33122346024",
+      "releases_added_in_last_site_change": ["claude-code-2.1.247", "claude-code-2.1.248", "codex-0.150.1"],
+      "releases_added_during_monitor": ["claude-code-2.1.247", "claude-code-2.1.248", "codex-0.150.1"],
+      "latest_release_added": "claude-code-2.1.248",
+      "latest_release_source_published_at": "2026-08-27T22:12:20Z",
+      "latest_release_page": "https://ai-coding-radar.github.io/releases/claude-code/2.1.248/",
+      "last_site_change_observed_at": "2026-08-28T06:24:40+08:00",
       "daily_refresh_dispatch_status": "already_refreshed_run_33015248433_confirmed_after_local_tls_timeout",
       "daily_refresh_dispatch_note": "ensure_daily_refresh could not read GitHub because of a TLS handshake timeout; a bounded public API check confirmed successful current-day run 33015248433, so no duplicate refresh was dispatched",
       "indexnow_notified_for_site_change": true,
       "indexnow_http_status": 200,
-      "indexnow_urls_accepted": 43,
+      "indexnow_urls_accepted": 46,
       "monitor_transport_status": "intermittent_dns_ssl_tls_handshake_timeouts_and_github_api_eof_recurred_during_2026-08-27_check",
       "google_search_console_status": "homepage_indexed_performance_available_one_indexed_page",
       "google_search_console_impressions": 28,
@@ -696,7 +696,7 @@
       "homepage_primary_automation": "grants-gov-alerts-api",
       "homepage_value_priority_commit": "fd14f82ba0ad612d43a5a7b1c1313427bace3f47",
       "settled": false,
-      "evidence": "The last completed Publish radar run 33015248433 succeeded without a site change, leaving the public sitemap at 43 URLs. The homepage, robots.txt, key file, sitemap, checked release page, and five automation pages return HTTP 200; every automation page has one n8n workflow link and the homepage retains one link to each configured Example. Search Console still reports one indexed page and zero non-indexed pages. Performance through 2026-08-24 shows 28 impressions, zero clicks, and average position 20.6. The submitted sitemap still says could not fetch with zero discovered pages, so it was not resubmitted. Official feeds now expose stable Claude Code 2.1.247 and Codex 0.150.1 after that refresh; the next normal push workflow will validate and publish them. Intermittent DNS, SSL, TLS handshake, and GitHub API EOF failures recurred and required bounded read-only retries; no failed check was reported as successful. Pages, workflows, indexing, impressions, and gross event prices are distribution or potential, not revenue"
+      "evidence": "Publish radar run 33122346024 validated and added stable Claude Code 2.1.247, Claude Code 2.1.248, and Codex 0.150.1, expanding the sitemap from 43 to 46 URLs. The deploy job succeeded and IndexNow accepted all 46 URLs with HTTP 200. The homepage, sitemap, and all three new release pages were then anonymously verified at HTTP 200; the five automation pages still expose one n8n workflow link each and the homepage retains one link to each configured Example. Search Console still reports one indexed page and zero non-indexed pages. Performance through 2026-08-24 shows 28 impressions, zero clicks, and average position 20.6. The submitted Search Console sitemap still says could not fetch with zero discovered pages, so it was not resubmitted. Intermittent DNS, SSL, TLS handshake, and GitHub API EOF failures recurred and required bounded read-only retries; no failed check was reported as successful. Pages, workflows, indexing, impressions, and gross event prices are distribution or potential, not revenue"
     },
     "cardify_search": {
       "site": "https://cardify.1222155.xyz/",
