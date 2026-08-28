@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "checked_at": "2026-08-28T08:35:39+08:00",
+  "checked_at": "2026-08-28T08:42:08+08:00",
   "sources": {
     "apify": {
       "period": "2026-08",
@@ -462,14 +462,14 @@
       "queue_fallback_completed_at": "2026-08-15T10:41:12+08:00",
       "queue_fallback_status": "failed_http_429_no_publication",
       "queue_fallback_retry_same_day": false,
-      "queue_latest_fallback_run": "https://github.com/ai-coding-radar/ai-coding-radar.github.io/actions/runs/33030952835",
-      "queue_latest_fallback_status": "success_no_selected_guide_2026-08-27",
-      "queue_latest_fallback_dispatch_observation": "ensure_dev_queue dispatched once; run 33030952835 succeeded and skipped the selected-guide path",
+      "queue_latest_fallback_run": "https://github.com/ai-coding-radar/ai-coding-radar.github.io/actions/runs/33130521066",
+      "queue_latest_fallback_status": "success_queue_complete_2026-08-28",
+      "queue_latest_fallback_dispatch_observation": "ensure_dev_queue dispatched once; run 33130521066 completed with queue_complete",
       "queue_latest_schedule_runs": [
         "https://github.com/ai-coding-radar/ai-coding-radar.github.io/actions/runs/32928906999",
         "https://github.com/ai-coding-radar/ai-coding-radar.github.io/actions/runs/32930163000"
       ],
-      "queue_latest_schedule_status": "no_2026-08-27_schedule_run_observed_fallback_succeeded",
+      "queue_latest_schedule_status": "no_2026-08-28_schedule_run_observed_fallback_completed_queue",
       "queue_rate_limit_fix_commit": "d4a62fd6f14c32698856bd0746f6c22565ba366b",
       "queue_article_list_scan_policy": "one_paginated_scan_per_queue_check",
       "queue_post_publish_verification": "authenticated_article_list_lookup_by_id",
@@ -576,7 +576,7 @@
       "fourth_article_not_before": "2026-08-19T04:20:19Z",
       "fourth_article_workflow_run": "https://github.com/ai-coding-radar/ai-coding-radar.github.io/actions/runs/31846964561",
       "settled": false,
-      "evidence": "All five queued DEV guides remain recorded as public with one article per canonical URL and zero recorded reactions or comments. The 2026-08-27 fallback run 33030952835 completed successfully and skipped the selected-guide path, so it did not publish anything; no 2026-08-27 schedule run was visible in the bounded public Actions check. The older run 32213994287 was not canceled, retriggered, or bypassed. Intermittent TLS failures made four same-run DEV article refreshes inconclusive; the Remote Jobs article remained public with zero reactions and comments. Articles, workflow outcomes, reactions, exposure, free runs, and event-price potential are not settled revenue"
+      "evidence": "All five queued DEV guides remain recorded as public with one article per canonical URL and zero recorded reactions or comments. The 2026-08-28 fallback run 33130521066 completed successfully with queue_complete, so it did not publish anything; no 2026-08-28 schedule run existed before the backstop. The older run 32213994287 was not canceled, retriggered, or bypassed. Articles, workflow outcomes, reactions, exposure, free runs, and event-price potential are not settled revenue"
     },
     "github_repository_distribution": {
       "repositories": 5,
