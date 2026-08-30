@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "checked_at": "2026-08-28T00:07:05+08:00",
+  "checked_at": "2026-08-30T14:29:50+08:00",
   "property": "https://ai-coding-radar.github.io/",
   "performance_status": "available",
   "indexing_status": "homepage_indexed_one_indexed_zero_not_indexed",
@@ -15,24 +15,24 @@
   },
   "performance_range": {
     "start": "2026-08-10",
-    "end": "2026-08-24"
+    "end": "2026-08-26"
   },
-  "impressions": 28,
+  "impressions": 29,
   "clicks": 0,
   "average_ctr_percent": 0,
-  "average_position": 20.6,
+  "average_position": 20.8,
   "top_visible_query": {
     "query": "code release",
     "impressions": 5,
     "clicks": 0
   },
   "secondary_visible_query": {
-    "query": "claude 2.1.228",
-    "impressions": 2,
+    "query": "codex radar",
+    "impressions": 3,
     "clicks": 0
   },
   "third_visible_query": {
-    "query": "codex radar",
+    "query": "claude 2.1.228",
     "impressions": 2,
     "clicks": 0
   },
@@ -53,5 +53,5 @@
     "note": "The page-dimension table was not visibly refreshed during this check; the current indexing report shows one indexed page and zero non-indexed pages."
   },
   "source": "Google Search Console visible account report",
-  "note": "The indexing report still shows one indexed page and zero non-indexed pages. The performance report shows 28 impressions, zero clicks, and average position 20.6 through 2026-08-24. The visible queries remain code release, claude 2.1.228, codex radar, codex rader, and codexradar. The submitted sitemap remains marked as could not fetch with zero discovered pages even though the public XML and representative URLs return HTTP 200. It was not resubmitted."
+  "note": "The indexing report still shows one indexed page and zero non-indexed pages. The performance report shows 29 impressions, zero clicks, and average position 20.8 through 2026-08-26. The leading visible queries are code release, codex radar, claude 2.1.228, codex rader, and codexradar. The submitted sitemap remains marked as could not fetch with zero discovered pages even though the public XML and representative URLs return HTTP 200. It was not resubmitted."
 }
