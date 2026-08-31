@@ -1,57 +1,38 @@
 {
   "schema_version": 1,
-  "checked_at": "2026-08-30T14:29:50+08:00",
+  "checked_at": "2026-08-31T09:33:00+08:00",
   "property": "https://ai-coding-radar.github.io/",
-  "performance_status": "available",
-  "indexing_status": "homepage_indexed_one_indexed_zero_not_indexed",
-  "homepage_url_inspection_status": "indexed",
+  "performance_status": "unavailable_browser_policy",
+  "indexing_status": "unavailable_browser_policy",
+  "homepage_url_inspection_status": null,
   "homepage_url_inspection_last_explicit_check": "2026-08-21",
   "sitemap": {
     "path": "/sitemap.xml",
     "submitted_at": "2026-08-12",
-    "status": "could_not_fetch",
-    "discovered_pages": 0,
-    "discovered_videos": 0
+    "status": null,
+    "discovered_pages": null,
+    "discovered_videos": null
   },
   "performance_range": {
-    "start": "2026-08-10",
-    "end": "2026-08-26"
+    "start": null,
+    "end": null
   },
-  "impressions": 29,
-  "clicks": 0,
-  "average_ctr_percent": 0,
-  "average_position": 20.8,
-  "top_visible_query": {
-    "query": "code release",
-    "impressions": 5,
-    "clicks": 0
-  },
-  "secondary_visible_query": {
-    "query": "codex radar",
-    "impressions": 3,
-    "clicks": 0
-  },
-  "third_visible_query": {
-    "query": "claude 2.1.228",
-    "impressions": 2,
-    "clicks": 0
-  },
-  "fourth_visible_query": {
-    "query": "codex rader",
-    "impressions": 1,
-    "clicks": 0
-  },
-  "fifth_visible_query": {
-    "query": "codexradar",
-    "impressions": 1,
-    "clicks": 0
-  },
+  "impressions": null,
+  "clicks": null,
+  "average_ctr_percent": null,
+  "average_position": null,
+  "top_visible_query": null,
+  "secondary_visible_query": null,
+  "third_visible_query": null,
+  "fourth_visible_query": null,
+  "fifth_visible_query": null,
   "top_visible_page": {
     "url": "https://ai-coding-radar.github.io/",
     "impressions": null,
-    "clicks": 0,
-    "note": "The page-dimension table was not visibly refreshed during this check; the current indexing report shows one indexed page and zero non-indexed pages."
+    "clicks": null,
+    "note": "The permitted browser session could not open Search Console during this check, so no current page data was recorded."
   },
-  "source": "Google Search Console visible account report",
-  "note": "The indexing report still shows one indexed page and zero non-indexed pages. The performance report shows 29 impressions, zero clicks, and average position 20.8 through 2026-08-26. The leading visible queries are code release, codex radar, claude 2.1.228, codex rader, and codexradar. The submitted sitemap remains marked as could not fetch with zero discovered pages even though the public XML and representative URLs return HTTP 200. It was not resubmitted."
+  "source": "Google Search Console unavailable in the permitted browser session",
+  "last_available_snapshot_at": "2026-08-30T14:29:50+08:00",
+  "note": "Search Console was blocked by the browser security policy, so current indexing, sitemap, impression, click, CTR, position, query, and page values are null. The 2026-08-30 values were not carried forward as current facts. No sitemap was resubmitted and no indexing request was made."
 }

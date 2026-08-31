@@ -1,6 +1,8 @@
 {
   "schema_version": 1,
   "checked_at": "2026-08-30T14:29:50+08:00",
+  "last_monitor_attempt_at": "2026-08-31T09:33:00+08:00",
+  "last_monitor_attempt_status": "inconclusive_continuous_tls_timeouts_and_browser_policy_blocks",
   "sources": {
     "apify": {
       "period": "2026-08",
@@ -320,6 +322,8 @@
     "apify_portfolio_monetization": {
       "period": "2026-08",
       "checked_at": "2026-08-30T14:29:50+08:00",
+      "latest_monitor_attempt_at": "2026-08-31T09:33:00+08:00",
+      "latest_monitor_attempt_status": "console_shell_loaded_table_unavailable_public_api_tls_timeout",
       "actors_checked": 5,
       "paying_users_per_actor": 0,
       "free_users_per_actor": 1,
@@ -411,6 +415,8 @@
       },
       "status": "creator_account_verified_logged_in_waiting_user_terms_confirmation",
       "creator_dashboard_checked_at": "2026-08-30T14:29:50+08:00",
+      "latest_creator_dashboard_attempt_at": "2026-08-31T09:33:00+08:00",
+      "latest_creator_dashboard_attempt_status": "unavailable_browser_policy_no_submission_attempted",
       "settled": false,
       "evidence": "Official n8n documentation routes template submissions through the Creator Hub. New unverified creators can submit one template at a time and unlock batches only after three approved templates. The logged-in Creator dashboard still shows no submitted templates. Commit 403654d places the complete 231-word submission description in the yellow setup Sticky Note while retaining descriptive nodes, a bounded ten-result request with a $0.15005 maximum event charge, and no exported credentials; GitHub Actions remains successful. Upload and submission remain paused until the user explicitly confirms the terms checkbox. A prepared template, review approval, views, or future template sales are not settled revenue"
     },
@@ -470,6 +476,8 @@
         "https://github.com/ai-coding-radar/ai-coding-radar.github.io/actions/runs/33288041268"
       ],
       "queue_latest_schedule_status": "both_success_queue_complete_2026-08-30",
+      "queue_latest_check_attempt_at": "2026-08-31T09:33:00+08:00",
+      "queue_latest_check_status": "inconclusive_github_api_tls_timeout_no_fallback_dispatched",
       "queue_rate_limit_fix_commit": "d4a62fd6f14c32698856bd0746f6c22565ba366b",
       "queue_article_list_scan_policy": "one_paginated_scan_per_queue_check",
       "queue_post_publish_verification": "authenticated_article_list_lookup_by_id",
@@ -576,7 +584,7 @@
       "fourth_article_not_before": "2026-08-19T04:20:19Z",
       "fourth_article_workflow_run": "https://github.com/ai-coding-radar/ai-coding-radar.github.io/actions/runs/31846964561",
       "settled": false,
-      "evidence": "All five queued DEV guides remain public with one article per canonical URL and zero reactions or comments. The 2026-08-29 fallback run 33225424904 plus schedule runs 33226257476 and 33229013969 all completed with queue_complete. The 2026-08-30 schedule runs 33285543349 and 33288041268 also completed with queue_complete, so none published anything. The older run 32213994287 was not canceled, retriggered, or bypassed. Articles, workflow outcomes, reactions, exposure, free runs, and event-price potential are not settled revenue"
+      "evidence": "All five queued DEV guides were last fully verified public with one article per canonical URL and zero reactions or comments. The 2026-08-30 schedule runs 33285543349 and 33288041268 completed with queue_complete. On 2026-08-31, both the idempotent queue helper and a bounded read-only workflow query stopped at GitHub API TLS handshake timeouts before any fallback dispatch; the older queued run 32213994287 was not canceled, retriggered, or bypassed. Articles, workflow outcomes, reactions, exposure, free runs, and event-price potential are not settled revenue"
     },
     "github_repository_distribution": {
       "repositories": 5,
@@ -610,6 +618,8 @@
       "github_traffic_views_14d": 0,
       "github_traffic_clone_note": "Five remote-job-intelligence clones from four unique clients may include CI or platform builds and are not treated as users or revenue.",
       "apify_monetization_checked_at": "2026-08-30T14:29:50+08:00",
+      "apify_latest_monitor_attempt_at": "2026-08-31T09:33:00+08:00",
+      "apify_latest_monitor_attempt_status": "console_table_unavailable_public_api_tls_timeout",
       "apify_paying_users_total": 0,
       "apify_displayed_profit_usd_total": 0,
       "apify_payout_invoice_available": false,
@@ -669,18 +679,25 @@
       "latest_release_source_published_at": "2026-08-29T09:57:02Z",
       "latest_release_page": "https://ai-coding-radar.github.io/releases/codex/0.151.0/",
       "last_site_change_observed_at": "2026-08-30T08:19:36+08:00",
-      "daily_refresh_dispatch_status": "already_refreshed_by_schedules_33223161051_and_33283022981",
-      "daily_refresh_dispatch_note": "The idempotent backstop found successful scheduled Publish radar runs on both 2026-08-29 and 2026-08-30, so it did not dispatch a duplicate refresh",
+      "daily_refresh_dispatch_status": "already_refreshed_by_schedule_33344227560",
+      "daily_refresh_dispatch_note": "The idempotent backstop found the successful 2026-08-31 scheduled Publish radar run, so it did not dispatch a duplicate refresh",
+      "latest_daily_refresh_workflow_run": "https://github.com/ai-coding-radar/ai-coding-radar.github.io/actions/runs/33344227560",
+      "latest_daily_refresh_workflow_status": "success_no_remote_site_change",
+      "latest_daily_refresh_head_sha": "6fd2ce2307b60dae65270102913b6b6a9b7d32ef",
+      "latest_daily_refresh_checked_at": "2026-08-31T09:33:00+08:00",
+      "current_public_monitor_status": "homepage_verified_other_public_files_inconclusive_tls_timeout",
       "indexnow_notified_for_site_change": true,
       "indexnow_http_status": 200,
       "indexnow_urls_accepted": 49,
-      "monitor_transport_status": "intermittent_dns_ssl_tls_handshake_timeouts_and_github_api_eof_recurred_during_2026-08-29_to_2026-08-30_check",
-      "google_search_console_status": "homepage_indexed_performance_available_one_indexed_page",
-      "google_search_console_impressions": 29,
-      "google_search_console_clicks": 0,
-      "google_search_console_average_position": 20.8,
-      "google_search_console_sitemap_status": "could_not_fetch",
-      "google_search_console_homepage_indexed": true,
+      "indexnow_latest_action": "not_rechecked_no_site_change",
+      "monitor_transport_status": "continuous_ssl_tls_handshake_timeouts_across_github_pages_cardify_and_apify_on_2026-08-31",
+      "google_search_console_status": "unavailable_browser_policy",
+      "google_search_console_last_available_at": "2026-08-30T14:29:50+08:00",
+      "google_search_console_impressions": null,
+      "google_search_console_clicks": null,
+      "google_search_console_average_position": null,
+      "google_search_console_sitemap_status": null,
+      "google_search_console_homepage_indexed": null,
       "google_search_console_top_page": "https://ai-coding-radar.github.io/",
       "observed_query_homepage_title_optimized": true,
       "homepage_title": "Claude Code, Codex & Gemini CLI Release Tracker",
@@ -696,14 +713,18 @@
       "homepage_primary_automation": "grants-gov-alerts-api",
       "homepage_value_priority_commit": "fd14f82ba0ad612d43a5a7b1c1313427bace3f47",
       "settled": false,
-      "evidence": "Scheduled Publish radar run 33223161051 added stable Claude Code 2.1.251 and expanded the sitemap from 47 to 48 URLs. The next scheduled run 33283022981 added stable Codex 0.151.0 and expanded it to 49 URLs; IndexNow accepted all 49 URLs with HTTP 200. The public homepage, robots.txt, key file, 49-URL sitemap, representative release page, and five automation pages returned HTTP 200; every automation page retained one n8n workflow link and the homepage retained one link to each configured Example. Search Console still reports one indexed page and zero non-indexed pages. Performance through 2026-08-26 shows 29 impressions, zero clicks, and average position 20.8. The submitted Search Console sitemap still says could not fetch with zero discovered pages, so it was not resubmitted. Intermittent DNS, SSL, TLS handshake, and GitHub API EOF failures recurred and required bounded read-only retries; no failed check was reported as successful. Pages, workflows, indexing, impressions, and gross event prices are distribution or potential, not revenue"
+      "evidence": "Scheduled Publish radar run 33344227560 completed successfully on the existing 6fd2ce2 head, and a subsequent fetch confirmed that remote main had not advanced, so there was no new site release or IndexNow notification. The public homepage loaded with five automation links and five direct Example links. Bounded checks of robots.txt, the key file, sitemap, representative release page, automation pages, and GitHub Actions then hit continuous SSL or TLS handshake timeouts and remain inconclusive rather than successful. Search Console was blocked by the permitted browser policy, so current search values are null and no sitemap or indexing request was submitted. Pages, workflows, indexing, impressions, and gross event prices are distribution or potential, not revenue"
     },
     "cardify_search": {
       "site": "https://cardify.1222155.xyz/",
+      "last_full_public_check_at": "2026-08-30T14:29:50+08:00",
+      "latest_monitor_attempt_at": "2026-08-31T09:33:00+08:00",
+      "latest_monitor_attempt_status": "partial_then_inconclusive_tls_timeout",
       "sitemap_http_status": 200,
       "sitemap_content_type": "application/xml",
       "sitemap_urls": 9,
       "search_console_last_read": "2026-08-30",
+      "search_console_latest_attempt_status": "unavailable_browser_policy",
       "search_console_performance_status": "available_zero_data",
       "search_console_performance_end": "2026-08-27",
       "search_console_impressions": 0,
@@ -743,7 +764,7 @@
       "indexnow_notified_at": "2026-08-15T09:56:45+08:00",
       "payment_entry_available": false,
       "settled": false,
-      "evidence": "All six Cardify API funnel pages remain HTTP 200 and each points exactly once to its intended configured Example: four generic Markdown/code pages use the general renderer, while the two ChatGPT pages use the ChatGPT-specific task. The public sitemap still contains nine unique URLs. Search Console shows zero impressions and zero clicks; URL Inspection says the homepage is not indexed because Google does not yet know the URL, page indexing is still processing, and the submitted sitemap remains could not fetch with zero discovered pages. It was not resubmitted and indexing was not requested again. Deployment, crawling, links, views, and clicks are distribution, not revenue"
+      "evidence": "The last full check on 2026-08-30 found all six Cardify API funnel pages at HTTP 200 with exactly one intended Example link each and nine unique sitemap URLs. During the 2026-08-31 attempt, robots.txt, sitemap.xml, and code-to-image loaded and the code-to-image page retained exactly one generic Example link; the remaining routes later hit continuous TLS timeouts and are inconclusive. Search Console was blocked by the permitted browser policy, so its 2026-08-30 values were not refreshed, the sitemap was not resubmitted, and indexing was not requested. Deployment, crawling, links, views, and clicks are distribution, not revenue"
     }
   }
 }
