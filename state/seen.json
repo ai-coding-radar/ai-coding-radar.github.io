@@ -439,6 +439,17 @@
       "title": "OpenAI Codex 0.151.0 released",
       "detected_at": "2026-08-30T00:19:14.578230Z",
       "post": "output/posts/2026-08-29-codex-0.151.0.md"
+    },
+    "tag:github.com,2008:Repository/937253475/v2.1.252": {
+      "id": "tag:github.com,2008:Repository/937253475/v2.1.252",
+      "source_key": "claude-code",
+      "product": "Claude Code",
+      "version": "2.1.252",
+      "source_published_at": "2026-08-31T19:46:55Z",
+      "source_url": "https://github.com/anthropics/claude-code/releases/tag/v2.1.252",
+      "title": "Claude Code 2.1.252 released",
+      "detected_at": "2026-09-01T00:35:58.540715Z",
+      "post": "output/posts/2026-08-31-claude-code-2.1.252.md"
     }
   }
 }
