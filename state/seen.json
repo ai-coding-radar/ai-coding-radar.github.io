@@ -461,6 +461,50 @@
       "title": "OpenAI Codex 0.152.0 released",
       "detected_at": "2026-09-01T05:07:43.029793Z",
       "post": "output/posts/2026-09-01-codex-0.152.0.md"
+    },
+    "tag:github.com,2008:Repository/965415649/rust-v0.152.1": {
+      "id": "tag:github.com,2008:Repository/965415649/rust-v0.152.1",
+      "source_key": "codex",
+      "product": "OpenAI Codex",
+      "version": "0.152.1",
+      "source_published_at": "2026-09-01T22:34:23Z",
+      "source_url": "https://github.com/openai/codex/releases/tag/rust-v0.152.1",
+      "title": "OpenAI Codex 0.152.1 released",
+      "detected_at": "2026-09-02T00:33:24.366429Z",
+      "post": "output/posts/2026-09-01-codex-0.152.1.md"
+    },
+    "tag:github.com,2008:Repository/937253475/v2.1.258": {
+      "id": "tag:github.com,2008:Repository/937253475/v2.1.258",
+      "source_key": "claude-code",
+      "product": "Claude Code",
+      "version": "2.1.258",
+      "source_published_at": "2026-09-01T22:33:20Z",
+      "source_url": "https://github.com/anthropics/claude-code/releases/tag/v2.1.258",
+      "title": "Claude Code 2.1.258 released",
+      "detected_at": "2026-09-02T00:33:24.366429Z",
+      "post": "output/posts/2026-09-01-claude-code-2.1.258.md"
+    },
+    "tag:github.com,2008:Repository/937253475/v2.1.257": {
+      "id": "tag:github.com,2008:Repository/937253475/v2.1.257",
+      "source_key": "claude-code",
+      "product": "Claude Code",
+      "version": "2.1.257",
+      "source_published_at": "2026-09-01T17:53:52Z",
+      "source_url": "https://github.com/anthropics/claude-code/releases/tag/v2.1.257",
+      "title": "Claude Code 2.1.257 released",
+      "detected_at": "2026-09-02T00:33:24.366429Z",
+      "post": "output/posts/2026-09-01-claude-code-2.1.257.md"
+    },
+    "tag:github.com,2008:Repository/968197216/v0.58.0": {
+      "id": "tag:github.com,2008:Repository/968197216/v0.58.0",
+      "source_key": "gemini-cli",
+      "product": "Gemini CLI",
+      "version": "0.58.0",
+      "source_published_at": "2026-09-01T20:51:17Z",
+      "source_url": "https://github.com/google-gemini/gemini-cli/releases/tag/v0.58.0",
+      "title": "Gemini CLI 0.58.0 released",
+      "detected_at": "2026-09-02T00:33:24.366429Z",
+      "post": "output/posts/2026-09-01-gemini-cli-0.58.0.md"
     }
   }
 }
