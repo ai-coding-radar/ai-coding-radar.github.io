@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "checked_at": "2026-09-01T12:59:00+08:00",
+  "checked_at": "2026-09-02T09:42:00+08:00",
   "property": "https://ai-coding-radar.github.io/",
   "performance_status": "available",
   "indexing_status": "homepage_indexed_one_indexed_zero_not_indexed",
@@ -15,7 +15,7 @@
   },
   "performance_range": {
     "start": "2026-08-10",
-    "end": "2026-08-29"
+    "end": "2026-08-30"
   },
   "impressions": 35,
   "clicks": 0,
@@ -53,5 +53,5 @@
     "note": "The page-dimension table was not opened during this check; the current indexing report shows one indexed page and zero non-indexed pages."
   },
   "source": "Google Search Console visible account report",
-  "note": "Search Console shows 35 impressions, zero clicks, zero CTR, and average position 20.4 through 2026-08-29. The property overview shows one indexed page and zero non-indexed pages. The leading visible queries remain code release, codex radar, claude 2.1.228, codex rader, and codexradar. The submitted sitemap remains marked as could not fetch with zero discovered pages, so it was not resubmitted and no indexing request was made."
+  "note": "Search Console shows 35 impressions, zero clicks, zero CTR, and average position 20.4 through 2026-08-30. The page-indexing report still shows one indexed page and zero non-indexed pages. The leading visible queries remain code release, codex radar, claude 2.1.228, codex rader, and codexradar. The submitted sitemap remains marked as could not fetch with zero discovered pages, so it was not resubmitted and no indexing request was made."
 }

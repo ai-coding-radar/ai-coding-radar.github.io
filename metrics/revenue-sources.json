@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
-  "checked_at": "2026-09-01T13:08:00+08:00",
-  "last_monitor_attempt_at": "2026-09-01T13:08:00+08:00",
+  "checked_at": "2026-09-02T09:42:00+08:00",
+  "last_monitor_attempt_at": "2026-09-02T09:42:00+08:00",
   "last_monitor_attempt_status": "completed_public_console_and_workflow_checks",
   "sources": {
     "apify": {
@@ -23,7 +23,7 @@
       "seo_description": "Aggregate and deduplicate remote jobs from four public sources. Filter by keyword, location, and age for n8n, Make, job boards, recruiters, and AI agents.",
       "public_total_users": 2,
       "public_total_runs": 29,
-      "public_successful_runs_30d": 18,
+      "public_successful_runs_30d": 19,
       "public_example": "https://apify.com/ai-coding-radar/remote-job-intelligence/examples/daily-remote-software-jobs",
       "public_examples": [
         "https://apify.com/ai-coding-radar/remote-job-intelligence/examples/daily-remote-software-jobs",
@@ -68,7 +68,7 @@
       "displayed_profit_usd": 0,
       "payout_status": "identity_verification_required_no_settlement",
       "settled": false,
-      "evidence": "Build 0.0.14 remains unchanged and successful. The Store, machine-readable Markdown, both public Examples, credential-free workflow, and all four public job sources returned HTTP 200; the AI/ML task was not run. The public Actor API shows public source code, two users, 29 total runs, and 18 successful public runs in the last 30 days. September Monetization currently shows zero paying users, zero free users, zero results, and $0 profit; no self-run or paid smoke was started. Builds, examples, free users, and public runs are not revenue"
+      "evidence": "Build 0.0.14 remains unchanged and successful. The Store, machine-readable Markdown, both public Examples, credential-free workflow, and all four public job sources returned HTTP 200; the AI/ML task was not run. The public Actor API shows public source code, two users, 29 total runs, and 19 successful public runs with zero failed runs in the last 30 days. September Monetization shows zero paying users, zero free users, zero results, and $0 profit; no self-run or paid smoke was started. Builds, examples, free users, and public runs are not revenue"
     },
     "apify_oss_package_health": {
       "period": "2026-09",
@@ -84,8 +84,8 @@
       "public_example": "https://apify.com/ai-coding-radar/oss-package-health-monitor/examples/scan-installed-npm-and-pypi-versions-for-cves",
       "price_per_record_usd": 0.0015,
       "public_total_users": 2,
-      "public_total_runs": 24,
-      "public_successful_runs_30d": 18,
+      "public_total_runs": 25,
+      "public_successful_runs_30d": 19,
       "store_readme_funnel_links": 4,
       "store_html_content_status": "current_0.0.7_bounded_defaults_propagated",
       "no_code_workflow": "https://raw.githubusercontent.com/Jarvis-Dong/oss-package-health-monitor/main/examples/n8n-oss-exact-version-scan.json",
@@ -97,7 +97,7 @@
       "displayed_profit_usd": 0,
       "payout_status": "identity_verification_required_no_settlement",
       "settled": false,
-      "evidence": "Build 0.0.7 remains unchanged and successful. The Store, machine-readable Markdown, exact-version Example, credential-free n8n workflow, npm, PyPI, OSV, and CISA KEV endpoints returned HTTP 200. The public Actor API shows public source code, two users, 24 total runs, and 18 successful public runs with zero failed runs in the last 30 days. September Monetization currently shows zero paying users, zero free users, zero results, and $0 profit; no self-run or paid smoke was started. Tests, free users, and public runs are not revenue"
+      "evidence": "Build 0.0.7 remains unchanged and successful. The Store, machine-readable Markdown, exact-version Example, credential-free n8n workflow, npm, PyPI, OSV, and CISA KEV endpoints returned HTTP 200. The public Actor API shows public source code, two users, 25 total runs, and 19 successful public runs with zero failed runs in the last 30 days. September Monetization shows zero paying users, zero free users, zero results, and $0 profit; no self-run or paid smoke was started. Tests, free users, and public runs are not revenue"
     },
     "apify_markdown_code_to_image": {
       "period": "2026-09",
@@ -113,8 +113,8 @@
       "price_per_generated_image_usd": 0.005,
       "price_per_start_usd": 0.00005,
       "public_total_users": 2,
-      "public_total_runs": 20,
-      "public_successful_runs_30d": 18,
+      "public_total_runs": 21,
+      "public_successful_runs_30d": 19,
       "public_example": "https://apify.com/ai-coding-radar/markdown-code-to-image/examples/render-markdown-and-code-to-a-png",
       "public_examples": [
         "https://apify.com/ai-coding-radar/markdown-code-to-image/examples/render-markdown-and-code-to-a-png",
@@ -152,7 +152,7 @@
       "displayed_profit_usd": 0,
       "payout_status": "identity_verification_required_no_settlement",
       "settled": false,
-      "evidence": "Build 0.0.7 remains unchanged and successful. The Store, machine-readable Markdown, both public Examples, credential-free workflow, and checked-in 1080x743 image/png preview returned HTTP 200; the Store HTML contains the Apify-proxied preview. The public Actor API shows public source code, two users, 20 total runs, and 18 successful public runs in the last 30 days. September Monetization currently shows zero paying users, zero free users, zero results, and $0 profit; no self-run or paid smoke was started. Images, examples, free users, and public runs are not revenue"
+      "evidence": "Build 0.0.7 remains unchanged and successful. The Store, machine-readable Markdown, both public Examples, credential-free workflow, and checked-in 1080x743 image/png preview returned HTTP 200; the Store HTML contains the Apify-proxied preview. The public Actor API shows public source code, two users, 21 total runs, and 19 successful public runs with zero failed runs in the last 30 days. September Monetization shows zero paying users, zero free users, zero results, and $0 profit; no self-run or paid smoke was started. Images, examples, free users, and public runs are not revenue"
     },
     "apify_uk_company_change_alerts": {
       "period": "2026-09",
@@ -179,10 +179,10 @@
       "actor_api_http_status": 200,
       "actor_api_is_public": true,
       "public_total_users": 2,
-      "public_total_runs": 21,
-      "public_successful_runs_30d": 17,
+      "public_total_runs": 22,
+      "public_successful_runs_30d": 18,
       "store_public_success_rate_percent": 100,
-      "store_public_success_rate_note": "seventeen public run samples succeeded; the prior four runs were Origin Development",
+      "store_public_success_rate_note": "eighteen public run samples succeeded; the prior four runs were Origin Development",
       "public_external_free_user_observed": true,
       "development_runs_with_terminal_status": 4,
       "public_example": "https://apify.com/ai-coding-radar/uk-company-change-alerts/examples/monitor-uk-company-record-changes",
@@ -223,7 +223,7 @@
       "displayed_profit_usd": 0,
       "payout_status": "identity_verification_required_no_settlement",
       "settled": false,
-      "evidence": "Build 0.0.8 remains unchanged and successful. The Store, machine-readable Markdown, both public Examples, credential-free n8n workflow, bounded default input, and Companies House source returned HTTP 200. The public Actor API shows public source code, two users, 21 total runs, and 17 successful public runs in the last 30 days; the original four runs were Development. September Monetization currently shows zero paying users, zero free users, zero results, and $0 profit; no self-run or paid smoke was started. Tests, free users, and public runs are not revenue"
+      "evidence": "Build 0.0.8 remains unchanged and successful. The Store, machine-readable Markdown, both public Examples, credential-free n8n workflow, bounded default input, and Companies House source returned HTTP 200. The public Actor API shows public source code, two users, 22 total runs, and 18 successful public runs with zero failed runs in the last 30 days; the original four runs were Development. September Monetization shows zero paying users, zero free users, zero results, and $0 profit; no self-run or paid smoke was started. Tests, free users, and public runs are not revenue"
     },
     "apify_grants_gov_opportunity_monitor": {
       "period": "2026-09",
@@ -248,7 +248,7 @@
       "actor_api_http_status": 200,
       "actor_api_is_public": true,
       "public_total_users": 2,
-      "public_total_runs": 13,
+      "public_total_runs": 14,
       "public_successful_runs_30d": 11,
       "development_smoke_runs": 2,
       "cloud_smoke_first_run": "one_new_opportunity_one_output_row",
@@ -302,7 +302,7 @@
       "nonprofit_example_max_cost_usd": 0.16,
       "official_source": "https://api.grants.gov/v1/api/search2",
       "official_source_http_status": 200,
-      "official_source_current_hit_count": 189,
+      "official_source_current_hit_count": 202,
       "official_source_requires_authentication": false,
       "no_code_workflow": "https://raw.githubusercontent.com/Jarvis-Dong/grants-gov-opportunity-monitor/main/examples/n8n-grants-gov-monitor.json",
       "no_code_workflow_http_status": 200,
@@ -317,12 +317,12 @@
       "payout_invoice_available": false,
       "payout_status": "identity_verification_required_no_settlement",
       "settled": false,
-      "evidence": "Build 0.0.4 remains unchanged and successful. The Store, machine-readable Markdown, all three public Examples, credential-free n8n workflow, bounded defaults, and a one-row Grants.gov search2 query returned HTTP 200; the current matching count is 189. The public Actor API shows public source code, two users, 13 total runs, and eleven successful public runs in the last 30 days; the original two runs remain Development checks. September Monetization currently shows zero paying users, zero free users, zero results, and $0 profit; identity verification is required and no settled payout invoice exists. No self-run or paid smoke was started. Tests, free users, and public runs are not revenue"
+      "evidence": "Build 0.0.4 remains unchanged and successful. The Store, machine-readable Markdown, all three public Examples, credential-free n8n workflow, bounded defaults, and a one-row Grants.gov search2 query returned HTTP 200; the current matching count is 202. The public Actor API shows public source code, two users, 14 total runs, and eleven successful public runs with zero failed runs in the last 30 days; the original two runs remain Development checks. September Monetization shows zero paying users, zero free users, zero results, and $0 profit; identity verification is required and no settled payout invoice exists. No self-run or paid smoke was started. Tests, free users, and public runs are not revenue"
     },
     "apify_portfolio_monetization": {
       "period": "2026-09",
-      "checked_at": "2026-09-01T12:59:00+08:00",
-      "latest_monitor_attempt_at": "2026-09-01T12:59:00+08:00",
+      "checked_at": "2026-09-02T09:42:00+08:00",
+      "latest_monitor_attempt_at": "2026-09-02T09:42:00+08:00",
       "latest_monitor_attempt_status": "complete_console_and_public_api",
       "actors_checked": 5,
       "paying_users_per_actor": 0,
@@ -337,9 +337,9 @@
       "displayed_profit_usd": 0,
       "displayed_cost_usd": 0,
       "cost_per_1000_results_usd": {
-        "average": null,
-        "minimum": null,
-        "maximum": null
+        "average": 0.04,
+        "minimum": 0.04,
+        "maximum": 0.04
       },
       "acquisition": {
         "actor_detail_views": 0,
@@ -392,7 +392,7 @@
       "payout_invoice_available": false,
       "payout_status": "identity_verification_required_no_settlement",
       "settled": false,
-      "evidence": "The September 2026 Monetization table shows zero paying users, zero free users, zero results, zero displayed profit, and zero displayed cost for all five Actors. September Acquisition is also zero Actor-detail views, zero Input-page views, and zero Actor starts, excluding API, schedule, and integration traffic. Public API totals are Remote 29, OSS 24, Markdown 20, UK 21, and Grants 13; all 30-day public runs remain successful. Quality scores remain Remote 81, UK 79, Markdown 79, OSS 78, and Grants 78. Cost per 1,000 results has no September value yet. Identity verification is still required and no settled payout invoice is available. No Actor call, self-run, paid smoke, wallet payment, or prepaid token purchase was started during this check. Free users, views, starts, results, quality scores, run cost, and potential profit are not settled revenue"
+      "evidence": "The September 2026 Monetization table shows zero paying users, zero free users, zero results, zero displayed profit, and zero displayed cost for all five Actors. September Acquisition is also zero Actor-detail views, zero Input-page views, and zero Actor starts, excluding API, schedule, and integration traffic. Public API totals are Remote 29, OSS 25, Markdown 21, UK 22, and Grants 14; all reported 30-day public run outcomes remain successful with zero failures. Quality scores remain Remote 81, UK 79, Markdown 79, OSS 78, and Grants 78. Cost per 1,000 results is currently $0.04 for average, minimum, and maximum. Identity verification is still required and no settled payout invoice is available. No Actor call, self-run, paid smoke, wallet payment, or prepaid token purchase was started during this check. Free users, views, starts, results, quality scores, run cost, and potential profit are not settled revenue"
     },
     "n8n_template_distribution": {
       "official_library": "https://n8n.io/workflows/",
@@ -468,16 +468,15 @@
       "queue_fallback_completed_at": "2026-08-15T10:41:12+08:00",
       "queue_fallback_status": "failed_http_429_no_publication",
       "queue_fallback_retry_same_day": false,
-      "queue_latest_fallback_run": "https://github.com/ai-coding-radar/ai-coding-radar.github.io/actions/runs/33225424904",
-      "queue_latest_fallback_status": "success_queue_complete_2026-08-29",
-      "queue_latest_fallback_dispatch_observation": "ensure_dev_queue dispatched once on 2026-08-29; run 33225424904 completed with queue_complete",
+      "queue_latest_fallback_run": "https://github.com/ai-coding-radar/ai-coding-radar.github.io/actions/runs/33577837560",
+      "queue_latest_fallback_status": "success_queue_complete_2026-09-02",
+      "queue_latest_fallback_dispatch_observation": "ensure_dev_queue dispatched once at 09:03 Asia/Shanghai because no successful or active schedule existed yet; run 33577837560 completed with queue_complete",
       "queue_latest_schedule_runs": [
-        "https://github.com/ai-coding-radar/ai-coding-radar.github.io/actions/runs/33458691448",
-        "https://github.com/ai-coding-radar/ai-coding-radar.github.io/actions/runs/33462865766"
+        "https://github.com/ai-coding-radar/ai-coding-radar.github.io/actions/runs/33579313003"
       ],
-      "queue_latest_schedule_status": "both_success_queue_complete_2026-09-01",
-      "queue_latest_check_attempt_at": "2026-09-01T12:59:00+08:00",
-      "queue_latest_check_status": "both_schedules_success_queue_complete_no_fallback_dispatched",
+      "queue_latest_schedule_status": "first_schedule_success_queue_complete_second_window_not_yet_due_2026-09-02",
+      "queue_latest_check_attempt_at": "2026-09-02T09:42:00+08:00",
+      "queue_latest_check_status": "fallback_and_first_schedule_success_queue_complete_no_publication",
       "queue_rate_limit_fix_commit": "d4a62fd6f14c32698856bd0746f6c22565ba366b",
       "queue_article_list_scan_policy": "one_paginated_scan_per_queue_check",
       "queue_post_publish_verification": "authenticated_article_list_lookup_by_id",
@@ -584,7 +583,7 @@
       "fourth_article_not_before": "2026-08-19T04:20:19Z",
       "fourth_article_workflow_run": "https://github.com/ai-coding-radar/ai-coding-radar.github.io/actions/runs/31846964561",
       "settled": false,
-      "evidence": "All five queued DEV guides remain public with one article per canonical URL and zero reactions or comments at the last article check. The 2026-09-01 schedule runs 33458691448 and 33462865766 both completed with queue_complete, and the idempotent helper found the existing success without dispatching a fallback or duplicate publication. The older queued run 32213994287 was not canceled, retriggered, or bypassed. Articles, workflow outcomes, reactions, exposure, free runs, and event-price potential are not settled revenue"
+      "evidence": "All five queued DEV guides remain public with one article per canonical URL and zero reactions or comments at the last article check. At 09:03 Asia/Shanghai on 2026-09-02, the idempotent helper found no successful or active schedule yet and dispatched fallback run 33577837560 once; it completed with queue_complete. The first official schedule run 33579313003 then also completed with queue_complete, while the second schedule window was not yet due at this snapshot. No canonical was republished and no manual draft run was counted as a queue check. Articles, workflow outcomes, reactions, exposure, free runs, and event-price potential are not settled revenue"
     },
     "github_repository_distribution": {
       "repositories": 5,
@@ -617,8 +616,8 @@
       },
       "github_traffic_views_14d": 0,
       "github_traffic_clone_note": "Five remote-job-intelligence clones from four unique clients may include CI or platform builds and are not treated as users or revenue.",
-      "apify_monetization_checked_at": "2026-09-01T12:59:00+08:00",
-      "apify_latest_monitor_attempt_at": "2026-09-01T12:59:00+08:00",
+      "apify_monetization_checked_at": "2026-09-02T09:42:00+08:00",
+      "apify_latest_monitor_attempt_at": "2026-09-02T09:42:00+08:00",
       "apify_latest_monitor_attempt_status": "complete_console_and_public_api",
       "apify_paying_users_total": 0,
       "apify_displayed_profit_usd_total": 0,
@@ -645,7 +644,7 @@
       "open_source_fair_share_source_visibility_prerequisite": true,
       "open_source_fair_share_affiliate_enrollment_verified": false,
       "settled": false,
-      "evidence": "September Apify Console shows zero Actor-detail views, zero Input-page views, zero Actor starts, and unchanged quality scores from 78 to 81. Acquisition excludes API, schedule, and integration traffic. Exact account Store search still reports total 5 while returning zero cards. September Monetization is zero paying users, zero free users, zero results, and $0 profit; identity verification is required and no settled payout invoice is available. No self-run, paid smoke, bookmark, review, discount, or affiliate enrollment was created. Views, starts, quality scores, free users, and conversion safeguards are not revenue"
+      "evidence": "September Apify Console shows zero Actor-detail views, zero Input-page views, zero Actor starts, and unchanged quality scores from 78 to 81. Acquisition excludes API, schedule, and integration traffic. Exact account Store search still reports total 5 while returning zero cards. September Monetization is zero paying users, zero free users, zero results, and $0 profit; identity verification is required and no settled payout invoice is available. Public Actor run totals changed without any new user count, but those runs are not attributed to a paying user and are not revenue. No self-run, paid smoke, bookmark, review, discount, or affiliate enrollment was created. Views, starts, quality scores, free users, and conversion safeguards are not revenue"
     },
     "ai_coding_radar_distribution": {
       "site": "https://ai-coding-radar.github.io/",
@@ -662,7 +661,7 @@
       "automation_landing_pages_http_status": 200,
       "n8n_workflow_links": 5,
       "sitemap_http_status": 200,
-      "sitemap_urls": 51,
+      "sitemap_urls": 55,
       "targets": [
         "https://apify.com/ai-coding-radar/oss-package-health-monitor/examples/scan-installed-npm-and-pypi-versions-for-cves",
         "https://apify.com/ai-coding-radar/markdown-code-to-image/examples/render-markdown-and-code-to-a-png",
@@ -671,29 +670,30 @@
         "https://apify.com/ai-coding-radar/grants-gov-opportunity-monitor/examples/daily-ai-federal-grant-opportunity-alerts"
       ],
       "publish_workflow_status": "success",
-      "publish_workflow_run": "https://github.com/ai-coding-radar/ai-coding-radar.github.io/actions/runs/33472388390",
-      "last_site_change_workflow_run": "https://github.com/ai-coding-radar/ai-coding-radar.github.io/actions/runs/33472388390",
-      "releases_added_in_last_site_change": ["codex-0.152.0"],
-      "releases_added_during_monitor": ["claude-code-2.1.252", "codex-0.152.0"],
-      "latest_release_added": "codex-0.152.0",
-      "latest_release_source_published_at": "2026-09-01T02:13:24Z",
-      "latest_release_page": "https://ai-coding-radar.github.io/releases/codex/0.152.0/",
-      "last_site_change_observed_at": "2026-09-01T13:08:02+08:00",
-      "last_site_change_commit": "ef8d4b938d054161cb22dacc4d48e68ef4d0a86e",
-      "daily_refresh_dispatch_status": "already_refreshed_by_schedule_33455384039",
-      "daily_refresh_dispatch_note": "The idempotent backstop found the successful 2026-09-01 scheduled Publish radar run, so it did not dispatch a duplicate refresh",
-      "latest_daily_refresh_workflow_run": "https://github.com/ai-coding-radar/ai-coding-radar.github.io/actions/runs/33455384039",
-      "latest_daily_refresh_workflow_status": "success_one_release_published",
-      "latest_daily_refresh_head_sha": "2f6a0425a96a46bc6f17a5529212b6a7dfad3e96",
-      "latest_daily_refresh_checked_at": "2026-09-01T12:59:00+08:00",
+      "publish_workflow_run": "https://github.com/ai-coding-radar/ai-coding-radar.github.io/actions/runs/33575797703",
+      "last_site_change_workflow_run": "https://github.com/ai-coding-radar/ai-coding-radar.github.io/actions/runs/33575797703",
+      "releases_added_in_last_site_change": ["claude-code-2.1.257", "gemini-cli-0.58.0", "claude-code-2.1.258", "codex-0.152.1"],
+      "releases_added_during_monitor": ["claude-code-2.1.257", "gemini-cli-0.58.0", "claude-code-2.1.258", "codex-0.152.1"],
+      "latest_release_added": "codex-0.152.1",
+      "latest_release_source_published_at": "2026-09-01T22:34:23Z",
+      "latest_release_page": "https://ai-coding-radar.github.io/releases/codex/0.152.1/",
+      "last_site_change_observed_at": "2026-09-02T09:42:00+08:00",
+      "last_site_change_commit": "07bd137f91460fab6bd4f8802d951f187e78ef55",
+      "daily_refresh_dispatch_status": "already_refreshed_by_schedule_33575797703",
+      "daily_refresh_dispatch_note": "The idempotent backstop found the successful 2026-09-02 scheduled Publish radar run, so it did not dispatch a duplicate refresh",
+      "latest_daily_refresh_workflow_run": "https://github.com/ai-coding-radar/ai-coding-radar.github.io/actions/runs/33575797703",
+      "latest_daily_refresh_workflow_status": "success_four_releases_published",
+      "latest_daily_refresh_head_sha": "119fa4a00e22260b56f2867c5c74df811b390e69",
+      "latest_daily_refresh_checked_at": "2026-09-02T09:42:00+08:00",
       "current_public_monitor_status": "all_required_public_surfaces_verified",
       "indexnow_notified_for_site_change": true,
       "indexnow_http_status": 200,
-      "indexnow_urls_accepted": 51,
+      "indexnow_urls_accepted": 55,
       "indexnow_latest_action": "accepted_after_site_change",
-      "monitor_transport_status": "healthy_2026-09-01",
+      "monitor_transport_status": "healthy_2026-09-02",
       "google_search_console_status": "homepage_indexed_performance_available_one_indexed_page",
-      "google_search_console_last_available_at": "2026-09-01T12:59:00+08:00",
+      "google_search_console_last_available_at": "2026-09-02T09:42:00+08:00",
+      "google_search_console_performance_end": "2026-08-30",
       "google_search_console_impressions": 35,
       "google_search_console_clicks": 0,
       "google_search_console_average_position": 20.4,
@@ -714,21 +714,21 @@
       "homepage_primary_automation": "grants-gov-alerts-api",
       "homepage_value_priority_commit": "fd14f82ba0ad612d43a5a7b1c1313427bace3f47",
       "settled": false,
-      "evidence": "Scheduled Publish radar run 33455384039 published stable Claude Code 2.1.252 and expanded the sitemap from 49 to 50 URLs. During this monitor, push run 33472388390 then published stable Codex 0.152.0, advanced main to ef8d4b9, expanded the sitemap to 51 URLs, deployed Pages, and received IndexNow HTTP 200 acceptance for all 51 URLs. The public homepage, robots.txt, key file, 51-URL sitemap, both new release pages, and all five automation pages returned HTTP 200; each automation page retained exactly one n8n workflow link, and the homepage retained five automation links and five direct Example links. Search Console shows 35 impressions, zero clicks, average position 20.4, one indexed page, and zero non-indexed pages through 2026-08-29. Its submitted sitemap remains could not fetch with zero discovered pages, so it was not resubmitted. Pages, workflows, indexing, impressions, and gross event prices are distribution or potential, not revenue"
+      "evidence": "Scheduled Publish radar run 33575797703 published stable Claude Code 2.1.257 and 2.1.258, Gemini CLI 0.58.0, and Codex 0.152.1, advanced main to 07bd137, expanded the sitemap from 51 to 55 URLs, deployed Pages, and received IndexNow HTTP 200 acceptance for all 55 URLs. The public homepage, robots.txt, key file, 55-URL sitemap, all four new release pages, and all five automation pages returned HTTP 200; each automation page retained exactly one n8n workflow link, and the homepage retained five unique automation links and five direct Example links. Search Console remains at 35 impressions, zero clicks, average position 20.4, one indexed page, and zero non-indexed pages through 2026-08-30. Its submitted sitemap remains could not fetch with zero discovered pages, so it was not resubmitted. Pages, workflows, indexing, impressions, and gross event prices are distribution or potential, not revenue"
     },
     "cardify_search": {
       "site": "https://cardify.1222155.xyz/",
-      "last_full_public_check_at": "2026-09-01T12:59:00+08:00",
-      "latest_monitor_attempt_at": "2026-09-01T12:59:00+08:00",
+      "last_full_public_check_at": "2026-09-02T09:42:00+08:00",
+      "latest_monitor_attempt_at": "2026-09-02T09:42:00+08:00",
       "latest_monitor_attempt_status": "complete_public_and_search_console",
       "sitemap_http_status": 200,
       "sitemap_content_type": "application/xml",
       "sitemap_urls": 9,
-      "search_console_last_read": "2026-09-01",
+      "search_console_last_read": "2026-09-02",
       "search_console_latest_attempt_status": "available",
-      "search_console_last_available_snapshot_at": "2026-09-01T12:59:00+08:00",
+      "search_console_last_available_snapshot_at": "2026-09-02T09:42:00+08:00",
       "search_console_performance_status": "available_zero_data",
-      "search_console_performance_end": "2026-08-29",
+      "search_console_performance_end": "2026-08-30",
       "search_console_impressions": 0,
       "search_console_clicks": 0,
       "search_console_sitemap_status": "could_not_fetch",
@@ -766,7 +766,7 @@
       "indexnow_notified_at": "2026-08-15T09:56:45+08:00",
       "payment_entry_available": false,
       "settled": false,
-      "evidence": "The Cardify homepage, robots.txt, nine-URL sitemap, and all six API funnel pages returned HTTP 200. Code-to-image, markdown-to-pdf, markdown-to-image, and markdown-to-wechat each retain exactly one generic renderer Example link; chatgpt-exporter and chatgpt-to-image each retain exactly one ChatGPT-specific Example link. Search Console shows zero impressions and zero clicks through 2026-08-29, page indexing is still processing, and the submitted sitemap remains could not fetch with zero discovered pages. The sitemap was not resubmitted and indexing was not requested. Deployment, crawling, links, views, and clicks are distribution, not revenue"
+      "evidence": "The Cardify homepage, robots.txt, nine-URL sitemap, and all six API funnel pages returned HTTP 200. Code-to-image, markdown-to-pdf, markdown-to-image, and markdown-to-wechat each retain exactly one generic renderer Example link; chatgpt-exporter and chatgpt-to-image each retain exactly one ChatGPT-specific Example link. Search Console shows zero impressions and zero clicks through 2026-08-30, page indexing is still processing, and the submitted sitemap remains could not fetch with zero discovered pages. The sitemap was not resubmitted and indexing was not requested. Deployment, crawling, links, views, and clicks are distribution, not revenue"
     }
   }
 }
