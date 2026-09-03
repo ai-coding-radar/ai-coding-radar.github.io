@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
-  "checked_at": "2026-09-03T09:20:00+08:00",
-  "last_monitor_attempt_at": "2026-09-03T09:20:00+08:00",
+  "checked_at": "2026-09-03T09:35:00+08:00",
+  "last_monitor_attempt_at": "2026-09-03T09:35:00+08:00",
   "last_monitor_attempt_status": "completed_public_console_and_workflow_checks",
   "sources": {
     "apify": {
@@ -471,10 +471,12 @@
       "queue_latest_fallback_run": "https://github.com/ai-coding-radar/ai-coding-radar.github.io/actions/runs/33702057118",
       "queue_latest_fallback_status": "success_queue_complete_2026-09-03",
       "queue_latest_fallback_dispatch_observation": "ensure_dev_queue dispatched once at 09:03 Asia/Shanghai because no successful or active schedule existed yet; run 33702057118 completed with queue_complete",
-      "queue_latest_schedule_runs": [],
-      "queue_latest_schedule_status": "first_schedule_window_not_yet_visible_at_09_22_second_window_not_due_2026-09-03",
-      "queue_latest_check_attempt_at": "2026-09-03T09:22:00+08:00",
-      "queue_latest_check_status": "fallback_success_queue_complete_no_publication_schedules_pending",
+      "queue_latest_schedule_runs": [
+        "https://github.com/ai-coding-radar/ai-coding-radar.github.io/actions/runs/33703959080"
+      ],
+      "queue_latest_schedule_status": "first_schedule_success_queue_complete_second_window_not_yet_due_2026-09-03",
+      "queue_latest_check_attempt_at": "2026-09-03T09:35:00+08:00",
+      "queue_latest_check_status": "fallback_and_first_schedule_success_queue_complete_no_publication",
       "queue_rate_limit_fix_commit": "d4a62fd6f14c32698856bd0746f6c22565ba366b",
       "queue_article_list_scan_policy": "one_paginated_scan_per_queue_check",
       "queue_post_publish_verification": "authenticated_article_list_lookup_by_id",
@@ -581,7 +583,7 @@
       "fourth_article_not_before": "2026-08-19T04:20:19Z",
       "fourth_article_workflow_run": "https://github.com/ai-coding-radar/ai-coding-radar.github.io/actions/runs/31846964561",
       "settled": false,
-      "evidence": "All five queued DEV guides remain public with one article per canonical URL and zero reactions or comments at the last article check. At 09:03 Asia/Shanghai on 2026-09-03, the idempotent helper found no successful or active schedule yet and dispatched fallback run 33702057118 once; it completed with queue_complete. The first official schedule run was not yet visible at 09:22 and the second window was not due, so the evening monitor will verify both without dispatching again. No canonical was republished and no manual draft run was counted as a queue check. Articles, workflow outcomes, reactions, exposure, free runs, and event-price potential are not settled revenue"
+      "evidence": "All five queued DEV guides remain public with one article per canonical URL and zero reactions or comments at the last article check. At 09:03 Asia/Shanghai on 2026-09-03, the idempotent helper found no successful or active schedule yet and dispatched fallback run 33702057118 once; it completed with queue_complete. The delayed first official schedule run 33703959080 then also completed with queue_complete, while the second schedule window was not yet due at this snapshot. No canonical was republished and no manual draft run was counted as a queue check. Articles, workflow outcomes, reactions, exposure, free runs, and event-price potential are not settled revenue"
     },
     "github_repository_distribution": {
       "repositories": 5,
@@ -659,7 +661,7 @@
       "automation_landing_pages_http_status": 200,
       "n8n_workflow_links": 5,
       "sitemap_http_status": 200,
-      "sitemap_urls": 56,
+      "sitemap_urls": 57,
       "targets": [
         "https://apify.com/ai-coding-radar/oss-package-health-monitor/examples/scan-installed-npm-and-pypi-versions-for-cves",
         "https://apify.com/ai-coding-radar/markdown-code-to-image/examples/render-markdown-and-code-to-a-png",
@@ -668,15 +670,15 @@
         "https://apify.com/ai-coding-radar/grants-gov-opportunity-monitor/examples/daily-ai-federal-grant-opportunity-alerts"
       ],
       "publish_workflow_status": "success",
-      "publish_workflow_run": "https://github.com/ai-coding-radar/ai-coding-radar.github.io/actions/runs/33700123381",
-      "last_site_change_workflow_run": "https://github.com/ai-coding-radar/ai-coding-radar.github.io/actions/runs/33700123381",
-      "releases_added_in_last_site_change": ["claude-code-2.1.259"],
-      "releases_added_during_monitor": ["claude-code-2.1.259"],
-      "latest_release_added": "claude-code-2.1.259",
-      "latest_release_source_published_at": "2026-09-02T22:33:51Z",
-      "latest_release_page": "https://ai-coding-radar.github.io/releases/claude-code/2.1.259/",
-      "last_site_change_observed_at": "2026-09-03T09:20:00+08:00",
-      "last_site_change_commit": "ba08f97cd6077e3656392e94ca76b59b2f22623d",
+      "publish_workflow_run": "https://github.com/ai-coding-radar/ai-coding-radar.github.io/actions/runs/33703743542",
+      "last_site_change_workflow_run": "https://github.com/ai-coding-radar/ai-coding-radar.github.io/actions/runs/33703743542",
+      "releases_added_in_last_site_change": ["codex-0.153.0"],
+      "releases_added_during_monitor": ["claude-code-2.1.259", "codex-0.153.0"],
+      "latest_release_added": "codex-0.153.0",
+      "latest_release_source_published_at": "2026-09-03T00:52:47Z",
+      "latest_release_page": "https://ai-coding-radar.github.io/releases/codex/0.153.0/",
+      "last_site_change_observed_at": "2026-09-03T09:34:54+08:00",
+      "last_site_change_commit": "600c97c96a70abc9593e8b94f90ef057b04856b8",
       "daily_refresh_dispatch_status": "already_refreshed_by_schedule_33700123381",
       "daily_refresh_dispatch_note": "The idempotent backstop found the successful 2026-09-03 scheduled Publish radar run, so it did not dispatch a duplicate refresh",
       "latest_daily_refresh_workflow_run": "https://github.com/ai-coding-radar/ai-coding-radar.github.io/actions/runs/33700123381",
@@ -686,7 +688,7 @@
       "current_public_monitor_status": "all_required_public_surfaces_verified",
       "indexnow_notified_for_site_change": true,
       "indexnow_http_status": 200,
-      "indexnow_urls_accepted": 56,
+      "indexnow_urls_accepted": 57,
       "indexnow_latest_action": "accepted_after_site_change",
       "monitor_transport_status": "healthy_2026-09-03",
       "google_search_console_status": "homepage_indexed_performance_available_one_indexed_page",
@@ -712,7 +714,7 @@
       "homepage_primary_automation": "grants-gov-alerts-api",
       "homepage_value_priority_commit": "fd14f82ba0ad612d43a5a7b1c1313427bace3f47",
       "settled": false,
-      "evidence": "Scheduled Publish radar run 33700123381 published stable Claude Code 2.1.259, advanced main to ba08f97, expanded the sitemap from 55 to 56 URLs, deployed Pages, and received IndexNow HTTP 200 acceptance for all 56 URLs. The public homepage, robots.txt, key file, 56-URL sitemap, the new release page, and all five automation pages returned HTTP 200; each automation page retained exactly one n8n workflow link, and the homepage retained five unique automation links and five direct Example links. Search Console remains at 35 impressions, zero clicks, average position 20.4, one indexed page, and zero non-indexed pages through 2026-08-31. Its submitted sitemap remains could not fetch with zero discovered pages, so it was not resubmitted. Pages, workflows, indexing, impressions, and gross event prices are distribution or potential, not revenue"
+      "evidence": "Scheduled Publish radar run 33700123381 published stable Claude Code 2.1.259, advanced main to ba08f97, and expanded the sitemap from 55 to 56 URLs. During this monitor, push run 33703743542 then published stable Codex 0.153.0, advanced main to 600c97c, expanded the sitemap to 57 URLs, deployed Pages, and received IndexNow HTTP 200 acceptance for all 57 URLs. The public homepage, robots.txt, key file, 57-URL sitemap, both new release pages, and all five automation pages returned HTTP 200; each automation page retained exactly one n8n workflow link, and the homepage retained five unique automation links and five direct Example links. Search Console remains at 35 impressions, zero clicks, average position 20.4, one indexed page, and zero non-indexed pages through 2026-08-31. Its submitted sitemap remains could not fetch with zero discovered pages, so it was not resubmitted. Pages, workflows, indexing, impressions, and gross event prices are distribution or potential, not revenue"
     },
     "cardify_search": {
       "site": "https://cardify.1222155.xyz/",
