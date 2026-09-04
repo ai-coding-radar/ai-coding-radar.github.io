@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "checked_at": "2026-09-03T09:35:00+08:00",
-  "last_monitor_attempt_at": "2026-09-04T09:31:00+08:00",
+  "last_monitor_attempt_at": "2026-09-04T09:28:00+08:00",
   "last_monitor_attempt_status": "completed_public_and_workflow_checks_console_partially_unavailable",
   "sources": {
     "apify": {
@@ -475,7 +475,7 @@
         "https://github.com/ai-coding-radar/ai-coding-radar.github.io/actions/runs/33825694734"
       ],
       "queue_latest_schedule_status": "first_schedule_success_queue_complete_second_window_not_yet_due_2026-09-04",
-      "queue_latest_check_attempt_at": "2026-09-04T09:31:00+08:00",
+      "queue_latest_check_attempt_at": "2026-09-04T09:28:00+08:00",
       "queue_latest_check_status": "fallback_and_first_schedule_success_queue_complete_no_publication",
       "queue_rate_limit_fix_commit": "d4a62fd6f14c32698856bd0746f6c22565ba366b",
       "queue_article_list_scan_policy": "one_paginated_scan_per_queue_check",
