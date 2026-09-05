@@ -1,9 +1,9 @@
 {
   "schema_version": 1,
-  "checked_at": "2026-09-04T09:03:00+08:00",
+  "checked_at": "2026-09-05T17:58:00+08:00",
   "property": "https://ai-coding-radar.github.io/",
-  "performance_status": "unavailable_current_attempt",
-  "indexing_status": "unavailable_current_attempt",
+  "performance_status": "overview_zero_clicks_details_unavailable",
+  "indexing_status": "one_indexed_zero_not_indexed",
   "homepage_url_inspection_status": null,
   "homepage_url_inspection_last_explicit_check": "2026-08-21",
   "sitemap": {
@@ -18,7 +18,7 @@
     "end": null
   },
   "impressions": null,
-  "clicks": null,
+  "clicks": 0,
   "average_ctr_percent": null,
   "average_position": null,
   "top_visible_query": null,
@@ -30,9 +30,9 @@
     "url": "https://ai-coding-radar.github.io/",
     "impressions": null,
     "clicks": null,
-    "note": "Search Console could not be read for this property during the current attempt, so no current page data was recorded."
+    "note": "The page-dimension table was unavailable during this check, so no current page-level data was recorded."
   },
-  "source": "Google Search Console unavailable during current browser attempt",
-  "last_available_snapshot_at": "2026-09-03T09:20:00+08:00",
-  "note": "Current search, indexing, sitemap, impression, click, CTR, position, query, and page values are null because the signed-in property could not be read during this attempt. The September 3 values were not carried forward as current facts. No sitemap was resubmitted and no indexing request was made."
+  "source": "Google Search Console visible account overview",
+  "last_available_snapshot_at": "2026-09-05T17:58:00+08:00",
+  "note": "The signed-in overview visibly shows zero clicks, one indexed page, and zero non-indexed pages. Detailed impressions, CTR, position, query, page, and sitemap values were unavailable and remain null rather than being copied from an older snapshot. No sitemap was resubmitted and no indexing request was made."
 }
