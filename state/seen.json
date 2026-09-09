@@ -604,6 +604,39 @@
       "title": "Claude Code 2.1.263 released",
       "detected_at": "2026-09-07T00:36:47.731074Z",
       "post": "output/posts/2026-09-06-claude-code-2.1.263.md"
+    },
+    "tag:github.com,2008:Repository/937253475/v2.1.266": {
+      "id": "tag:github.com,2008:Repository/937253475/v2.1.266",
+      "source_key": "claude-code",
+      "product": "Claude Code",
+      "version": "2.1.266",
+      "source_published_at": "2026-09-08T23:55:14Z",
+      "source_url": "https://github.com/anthropics/claude-code/releases/tag/v2.1.266",
+      "title": "Claude Code 2.1.266 released",
+      "detected_at": "2026-09-09T00:36:00.199448Z",
+      "post": "output/posts/2026-09-08-claude-code-2.1.266.md"
+    },
+    "tag:github.com,2008:Repository/937253475/v2.1.265": {
+      "id": "tag:github.com,2008:Repository/937253475/v2.1.265",
+      "source_key": "claude-code",
+      "product": "Claude Code",
+      "version": "2.1.265",
+      "source_published_at": "2026-09-08T20:37:31Z",
+      "source_url": "https://github.com/anthropics/claude-code/releases/tag/v2.1.265",
+      "title": "Claude Code 2.1.265 released",
+      "detected_at": "2026-09-09T00:36:00.199448Z",
+      "post": "output/posts/2026-09-08-claude-code-2.1.265.md"
+    },
+    "tag:github.com,2008:Repository/968197216/v0.59.0": {
+      "id": "tag:github.com,2008:Repository/968197216/v0.59.0",
+      "source_key": "gemini-cli",
+      "product": "Gemini CLI",
+      "version": "0.59.0",
+      "source_published_at": "2026-09-08T21:13:43Z",
+      "source_url": "https://github.com/google-gemini/gemini-cli/releases/tag/v0.59.0",
+      "title": "Gemini CLI 0.59.0 released",
+      "detected_at": "2026-09-09T00:36:00.199448Z",
+      "post": "output/posts/2026-09-08-gemini-cli-0.59.0.md"
     }
   }
 }
