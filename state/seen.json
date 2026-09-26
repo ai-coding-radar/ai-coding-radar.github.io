@@ -879,6 +879,28 @@
       "title": "Claude Code 2.1.282 released",
       "detected_at": "2026-09-25T04:55:20.472885Z",
       "post": "output/posts/2026-09-24-claude-code-2.1.282.md"
+    },
+    "tag:github.com,2008:Repository/965415649/rust-v0.157.1": {
+      "id": "tag:github.com,2008:Repository/965415649/rust-v0.157.1",
+      "source_key": "codex",
+      "product": "OpenAI Codex",
+      "version": "0.157.1",
+      "source_published_at": "2026-09-26T01:04:09Z",
+      "source_url": "https://github.com/openai/codex/releases/tag/rust-v0.157.1",
+      "title": "OpenAI Codex 0.157.1 released",
+      "detected_at": "2026-09-26T04:55:42.533771Z",
+      "post": "output/posts/2026-09-26-codex-0.157.1.md"
+    },
+    "tag:github.com,2008:Repository/937253475/v2.1.283": {
+      "id": "tag:github.com,2008:Repository/937253475/v2.1.283",
+      "source_key": "claude-code",
+      "product": "Claude Code",
+      "version": "2.1.283",
+      "source_published_at": "2026-09-25T21:50:12Z",
+      "source_url": "https://github.com/anthropics/claude-code/releases/tag/v2.1.283",
+      "title": "Claude Code 2.1.283 released",
+      "detected_at": "2026-09-26T04:55:42.533771Z",
+      "post": "output/posts/2026-09-25-claude-code-2.1.283.md"
     }
   }
 }
