@@ -1572,6 +1572,17 @@
       "title": "Claude Code 2.1.325 released",
       "detected_at": "2026-11-14T06:17:52.694492Z",
       "post": "output/posts/2026-11-13-claude-code-2.1.325.md"
+    },
+    "tag:github.com,2008:Repository/937253475/v2.1.326": {
+      "id": "tag:github.com,2008:Repository/937253475/v2.1.326",
+      "source_key": "claude-code",
+      "product": "Claude Code",
+      "version": "2.1.326",
+      "source_published_at": "2026-11-16T22:11:05Z",
+      "source_url": "https://github.com/anthropics/claude-code/releases/tag/v2.1.326",
+      "title": "Claude Code 2.1.326 released",
+      "detected_at": "2026-11-17T07:51:50.883825Z",
+      "post": "output/posts/2026-11-16-claude-code-2.1.326.md"
     }
   }
 }
